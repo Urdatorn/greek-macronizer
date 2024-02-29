@@ -1,11 +1,8 @@
 '''
 /utils.py
 
-Functions and constants for use during preparation of tokens.txt
+Classes, sets and constants for use in many scripts
 '''
-
-import re
-import string
 
 class Colors:
     GREEN = '\033[1;32m'  # Green
@@ -68,24 +65,6 @@ def contains_greek(text):
         bool: True if the text contains any Greek characters, False otherwise.
     """
     return any(char in GREEK_CHARS for char in map(ord, text))
-
-# Function to remove surrounding punctuation and dagger from Greek characters
-def remove_surrounding_punctuation(token_or_lemma):
-    """
-    Remove surrounding punctuation, including Greek-specific punctuation and dagger, from a token or lemma containing Greek characters.
-    
-    Args:
-        token_or_lemma (str): The token or lemma from which surrounding punctuation and dagger are to be removed.
-    
-    Returns:
-        str: The input string with surrounding punctuation and dagger removed, if present.
-    """
-    punctuation = string.punctuation + GREEK_ANO_TELEIA + GREEK_QUESTION_MARK + DAGGER + EM_DASH
-    pattern = r'^([' + re.escape(punctuation) + r']+)?(.*[\u0370-\u03ff\u1f00-\u1fff]+)([' + re.escape(punctuation) + r']+)?$'
-    match = re.match(pattern, token_or_lemma)
-    if match:
-        return match.group(2)  # Return the part with Greek characters, excluding surrounding punctuation/dagger/em dash
-    return token_or_lemma
 
 '''
 All true DICHRONA, i.e. letters that may hide quantity.

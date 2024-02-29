@@ -93,7 +93,9 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     #print(f"{Colors.YELLOW}6. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
     #handle_x_lines.handle_x_lines(tokens_only_necessary_path, output_file_path, lines_with_x_file_path)
 
-    #print(f"{Colors.GREEN}Processing complete! tokens.txt generated.{Colors.ENDC}")
+    print(f"{Colors.GREEN}Processing complete! tokens.txt generated.{Colors.ENDC}")
+    print(f"{Colors.GREEN}Saving statistics to stats.txt.{Colors.ENDC}")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process a Greek text file through various cleanup and formatting steps.')

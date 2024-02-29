@@ -202,56 +202,6 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
 
 ### THE FILTER FUNCTION ###
 
-# def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
-#     """
-#     Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
-#     - The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
-#     - The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
-#     - The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
-    
-#     Tokens meeting all these criteria are written to the output file for undecided dichrona tokens. 
-#     Tokens that fail any one of the criteria are considered filtered out and written to a separate file.
-    
-#     Parameters:
-#     - input_file_path (str): Path to the input TSV file.
-#     - output_file_path (str): Path to the output TSV file for tokens meeting the criteria.
-#     - filtered_out_file_path (str): Path to the output TSV file for tokens that are filtered out.
-#     """
-#     try:
-#         with open(input_file_path, 'r', encoding='utf-8') as infile, \
-#              open(output_file_path, 'w', newline='', encoding='utf-8') as outfile, \
-#              open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_outfile:
-
-#             reader = csv.reader(infile, delimiter='\t')
-#             output_writer = csv.writer(outfile, delimiter='\t')
-#             filtered_out_writer = csv.writer(filtered_outfile, delimiter='\t')
-
-#             total_input_lines, total_output_lines, total_filtered_out_lines = 0, 0, 0
-
-#             for row in reader:
-#                 total_input_lines += 1
-#                 token = row[0]
-                
-#                 # Assuming word_with_real_dichrona, properispomenon_with_dichronon_only_in_ultima,
-#                 # and proparoxytone_with_dichronon_only_in_ultima are implemented elsewhere
-#                 if word_with_real_dichrona(token) and not properispomenon_with_dichronon_only_in_ultima(token) \
-#                    and not proparoxytone_with_dichronon_only_in_ultima(token):
-#                     output_writer.writerow(row)
-#                     total_output_lines += 1
-#                 else:
-#                     filtered_out_writer.writerow(row)
-#                     total_filtered_out_lines += 1
-
-#             # Print summary
-#             print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
-#             print(f"{Colors.RED}Total number of lines written to the output file: {total_output_lines}{Colors.ENDC}")
-#             print(f"{Colors.RED}Total number of filtered-out lines: {total_filtered_out_lines}{Colors.ENDC}")
-#             print(f"{Colors.GREEN}Output file path: {output_file_path}{Colors.ENDC}")
-#             print(f"{Colors.GREEN}Filtered out file path: {filtered_out_file_path}{Colors.ENDC}")
-
-#     except Exception as e:
-#         print(f"{Colors.RED}Error occurred: {e}{Colors.ENDC}")
-
 def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
     """
     Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
@@ -278,17 +228,18 @@ def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
 
             total_input_lines, total_output_lines, total_filtered_out_lines = 0, 0, 0
 
-            for row in reader:
-                if row is None:
-                    print(f"{Colors.YELLOW}Warning: Encountered None row.{Colors.ENDC}")
-                    continue
-                if not row:
-                    print(f"{Colors.YELLOW}Warning: Encountered empty row.{Colors.ENDC}")
+            for row_number, row in enumerate(reader, start=1):
+                if row is None or not row:
+                    print(f"{Colors.YELLOW}Warning: Skipped empty or invalid row at line {row_number}.{Colors.ENDC}")
                     continue
 
                 total_input_lines += 1
-                token = row[0]
+                token = row[0].strip()  # Ensure to strip whitespace which might cause issues with matching
 
+                if not token:  # Checks if token is empty after stripping whitespace
+                    print(f"{Colors.YELLOW}Warning: Token is empty in row {row_number}: {row}{Colors.ENDC}")
+                    continue
+                
                 # Debugging print to ensure token is not None
                 if token is None:
                     print(f"{Colors.YELLOW}Warning: Token is None in row: {row}{Colors.ENDC}")
