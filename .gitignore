@@ -1,5 +1,7 @@
 various/
-prepare_tokens/__pycache__
+crawl_lsj/__pycache__/
+crawl_wiktionary/__pycache__/
+prepare_tokens/__pycache__/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

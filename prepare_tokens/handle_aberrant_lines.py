@@ -5,6 +5,13 @@ Ta bort alla rader vars TOKEN
         - har cirkumflex på sin enda DICHRONA
         - är properispomenon och inte har DICHRONA på en tidigare stavelse än penultiman (behövs ej dictionary)
 
+NB:
+OXYTONE implies nothing without context (cf. αἰδώς)
+PAROXYTONE with ≥3 syllables still does NOT imply long vowel in ultima, because not all accents are recessive (cf. pf. ppc. λελῠμένος)
+PROPAROXYTONE implies that the vowel in the ultima is short
+PERISPOMENON implies that the vowel in the ultima is long (as all vowels with circumf.)
+PROPERISPOMENON implies that the vowel in the ultima is short
+
 Usage:
     The script requires three command-line arguments:
     - `--input`: The path to the input file containing the text in Beta Code.
@@ -13,7 +20,10 @@ Usage:
 '''
 import csv
 import argparse
-from utils import Colors, DICHRONA, is_dichrona
+from utils import Colors, DICHRONA
+
+
+from greek_accentuation.syllabify import is_diphthong
 
 
 def is_aberrant_token(token):

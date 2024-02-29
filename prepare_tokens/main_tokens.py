@@ -24,8 +24,6 @@ import remove_duplicates
 import normalize
 import alphabetize_unicode 
 
-#import to_beta_code
-import remove_stars
 import handle_aberrant_lines
 import handle_x_lines
 
@@ -64,12 +62,10 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.YELLOW}4. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
     alphabetize_unicode.sort_greek_file(tokens_norm_path, tokens_alph_path)
 
-
-
     print(f"{Colors.YELLOW}5. Filtering unnecessary TOKENs to lines_aberrant.txt and generating tokens_only_necessary.txt{Colors.ENDC}")
     #handle_aberrant_lines.handle_aberrant_lines(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
 
-    #print(f"{Colors.YELLOW}8. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
+    #print(f"{Colors.YELLOW}6. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
     #handle_x_lines.handle_x_lines(tokens_only_necessary_path, output_file_path, lines_with_x_file_path)
 
     #print(f"{Colors.GREEN}Processing complete! tokens.txt generated.{Colors.ENDC}")

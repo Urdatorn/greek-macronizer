@@ -7,7 +7,6 @@ syllabify.is_diphthong
 syllabify.ultima, penult, antepenult
 syllabify.onset_nucleus_coda
 accentuation.get_accent_type
-cltk_normalize
 
 OXYTONE implies nothing without context (cf. αἰδώς)
 PAROXYTONE with ≥3 syllables still does NOT imply long vowel in ultima, because not all accents are recessive (cf. pf. ppc. λελῠμένος)
@@ -35,7 +34,9 @@ print(is_vowel('κ')) # False
 print(is_vowel('ακ')) # True; it's enough if the initial character of the string is a vowel
 
 print(is_diphthong('αι')) # True
+# Sucks horseshit, because e.g. is_diphthong('ἄι') comes out true!??!
 
+print(ultima('πατρός')) # τρός, it sees muta cum liquida as single
 print(antepenult('ποτιδέρκομαι')) # δέρ
 print(penult('ποτιδέρκομαι')) # κο
 print(ultima('ποτιδέρκομαι')) # μαι
