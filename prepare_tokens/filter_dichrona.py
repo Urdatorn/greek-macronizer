@@ -94,8 +94,8 @@ def word_with_real_dichrona(s):
     - s (str): The input string to be checked.
 
     Returns:
-    - str or None: The original string if it contains a necessary DICHRONA character; 
-                   None if no such character is found.
+    - bool: True if the string contains a necessary DICHRONA character; 
+            False otherwise.
     """
     for i, char in enumerate(s):
         if char in DICHRONA:
@@ -113,10 +113,10 @@ def word_with_real_dichrona(s):
                 continue  # Skip if any of these conditions are true
 
             # If the character passes all checks, the string contains a necessary DICHRONA character
-            return s
+            return True
 
-    # If the loop completes without returning, no necessary DICHRONA character was found
-    return None
+    # If the loop completes without returning True, no necessary DICHRONA character was found
+    return False
 
 def properispomenon_with_dichronon_only_in_ultima(string):
     """
@@ -202,60 +202,122 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
 
 ### THE FILTER FUNCTION ###
 
+# def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
+#     """
+#     Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
+#     - The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
+#     - The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
+#     - The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
+    
+#     Tokens meeting all these criteria are written to the output file for undecided dichrona tokens. 
+#     Tokens that fail any one of the criteria are considered filtered out and written to a separate file.
+    
+#     Parameters:
+#     - input_file_path (str): Path to the input TSV file.
+#     - output_file_path (str): Path to the output TSV file for tokens meeting the criteria.
+#     - filtered_out_file_path (str): Path to the output TSV file for tokens that are filtered out.
+#     """
+#     try:
+#         with open(input_file_path, 'r', encoding='utf-8') as infile, \
+#              open(output_file_path, 'w', newline='', encoding='utf-8') as outfile, \
+#              open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_outfile:
+
+#             reader = csv.reader(infile, delimiter='\t')
+#             output_writer = csv.writer(outfile, delimiter='\t')
+#             filtered_out_writer = csv.writer(filtered_outfile, delimiter='\t')
+
+#             total_input_lines, total_output_lines, total_filtered_out_lines = 0, 0, 0
+
+#             for row in reader:
+#                 total_input_lines += 1
+#                 token = row[0]
+                
+#                 # Assuming word_with_real_dichrona, properispomenon_with_dichronon_only_in_ultima,
+#                 # and proparoxytone_with_dichronon_only_in_ultima are implemented elsewhere
+#                 if word_with_real_dichrona(token) and not properispomenon_with_dichronon_only_in_ultima(token) \
+#                    and not proparoxytone_with_dichronon_only_in_ultima(token):
+#                     output_writer.writerow(row)
+#                     total_output_lines += 1
+#                 else:
+#                     filtered_out_writer.writerow(row)
+#                     total_filtered_out_lines += 1
+
+#             # Print summary
+#             print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
+#             print(f"{Colors.RED}Total number of lines written to the output file: {total_output_lines}{Colors.ENDC}")
+#             print(f"{Colors.RED}Total number of filtered-out lines: {total_filtered_out_lines}{Colors.ENDC}")
+#             print(f"{Colors.GREEN}Output file path: {output_file_path}{Colors.ENDC}")
+#             print(f"{Colors.GREEN}Filtered out file path: {filtered_out_file_path}{Colors.ENDC}")
+
+#     except Exception as e:
+#         print(f"{Colors.RED}Error occurred: {e}{Colors.ENDC}")
+
 def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
     """
     Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
-    1. The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
-    2. The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
-    3. The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
-
+    - The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
+    - The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
+    - The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
+    
     Tokens meeting all these criteria are written to the output file for undecided dichrona tokens. 
     Tokens that fail any one of the criteria are considered filtered out and written to a separate file.
-
+    
     Parameters:
     - input_file_path (str): Path to the input TSV file.
     - output_file_path (str): Path to the output TSV file for tokens meeting the criteria.
     - filtered_out_file_path (str): Path to the output TSV file for tokens that are filtered out.
     """
     try:
-        with open(input_file_path, 'r', encoding='utf-8') as file, \
-             open(output_file_path, 'w', newline='', encoding='utf-8') as output_file, \
-             open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_out_file:
+        with open(input_file_path, 'r', encoding='utf-8') as infile, \
+             open(output_file_path, 'w', newline='', encoding='utf-8') as outfile, \
+             open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_outfile:
 
-            reader = csv.reader(file, delimiter='\t')
-            filtered_out_lines = []
-            dichrona_lines = []
-            total_input_lines = 0
+            reader = csv.reader(infile, delimiter='\t')
+            output_writer = csv.writer(outfile, delimiter='\t')
+            filtered_out_writer = csv.writer(filtered_outfile, delimiter='\t')
+
+            total_input_lines, total_output_lines, total_filtered_out_lines = 0, 0, 0
 
             for row in reader:
+                if row is None:
+                    print(f"{Colors.YELLOW}Warning: Encountered None row.{Colors.ENDC}")
+                    continue
+                if not row:
+                    print(f"{Colors.YELLOW}Warning: Encountered empty row.{Colors.ENDC}")
+                    continue
+
                 total_input_lines += 1
                 token = row[0]
-                # Check the token against the specified criteria
-                if word_with_real_dichrona(token) and \
-                   not properispomenon_with_dichronon_only_in_ultima(token) and \
-                   not proparoxytone_with_dichronon_only_in_ultima(token):
-                    dichrona_lines.append(row)
+
+                # Debugging print to ensure token is not None
+                if token is None:
+                    print(f"{Colors.YELLOW}Warning: Token is None in row: {row}{Colors.ENDC}")
+                    continue
+
+                # Assuming the necessary functions return True/False and are implemented elsewhere
+                word_check = word_with_real_dichrona(token)
+                prop_check = properispomenon_with_dichronon_only_in_ultima(token)
+                propoxy_check = proparoxytone_with_dichronon_only_in_ultima(token)
+                
+                # Debugging prints for function returns
+                print(f"Debug: Token '{token}', word_check: {word_check}, prop_check: {prop_check}, propoxy_check: {propoxy_check}")
+
+                if word_check and not prop_check and not propoxy_check:
+                    output_writer.writerow(row)
+                    total_output_lines += 1
                 else:
-                    filtered_out_lines.append(row)
+                    filtered_out_writer.writerow(row)
+                    total_filtered_out_lines += 1
 
-            # Write lines to respective files
-            output_writer = csv.writer(output_file, delimiter='\t')
-            output_writer.writerows(dichrona_lines)
-
-            aberrant_writer = csv.writer(filtered_out_file, delimiter='\t')
-            aberrant_writer.writerows(filtered_out_lines)
-
-            # Print summary with colored output
+            # Print summary
             print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
-            print(f"{Colors.RED}Total number of filtered-out lines: {len(filtered_out_lines)}{Colors.ENDC}")
-            print(f"{Colors.GREEN}Filtered-out lines saved to: {filtered_out_file_path}{Colors.ENDC}")
-            print(f"{Colors.GREEN}Lines with undecided dichrona saved to: {output_file_path}{Colors.ENDC}")
-    except Exception as e:
-        print(f"{Colors.RED}An error occurred: {e}{Colors.ENDC}")
+            print(f"{Colors.RED}Total number of lines written to the output file: {total_output_lines}{Colors.ENDC}")
+            print(f"{Colors.RED}Total number of filtered-out lines: {total_filtered_out_lines}{Colors.ENDC}")
+            print(f"{Colors.GREEN}Output file path: {output_file_path}{Colors.ENDC}")
+            print(f"{Colors.GREEN}Filtered out file path: {filtered_out_file_path}{Colors.ENDC}")
 
-if __name__ == "__main__":
-    # Replace with actual file paths as necessary
-    filter_dichrona('input_file.tsv', 'output_file.tsv', 'filtered_out_file.tsv')
+    except Exception as e:
+        print(f"{Colors.RED}Error occurred: {e}{Colors.ENDC}")
 
 ### MAIN ###
 

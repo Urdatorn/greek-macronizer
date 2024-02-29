@@ -1,8 +1,9 @@
-from utils import Colors
+from utils import Colors, contains_greek
 
 def remove_lines_few_columns(input_file_path, output_file_path, min_columns=3):
     """
-    Processes a tab-separated input text file and removes all lines that have fewer than a specified number of columns.
+    Processes a tab-separated input text file and removes all lines that have fewer than a specified number of columns,
+    or the first column is empty, or the first column does not contain any Greek characters.
     
     Parameters:
     - input_file_path (str): The path to the input file to be processed.
@@ -13,13 +14,15 @@ def remove_lines_few_columns(input_file_path, output_file_path, min_columns=3):
     """
     removed_lines = 0
     try:
-        with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
-            lines = input_file.readlines()
-            for line in lines:
-                if len(line.split('\t')) >= min_columns:
-                    output_file.write(line)
-                else:
+        with open(input_file_path, 'r', encoding='utf-8') as input_file, open(output_file_path, 'w', encoding='utf-8') as output_file:
+            for line in input_file:
+                columns = line.split('\t')
+                # Check if the line has fewer than min_columns, the first column is empty,
+                # or the first column does not contain any Greek characters
+                if len(columns) < min_columns or not columns[0].strip() or not contains_greek(columns[0]):
                     removed_lines += 1
+                else:
+                    output_file.write(line)
 
         print(f"{Colors.RED}Number of removed lines: {removed_lines}{Colors.ENDC}")
         print(f"{Colors.GREEN}Output saved to: {output_file_path}{Colors.ENDC}")

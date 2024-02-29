@@ -34,6 +34,17 @@ import alphabetize_unicode
 import prepare_tokens.filter_dichrona as filter_dichrona
 import handle_x_lines
 
+def print_ascii_art():
+    cyan = Colors.CYAN
+    endc = Colors.ENDC
+
+    print(cyan + " _        _                   _        _   " + endc)
+    print(cyan + "| |_ ___ | | _____ _ __  ___ | |___  _| |_ " + endc)
+    print(cyan + "| __/ _ \\| |/ / _ \\ '_ \\/ __|| __\\ \\/ / __|" + endc)
+    print(cyan + "| || (_) |   <  __/ | | \\__ \\| |_ >  <| |_ " + endc)
+    print(cyan + " \\__\\___/|_|\\_\\___|_| |_|___(_)__/_/\\_\\__|" + endc)
+
+
 def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with_x_file_path):
     current_script_dir = os.path.dirname(os.path.abspath(__file__))
     tokens_dir = os.path.join(current_script_dir, 'tokens')
@@ -57,8 +68,9 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     tokens_only_necessary_path = os.path.join(tokens_dir, 'tokens_dichrona.txt')
 
     # Main flow
-    print(f"{Colors.YELLOW} Starting to prepare tokens.txt!{Colors.ENDC}")
-    print(f"{Colors.YELLOW} Input: 300595 lines of all tokens in Aeschylus with POS analysis and lemmatization.{Colors.ENDC}")
+    print_ascii_art()
+    print(f"{Colors.CYAN} Starting to prepare tokens.txt!{Colors.ENDC}")
+    print(f"{Colors.CYAN} Input: 300595 lines of all tokens in Aeschylus with POS analysis and lemmatization.{Colors.ENDC}")
 
     print(f"{Colors.YELLOW}1. Removing punctuation and generating tokens_no_punct.txt{Colors.ENDC}")
     remove_punctuation.remove_punctuation_from_file(input_file_path, tokens_no_punct_path)
@@ -66,7 +78,7 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.YELLOW}2. Removing duplicates and generating tokens_no_dup.txt{Colors.ENDC}")
     remove_duplicates.remove_duplicates(tokens_no_punct_path, tokens_no_dup_path)
 
-    print(f"{Colors.YELLOW}3. Removing lines with too few columns and generating tokens_three_columns.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}3. Removing lines with too few columns (or first column empty of Greek) and generating tokens_three_columns.txt{Colors.ENDC}")
     remove_lines_few_columns.remove_lines_few_columns(tokens_no_dup_path, tokens_three_columns_path)
 
     print(f"{Colors.YELLOW}4. Normalizing and generating tokens_norm.txt{Colors.ENDC}")
@@ -75,7 +87,7 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.YELLOW}5. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
     alphabetize_unicode.sort_greek_file(tokens_norm_path, tokens_alph_path)
 
-    print(f"{Colors.YELLOW}6. Filtering unnecessary TOKENs to lines_aberrant.txt and generating tokens_only_necessary.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}6. Filtering unnecessary TOKENs to lines_aberrant.txt and generating tokens_dichrona.txt{Colors.ENDC}")
     filter_dichrona.filter_dichrona(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
 
     #print(f"{Colors.YELLOW}6. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")

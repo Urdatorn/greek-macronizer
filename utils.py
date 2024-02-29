@@ -20,22 +20,28 @@ class Colors:
     UNDERLINE = '\033[4m' # Underline
 
 # Unicode Constants for Ancient Greek punctuation
-GREEK_ANO_TELEIA = '\u0387'
-MIDDLE_DOT = '\u00b7' # preferred by Taubner
-GREEK_QUESTION_MARK = '\u037E' 
-SEMICOLON = '\u003b' # preferred by Taubner
-DAGGER = '\u2020'
-EM_DASH = '\u2014'
-# for elision etc.
-ELISION1 = '\u2019' # "right single quotation mark". Preferred by Taubner
-ELISION2 = '\u02BC' # "modifier letter apostrophe"
+class Punctuation:
+    GREEK_ANO_TELEIA = '\u0387'
+    MIDDLE_DOT = '\u00b7' # preferred by Taubner
+    GREEK_QUESTION_MARK = '\u037E' 
+    SEMICOLON = '\u003b' # preferred by Taubner
+    DAGGER = '\u2020'
+    EM_DASH = '\u2014'
+    EN_DASH = '\u2013'
+    MULTIPLICATION_SIGN = '\u00d7'
+    # for elision etc.
+    ELISION1 = '\u2019' # "right single quotation mark". Preferred by Taubner
+    ELISION2 = '\u02BC' # "modifier letter apostrophe"
+
+# Dynamically create a set of all punctuation characters defined in the Punctuation class
+punctuation_chars_set = set(getattr(Punctuation, attr) for attr in dir(Punctuation) if not attr.startswith("__"))
 
 # Unicode ranges for Greek characters
-MONOTONIC_CHARS = set(range(0x391, 0x3A9 + 1)).union(range(0x3B1, 0x3C9 + 1)) - {GREEK_ANO_TELEIA, MIDDLE_DOT, GREEK_QUESTION_MARK, SEMICOLON}
+MONOTONIC_CHARS = set(range(0x391, 0x3A9 + 1)).union(range(0x3B1, 0x3C9 + 1))
 POLYPHONIC_CHARS = set(range(0x1F00, 0x1FFF + 1))
 
-# Merge both sets for a unified set of Greek characters
-GREEK_CHARS = MONOTONIC_CHARS.union(POLYPHONIC_CHARS)
+# Merge both sets for a unified set of Greek characters, and remove the punctuation
+GREEK_CHARS = (MONOTONIC_CHARS.union(POLYPHONIC_CHARS)) - punctuation_chars_set
 
 # Function to check if the string contains any Greek letters
 def contains_greek(text):
