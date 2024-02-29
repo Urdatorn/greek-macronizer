@@ -73,7 +73,7 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.CYAN} Input: 300595 lines of all tokens in Aeschylus with POS analysis and lemmatization.{Colors.ENDC}")
 
     print(f"{Colors.YELLOW}1. Removing punctuation and generating tokens_no_punct.txt{Colors.ENDC}")
-    remove_punctuation.remove_punctuation_from_file(input_file_path, tokens_no_punct_path)
+    remove_punctuation.process_file(input_file_path, tokens_no_punct_path)
     
     print(f"{Colors.YELLOW}2. Removing duplicates and generating tokens_no_dup.txt{Colors.ENDC}")
     remove_duplicates.remove_duplicates(tokens_no_punct_path, tokens_no_dup_path)

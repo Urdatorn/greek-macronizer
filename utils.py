@@ -29,7 +29,14 @@ class Punctuation:
     EM_DASH = '\u2014'
     EN_DASH = '\u2013'
     MULTIPLICATION_SIGN = '\u00d7'
-    # for elision etc.
+    COMMA = ','
+    PERIOD = '.'
+    ANGULAR_BRACKET_LEFT = '<'
+    ANGULAR_BRACKET_RIGHT = '>'
+    SQUARE_BRACKET_LEFT = '['
+    SQUARE_BRACKET_RIGHT = ']'
+
+class Elision:
     ELISION1 = '\u2019' # "right single quotation mark". Preferred by Taubner
     ELISION2 = '\u02BC' # "modifier letter apostrophe"
 
@@ -42,6 +49,12 @@ POLYPHONIC_CHARS = set(range(0x1F00, 0x1FFF + 1))
 
 # Merge both sets for a unified set of Greek characters, and remove the punctuation
 GREEK_CHARS = (MONOTONIC_CHARS.union(POLYPHONIC_CHARS)) - punctuation_chars_set
+
+ACCENTS = [
+    "\u0376", "\u0384", "\u0385", "\u0387", "\u1fbd", "\u1fbe", "\u1fbf", "\u1fc0",
+    "\u1fc1", "\u1fcd", "\u1fce", "\u1fcf", "\u1fdd", "\u1fde", "\u1fdf", "\u1fed",
+    "\u1fee", "\u1fef", "\u1ffd", "\u1ffe",
+]
 
 # Function to check if the string contains any Greek letters
 def contains_greek(text):
