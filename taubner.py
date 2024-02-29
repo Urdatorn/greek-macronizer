@@ -10,7 +10,7 @@ accentuation.get_accent_type
 
 OXYTONE implies nothing without context (cf. αἰδώς)
 PAROXYTONE with ≥3 syllables still does NOT imply long vowel in ultima, because not all accents are recessive (cf. pf. ppc. λελῠμένος)
-PROPAROXYTONE implies that the vowel in the ultima is short
+PROPAROXYTONE implies that the vowel in the ultima is short, except for the πόλις declination's εως, which however has no DICHRONA.
 PERISPOMENON implies that the vowel in the ultima is long (as all vowels with circumf.)
 PROPERISPOMENON implies that the vowel in the ultima is short
 

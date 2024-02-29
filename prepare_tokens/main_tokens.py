@@ -14,56 +14,69 @@ Förbereda tokens som ska makroniseras i en dictionary
         ii. Om ett LEMMA ej innehåller vokaler, flytta raden till lines_x.txt
 '''
 
-import argparse
+# Append the root folder to sys.path to be able to import from /utils.py
+# Assuming the script is in a subfolder one level deep from the root
+import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# continue with the imports
+import argparse
 from utils import Colors
 
-# all 7 token scripts 
+# all token scripts 
 import remove_punctuation
 import remove_duplicates
+import remove_lines_few_columns
 import normalize
 import alphabetize_unicode 
 
-import handle_aberrant_lines
+import prepare_tokens.filter_dichrona as filter_dichrona
 import handle_x_lines
 
 def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with_x_file_path):
     current_script_dir = os.path.dirname(os.path.abspath(__file__))
     tokens_dir = os.path.join(current_script_dir, 'tokens')
 
-    # Adjusting file paths to be relative to the script
+    # Defining relative paths: in and out
     input_file_path = os.path.join(tokens_dir, input_file_path)
     output_file_path = os.path.join(tokens_dir, output_file_path)
     aberrant_lines_file_path = os.path.join(tokens_dir, aberrant_lines_file_path)
     lines_with_x_file_path = os.path.join(tokens_dir, lines_with_x_file_path)
 
-    # Defining intermediate paths
+    # Defining relative paths: intermediate
     tokens_no_punct_path = os.path.join(tokens_dir, 'tokens_no_punct.txt')
     tokens_no_dup_path = os.path.join(tokens_dir, 'tokens_no_dup.txt')
+    tokens_three_columns_path = os.path.join(tokens_dir, 'tokens_three_columns.txt')
     tokens_norm_path = os.path.join(tokens_dir, 'tokens_norm.txt')
     tokens_alph_path = os.path.join(tokens_dir, 'tokens_alph.txt')
 
     #tokens_beta_path = os.path.join(tokens_dir, 'tokens_beta.txt')
     #tokens_no_stars_path = os.path.join(tokens_dir, 'tokens_no_stars.txt')
     tokens_no_stars_no_dup_path = os.path.join(tokens_dir, 'tokens_no_stars_no_dup.txt')
-    tokens_only_necessary_path = os.path.join(tokens_dir, 'tokens_only_necessary.txt')
+    tokens_only_necessary_path = os.path.join(tokens_dir, 'tokens_dichrona.txt')
 
     # Main flow
+    print(f"{Colors.YELLOW} Starting to prepare tokens.txt!{Colors.ENDC}")
+    print(f"{Colors.YELLOW} Input: 300595 lines of all tokens in Aeschylus with POS analysis and lemmatization.{Colors.ENDC}")
+
     print(f"{Colors.YELLOW}1. Removing punctuation and generating tokens_no_punct.txt{Colors.ENDC}")
     remove_punctuation.remove_punctuation_from_file(input_file_path, tokens_no_punct_path)
     
     print(f"{Colors.YELLOW}2. Removing duplicates and generating tokens_no_dup.txt{Colors.ENDC}")
     remove_duplicates.remove_duplicates(tokens_no_punct_path, tokens_no_dup_path)
 
-    print(f"{Colors.YELLOW}3. Normalizing and generating tokens_norm.txt{Colors.ENDC}")
-    normalize.normalize_columns(tokens_no_dup_path, tokens_norm_path)
-    #normalize.normalize_columns('prepare_tokens/tokens/test_norm.txt', 'prepare_tokens/tokens/test_norm_changed.txt')
+    print(f"{Colors.YELLOW}3. Removing lines with too few columns and generating tokens_three_columns.txt{Colors.ENDC}")
+    remove_lines_few_columns.remove_lines_few_columns(tokens_no_dup_path, tokens_three_columns_path)
 
-    print(f"{Colors.YELLOW}4. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}4. Normalizing and generating tokens_norm.txt{Colors.ENDC}")
+    normalize.normalize_columns(tokens_three_columns_path, tokens_norm_path)
+
+    print(f"{Colors.YELLOW}5. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
     alphabetize_unicode.sort_greek_file(tokens_norm_path, tokens_alph_path)
 
-    print(f"{Colors.YELLOW}5. Filtering unnecessary TOKENs to lines_aberrant.txt and generating tokens_only_necessary.txt{Colors.ENDC}")
-    #handle_aberrant_lines.handle_aberrant_lines(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
+    print(f"{Colors.YELLOW}6. Filtering unnecessary TOKENs to lines_aberrant.txt and generating tokens_only_necessary.txt{Colors.ENDC}")
+    filter_dichrona.filter_dichrona(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
 
     #print(f"{Colors.YELLOW}6. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
     #handle_x_lines.handle_x_lines(tokens_only_necessary_path, output_file_path, lines_with_x_file_path)

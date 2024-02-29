@@ -1,15 +1,53 @@
+'''
+Filter out all lines with TOKENs (first column of tokens text file) which
+    - ej innehåller DICHRONA
+    - har DICHRONA vars längder ges direkt av accentreglerna:
+        - har cirkumflex på sin enda DICHRONA
+        - är properispomenon och inte har DICHRONA på en tidigare stavelse än penultiman (behövs ej dictionary)
+
+NB:
+OXYTONE implies nothing without context (cf. αἰδώς)
+PAROXYTONE with ≥3 syllables still does NOT imply long vowel in ultima, because not all accents are recessive (cf. pf. ppc. λελῠμένος)
+PROPAROXYTONE implies that the vowel in the ultima is short, except for the πόλις declination's εως, which however has no DICHRONA.
+PERISPOMENON implies that the vowel in the ultima is long (as all vowels with circumf.)
+PROPERISPOMENON implies that the vowel in the ultima is short
+
+Usage:
+    The script requires three command-line arguments:
+    - `--input`: The path to the input file containing the text in Beta Code.
+    - `--output`: The path where the non-aberrant lines will be written.
+    - `--aberrant`: The path for the file where aberrant lines are saved.
+'''
+
+# IMPORTS
+
+# Append the root folder to sys.path to be able to import from /utils.py
+# Assuming your script is in a subfolder one level deep from the root
 import sys
 import os
-import re
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import csv
+import argparse
+import re # for the regex patterns
+
+# third-party imports
 from greek_accentuation.accentuation import get_accent_type, PROPERISPOMENON, PROPAROXYTONE
 from greek_accentuation.syllabify import ultima
 
-# Append the root folder to sys.path
-# Assuming your script is in a subfolder one level deep from the root
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# local imports
+from utils import Colors, DICHRONA # /utils.py
+from patterns import patterns # /prepare_tokens/patterns.py
 
-from utils import DICHRONA
-from patterns import patterns
+# END OF IMPORTS
+
+### 6 AUXILIARY DEFINITIONS ###
+#   is_diphthong
+#   has_iota_subscriptum
+#   has_iota_adscriptum
+#   word_with_real_dichrona
+#   properispomenon_with_dichronon_only_in_ultima
+#   proparoxytone_with_dichronon_only_in_ultima
 
 def is_diphthong(chars):
     ''' Expects two characters '''
@@ -162,32 +200,70 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
 
     return True
 
+### THE FILTER FUNCTION ###
 
-# Example diphthongs
-print(is_diphthong("αὐ"))  # Should return True if matching diphth_y pattern
-print(is_diphthong("εἰ"))  # Should return True if matching diphth_i pattern
-print(is_diphthong("ασ"))  # Expected False, not a diphthong pattern
-print(is_diphthong("ἄι"))  # Expected False, not a diphthong pattern
+def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
+    """
+    Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
+    1. The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
+    2. The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
+    3. The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
 
-# Example iotas
-print(has_iota_subscriptum("ᾳ"))  # Expected True for subscript iota
-print(has_iota_adscriptum("ἀι"))  # Expected True for adscript iota
-print(has_iota_subscriptum("α"))  # Expected False, no iota
-print(has_iota_adscriptum("αἰ"))  # Expected False
+    Tokens meeting all these criteria are written to the output file for undecided dichrona tokens. 
+    Tokens that fail any one of the criteria are considered filtered out and written to a separate file.
 
-print(f'Examples of is_necessary:')
-print(word_with_real_dichrona("μακραί"))  # Return
-print(word_with_real_dichrona("ἐλύθη"))  # Return
-print(word_with_real_dichrona("αἰ"))  # None
-print(word_with_real_dichrona("ἀι"))  # None
-print(word_with_real_dichrona("νεφέλᾳ"))  # None
+    Parameters:
+    - input_file_path (str): Path to the input TSV file.
+    - output_file_path (str): Path to the output TSV file for tokens meeting the criteria.
+    - filtered_out_file_path (str): Path to the output TSV file for tokens that are filtered out.
+    """
+    try:
+        with open(input_file_path, 'r', encoding='utf-8') as file, \
+             open(output_file_path, 'w', newline='', encoding='utf-8') as output_file, \
+             open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_out_file:
 
-print(get_accent_type('ὗσον') == PROPERISPOMENON) # True. NB: get_accent_type returns the accent type of a word as a tuple of the syllable number and accent
-print(ultima('πατρός')) # τρός, it sees muta cum liquida as single
-print(ultima('ποτιδέρκομαι')) # μαι
-print(ultima('ὅττι')) # μαι
+            reader = csv.reader(file, delimiter='\t')
+            filtered_out_lines = []
+            dichrona_lines = []
+            total_input_lines = 0
 
-print(properispomenon_with_dichronon_only_in_ultima('ἀπῦσαν')) # False (nonsense word)
-print(proparoxytone_with_dichronon_only_in_ultima('ἀπέπεπαν')) # False (nonsense word)
-print(properispomenon_with_dichronon_only_in_ultima('αὖθις')) # True!!! :)
-print(proparoxytone_with_dichronon_only_in_ultima('αἰπέπεπαν')) # True!!!
+            for row in reader:
+                total_input_lines += 1
+                token = row[0]
+                # Check the token against the specified criteria
+                if word_with_real_dichrona(token) and \
+                   not properispomenon_with_dichronon_only_in_ultima(token) and \
+                   not proparoxytone_with_dichronon_only_in_ultima(token):
+                    dichrona_lines.append(row)
+                else:
+                    filtered_out_lines.append(row)
+
+            # Write lines to respective files
+            output_writer = csv.writer(output_file, delimiter='\t')
+            output_writer.writerows(dichrona_lines)
+
+            aberrant_writer = csv.writer(filtered_out_file, delimiter='\t')
+            aberrant_writer.writerows(filtered_out_lines)
+
+            # Print summary with colored output
+            print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
+            print(f"{Colors.RED}Total number of filtered-out lines: {len(filtered_out_lines)}{Colors.ENDC}")
+            print(f"{Colors.GREEN}Filtered-out lines saved to: {filtered_out_file_path}{Colors.ENDC}")
+            print(f"{Colors.GREEN}Lines with undecided dichrona saved to: {output_file_path}{Colors.ENDC}")
+    except Exception as e:
+        print(f"{Colors.RED}An error occurred: {e}{Colors.ENDC}")
+
+if __name__ == "__main__":
+    # Replace with actual file paths as necessary
+    filter_dichrona('input_file.tsv', 'output_file.tsv', 'filtered_out_file.tsv')
+
+### MAIN ###
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Identify aberrant lines based on Beta Code in a text file.')
+    parser.add_argument('--input', required=True, help='Input file path')
+    parser.add_argument('--output', required=True, help='Output file path for lines with undecided dichrona')
+    parser.add_argument('--filtered_out', required=True, help='File path to write filtered-out lines to')
+    args = parser.parse_args()
+
+    filter_dichrona(args.input, args.output, args.aberrant)
