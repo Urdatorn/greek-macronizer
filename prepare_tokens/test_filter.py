@@ -82,15 +82,11 @@ def word_with_real_dichrona(s):
 
 def properispomenon_with_dichronon_only_in_ultima(string):
     """
-    Determines if a given string meets all of the following criteria:
-    - Contains only one DICHRONA character.
-    - The word is identified by `word_with_real_dichrona` as containing a real dichrona.
+    Determines if a given string satisfies the following simplified criteria:
+    - The entire string is recognized by `word_with_real_dichrona`.
     - The accent type of the string is classified as PROPERISPOMENON.
-    - The DICHRONA character is located only in the ultima (last syllable) of the string.
-
-    This function is specifically designed to identify words that are accented as
-    properispomenon and where the dichronon character, indicating a significant
-    phonetic or morphological feature, is exclusively present in the word's ultima.
+    - The ultima of the string is recognized by `word_with_real_dichrona`.
+    - The part of the string before the ultima is not recognized by `word_with_real_dichrona`.
 
     Parameters:
     - string (str): The input string to be evaluated.
@@ -98,24 +94,28 @@ def properispomenon_with_dichronon_only_in_ultima(string):
     Returns:
     - bool: True if the string satisfies all specified conditions; otherwise, False.
     """
-    # Check if the string has only one DICHRONA
-    dichrona_count = sum(1 for char in string if char in DICHRONA)
-    if dichrona_count != 1:
-        return False
-    
-    # Check if word_with_real_dichrona returns True for the string
+    # Check if the entire string is a word_with_real_dichrona
     if not word_with_real_dichrona(string):
         return False
-    
+
     # Check if the accent type of the string is PROPERISPOMENON
     if get_accent_type(string) != PROPERISPOMENON:
         return False
     
-    # Check if the ultima is a word with a real dichrona
-    ultima_string = ultima(string)
-    if not word_with_real_dichrona(ultima_string):
+    # Extract the ultima of the string
+    ultima_str = ultima(string)
+
+    # Ensure the ultima itself is recognized by `word_with_real_dichrona`
+    if not word_with_real_dichrona(ultima_str):
         return False
-    
+
+    # Determine the part of the string before the ultima
+    pre_ultima = string[:-len(ultima_str)]
+
+    # Ensure the part before the ultima is not recognized by `word_with_real_dichrona`
+    if pre_ultima and word_with_real_dichrona(pre_ultima):
+        return False
+
     return True
 
 def proparoxytone_with_dichronon_only_in_ultima(string):
@@ -183,5 +183,5 @@ print(ultima('ὅττι')) # μαι
 
 print(properispomenon_with_dichronon_only_in_ultima('ὗσαν')) # True
 print(proparoxytone_with_dichronon_only_in_ultima('πέπεπαν')) # True
-print(properispomenon_with_dichronon_only_in_ultima('αὖθις')) # True
+print(properispomenon_with_dichronon_only_in_ultima('αὖθις')) # True!!! :)
 print(proparoxytone_with_dichronon_only_in_ultima('πέπεπαν')) # True
