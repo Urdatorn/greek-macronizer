@@ -23,6 +23,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # continue with the imports
 import argparse
 from utils import Colors
+from stats import write_stats
 
 # all token scripts 
 import remove_punctuation
@@ -93,8 +94,9 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.YELLOW}7. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
     handle_x_lines.handle_x_lines(tokens_only_necessary_path, output_file_path, lines_with_x_file_path)
 
-    print(f"{Colors.GREEN}Processing complete! tokens.txt generated.{Colors.ENDC}")
-    print(f"{Colors.GREEN}Saving statistics to stats.txt.{Colors.ENDC}")
+    print(f"{Colors.CYAN}Processing complete! tokens.txt generated.{Colors.ENDC}")
+    print(f"{Colors.CYAN}Saving statistics to stats.txt.{Colors.ENDC}")
+    write_stats([output_file_path, lines_with_x_file_path, aberrant_lines_file_path], 'prepare_tokens/tokens/stats.txt')
 
 
 if __name__ == "__main__":

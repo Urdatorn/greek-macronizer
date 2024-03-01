@@ -12,35 +12,61 @@ läses som
     a = aktivum
 
 
-    FLÖDESSCHEMA
+FLÖDESSCHEMA
 
-    FÖRBEREDA TOKENS.TXT (Detta kan göras igen om det släpps bättre POS-analys)
+FÖRBEREDA TOKENS.TXT (Detta kan göras igen om det släpps bättre POS-analys) 
+Detta delflöde är klart i en första version. Se prepare_tokens/main_tokens.py för vilka script det rör sig om.
 
-    1. Ta bort all punktuation, ev. förutom ' för elision (remove_punctuation.py) (möjligtvis skapas nya dubletter)
-    3. Ta bort dubletter
-    4. Ordna alfabetiskt
-    5. Omvandla till BETA CODE (beta_code.py)
-    2. Gör allt till gemener, i.e. ta bort alla '*' (möjligtvis skapas nya dubletter, så kolla dubletter igen)
-    6. Ta bort alla rader vars TOKEN
-        - ej innehåller α, ι, υ
-        - har cirkumflex på sin enda α, ι, υ (behövs ej dictionary)
-        - är properispomenon och inte har α, ι, υ på en tidigare stavelse än penultiman (behövs ej dictionary)
-    7. Felaktig POS-analys:
-        i. Om en TAG innehåller 'x' eller är kortare än nio tecken, flytta raden till lines_x.txt
-        ii. Om ett LEMMA ej innehåller vokaler, flytta raden till lines_x.txt
+1. Ta bort all punktuation, ev. förutom ' för elision (remove_punctuation.py) (möjligtvis skapas nya dubletter)
+2. Ta bort dubletter
+3. Ta bort konstiga rader bortom all räddning
+4. Normalisering
+5. Sortera alfabetiskt med pyuca
+6. Ta bort alla rader vars TOKEN
+    - ej innehåller α, ι, υ
+    - har cirkumflex eller iota subscriptum/adscriptum på sin enda α, ι, υ (behövs ej dictionary), eller denna ingår i en diftong
+    - är properispomenon och inte har α, ι, υ på en tidigare stavelse än penultiman (behövs ej dictionary)
+    - är proparoxiton och -"-
+7. Felaktig POS-analys som behöver köras om i OdyCy och/eller annan analysator:
+    i. Om en TAG innehåller 'x' eller är kortare än nio tecken, flytta raden till lines_x.txt
+    ii. Om ett LEMMA ej innehåller vokaler, flytta raden till lines_x.txt
 
-    Kör sen OdyCy och/eller annan POS-analys igen på alla TOKENs i lines_x.txt, 
-    och låta resultatet genomgå allt ovan. Om ngt är kvar, så lägg till i tokens.txt
-    
-    BYGGA MACRONS.TXT
+Kör sen OdyCy och/eller annan POS-analys igen på alla TOKENs i lines_x.txt, 
+och låt resultatet genomgå allt ovan. Om ngt är kvar, så lägg till i tokens.txt
 
-    Nu byggs en fjärde kolumn, MACRON, med de första tre från tokens.txt
-    "GRATIS" MACRONS
-    OBS: 
-    - Om ett ord har cirkumflex på en α, ι, υ, så makronisera direkt
-    - Om ett properispomenon har en α, ι, υ på ultiman, så "breve-isera" ultiman direkt
+Skulle behövas en second-opinion för lemmatisering och POS-analys. Morpheus? ChatGPT?
 
-    1. Algoritmiskt lägga in de långa {A, I, U} som finns i regelbundna deklinationer/konjugationer
-    2. Lägga in scrapeade former från LSJ.gr och Wiktionary etc.
-    3. Sök på tokens med kvarvarande {A, I, U} i HYPOTACTICs metrik-corpus, om dess {A, I, U} är i öppen stavelse
-    4. Manuellt kolla resten (beroende på om det är hanterbart)
+BYGGA MACRONS.TXT (Detta är en skiss; arbetet har knappt påbörjats i skrivande stund 1 mars)
+
+Nu byggs en fjärde kolumn, MACRON, utöver de första tre från tokens.txt
+
+0. Tokens med enbart "gratis" macrons togs bort i steg 6. Dessa kan lätt makroniseras algoritmiskt och behöver ej finnas i macrons.txt.
+Vissa tokens har tog både obestämbara och "gratis", och då bör de som är gratis makroniseras i filen, då målet är att alla dichrona i filen ska vara indikerade
+- Om ett ord har cirkumflex eller iota subscriptum/adscriptum på ett α, ι, υ, så makronisera detta tecken direkt
+- Om ett properispomenon eller proparoxtiton har ett α, ι, υ på ultiman, så "breve-isera" ultiman direkt
+
+1. Algoritmiskt lägga in de långa som finns i regelbundna deklinationer/konjugationer; kanske använda ifthimos
+2. Lägga in scrapeade former från LSJ.gr och Wiktionary etc. Inkl. POS-info? 
+3. Sök på tokens med dichrona i öppna stavelser i HYPOTACTICs metrik-corpus
+4. Gissa slutvokal på eliderade former och skicka till oeliderade motsvarigheter
+4. Manuellt kolla resterande rötter
+
+
+    ADJ: adjective
+    ADP: adposition
+    ADV: adverb
+    AUX: auxiliary
+    CCONJ: coordinating conjunction
+    DET: determiner
+    INTJ: interjection
+    NOUN: noun
+    NUM: numeral
+    PART: particle
+    PRON: pronoun
+    PROPN: proper noun
+    PUNCT: punctuation
+    SCONJ: subordinating conjunction
+    SYM: symbol
+    VERB: verb
+    X: other
+
