@@ -1,7 +1,14 @@
+# Append the root folder to sys.path to be able to import from /utils.py
+# Assuming your script is in a subfolder one level deep from the root
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import csv
-from utils import Colors
 import argparse
 import os
+
+from utils import Colors, DICHRONA
 
 def handle_x_lines(input_file_path, output_file_path, lines_with_x_file_path):
     total_input_lines = 0
@@ -18,7 +25,7 @@ def handle_x_lines(input_file_path, output_file_path, lines_with_x_file_path):
                 token, tag, lemma = row
 
                 # Check for the conditions that would move the line to lines_with_x.txt
-                if 'x' in tag or len(tag) < 9 or not any(char in "AEIOUY" for char in lemma.upper()):
+                if 'x' in tag or 'X' in tag or len(tag) < 9 or not any(char in DICHRONA for char in lemma.upper()):
                     lines_with_x.append(row)
                 else:
                     non_x_lines.append(row)
@@ -45,7 +52,7 @@ def handle_x_lines(input_file_path, output_file_path, lines_with_x_file_path):
 
     # Print summary information
     print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
-    print(f"{Colors.GREEN}Total number of x-lines: {len(lines_with_x)}{Colors.ENDC}")
+    print(f"{Colors.RED}Total number of x-lines: {len(lines_with_x)}{Colors.ENDC}")
     print(f"{Colors.GREEN}x-lines saved to: {lines_with_x_file_path}{Colors.ENDC}")
     print(f"{Colors.GREEN}Remaining lines saved to: {output_file_path}{Colors.ENDC}")
 

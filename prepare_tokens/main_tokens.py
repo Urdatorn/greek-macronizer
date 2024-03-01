@@ -70,7 +70,7 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     # Main flow
     print_ascii_art()
     print(f"{Colors.CYAN} Starting to prepare tokens.txt!{Colors.ENDC}")
-    print(f"{Colors.CYAN} Input: 300595 lines of all tokens in Aeschylus with POS analysis and lemmatization.{Colors.ENDC}")
+    print(f"{Colors.CYAN} Input: 300595 lines of all tokens in Aeschylus with POS analysis and lemmatization{Colors.ENDC}")
 
     print(f"{Colors.YELLOW}1. Removing punctuation and generating tokens_no_punct.txt{Colors.ENDC}")
     remove_punctuation.process_file(input_file_path, tokens_no_punct_path)
@@ -87,11 +87,11 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.YELLOW}5. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
     alphabetize_unicode.sort_greek_file(tokens_norm_path, tokens_alph_path)
 
-    print(f"{Colors.YELLOW}6. Filtering unnecessary TOKENs to lines_aberrant.txt and generating tokens_dichrona.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}6. Filtering truly undecided dichrona to tokens_dichrona.txt and sending the rest to lines_filtered_out.txt{Colors.ENDC}")
     filter_dichrona.main(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
 
-    #print(f"{Colors.YELLOW}6. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
-    #handle_x_lines.handle_x_lines(tokens_only_necessary_path, output_file_path, lines_with_x_file_path)
+    print(f"{Colors.YELLOW}7. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
+    handle_x_lines.handle_x_lines(tokens_only_necessary_path, output_file_path, lines_with_x_file_path)
 
     print(f"{Colors.GREEN}Processing complete! tokens.txt generated.{Colors.ENDC}")
     print(f"{Colors.GREEN}Saving statistics to stats.txt.{Colors.ENDC}")

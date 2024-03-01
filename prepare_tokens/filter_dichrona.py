@@ -282,15 +282,15 @@ def filter_dichrona(input_file_path):
                     continue
 
                 token = row[0]
-                print(token)
+                #print(token)
 
                 # Apply criteria
                 word_check = word_with_real_dichrona(token)
-                print(f'Real dichrona: {word_check}')
+                #print(f'Real dichrona: {word_check}')
                 prop_check = properispomenon_with_dichronon_only_in_ultima(token)
-                print(f'Properi.: {prop_check}')
+                #print(f'Properi.: {prop_check}')
                 propoxy_check = proparoxytone_with_dichronon_only_in_ultima(token)
-                print(f'Proparox.: {propoxy_check}')
+                #print(f'Proparox.: {propoxy_check}')
 
                 if word_check and not prop_check and not propoxy_check:
                     output_lines.append(row)
@@ -339,8 +339,8 @@ def write_results(output_lines, filtered_out_lines, output_file_path, filtered_o
         print(f"{Colors.RED}Error writing to {filtered_out_file_path}: {e}{Colors.ENDC}")
 
     # Print the total number of lines written to each file
-    print(f"{Colors.YELLOW}Total lines written to {output_file_path}: {len(output_lines)}{Colors.ENDC}")
-    print(f"{Colors.YELLOW}Total lines written to {filtered_out_file_path}: {len(filtered_out_lines)}{Colors.ENDC}")
+    print(f"{Colors.YELLOW}Total lines with undecided dichrona: {len(output_lines)}{Colors.ENDC}")
+    print(f"{Colors.YELLOW}Total lines filtered out: {len(filtered_out_lines)}{Colors.ENDC}")
 
 
 ### CALLABLE MAIN SCRIPT ###
