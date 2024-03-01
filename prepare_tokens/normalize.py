@@ -1,6 +1,6 @@
 '''
-Remember, unicode normalization changes oxeia to tonos,
-but our normalization and cltk does the inverse.
+Remember, unicode normalization changes oxeia to tonos and cltk does the inverse,
+but we run it in reverse.
 
 cltk does not cover the two diaeresis/trema/dialytika cases, so I've updated the dictionary
 from TONOS_OXIA to TONOS_OXIA_PLUS_DIALYTIKA to be explicit, and hence updated the functions as well.
@@ -21,7 +21,7 @@ TONOS_OXIA_PLUS_DIALYTIKA = {
     '\u03b0': '\u1fe3', # ΰ Greek Small Letter Iota With Dialytika And Oxia; my addition
 }
 
-def tonos_oxia_converter(text, reverse=False):
+def tonos_oxia_converter(text, reverse=True):
     """cltk's version with added dialytika. Without this
     normalization, string comparisons will fail."""
     for char_tonos, char_oxia in TONOS_OXIA_PLUS_DIALYTIKA.items():

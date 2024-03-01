@@ -5,12 +5,13 @@ import csv
 import re
 import argparse
 
-# Global definition of regex patterns for different categories
+# NB1: there was a bug, an ᾶ in the subscr_i 
+# NB2: requires corpus normalized to not include the oxia variants of άέήίόύώ, only tonos
 patterns = {
     'diphth_y': r'(α|ε|η|ο)(ὐ|ὔ|υ|ὑ|ύ|ὖ|ῦ|ὕ|ὗ|ὺ|ὒ|ὓ)',
     'diphth_i': r'(α|ε|ο|υ)(ἰ|ί|ι|ῖ|ἴ|ἶ|ἵ|ἱ|ἷ|ὶ|ἲ|ἳ)',
     'adscr_i': r'(α|η|ω|ἀ|ἠ|ὠ|ἁ|ἡ|ὡ|ά|ή|ώ|ὰ|ὴ|ὼ|ᾶ|ῆ|ῶ|ὤ|ὥ|ὢ|ὣ|ἄ|ἅ|ἂ|ἃ|ἤ|ἥ|ἣ|ἢ|ἦ|ἧ|ἆ|ἇ|ὧ|ὦ)(ι)',
-    'subscr_i': r'(ᾄ|ᾂ|ᾆ|ᾀ|ᾅ|ᾃ|ᾇ|ᾁ|ᾴ|ᾲ|ᾶ|ᾷ|ᾳ|ᾔ|ᾒ|ᾖ|ᾐ|ᾕ|ᾓ|ᾗ|ᾑ|ῄ|ῂ|ῃ|ᾤ|ᾢ|ᾦ|ᾠ|ᾥ|ᾣ|ᾧ|ᾡ|ῴ|ῲ|ῷ|ῳ|ῇ)',
+    'subscr_i': r'(ᾄ|ᾂ|ᾆ|ᾀ|ᾅ|ᾃ|ᾇ|ᾁ|ᾴ|ᾲ|ᾷ|ᾳ|ᾔ|ᾒ|ᾖ|ᾐ|ᾕ|ᾓ|ᾗ|ᾑ|ῄ|ῂ|ῃ|ᾤ|ᾢ|ᾦ|ᾠ|ᾥ|ᾣ|ᾧ|ᾡ|ῴ|ῲ|ῷ|ῳ|ῇ)',
     'stops': r'[πκτβδγφχθ]',
     'liquids': r'[ρλῥ]',
     'nasals': r'[μν]',
@@ -79,7 +80,6 @@ def syllabify(divided_text):
     # Add the final syllable if it exists
     if current_syllable:
         syllables.append(current_syllable)
-    print(syllables)
     return syllables
 
 def reshuffle_consonants(syllables):
@@ -162,15 +162,16 @@ def definitive_syllables(reshuffled_syllables):
 ### READING AND WRITING ###
 
 def syllabifier(string):
+    '''
+    string -> list
+    '''
     cleaned_text = preprocess_text(string)
     divided_text = divide_into_elements(cleaned_text)
     joined_text = ' '.join(divided_text)
-    print(joined_text)
     syllabified_text = syllabify(joined_text)
     reshuffled_text = reshuffle_consonants(syllabified_text)
     final_reshuffled_text = final_reshuffle(reshuffled_text)
     definitive_text = definitive_syllables(final_reshuffled_text)
-    print(definitive_text)
 
     return definitive_text
 
@@ -183,7 +184,6 @@ def process_file(input_file_path):
 
         for row in data:
             token = row[0]
-            print(token)
 
             syllabified_text = syllabifier(token)
 
@@ -191,11 +191,6 @@ def process_file(input_file_path):
 
     return syllabified_list
 
-# Path to the input file
-input_file_path = "prepare_tokens/tokens/test_syllabify.txt"
-
-# Process the input file
-process_file(input_file_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Syllabifying Ancient Greek strings.')
@@ -204,3 +199,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     syllabifier(args.input)
+
+# Path to the input file
+#input_file_path = "prepare_tokens/tokens/test_syllabify.txt"
+
+# Process the input file
+#process_file(input_file_path)

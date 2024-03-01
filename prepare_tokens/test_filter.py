@@ -1,18 +1,90 @@
+# IMPORTS
+
+# Append the root folder to sys.path to be able to import from /utils.py
+# Assuming your script is in a subfolder one level deep from the root
 import sys
 import os
-import re
-import csv
-import argparse
-
-from greek_accentuation.accentuation import get_accent_type, PROPERISPOMENON, PROPAROXYTONE
-from greek_accentuation.syllabify import ultima
-
-# Append the root folder to sys.path
-# Assuming your script is in a subfolder one level deep from the root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from utils import Colors, DICHRONA
-from patterns import patterns
+import csv
+import argparse
+import re # for the regex patterns
+
+# third-party imports
+#from greek_accentuation.accentuation import get_accent_type, PROPERISPOMENON, PROPAROXYTONE
+#from greek_accentuation.syllabify import ultima
+
+# local imports
+from utils import Colors, DICHRONA # /utils.py
+from patterns import patterns # /prepare_tokens/patterns.py
+from erics_syllabifier import syllabifier
+
+# END OF IMPORTS
+
+'''
+Since I scrapped the greek_accentuation package, I first need to define my own accentuation-word-class tools:
+ultima()
+properispomenon()
+proparoxytone()
+
+'''
+
+### BASIC DEFINITIONS ###
+# ultima
+# properispomenon
+# proparoxytone
+
+def ultima(word):
+    '''
+    >> ultima('ποτιδέρκομαι')
+    >> μαι
+    '''
+    list_of_syllables = syllabifier(word)
+    ultima = list_of_syllables[-1]
+
+    return ultima
+
+def properispomenon(word):
+    '''
+    >> properispomenon('ὗσον')
+    >> True
+    '''
+    list_of_syllables = syllabifier(word)
+    if len(list_of_syllables) >= 2: 
+        penultima = list_of_syllables[-2]
+        circumflexes = r'[ᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]'
+        if re.search(circumflexes, penultima):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+def proparoxytone(word):
+    '''
+    >> proparoxytone('ποτιδέρκομαι')
+    >> True
+    '''
+    list_of_syllables = syllabifier(word)
+    if len(list_of_syllables) >= 3: 
+        antepenultima = list_of_syllables[-3]
+        acutes = r'[άέήόίύώἄἅἔἕὄὅἤἥἴἵὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴ]'
+        if re.search(acutes, antepenultima):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+
+### AUXILIARY FUNCTIONS ###
+#   is_diphthong
+#   has_iota_subscriptum
+#   has_iota_adscriptum
+#   word_with_real_dichrona
+#   properispomenon_with_dichronon_only_in_ultima
+#   proparoxytone_with_dichronon_only_in_ultima
 
 def is_diphthong(chars):
     ''' Expects two characters '''
@@ -87,9 +159,9 @@ def properispomenon_with_dichronon_only_in_ultima(string):
     """
     Determines if a given string satisfies the following simplified criteria:
     - The entire string is recognized by `word_with_real_dichrona`.
-    - The accent type of the string is classified as PROPERISPOMENON.
+    - The accent type of the string is classified as properispomenon.
     - The ultima of the string is recognized by `word_with_real_dichrona`.
-    - The part of the string before the ultima is not recognized by `word_with_real_dichrona`.
+    - The part of the string before the ultima is NO recognized by `word_with_real_dichrona`.
     
     The design importantly returns a word such as αὖθις.
     
@@ -103,8 +175,8 @@ def properispomenon_with_dichronon_only_in_ultima(string):
     if not word_with_real_dichrona(string):
         return False
 
-    # Check if the accent type of the string is PROPERISPOMENON
-    if get_accent_type(string) != PROPERISPOMENON:
+    # Check if the accent type of the string is properispomenon
+    if not properispomenon(string):
         return False
     
     # Extract the ultima of the string
@@ -118,6 +190,7 @@ def properispomenon_with_dichronon_only_in_ultima(string):
     pre_ultima = string[:-len(ultima_str)]
 
     # Ensure the part before the ultima is not recognized by `word_with_real_dichrona`
+    # The pre_ultima conjunct checks whether the string is non-empty
     if pre_ultima and word_with_real_dichrona(pre_ultima):
         return False
 
@@ -127,13 +200,9 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
     """
     Determines if a given string satisfies the following criteria:
     - The entire string is recognized by `word_with_real_dichrona` as containing a real dichrona.
-    - The accent type of the string is classified as PROPAROXYTONE.
+    - The accent type of the string is classified as proparoxytone.
     - The ultima of the string is recognized by `word_with_real_dichrona`.
     - The part of the string before the ultima is not recognized by `word_with_real_dichrona`.
-
-    This function specifically identifies words that are accented as proparoxytone
-    with the dichronon character exclusively present in the word's ultima, emphasizing
-    a significant phonetic or morphological feature in that position.
 
     Parameters:
     - string (str): The input string to be evaluated.
@@ -146,7 +215,7 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
         return False
 
     # Check if the accent type of the string is PROPAROXYTONE
-    if get_accent_type(string) != PROPAROXYTONE:
+    if not proparoxytone(string):
         return False
     
     # Extract the ultima of the string
@@ -167,122 +236,50 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
 
 ### THE FILTER FUNCTION ###
 
-# def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
-#     """
-#     Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
-#     - The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
-#     - The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
-#     - The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
-    
-#     Tokens meeting all these criteria are written to the output file for undecided dichrona tokens. 
-#     Tokens that fail any one of the criteria are considered filtered out and written to a separate file.
-    
-#     Parameters:
-#     - input_file_path (str): Path to the input TSV file.
-#     - output_file_path (str): Path to the output TSV file for tokens meeting the criteria.
-#     - filtered_out_file_path (str): Path to the output TSV file for tokens that are filtered out.
-#     """
-#     try:
-#         with open(input_file_path, 'r', encoding='utf-8') as infile, \
-#              open(output_file_path, 'w', newline='', encoding='utf-8') as outfile, \
-#              open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_outfile:
-
-#             reader = csv.reader(infile, delimiter='\t')
-#             output_writer = csv.writer(outfile, delimiter='\t')
-#             filtered_out_writer = csv.writer(filtered_outfile, delimiter='\t')
-
-#             total_input_lines, total_output_lines, total_filtered_out_lines = 0, 0, 0
-
-#             for row in reader:
-#                 total_input_lines += 1
-#                 token = row[0]
-                
-#                 # Assuming word_with_real_dichrona, properispomenon_with_dichronon_only_in_ultima,
-#                 # and proparoxytone_with_dichronon_only_in_ultima are implemented elsewhere
-#                 if word_with_real_dichrona(token) and not properispomenon_with_dichronon_only_in_ultima(token) \
-#                    and not proparoxytone_with_dichronon_only_in_ultima(token):
-#                     output_writer.writerow(row)
-#                     total_output_lines += 1
-#                 else:
-#                     filtered_out_writer.writerow(row)
-#                     total_filtered_out_lines += 1
-
-#             # Print summary
-#             print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
-#             print(f"{Colors.RED}Total number of lines written to the output file: {total_output_lines}{Colors.ENDC}")
-#             print(f"{Colors.RED}Total number of filtered-out lines: {total_filtered_out_lines}{Colors.ENDC}")
-#             print(f"{Colors.GREEN}Output file path: {output_file_path}{Colors.ENDC}")
-#             print(f"{Colors.GREEN}Filtered out file path: {filtered_out_file_path}{Colors.ENDC}")
-
-#     except Exception as e:
-#         print(f"{Colors.RED}Error occurred: {e}{Colors.ENDC}")
-
-def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
+def filter_dichrona(input_file_path):
     """
     Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
     - The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
     - The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
     - The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
     
-    Tokens meeting all these criteria are written to the output file for undecided dichrona tokens. 
-    Tokens that fail any one of the criteria are considered filtered out and written to a separate file.
+    Tokens meeting all these criteria are put into the output_lines list and returned. 
+    Tokens that fail any one of the criteria are considered filtered out and written to a separate filtered_out_lines list.
     
     Parameters:
     - input_file_path (str): Path to the input TSV file.
-    - output_file_path (str): Path to the output TSV file for tokens meeting the criteria.
-    - filtered_out_file_path (str): Path to the output TSV file for tokens that are filtered out.
     """
+    output_lines = []
+    filtered_out_lines = []
+
     try:
-        with open(input_file_path, 'r', encoding='utf-8') as infile, \
-             open(output_file_path, 'w', newline='', encoding='utf-8') as outfile, \
-             open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_outfile:
-
+        with open(input_file_path, 'r', encoding='utf-8') as infile:
             reader = csv.reader(infile, delimiter='\t')
-            output_writer = csv.writer(outfile, delimiter='\t')
-            filtered_out_writer = csv.writer(filtered_outfile, delimiter='\t')
-
-            total_input_lines, total_output_lines, total_filtered_out_lines = 0, 0, 0
 
             for row in reader:
-                if row is None:
-                    print(f"{Colors.YELLOW}Warning: Encountered None row.{Colors.ENDC}")
-                    continue
-                if not row:
-                    print(f"{Colors.YELLOW}Warning: Encountered empty row.{Colors.ENDC}")
+                if row is None or not row:
                     continue
 
-                total_input_lines += 1
                 token = row[0]
+                print(token)
 
-                # Debugging print to ensure token is not None
-                if token is None:
-                    print(f"{Colors.YELLOW}Warning: Token is None in row: {row}{Colors.ENDC}")
-                    continue
-
-                # Assuming the necessary functions return True/False and are implemented elsewhere
+                # Apply criteria
                 word_check = word_with_real_dichrona(token)
+                print(word_check)
                 prop_check = properispomenon_with_dichronon_only_in_ultima(token)
+                print(prop_check)
                 propoxy_check = proparoxytone_with_dichronon_only_in_ultima(token)
-                
-                # Debugging prints for function returns
-                print(f"Debug: Token '{token}', word_check: {word_check}, prop_check: {prop_check}, propoxy_check: {propoxy_check}")
+                print(propoxy_check)
 
                 if word_check and not prop_check and not propoxy_check:
-                    output_writer.writerow(row)
-                    total_output_lines += 1
+                    output_lines.append(row)
                 else:
-                    filtered_out_writer.writerow(row)
-                    total_filtered_out_lines += 1
-
-            # Print summary
-            print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
-            print(f"{Colors.RED}Total number of lines written to the output file: {total_output_lines}{Colors.ENDC}")
-            print(f"{Colors.RED}Total number of filtered-out lines: {total_filtered_out_lines}{Colors.ENDC}")
-            print(f"{Colors.GREEN}Output file path: {output_file_path}{Colors.ENDC}")
-            print(f"{Colors.GREEN}Filtered out file path: {filtered_out_file_path}{Colors.ENDC}")
+                    filtered_out_lines.append(row)
 
     except Exception as e:
         print(f"{Colors.RED}Error occurred: {e}{Colors.ENDC}")
+
+    return output_lines, filtered_out_lines
 
 
 # Example diphthongs
@@ -304,18 +301,56 @@ print(word_with_real_dichrona("αἰ"))  # None
 print(word_with_real_dichrona("ἀι"))  # None
 print(word_with_real_dichrona("νεφέλᾳ"))  # None
 
-print(get_accent_type('ὗσον') == PROPERISPOMENON) # True. NB: get_accent_type returns the accent type of a word as a tuple of the syllable number and accent
 print(ultima('πατρός')) # τρός, it sees muta cum liquida as single
 print(ultima('ποτιδέρκομαι')) #
 print(ultima('ὅττι')) # 
 print(ultima('τλὰς')) # 
 
+print(f'Example of properispomenon_with_dichronon_only_in_ultima:')
 print(properispomenon_with_dichronon_only_in_ultima('ἀπῦσαν')) # False (nonsense word)
 print(proparoxytone_with_dichronon_only_in_ultima('ἀπέπεπαν')) # False (nonsense word)
 print(properispomenon_with_dichronon_only_in_ultima('αὖθις')) # True!!! :)
 print(proparoxytone_with_dichronon_only_in_ultima('αἰπέπεπαν')) # True!!!
 
-debug = proparoxytone_with_dichronon_only_in_ultima('α')
-print(debug)
+#debug = proparoxytone_with_dichronon_only_in_ultima('α')
+#print(debug)
 
 #print(filter_dichrona('prepare_tokens/tokens/test_filter.txt', 'prepare_tokens/tokens/test_filter_output.txt', 'prepare_tokens/tokens/test_filter_filtered.txt'))
+
+from erics_syllabifier import syllabifier
+
+def properispomenon(word):
+    '''
+    >> properispomenon('ὗσον')
+    >> True
+    '''
+    list_of_syllables = syllabifier(word)
+    if len(list_of_syllables) >= 2: 
+        penultima = list_of_syllables[-2]
+        circumflexes = r'[ᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]'
+        if re.search(circumflexes, penultima):
+            return True
+        else:
+            return False
+    else:
+        return False
+    
+print(properispomenon('ὗσον'))
+
+def proparoxytone(word):
+    '''
+    >> proparoxytone('ποτιδέρκομαι')
+    >> True
+    '''
+    list_of_syllables = syllabifier(word)
+    if len(list_of_syllables) >= 3: 
+        antepenultima = list_of_syllables[-3]
+        acutes = r'[άέήόίύώἄἅἔἕὄὅἤἥἴἵὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴ]'
+        if re.search(acutes, antepenultima):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+print(proparoxytone('ποτιδέρκομαι'))

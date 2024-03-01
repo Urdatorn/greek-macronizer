@@ -32,16 +32,74 @@ import argparse
 import re # for the regex patterns
 
 # third-party imports
-from greek_accentuation.accentuation import get_accent_type, PROPERISPOMENON, PROPAROXYTONE
-from greek_accentuation.syllabify import ultima
+#from greek_accentuation.accentuation import get_accent_type, PROPERISPOMENON, PROPAROXYTONE
+#from greek_accentuation.syllabify import ultima
 
 # local imports
 from utils import Colors, DICHRONA # /utils.py
 from patterns import patterns # /prepare_tokens/patterns.py
+from erics_syllabifier import syllabifier
 
 # END OF IMPORTS
 
-### 6 AUXILIARY DEFINITIONS ###
+'''
+Since I scrapped the greek_accentuation package, I first need to define my own accentuation-word-class tools:
+ultima()
+properispomenon()
+proparoxytone()
+
+'''
+
+### BASIC DEFINITIONS ###
+# ultima
+# properispomenon
+# proparoxytone
+
+def ultima(word):
+    '''
+    >> ultima('ποτιδέρκομαι')
+    >> μαι
+    '''
+    list_of_syllables = syllabifier(word)
+    ultima = list_of_syllables[-1]
+
+    return ultima
+
+def properispomenon(word):
+    '''
+    >> properispomenon('ὗσον')
+    >> True
+    '''
+    list_of_syllables = syllabifier(word)
+    if len(list_of_syllables) >= 2: 
+        penultima = list_of_syllables[-2]
+        circumflexes = r'[ᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]'
+        if re.search(circumflexes, penultima):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+def proparoxytone(word):
+    '''
+    >> proparoxytone('ποτιδέρκομαι')
+    >> True
+    '''
+    list_of_syllables = syllabifier(word)
+    if len(list_of_syllables) >= 3: 
+        antepenultima = list_of_syllables[-3]
+        acutes = r'[άέήόίύώἄἅἔἕὄὅἤἥἴἵὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴ]'
+        if re.search(acutes, antepenultima):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+
+### AUXILIARY FUNCTIONS ###
 #   is_diphthong
 #   has_iota_subscriptum
 #   has_iota_adscriptum
@@ -122,9 +180,9 @@ def properispomenon_with_dichronon_only_in_ultima(string):
     """
     Determines if a given string satisfies the following simplified criteria:
     - The entire string is recognized by `word_with_real_dichrona`.
-    - The accent type of the string is classified as PROPERISPOMENON.
+    - The accent type of the string is classified as properispomenon.
     - The ultima of the string is recognized by `word_with_real_dichrona`.
-    - The part of the string before the ultima is not recognized by `word_with_real_dichrona`.
+    - The part of the string before the ultima is NO recognized by `word_with_real_dichrona`.
     
     The design importantly returns a word such as αὖθις.
     
@@ -138,8 +196,8 @@ def properispomenon_with_dichronon_only_in_ultima(string):
     if not word_with_real_dichrona(string):
         return False
 
-    # Check if the accent type of the string is PROPERISPOMENON
-    if get_accent_type(string) != PROPERISPOMENON:
+    # Check if the accent type of the string is properispomenon
+    if not properispomenon(string):
         return False
     
     # Extract the ultima of the string
@@ -153,6 +211,7 @@ def properispomenon_with_dichronon_only_in_ultima(string):
     pre_ultima = string[:-len(ultima_str)]
 
     # Ensure the part before the ultima is not recognized by `word_with_real_dichrona`
+    # The pre_ultima conjunct checks whether the string is non-empty
     if pre_ultima and word_with_real_dichrona(pre_ultima):
         return False
 
@@ -162,13 +221,9 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
     """
     Determines if a given string satisfies the following criteria:
     - The entire string is recognized by `word_with_real_dichrona` as containing a real dichrona.
-    - The accent type of the string is classified as PROPAROXYTONE.
+    - The accent type of the string is classified as proparoxytone.
     - The ultima of the string is recognized by `word_with_real_dichrona`.
     - The part of the string before the ultima is not recognized by `word_with_real_dichrona`.
-
-    This function specifically identifies words that are accented as proparoxytone
-    with the dichronon character exclusively present in the word's ultima, emphasizing
-    a significant phonetic or morphological feature in that position.
 
     Parameters:
     - string (str): The input string to be evaluated.
@@ -181,7 +236,7 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
         return False
 
     # Check if the accent type of the string is PROPAROXYTONE
-    if get_accent_type(string) != PROPAROXYTONE:
+    if not proparoxytone(string):
         return False
     
     # Extract the ultima of the string
@@ -231,11 +286,11 @@ def filter_dichrona(input_file_path):
 
                 # Apply criteria
                 word_check = word_with_real_dichrona(token)
-                print(word_check)
+                print(f'Real dichrona: {word_check}')
                 prop_check = properispomenon_with_dichronon_only_in_ultima(token)
-                print(prop_check)
+                print(f'Properi.: {prop_check}')
                 propoxy_check = proparoxytone_with_dichronon_only_in_ultima(token)
-                print(propoxy_check)
+                print(f'Proparox.: {propoxy_check}')
 
                 if word_check and not prop_check and not propoxy_check:
                     output_lines.append(row)
@@ -298,7 +353,7 @@ def main(input_path, output_path, aberrant_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Filter out all lines with TOKENs not meeting specific criteria.')
-    parser.add_argument('--input', help='The path to the input file containing the text in Beta Code.', required=True)
+    parser.add_argument('--input', help='The path to the input file containing the Greek text.', required=True)
     parser.add_argument('--output', help='The path where the non-aberrant lines will be written.', required=True)
     parser.add_argument('--aberrant', help='The path for the file where aberrant lines are saved.', required=True)
 
