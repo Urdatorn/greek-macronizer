@@ -306,12 +306,16 @@ print(word_with_real_dichrona("νεφέλᾳ"))  # None
 
 print(get_accent_type('ὗσον') == PROPERISPOMENON) # True. NB: get_accent_type returns the accent type of a word as a tuple of the syllable number and accent
 print(ultima('πατρός')) # τρός, it sees muta cum liquida as single
-print(ultima('ποτιδέρκομαι')) # μαι
-print(ultima('ὅττι')) # μαι
+print(ultima('ποτιδέρκομαι')) #
+print(ultima('ὅττι')) # 
+print(ultima('τλὰς')) # 
 
 print(properispomenon_with_dichronon_only_in_ultima('ἀπῦσαν')) # False (nonsense word)
 print(proparoxytone_with_dichronon_only_in_ultima('ἀπέπεπαν')) # False (nonsense word)
 print(properispomenon_with_dichronon_only_in_ultima('αὖθις')) # True!!! :)
 print(proparoxytone_with_dichronon_only_in_ultima('αἰπέπεπαν')) # True!!!
 
-print(filter_dichrona('prepare_tokens/tokens/test_filter.txt', 'prepare_tokens/tokens/test_filter_output.txt', 'prepare_tokens/tokens/test_filter_filtered.txt'))
+debug = proparoxytone_with_dichronon_only_in_ultima('α')
+print(debug)
+
+#print(filter_dichrona('prepare_tokens/tokens/test_filter.txt', 'prepare_tokens/tokens/test_filter_output.txt', 'prepare_tokens/tokens/test_filter_filtered.txt'))

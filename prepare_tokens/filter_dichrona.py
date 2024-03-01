@@ -5,12 +5,12 @@ Filter out all lines with TOKENs (first column of tokens text file) which
         - har cirkumflex på sin enda DICHRONA
         - är properispomenon och inte har DICHRONA på en tidigare stavelse än penultiman (behövs ej dictionary)
 
-NB:
-OXYTONE implies nothing without context (cf. αἰδώς)
-PAROXYTONE with ≥3 syllables still does NOT imply long vowel in ultima, because not all accents are recessive (cf. pf. ppc. λελῠμένος)
-PROPAROXYTONE implies that the vowel in the ultima is short, except for the πόλις declination's εως, which however has no DICHRONA.
-PERISPOMENON implies that the vowel in the ultima is long (as all vowels with circumf.)
-PROPERISPOMENON implies that the vowel in the ultima is short
+Note concerning the logical relationship between the five accentuation word classes and dichrona:
+    OXYTONE implies nothing without context (cf. αἰδώς)
+    PAROXYTONE with ≥3 syllables still does NOT imply long vowel in ultima, because not all accents are recessive (cf. pf. ppc. λελῠμένος)
+    PROPAROXYTONE implies that the vowel in the ultima is short, except for the πόλις declination's εως, which however has no DICHRONA.
+    PERISPOMENON implies that the vowel in the ultima is long (as all vowels with circumf.)
+    PROPERISPOMENON implies that the vowel in the ultima is short
 
 Usage:
     The script requires three command-line arguments:
@@ -202,81 +202,113 @@ def proparoxytone_with_dichronon_only_in_ultima(string):
 
 ### THE FILTER FUNCTION ###
 
-def filter_dichrona(input_file_path, output_file_path, filtered_out_file_path):
+def filter_dichrona(input_file_path):
     """
     Filters lines from a tab-separated input file based on three criteria related to dichrona tokens:
     - The token must be identified by `word_with_real_dichrona` as containing a real dichrona.
     - The token must not be identified by `properispomenon_with_dichronon_only_in_ultima`.
     - The token must not be identified by `proparoxytone_with_dichronon_only_in_ultima`.
     
-    Tokens meeting all these criteria are written to the output file for undecided dichrona tokens. 
-    Tokens that fail any one of the criteria are considered filtered out and written to a separate file.
+    Tokens meeting all these criteria are put into the output_lines list and returned. 
+    Tokens that fail any one of the criteria are considered filtered out and written to a separate filtered_out_lines list.
     
     Parameters:
     - input_file_path (str): Path to the input TSV file.
-    - output_file_path (str): Path to the output TSV file for tokens meeting the criteria.
-    - filtered_out_file_path (str): Path to the output TSV file for tokens that are filtered out.
     """
+    output_lines = []
+    filtered_out_lines = []
+
     try:
-        with open(input_file_path, 'r', encoding='utf-8') as infile, \
-             open(output_file_path, 'w', newline='', encoding='utf-8') as outfile, \
-             open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as filtered_outfile:
-
+        with open(input_file_path, 'r', encoding='utf-8') as infile:
             reader = csv.reader(infile, delimiter='\t')
-            output_writer = csv.writer(outfile, delimiter='\t')
-            filtered_out_writer = csv.writer(filtered_outfile, delimiter='\t')
 
-            total_input_lines, total_output_lines, total_filtered_out_lines = 0, 0, 0
-
-            for row_number, row in enumerate(reader, start=1):
+            for row in reader:
                 if row is None or not row:
-                    print(f"{Colors.YELLOW}Warning: Skipped empty or invalid row at line {row_number}.{Colors.ENDC}")
                     continue
 
-                total_input_lines += 1
-                token = row[0].strip()  # Ensure to strip whitespace which might cause issues with matching
+                token = row[0]
+                print(token)
 
-                if not token:  # Checks if token is empty after stripping whitespace
-                    print(f"{Colors.YELLOW}Warning: Token is empty in row {row_number}: {row}{Colors.ENDC}")
-                    continue
-                
-                # Debugging print to ensure token is not None
-                if token is None:
-                    print(f"{Colors.YELLOW}Warning: Token is None in row: {row}{Colors.ENDC}")
-                    continue
-
-                # Assuming the necessary functions return True/False and are implemented elsewhere
+                # Apply criteria
                 word_check = word_with_real_dichrona(token)
+                print(word_check)
                 prop_check = properispomenon_with_dichronon_only_in_ultima(token)
+                print(prop_check)
                 propoxy_check = proparoxytone_with_dichronon_only_in_ultima(token)
-                
-                # Debugging prints for function returns
-                print(f"Debug: Token '{token}', word_check: {word_check}, prop_check: {prop_check}, propoxy_check: {propoxy_check}")
+                print(propoxy_check)
 
                 if word_check and not prop_check and not propoxy_check:
-                    output_writer.writerow(row)
-                    total_output_lines += 1
+                    output_lines.append(row)
                 else:
-                    filtered_out_writer.writerow(row)
-                    total_filtered_out_lines += 1
-
-            # Print summary
-            print(f"{Colors.GREEN}Total number of input lines: {total_input_lines}{Colors.ENDC}")
-            print(f"{Colors.RED}Total number of lines written to the output file: {total_output_lines}{Colors.ENDC}")
-            print(f"{Colors.RED}Total number of filtered-out lines: {total_filtered_out_lines}{Colors.ENDC}")
-            print(f"{Colors.GREEN}Output file path: {output_file_path}{Colors.ENDC}")
-            print(f"{Colors.GREEN}Filtered out file path: {filtered_out_file_path}{Colors.ENDC}")
+                    filtered_out_lines.append(row)
 
     except Exception as e:
         print(f"{Colors.RED}Error occurred: {e}{Colors.ENDC}")
 
-### MAIN ###
+    return output_lines, filtered_out_lines
+
+
+### NEW WRITE FUNCTION ###
+
+def write_results(output_lines, filtered_out_lines, output_file_path, filtered_out_file_path):
+    """
+    Writes the filtered lines to their respective output files, handles errors,
+    and prints debugging information along with the total number of lines.
+
+    Parameters:
+    - output_lines: A list of lines that meet the criteria.
+    - filtered_out_lines: A list of lines that do not meet the criteria.
+    - output_file_path: Path for the file where non-aberrant lines are saved.
+    - filtered_out_file_path: Path for the file where aberrant lines are saved.
+    """
+    print(f"{Colors.BLUE}Starting to write results...{Colors.ENDC}")
+
+    # Write lines that meet the criteria to the output file
+    try:
+        with open(output_file_path, 'w', newline='', encoding='utf-8') as outfile:
+            writer = csv.writer(outfile, delimiter='\t')
+            for line in output_lines:
+                writer.writerow(line)
+        print(f"{Colors.GREEN}Successfully wrote to {output_file_path}.{Colors.ENDC}")
+    except Exception as e:
+        print(f"{Colors.RED}Error writing to {output_file_path}: {e}{Colors.ENDC}")
+
+    # Write lines that do not meet the criteria to the filtered-out file
+    try:
+        with open(filtered_out_file_path, 'w', newline='', encoding='utf-8') as outfile:
+            writer = csv.writer(outfile, delimiter='\t')
+            for line in filtered_out_lines:
+                writer.writerow(line)
+        print(f"{Colors.GREEN}Successfully wrote to {filtered_out_file_path}.{Colors.ENDC}")
+    except Exception as e:
+        print(f"{Colors.RED}Error writing to {filtered_out_file_path}: {e}{Colors.ENDC}")
+
+    # Print the total number of lines written to each file
+    print(f"{Colors.YELLOW}Total lines written to {output_file_path}: {len(output_lines)}{Colors.ENDC}")
+    print(f"{Colors.YELLOW}Total lines written to {filtered_out_file_path}: {len(filtered_out_lines)}{Colors.ENDC}")
+
+
+### CALLABLE MAIN SCRIPT ###
+
+def main(input_path, output_path, aberrant_path):
+    output_lines, filtered_out_lines = filter_dichrona(input_path)
+    write_results(output_lines, filtered_out_lines, output_path, aberrant_path)
+
+### __main__ conditional ###
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Identify aberrant lines based on Beta Code in a text file.')
-    parser.add_argument('--input', required=True, help='Input file path')
-    parser.add_argument('--output', required=True, help='Output file path for lines with undecided dichrona')
-    parser.add_argument('--filtered_out', required=True, help='File path to write filtered-out lines to')
+    parser = argparse.ArgumentParser(description='Filter out all lines with TOKENs not meeting specific criteria.')
+    parser.add_argument('--input', help='The path to the input file containing the text in Beta Code.', required=True)
+    parser.add_argument('--output', help='The path where the non-aberrant lines will be written.', required=True)
+    parser.add_argument('--aberrant', help='The path for the file where aberrant lines are saved.', required=True)
+
     args = parser.parse_args()
 
-    filter_dichrona(args.input, args.output, args.aberrant)
+    # Debug print to indicate the start of the process
+    print(f"{Colors.BLUE}Starting the filtering process...{Colors.ENDC}")
+
+    # Process filtering
+    output_lines, filtered_out_lines = filter_dichrona(args.input)
+
+    write_results(output_lines, filtered_out_lines, args.output, args.aberrant)
+
