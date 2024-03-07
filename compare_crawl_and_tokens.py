@@ -35,4 +35,4 @@ def count_unique_tokens(file1_path, file2_path):
 #if __name__ == "__main__":
 #    main()
 
-count_unique_tokens('prepare_tokens/tokens/tokens.txt', 'crawl/macrons_wiktionary.txt')
+count_unique_tokens('prepare_tokens/tokens/tokens.txt', 'crawl_wiktionary/macrons_wiktionary_format.txt')

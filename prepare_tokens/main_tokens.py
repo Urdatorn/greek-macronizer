@@ -31,9 +31,10 @@ import remove_duplicates
 import remove_lines_few_columns
 import normalize
 import alphabetize_unicode 
-
-import prepare_tokens.filter_dichrona as filter_dichrona
+import filter_dichrona
 import handle_x_lines
+import remove_double_accents
+import remove_no_spiritus
 
 def print_ascii_art():
     cyan = Colors.CYAN
@@ -62,11 +63,9 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     tokens_three_columns_path = os.path.join(tokens_dir, 'tokens_three_columns.txt')
     tokens_norm_path = os.path.join(tokens_dir, 'tokens_norm.txt')
     tokens_alph_path = os.path.join(tokens_dir, 'tokens_alph.txt')
-
-    #tokens_beta_path = os.path.join(tokens_dir, 'tokens_beta.txt')
-    #tokens_no_stars_path = os.path.join(tokens_dir, 'tokens_no_stars.txt')
-    tokens_no_stars_no_dup_path = os.path.join(tokens_dir, 'tokens_no_stars_no_dup.txt')
     tokens_only_necessary_path = os.path.join(tokens_dir, 'tokens_dichrona.txt')
+    tokens_no_x_path = os.path.join(tokens_dir, 'tokens_no_x.txt')
+    tokens_no_double_accents_path = os.path.join(tokens_dir, 'tokens_no_double_accents.txt')
 
     # Main flow
     print_ascii_art()
@@ -92,7 +91,13 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     filter_dichrona.main(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
 
     print(f"{Colors.YELLOW}7. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
-    handle_x_lines.handle_x_lines(tokens_only_necessary_path, output_file_path, lines_with_x_file_path)
+    handle_x_lines.handle_x_lines(tokens_only_necessary_path, tokens_no_x_path, lines_with_x_file_path)
+
+    print(f"{Colors.YELLOW}8. Removing the last accent of words with two accents{Colors.ENDC}")
+    remove_double_accents.process_file(tokens_no_x_path, tokens_no_double_accents_path)
+
+    print(f"{Colors.YELLOW}9. Removing words lacking obligatory spīritūs{Colors.ENDC}")
+    remove_no_spiritus.process_tsv_file(tokens_no_double_accents_path, output_file_path)
 
     print(f"{Colors.CYAN}Processing complete! tokens.txt generated.{Colors.ENDC}")
     print(f"{Colors.CYAN}Saving statistics to stats.txt.{Colors.ENDC}")

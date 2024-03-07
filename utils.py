@@ -16,6 +16,15 @@ class Colors:
     BOLD = '\033[1m'      # Bold
     UNDERLINE = '\033[4m' # Underline
 
+acutes = r'[άέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴ]'
+graves = r'[ὰὲὴὶὸὺὼἂἃἒἓἢἣἲἳὂὃὒὓὢὣῒῢᾂᾃᾲᾒᾓῂᾢᾣῲ]'
+circumflexes = r'[ᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]'
+all_accents = r'[άέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴὰὲὴὶὸὺὼἂἃἒἓἢἣἲἳὂὃὒὓὢὣῒῢᾂᾃᾲᾒᾓῂᾢᾣῲᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]' # sum of above 3
+unaccented = r'[αεηιουωἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾳᾀᾁῃᾐᾑῳᾠᾡ]' # 7 + 14 + 9
+all_vowels = r'[αεηιουωἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾳᾀᾁῃᾐᾑῳᾠᾡάέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴὰὲὴὶὸὺὼἂἃἒἓἢἣἲἳὂὃὒὓὢὣῒῢᾂᾃᾲᾒᾓῂᾢᾣῲᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]' # sum of above 2
+with_spiritus = r'[ἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾀᾁᾐᾑᾠᾡἄἅἔἕἤἥἴἵὄὅὔὕὤὥᾄᾅᾔᾕᾤᾥἂἃἒἓἢἣἲἳὂὃὒὓὢὣᾂᾃᾒᾓᾢᾣἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾖᾗᾦᾧ]'
+without_spiritus = r'[αεηιουωάὰέὲήὴίὶόὸὺύώὼᾶῆῖῦῶϋϊΐῒϋῢΰῗῧ]'
+
 # Unicode Constants for Ancient Greek punctuation
 class Punctuation:
     GREEK_ANO_TELEIA = '\u0387'
@@ -90,7 +99,7 @@ NB2 that there are FIVE overlapping tonos-oxia glyphs: ά, ί, ύ, ΐ, ΰ.
 The last two appear as  in the corpus (e.g. βαΰζει, Δαναΐδων) but are not included in cltk's tonos_oxia_converter,
 so I will have to write my own. 
 
-NB2 that the following ypsilons are not in the unicode Greek Extended: ᾽Υ, ῍Υ, ῎Υ ῏Υ. See https://www.opoudjis.net/unicode/unicode_gaps.html#gaps
+NB3 that the following ypsilons are not in the unicode Greek Extended: ᾽Υ, ῍Υ, ῎Υ ῏Υ. See https://www.opoudjis.net/unicode/unicode_gaps.html#gaps
 
 NB3 that polytonic Greek (Greek Extended) escape codes start with 'u1f' (they lie in 1F00—1FFF) whereas monotonic starts with 'u3'.
 Use hex(ord('x')) to get a character x's escape code and chr(0x123) to show the character coded by hex string '0x123'.

@@ -1,4 +1,4 @@
-macrons.txt har ungefär 37-38 tusen unika lemmata.
+macrons.txt har ungefär 25 tusen unika lemmata.
 LSJ har runt 116 502 lemmata. 
 
 Taggen i raden
@@ -11,6 +11,16 @@ läses som
     s = subjunktiv
     a = aktivum
 
+Dependencies 
+
+pip3 install requests
+pip3 install tqdm
+pip3 install bs4
+pip3 install greek_accentuation
+pip3 install numpy
+pip3 install scipy
+pip3 install pyuca
+pip3 install beautifulsoup4
 
 FLÖDESSCHEMA
 
@@ -29,7 +39,9 @@ Detta delflöde är klart i en första version. Se prepare_tokens/main_tokens.py
     - är proparoxiton och -"-
 7. Felaktig POS-analys som behöver köras om i OdyCy och/eller annan analysator:
     i. Om en TAG innehåller 'x' eller är kortare än nio tecken, flytta raden till lines_x.txt
-    ii. Om ett LEMMA ej innehåller vokaler, flytta raden till lines_x.txt
+    ii. CGCG 1.72: Ord kan bara sluta på vokaler och ν, ρ, σ, ξ, ψ (förutom ἐκ, οὐκ, οὐχ, vilka ej är relevanta)
+8. Rensa bort tokens med extra akut på ultiman pga enclitica
+9. Rensa bort eliderade ord OM det finns oeliderade motsvarigheter. Annars inkludera.
 
 Kör sen OdyCy och/eller annan POS-analys igen på alla TOKENs i lines_x.txt, 
 och låt resultatet genomgå allt ovan. Om ngt är kvar, så lägg till i tokens.txt
@@ -44,6 +56,11 @@ Nu byggs en fjärde kolumn, MACRON, utöver de första tre från tokens.txt
 Vissa tokens har tog både obestämbara och "gratis", och då bör de som är gratis makroniseras i filen, då målet är att alla dichrona i filen ska vara indikerade
 - Om ett ord har cirkumflex eller iota subscriptum/adscriptum på ett α, ι, υ, så makronisera detta tecken direkt
 - Om ett properispomenon eller proparoxtiton har ett α, ι, υ på ultiman, så "breve-isera" ultiman direkt
+
+Följande typer av tokens mappas också mot sina normala motsvarigheter och inkluderas ej i vår dictionary:
+- tokens på grav
+- eliderade tokens (sex teoretiska alternativ: om det mot all förmodan finns flera möjliga oeliderade motsvarigheter i dictionary, så kolla ordklass och/eller morfologi för att disambiguera)
+- tokens med extra akut på ultiman pga enclitica 
 
 1. Algoritmiskt lägga in de långa som finns i regelbundna deklinationer/konjugationer; kanske använda ifthimos
 2. Lägga in scrapeade former från LSJ.gr och Wiktionary etc. Inkl. POS-info? 
@@ -70,3 +87,10 @@ Vissa tokens har tog både obestämbara och "gratis", och då bör de som är gr
     VERB: verb
     X: other
 
+NB:
+Några få ord i TLG-corpuset är i ALL-CAPS och kommer nog bara från titel och talare:
+
+<l n="t"><label type="head">ΑΛΚΗΣΤΙΣ</label> </l>
+<l n="1"><label type="speaker">ΑΠΟΛΛΩΝ</label> 
+
+Dessa ord kan sorteras bort, då de ändå inte är relevanta för metern.

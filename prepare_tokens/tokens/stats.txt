@@ -1,24 +1,24 @@
 
 /Users/albin/python/ancient-greek-nlp/greek-macronizer/prepare_tokens/tokens/tokens.txt
-Number of lines: 40076
-Number of unique LEMMAs: 24882
-Number of DICHRONA characters in the first columns: 40076
-Number of TOKENs ending with ': 0
-Number of TOKENs with a capital first character: 3494
+Number of lines: 37702
+Number of unique LEMMAs: 23643
+Number of DICHRONA characters in the first columns: 80779
+Number of TOKENs ending with ': 232
+Number of TOKENs with a capital first character: 3270
 
 
 /Users/albin/python/ancient-greek-nlp/greek-macronizer/prepare_tokens/tokens/lines_x.txt
-Number of lines: 3058
-Number of unique LEMMAs: 1910
-Number of DICHRONA characters in the first columns: 3058
-Number of TOKENs ending with ': 0
-Number of TOKENs with a capital first character: 268
+Number of lines: 2630
+Number of unique LEMMAs: 1719
+Number of DICHRONA characters in the first columns: 4254
+Number of TOKENs ending with ': 28
+Number of TOKENs with a capital first character: 234
 
 
 /Users/albin/python/ancient-greek-nlp/greek-macronizer/prepare_tokens/tokens/lines_filtered_out.txt
-Number of lines: 21336
-Number of unique LEMMAs: 10769
-Number of DICHRONA characters in the first columns: 11360
-Number of TOKENs ending with ': 0
-Number of TOKENs with a capital first character: 1332
+Number of lines: 24105
+Number of unique LEMMAs: 12004
+Number of DICHRONA characters in the first columns: 22403
+Number of TOKENs ending with ': 281
+Number of TOKENs with a capital first character: 1515
 

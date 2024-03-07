@@ -37,8 +37,7 @@ import re # for the regex patterns
 
 # local imports
 from utils import Colors, DICHRONA # /utils.py
-from patterns import patterns # /prepare_tokens/patterns.py
-from erics_syllabifier import syllabifier
+from erics_syllabifier import patterns, syllabifier
 
 # END OF IMPORTS
 

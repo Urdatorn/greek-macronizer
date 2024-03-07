@@ -9,9 +9,11 @@ import re
 from utils import DICHRONA
 
 def analyze_file(file_path):
+    # Define the characters to check for at the end of the first column
+    target_chars = ('\u2019', '\u02BC') # RIGHT SINGLE QUOTATION MARK (’), the one used, but also MODIFIER LETTER APOSTROPHE (ʼ)
     lines_count = 0
     unique_lemmas = set()
-    dichrona_count = 0
+    dichrona_count = 0  # This will now count each occurrence of DICHRONA characters
     tokens_ending_with_apostrophe = 0
     tokens_capital_first_character = 0
     
@@ -24,10 +26,10 @@ def analyze_file(file_path):
                 
                 unique_lemmas.add(lemma)
                 
-                if any(char in DICHRONA for char in token):
-                    dichrona_count += 1
+                # Count each DICHRONA character in the token
+                dichrona_count += sum(char in DICHRONA for char in token)
                 
-                if token.endswith("'"):
+                if token.endswith(target_chars):
                     tokens_ending_with_apostrophe += 1
                 
                 if token[0].isupper():
@@ -36,7 +38,7 @@ def analyze_file(file_path):
     return {
         'lines': lines_count,
         'unique_lemmas': len(unique_lemmas),
-        'dichrona_chars': dichrona_count,
+        'dichrona_chars': dichrona_count,  # Total count of DICHRONA characters
         'tokens_ending_apostrophe': tokens_ending_with_apostrophe,
         'tokens_capital_first': tokens_capital_first_character,
     }
