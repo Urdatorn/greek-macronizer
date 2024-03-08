@@ -1,3 +1,4 @@
+import os
 from bs4 import BeautifulSoup
 
 def find_syllable_lengths(html_content, input_word):

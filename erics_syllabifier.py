@@ -1,5 +1,10 @@
 '''
-divides the greek into syllables (except for double consonants and muta-cum-liquida).
+divides the greek into syllables (adapted from DionysiusRecomposed)
+all double consonants and mutae-cum-liquidae are treated as closed, i.e.
+>>syllabifier('πατρός')
+>>['πατ', 'ρός']
+>>syllabifier('ἄμμι')
+>>['ἄμ', 'μι']
 '''
 import csv
 import re

@@ -21,7 +21,7 @@ Usage:
 
 # IMPORTS
 
-# Append the root folder to sys.path to be able to import from /utils.py
+# Append the root folder to sys.path to be able to import from /utils.py and /erics_syllabifier.py
 # Assuming your script is in a subfolder one level deep from the root
 import sys
 import os
