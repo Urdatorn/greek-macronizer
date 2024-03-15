@@ -2,6 +2,12 @@
 Disambiguates dichrona in open syllables without diphthongs 
 by searching for appearances in the manually scanned metrical corpus from Hypotactic
 
+DIPHTHONGS GO THROUGH
+e.g. it marks the ypsilon in ἀβουλιᾶν as long :(
+
+the problem is the any in 
+    if any(open_syllable_with_real_dichrona(syllable) for syllable in list_of_syllables)
+
 '''
 # IMPORTS
 
@@ -119,15 +125,18 @@ def open_syllable_with_real_dichrona(syllable):
         return False
 
 
-
-
-
 ###
+
 
 def collate_metrical_information(db_path, token):
     """
     Fetches and analyzes metrical patterns for a given token from the SQLite database.
-    Each metrical pattern is on the form 'ὄ^,πι_,σθεν^'.
+    metrical_patterns.db entries look like this:
+    token   metrical_pattern
+        ὦ	    ὦ_
+        παῖ,	παῖ,_
+        τέλος	τέ^,λος_
+    Returned annotated_positions is a list of length + position like ['^1', '_4']
     """
     # Connect to the database and fetch metrical patterns for the token
     with sqlite3.connect(db_path) as conn:
@@ -166,15 +175,61 @@ def collate_metrical_information(db_path, token):
 
     return annotated_positions
 
-#print(collate_metrical_information('crawl_hypotactic/metrical_patterns.db', 'ἀρχόμενος'))
-#print(collate_metrical_information('crawl_hypotactic/metrical_patterns.db', 'Πολυξείνης'))
+
+def get_syllable_spans(list_of_syllables):
+    """
+    Returns a list of tuples, each representing the start and end character positions of a syllable
+    and its index within the list_of_syllables, to help map characters to their syllable.
+    >>get_syllable_spans(syllabifier('πατρός'))
+    >>[(1, 3, 0), (4, 6, 1)]
+    """
+    syllable_spans = []
+    position = 1
+
+    for i, syllable in enumerate(list_of_syllables):
+        start_position = position
+        end_position = start_position + len(syllable) - 1
+        syllable_spans.append((start_position, end_position, i))
+        position += len(syllable)
+
+    return syllable_spans
+
+
+def filter_syllables(annotated_positions, token):
+    """
+    Filters the annotated positions returned by collate_metrical_information based on whether
+    the corresponding syllables pass the open_syllable_with_real_dichrona check.
+    """
+    # Use syllabifier to get the 'master' syllabification of the token
+    list_of_syllables = syllabifier(token)
+    syllable_spans = get_syllable_spans(list_of_syllables)
+
+    # Initialize a list to hold the filtered annotations
+    filtered_annotations = []
+
+    # Iterate through annotated_positions to filter based on open_syllable_with_real_dichrona
+    for annotation in annotated_positions:
+        indicator = annotation[0]  # '^' or '_'
+        position = int(annotation[1:])  # Extract the position number from annotation
+
+        # Check which syllable this position falls into
+        for start, end, index in syllable_spans:
+            if start <= position <= end:
+                # Check if the syllable passes the open_syllable_with_real_dichrona check
+                if open_syllable_with_real_dichrona(list_of_syllables[index]):
+                    # Include this annotation
+                    filtered_annotations.append(annotation)
+                break  # No need to check further spans
+
+    return filtered_annotations
+
 
 ### MAIN FUNCTION ###
 
 
 def create_output_database(db_path):
     """
-    Creates the output database for storing tokens with annotated positions.
+    Creates the output database for storing tokens along with tag, lemma, and macrons.
     """
     with sqlite3.connect(db_path) as conn:
         cursor = conn.cursor()
@@ -182,7 +237,9 @@ def create_output_database(db_path):
         CREATE TABLE IF NOT EXISTS annotated_tokens (
             id INTEGER PRIMARY KEY,
             token TEXT NOT NULL,
-            annotated_positions TEXT
+            tag TEXT,
+            lemma TEXT,
+            macrons TEXT
         )
         ''')
         conn.commit()
@@ -195,15 +252,11 @@ logging.basicConfig(filename='crawl_hypotactic/crawl_hypotactic.log', level=logg
 def macronize_tokens(input_db_path, output_db_path, input_tsv_path):
     """
     Processes tokens to filter those that can be disambiguated metrically, queries for their metrical patterns,
-    and stores the results in the output database.
+    and stores the results in the output database, including token, tag, lemma, and macrons.
     """
     total_tokens = 0
     macronized_tokens = 0
 
-    # Count the total number of lines for tqdm's total argument
-    with open(input_tsv_path, 'r', encoding='utf-8') as f:
-        total_lines = sum(1 for _ in f)
-    
     # Ensure the output database is set up
     create_output_database(output_db_path)
     
@@ -212,26 +265,42 @@ def macronize_tokens(input_db_path, output_db_path, input_tsv_path):
         output_cursor = output_conn.cursor()
 
         with open(input_tsv_path, 'r', encoding='utf-8') as infile:
-            for line in tqdm(infile, total=total_lines, desc="Processing tokens"):
+            lines = infile.readlines()
+
+        # Wrap the line processing with tqdm for progress indication
+        for line in tqdm(lines, desc="Processing tokens", total=len(lines)):
+            parts = line.strip().split('\t')
+            if len(parts) >= 3:  # Ensure there are enough parts
                 total_tokens += 1
-                token = line.strip().split('\t')[0]
+                token, tag, lemma = parts[0], parts[1], parts[2]
                 list_of_syllables = syllabifier(token)
 
-                # Check if any syllable in the token meets the criteria
+                # Check if any syllable in the token meets the criteria for filtering
                 if any(open_syllable_with_real_dichrona(syllable) for syllable in list_of_syllables):
-                    annotated_positions = collate_metrical_information(input_db_path, token)
-                    if annotated_positions:
-                        # Insert the token and its annotated positions into the output database
-                        output_cursor.execute('INSERT INTO annotated_tokens (token, annotated_positions) VALUES (?, ?)', (token, ','.join(annotated_positions)))
-                        output_conn.commit()
-                        macronized_tokens += 1
+                    # Fetch consistent metrical annotations for the token
+                    consistent_metrical_annotations = collate_metrical_information(input_db_path, token)
+                    
+                    # Proceed to filter these annotations based on syllable criteria
+                    if consistent_metrical_annotations:
+                        filtered_annotations = filter_syllables(consistent_metrical_annotations, token)
+                        if filtered_annotations:
+                            # Insert the token, tag, lemma, and filtered macrons into the output database
+                            output_cursor.execute('INSERT INTO annotated_tokens (token, tag, lemma, macrons) VALUES (?, ?, ?, ?)', 
+                                                  (token, tag, lemma, ','.join(filtered_annotations)))
+                            output_conn.commit()
+                            macronized_tokens += 1
+                        else:
+                            logging.info(f"Filtered all metrical information for token: {token}")
                     else:
-                        logging.info(f"No metrical information found for token: {token}")
+                        logging.info(f"No consistent metrical information found for token: {token}")
+                else:
+                    logging.info(f"No syllable meets criteria for token: {token}")
                     
     # Calculate and print the metrics
     percentage = (macronized_tokens / total_tokens) * 100 if total_tokens > 0 else 0
     logging.info(f"{Colors.RED}Tokens metrically macronized: {macronized_tokens}, which is {percentage:.2f}% of total tokens{Colors.ENDC}")
     print(f"{Colors.RED}Tokens metrically macronized: {macronized_tokens}, which is {percentage:.2f}% of total tokens{Colors.ENDC}")
+
 
 # Example usage
 input_db_path = 'crawl_hypotactic/metrical_patterns.db'
