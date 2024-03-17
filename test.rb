@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.expand_path('../ifthimos', __FILE__))
 
 #require '/opt/homebrew/lib/ruby/gems/3.3.0/gems/tinycus-1.1.0/tinycus'
-require './tinycus-1.1.0/tinycus'
+require './ifthimos/tinycus-1.1.0/tinycus'
 require './ifthimos/ifthimos' # require expects a .rb file
 
 g = GreekGenos.new('classical')

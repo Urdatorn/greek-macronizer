@@ -19,6 +19,8 @@ print(length('Ᾱ́') == LONG) # True
 print(length('Ᾱ́') == SHORT) # False
 print(length('Ῠ̔́') == SHORT) # True
 print(length('Ῠ̔́') == LONG) # False
+print(length('ῐ́') == SHORT) # True
+print(length('ι') == SHORT) # False
 
 # Verkar fungera finfint! :D
 # Test av att ta bort macron/breve

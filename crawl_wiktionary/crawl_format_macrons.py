@@ -7,19 +7,34 @@ LONG = '̄'
 def process_word(word, length_count):
     processed_word = ""
     modifications = []
-    for i, char in enumerate(word, start=1):  # Start counting from 1 for human readability
+    i = 1  # Initialize character position counter
+    for char in word:
         char_length = length(char)
         if char_length == LONG:
-            processed_word += strip_length(char)
+            # If the character is long, strip the length diacritic for processing
+            processed_char = strip_length(char)
             modifications.append(f"_{i}")
             length_count['long'] += 1
         elif char_length == SHORT:
-            processed_word += strip_length(char)
+            # If the character is short, strip the length diacritic for processing
+            processed_char = strip_length(char)
             modifications.append(f"^{i}")
             length_count['short'] += 1
         else:
-            processed_word += char
+            processed_char = char
+
+        # Append the processed character to the output word
+        processed_word += processed_char
+
+        # Only increment the character position counter if the character is part of the base word
+        if char != SHORT and char != LONG:
+            i += 1
+
     return processed_word, modifications
+
+length_count = {'long': 0, 'short': 0}
+print(process_word('νεᾱνῐ́ᾱς', length_count))
+
 
 def process_file(input_file_path, output_file_path):
     length_count = {'long': 0, 'short': 0}
