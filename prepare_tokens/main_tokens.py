@@ -30,6 +30,7 @@ import remove_punctuation
 import remove_duplicates
 import remove_lines_few_columns
 import normalize
+import supplement_barytones
 import alphabetize_unicode 
 import filter_dichrona
 import handle_x_lines
@@ -62,6 +63,7 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     tokens_no_dup_path = os.path.join(tokens_dir, 'tokens_no_dup.txt')
     tokens_three_columns_path = os.path.join(tokens_dir, 'tokens_three_columns.txt')
     tokens_norm_path = os.path.join(tokens_dir, 'tokens_norm.txt')
+    tokens_oxytone_path = os.path.join(tokens_dir, 'tokens_oxytone.txt')
     tokens_alph_path = os.path.join(tokens_dir, 'tokens_alph.txt')
     tokens_only_necessary_path = os.path.join(tokens_dir, 'tokens_dichrona.txt')
     tokens_no_x_path = os.path.join(tokens_dir, 'tokens_no_x.txt')
@@ -84,8 +86,11 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.YELLOW}4. Normalizing and generating tokens_norm.txt{Colors.ENDC}")
     normalize.normalize_columns(tokens_three_columns_path, tokens_norm_path)
 
+    print(f"{Colors.YELLOW}5. Adding oxytone versions of every barytone token and generating tokens_oxytone.txt{Colors.ENDC}")
+    supplement_barytones.process_tokens_file(tokens_norm_path, tokens_oxytone_path)
+
     print(f"{Colors.YELLOW}5. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
-    alphabetize_unicode.sort_greek_file(tokens_norm_path, tokens_alph_path)
+    alphabetize_unicode.sort_greek_file(tokens_oxytone_path, tokens_alph_path)
 
     print(f"{Colors.YELLOW}6. Filtering truly undecided dichrona to tokens_dichrona.txt and sending the rest to lines_filtered_out.txt{Colors.ENDC}")
     filter_dichrona.main(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)

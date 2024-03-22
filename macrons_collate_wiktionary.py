@@ -5,6 +5,9 @@ from utils import Colors
 from tqdm import tqdm
 
 
+## PREP
+
+
 def count_equivalent_entries(text_file_path, db_path, table_name, column_name):
     # Load the entries from the text file into a set for fast lookup
     with open(text_file_path, 'r', encoding='utf-8') as file:
@@ -29,20 +32,23 @@ def count_equivalent_entries(text_file_path, db_path, table_name, column_name):
     return len(equivalent_entries)
 
 
-print(count_equivalent_entries('prepare_tokens/tokens/tokens.txt', 'macrons.db', 'annotated_tokens', 'token'))
+total_equivalent_entries = count_equivalent_entries('prepare_tokens/tokens/tokens.txt', 'macrons.db', 'annotated_tokens', 'token') # 30517
 
 
-###
+### AUXILIARY FUNCTIONS
 
 
 # Initialize logging
-logging.basicConfig(filename='macrons_update.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='macrons_collate_wiktionary.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 def fetch_existing_macrons(cursor, token):
     """Fetch the existing macrons for a given token from the database."""
     cursor.execute("SELECT macrons FROM annotated_tokens WHERE token = ?", (token,))
     result = cursor.fetchone()
     return result[0] if result else None
+
+
 
 def ordinal_in_existing(existing_macrons, new_macron):
     """Check if the ordinal of the new macron exists in the existing macrons string."""
@@ -51,6 +57,9 @@ def ordinal_in_existing(existing_macrons, new_macron):
         new_ordinal = int(''.join(filter(str.isdigit, new_macron)))
         return new_ordinal in existing_ordinals
     return False
+
+# UNIT TEST
+ordinal_in_existing(existing_macrons, new_macron)
 
 def insert_macron_in_order(existing_macrons, new_macron):
     """Insert the new macron into the existing macrons string in the correct ordinal position."""
