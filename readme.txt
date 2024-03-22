@@ -13,19 +13,19 @@ läses som
 
 Dependencies 
 
-Python:
-    pip3 install requests
-    pip3 install tqdm
-    pip3 install bs4
-    pip3 install greek_accentuation
-    pip3 install numpy
-    pip3 install scipy
-    pip3 install pyuca
-    pip3 install beautifulsoup4
+    Python:
+        pip3 install requests
+        pip3 install tqdm
+        pip3 install bs4
+        pip3 install greek_accentuation
+        pip3 install numpy
+        pip3 install scipy
+        pip3 install pyuca
+        pip3 install beautifulsoup4
 
-Ruby:
-    gem install parallel
-    tinycus and genos need to be cloned from Bitbucket into the ifthimos folder
+    Ruby:
+        gem install parallel
+        tinycus and genos need to be cloned from Bitbucket into the ifthimos folder
 
 
 FLÖDESSCHEMA

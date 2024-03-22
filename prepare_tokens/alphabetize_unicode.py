@@ -1,5 +1,5 @@
 '''
-Alphabetizing the polytonic Greek dictionary after token and then lemma. 
+Alphabetizing a polytonic Greek dictionary after token and then lemma. 
 
 For porting the Unicode Collation Algorithm to python, see:
 https://github.com/jtauber/pyuca

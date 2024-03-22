@@ -30,18 +30,15 @@ input Ᾰ => output A
 '''
 
 import crawl_format_macrons
-import crawl_beta
-import crawl_stars
-import crawl_sort
 import crawl_remove_duplicates
+import crawl_sort
 
-input_file_path = 'crawl/macrons_wiktionary_unicode.txt'
-output_file_path = 'crawl/macrons_wiktionary.txt'
 
-crawl_format_macrons.process_file(input_file_path, 'crawl/macrons_wiktionary_format.txt')
-crawl_beta.translate_to_beta_code('crawl/macrons_wiktionary_format.txt', 'crawl/macrons_wiktionary_beta.txt')
-crawl_stars.remove_stars('crawl/macrons_wiktionary_beta.txt', 'crawl/macrons_wiktionary_stars.txt')
-crawl_remove_duplicates.remove_duplicates('crawl/macrons_wiktionary_stars.txt', 'crawl/macrons_wiktionary_dup.txt')
-crawl_sort.sort_file('crawl/macrons_wiktionary_dup.txt', output_file_path)
+input_file_path = 'crawl_wiktionary/macrons_wiktionary_raw.txt'
+output_file_path = 'crawl_wiktionary/macrons_wiktionary.txt'
+
+crawl_format_macrons.process_file(input_file_path, 'crawl_wiktionary/macrons_wiktionary_format.txt')
+crawl_remove_duplicates.remove_duplicates('crawl_wiktionary/macrons_wiktionary_format.txt', 'crawl_wiktionary/macrons_wiktionary_no_dup.txt')
+crawl_sort.sort_file('crawl_wiktionary/macrons_wiktionary_no_dup.txt', output_file_path)
 
 print(f"Succé!")

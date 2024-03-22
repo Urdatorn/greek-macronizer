@@ -1,50 +1,60 @@
+'''
+Takes a list of polytonic Greek tokens such as 
+
+νεᾱνῐ́ᾱς
+νεᾱνῐ́ᾳ
+νεᾱνῐείᾱ
+νεᾱνῐεύομαι
+
+and separates the tokens from the vowel-lenghts, turning it into a two-column TSV, such as
+
+νεανίας	_3^5_7
+'''
 import argparse
 from greek_accentuation.characters import length, strip_length
 
 SHORT = '̆'
 LONG = '̄'
 
-def process_word(word, length_count):
+# Define length_count as a global dictionary
+length_count = {'long': 0, 'short': 0}
+
+def process_word(word):
+    '''
+    >>process_word('νεᾱνῐ́ᾱς')
+    >>('νεανίας', ['_3', '^5', '_7'])
+    '''
+    global length_count  # Declare length_count as global to modify it
     processed_word = ""
     modifications = []
     i = 1  # Initialize character position counter
     for char in word:
         char_length = length(char)
         if char_length == LONG:
-            # If the character is long, strip the length diacritic for processing
             processed_char = strip_length(char)
             modifications.append(f"_{i}")
             length_count['long'] += 1
         elif char_length == SHORT:
-            # If the character is short, strip the length diacritic for processing
             processed_char = strip_length(char)
             modifications.append(f"^{i}")
             length_count['short'] += 1
         else:
             processed_char = char
 
-        # Append the processed character to the output word
         processed_word += processed_char
-
-        # Only increment the character position counter if the character is part of the base word
         if char != SHORT and char != LONG:
             i += 1
 
     return processed_word, modifications
 
-length_count = {'long': 0, 'short': 0}
-print(process_word('νεᾱνῐ́ᾱς', length_count))
-
 
 def process_file(input_file_path, output_file_path):
-    length_count = {'long': 0, 'short': 0}
     try:
         with open(input_file_path, 'r', encoding='utf-8') as input_file, \
              open(output_file_path, 'w', encoding='utf-8') as output_file:
             for line in input_file:
                 parts = line.strip().split('\t')
-                processed_word, modifications = process_word(parts[0], length_count)
-                # Update the tag column with modifications
+                processed_word, modifications = process_word(parts[0])
                 if len(parts) > 1:
                     parts[1] += ''.join(modifications)
                 else:
