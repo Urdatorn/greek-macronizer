@@ -89,19 +89,19 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     print(f"{Colors.YELLOW}5. Adding oxytone versions of every barytone token and generating tokens_oxytone.txt{Colors.ENDC}")
     supplement_barytones.process_tokens_file(tokens_norm_path, tokens_oxytone_path)
 
-    print(f"{Colors.YELLOW}5. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}6. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
     alphabetize_unicode.sort_greek_file(tokens_oxytone_path, tokens_alph_path)
 
-    print(f"{Colors.YELLOW}6. Filtering truly undecided dichrona to tokens_dichrona.txt and sending the rest to lines_filtered_out.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}7. Filtering truly undecided dichrona to tokens_dichrona.txt and sending the rest to lines_filtered_out.txt{Colors.ENDC}")
     filter_dichrona.main(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
 
-    print(f"{Colors.YELLOW}7. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}8. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
     handle_x_lines.handle_x_lines(tokens_only_necessary_path, tokens_no_x_path, lines_with_x_file_path)
 
-    print(f"{Colors.YELLOW}8. Removing the last accent of words with two accents{Colors.ENDC}")
+    print(f"{Colors.YELLOW}9. Removing the last accent of words with two accents{Colors.ENDC}")
     remove_double_accents.process_file(tokens_no_x_path, tokens_no_double_accents_path)
 
-    print(f"{Colors.YELLOW}9. Removing words lacking obligatory spīritūs{Colors.ENDC}")
+    print(f"{Colors.YELLOW}10. Removing words lacking obligatory spīritūs{Colors.ENDC}")
     remove_no_spiritus.process_tsv_file(tokens_no_double_accents_path, output_file_path)
 
     print(f"{Colors.CYAN}Processing complete! tokens.txt generated.{Colors.ENDC}")

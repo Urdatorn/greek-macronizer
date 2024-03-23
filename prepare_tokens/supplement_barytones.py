@@ -1,8 +1,10 @@
 import csv
+import re
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+from tqdm import tqdm
 from greek_accentuation.characters import strip_accents
 from greek_accentuation.accentuation import make_oxytone
 
@@ -51,6 +53,7 @@ def process_tokens_file(input_file_path, output_file_path):
 
         reader = csv.reader(infile, delimiter='\t')
         writer = csv.writer(outfile, delimiter='\t')
+        new_lines_count = 0  # Initialize counter for new lines
 
         for row in tqdm(reader, desc="Processing tokens"):
             # Write the original row
@@ -67,5 +70,8 @@ def process_tokens_file(input_file_path, output_file_path):
                 
                 # Write the modified row
                 writer.writerow(modified_row)
+                new_lines_count += 1  # Increment the new lines counter
 
     print(f"{Colors.GREEN}Process complete. Modified tokens written to {output_file_path}{Colors.ENDC}")
+    print(f"{Colors.GREEN}Total new lines created: {new_lines_count}{Colors.ENDC}")
+

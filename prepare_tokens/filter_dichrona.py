@@ -338,8 +338,8 @@ def write_results(output_lines, filtered_out_lines, output_file_path, filtered_o
         print(f"{Colors.RED}Error writing to {filtered_out_file_path}: {e}{Colors.ENDC}")
 
     # Print the total number of lines written to each file
-    print(f"{Colors.YELLOW}Total lines with undecided dichrona: {len(output_lines)}{Colors.ENDC}")
-    print(f"{Colors.YELLOW}Total lines filtered out: {len(filtered_out_lines)}{Colors.ENDC}")
+    print(f"{Colors.GREEN}Total lines with undecided dichrona: {len(output_lines)}{Colors.ENDC}")
+    print(f"{Colors.RED}Total lines filtered out: {len(filtered_out_lines)}{Colors.ENDC}")
 
 
 ### CALLABLE MAIN SCRIPT ###

@@ -25,7 +25,7 @@ def handle_x_lines(input_file_path, output_file_path, lines_with_x_file_path):
                 token, tag, lemma = row
 
                 # Check for the conditions that would move the line to lines_with_x.txt
-                if 'x' in tag or 'X' in tag or len(tag) < 9 or not any(char in DICHRONA for char in lemma):
+                if 'x' in tag or 'X' in tag or len(tag) < 9:
                     lines_with_x.append(row)
                 else:
                     non_x_lines.append(row)
