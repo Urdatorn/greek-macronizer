@@ -120,7 +120,6 @@ def broken_elision(line1, line2):
     return False
 
 
-
 def process_file(input_file_path, output_file_path):
     with open(input_file_path, 'r', encoding='utf-8') as infile:
         lines = [line.strip() for line in infile]
@@ -138,25 +137,29 @@ def process_file(input_file_path, output_file_path):
         else:
             i += 1
 
-    # Apply broken_token on modified lines
+    # After fixing elisions, prepare for the next step
+    modified_lines = lines.copy()  # Work on a copy of the modified lines after elision fixes
+
+    # Apply broken_token on modified lines and fix token breaks
     token_count = 0
     i = 0
-    modified_lines = []
-    for i in tqdm(range(len(lines) - 2), desc="Processing lines"):
-        line1 = lines[i].split('\t')
-        line2 = lines[i+1].split('\t')
-        line3 = lines[i+2].split('\t')
+    while i < len(modified_lines) - 2:
+        line1 = modified_lines[i].split('\t')
+        line2 = modified_lines[i+1].split('\t')
+        line3 = modified_lines[i+2].split('\t')
         if broken_token(line1, line2, line3):
-            modified_lines.append("\t".join([line1[0] + line3[0]] + line1[1:]))
-            i += 3  # Skip the next two lines as they're merged
+            # Merge line1 and line3 and skip line2 and line3 in the next iteration
+            modified_line = "\t".join([line1[0] + line3[0]] + line1[1:])
+            modified_lines[i] = modified_line  # Replace line1 with the merged line
+            del modified_lines[i+1:i+3]  # Remove line2 and line3 from the list
             token_count += 1
         else:
-            modified_lines.append(lines[i])
-            i += 1
-    # Append any remaining lines that haven't been processed
-    while i < len(lines):
-        modified_lines.append(lines[i])
-        i += 1
+            i += 1  # Only increment if no token break was fixed
+
+    # Write the final modified lines to the output file
+    with open(output_file_path, 'w', newline='', encoding='utf-8') as outfile:
+        for line in tqdm(modified_lines, desc="Writing to output"):
+            outfile.write(line + '\n')
 
     # Write modified lines to output file
     with open(output_file_path, 'w', newline='', encoding='utf-8') as outfile:
