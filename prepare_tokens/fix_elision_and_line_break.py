@@ -1,6 +1,8 @@
 '''
-Fixes elided tokens whose elision signs have become separate tokens, 
-as well as words with intra-word line breaks which have been triply tokenized: first part of the word + en dash + last part.
+Fixes:
+    - elided tokens whose elision signs have become separate tokens, 
+    - words with intra-word line breaks which have been triply tokenized: first part of the word + en dash + last part,
+    - words with parts that are conjectures in angular brackets
 
 ### CONTEXT AND THEORY ###
 
@@ -42,6 +44,55 @@ Now, the use of dashes for ellipses could have created confusion, as e.g. Eur. I
 Luckily, the two usages have (hopefully consistently!) separate unicodes: the line-break is a short en dash, same as in the tag,
 while the ellipsis is surrounded by two em dashes. 
 
+The third needed fix is exemplified by S. OC 1733,
+    "ἄγε με, καὶ τότ᾽ ἐπενάριξον":
+
+    Ἄγε	v3siia---	ἄγω
+    με	p-s---ma-	ἐγώ
+    ,	u--------	,
+    καὶ	c--------	καί
+    τότ’	d--------	τότ
+    <	d--------	<
+    ἐπ	r--------	ἐπ
+    >	d--------	>
+    ενάριξον	v1saia---	ενάριξον
+    .	u--------	.
+
+ An editor has conjectured to add the prefix 'ἐπι' to 'ἐνάριξον' (ἐναρίζω, killing someone to take their ἔνᾰρα, "spoils"),
+ and the conjectural part is written with <ἐπι>. This means the rest of the word lacks a spiritus, which is how this bug is found. 
+ We need to remove the <> and join the two lines. The result should thus be
+
+    Ἄγε	v3siia---	ἄγω
+    με	p-s---ma-	ἐγώ
+    ,	u--------	,
+    καὶ	c--------	καί
+    τότ’	d--------	τότ
+    ἐπενάριξον	v1saia---	ἐπενάριξον
+    .	u--------	.
+
+Another example is:
+
+    ξ	d--------	ἔξ
+    <	u--------	<
+    ίφει	v3spia---	ίφω
+    >	u--------	>
+
+which clearly should simply be
+
+    ξίφει	v3spia---	ξίφει
+
+An extra complicated case is S. Ant. 836
+
+    Καίτοι	d--------	καίτοι
+    φθιμένῃ	v-sapmfn-	φθιμένῃ
+    μέγ	a-s---na-	μέγ
+    <	d--------	<
+    α	p-p---na-	α
+    κ>ἀκοῦσαι	v--ana---	κ>ἀκοῦω
+
+    Ἀλλὰ θεός τοι καὶ θεογεννής
+
+
 WHAT IS ELISION IN GREEK?
 
 In polysyllabic words, all final short vowels except ypsilon (CGCG 1.36) may be elided sometimes: α (ἆρ᾽), ε (ὅτε), ι (ἔστ᾽), ο (ἀφ᾽ οὗ).
@@ -69,15 +120,34 @@ Prodelisions do not seem to be marked in the corpus and/or not survive OdyCy, bu
 
 '''
 import csv
+import re
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from tqdm import tqdm
 
-from utils import contains_greek, Colors
+from utils import contains_greek, with_spiritus, all_vowels, Colors
 
 elision_chars = ('\u2019', '\u02BC') # RIGHT SINGLE QUOTATION MARK (’), the one used, but also MODIFIER LETTER APOSTROPHE (ʼ)
+
+
+### AUXILIARY DEFINITIONS
+
+
+def lacks_spiritus(word):
+    """
+    Checks if the first character of the word is a vowel and
+    if the word does not contain any characters with spiritus.
+    """
+    if re.match(all_vowels, word[0]) and not re.search(with_spiritus, word):
+        #print(word)
+        return True
+    return False
+
+
+print(lacks_spiritus('ίφει'))
+print(lacks_spiritus('ενάριξον'))
 
 
 def broken_token(line1, line2, line3):
@@ -120,57 +190,112 @@ def broken_elision(line1, line2):
     return False
 
 
+def broken_conjecture(line1, line2, line3, line4):
+    """
+    Given four lists as input, checks if the pattern for a broken conjecture is present.
+
+    Parameters:
+    - line1, line2, line3, line4: Lists representing tab-separated strings from consecutive lines.
+
+    Returns:
+    - True if the pattern matches for a broken conjecture; False otherwise.
+    """
+    condition1 = line1[0] == '<' and line3[0] == '>' and contains_greek(line2[0]) and lacks_spiritus(line4[0])
+    condition2 = line2[0] == '<' and line4[0] == '>' #and contains_greek(line1[0]) and lacks_spiritus(line3[0])
+    if len(line1) > 0 and len(line2) > 0 and len(line3) > 0 and len(line4) > 0:
+        if condition1:
+            print(line1)
+            return 'Case 1'
+        elif condition2:
+            return 'Case 2'
+    else:
+        return False
+
+### MAIN
+
+
 def process_file(input_file_path, output_file_path):
     with open(input_file_path, 'r', encoding='utf-8') as infile:
         lines = [line.strip() for line in infile]
-    
-    # Apply broken_elision and gather modified lines
+
     elision_count = 0
+    token_count = 0
+    conjecture_count = 0
+    final_lines = []
+
+    # First pass for broken_elision
     i = 0
     while i < len(lines) - 1:
         line1 = lines[i].split('\t')
-        line2 = lines[i+1].split('\t')
+        line2 = lines[i + 1].split('\t')
         if broken_elision(line1, line2):
-            lines[i] = "\t".join([line1[0] + line2[0]] + line1[1:])
-            lines.pop(i+1)  # Remove the next line as it's merged
+            combined_line = "\t".join([line1[0] + line2[0]] + line1[1:])
+            final_lines.append(combined_line)
             elision_count += 1
+            i += 2  # Skip the next line as it's merged
         else:
+            final_lines.append(lines[i])
             i += 1
 
-    # After fixing elisions, prepare for the next step
-    modified_lines = lines.copy()  # Work on a copy of the modified lines after elision fixes
-
-    # Apply broken_token on modified lines and fix token breaks
-    token_count = 0
+    # Second pass for broken_token on the result of the first pass
     i = 0
-    while i < len(modified_lines) - 2:
-        line1 = modified_lines[i].split('\t')
-        line2 = modified_lines[i+1].split('\t')
-        line3 = modified_lines[i+2].split('\t')
+    lines = final_lines  # Reset lines with results from first pass
+    final_lines = []  # Reset final_lines for second pass
+    while i < len(lines) - 2:
+        line1 = lines[i].split('\t')
+        line2 = lines[i + 1].split('\t')
+        line3 = lines[i + 2].split('\t')
         if broken_token(line1, line2, line3):
-            # Merge line1 and line3 and skip line2 and line3 in the next iteration
-            modified_line = "\t".join([line1[0] + line3[0]] + line1[1:])
-            modified_lines[i] = modified_line  # Replace line1 with the merged line
-            del modified_lines[i+1:i+3]  # Remove line2 and line3 from the list
+            combined_line = "\t".join([line1[0] + line3[0]] + line1[1:])
+            final_lines.append(combined_line)
             token_count += 1
+            i += 3  # Skip the next two lines as they're merged
         else:
-            i += 1  # Only increment if no token break was fixed
+            final_lines.append(lines[i])
+            i += 1
 
-    # Write the final modified lines to the output file
+    # Third pass for broken_conjecture on the result of the second pass
+    lines = final_lines  # Reset lines with results from second pass
+    final_lines = []  # Reset final_lines for third pass
+    i = 0
+    while i < len(lines) - 3:
+        line1 = lines[i].split('\t')
+        line2 = lines[i + 1].split('\t')
+        line3 = lines[i + 2].split('\t')
+        line4 = lines[i + 3].split('\t')
+        conjecture_result = broken_conjecture(line1, line2, line3, line4)
+        if conjecture_result == 'Case 1':
+            combined_line = "\t".join([line2[0] + line4[0], line2[1], line2[0] + line4[0]])
+            final_lines.append(combined_line)
+            conjecture_count += 1
+            i += 4  # Skip the lines involved in the conjecture fix
+        elif conjecture_result == 'Case 2':
+            combined_line = "\t".join([line1[0] + line3[0], line1[1], line1[0] + line3[0]])
+            final_lines.append(combined_line)
+            conjecture_count += 1
+            i += 4  # Skip the lines involved in the conjecture fix
+        else:
+            final_lines.append(lines[i])
+            i += 1
+
+    # Append any remaining lines that weren't part of a broken_conjecture group
+    while i < len(lines):
+        final_lines.append(lines[i])
+        i += 1
+
+    # Write the final lines to the output file
     with open(output_file_path, 'w', newline='', encoding='utf-8') as outfile:
-        for line in tqdm(modified_lines, desc="Writing to output"):
+        for line in tqdm(final_lines, desc="Writing to output"):
             outfile.write(line + '\n')
 
-    # Write modified lines to output file
-    with open(output_file_path, 'w', newline='', encoding='utf-8') as outfile:
-        for line in modified_lines:
-            outfile.write(line + '\n')
-
-    print(f"{Colors.GREEN}Elisions fixed: {elision_count}. Token breaks fixed: {token_count}.{Colors.ENDC}")
+    print(f"{Colors.GREEN}Elisions fixed: {elision_count}. Token breaks fixed: {token_count}. Conjectures fixed: {conjecture_count}.{Colors.ENDC}")
     print(f"{Colors.GREEN}Process complete. Output written to {output_file_path}{Colors.ENDC}")
 
 
 # Example usage
-input_file_path = 'prepare_tokens/tokens/tragedies_300595.txt'  # Your input file path
-output_file_path = 'prepare_tokens/tokens/tragedies_300595_fix_elision_hyphen.txt'  # Your output file path
+#input_file_path = 'prepare_tokens/tokens/tragedies_300595.txt'  # Your input file path
+#output_file_path = 'prepare_tokens/tokens/tragedies_300595_fix_elision_hyphen.txt'  # Your output file path
+    
+input_file_path = 'prepare_tokens/tokens/test_elision2.txt'
+output_file_path = 'prepare_tokens/tokens/test_elision_output2.txt'
 process_file(input_file_path, output_file_path)

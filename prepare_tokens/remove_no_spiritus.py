@@ -38,7 +38,7 @@ def process_tsv_file(input_file_path, output_file_path):
             # Use the check_and_return_word function to determine if the line should be removed
             if check_and_return_word(first_column):
                 lines_removed += 1  # Increment counter if the line meets the criteria and is to be removed
-                print(first_column)
+                print(line)
             else:
                 # If the word does not meet the criteria for removal, it's written to the output file
                 outfile.write(line)
