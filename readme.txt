@@ -28,6 +28,37 @@ Dependencies
         tinycus and genos need to be cloned from Bitbucket into the ifthimos folder
 
 
+To understand the way in which the tokens have been extracted and the artifacts created thereby is crucial.
+Take as an exampe Soph. Ajax 699f, Νύσια Κνώσι᾽ ὀρχήματ᾽ αὐτοδαῆ ξυνὼν ἰάψῃς:
+
+Νύσια	a-p---na-	Νύσιος
+Κνώσι	n-p---na-	Κνώσι
+’	n-p---na-	’
+ὀρ	n-p---na-	ὀρ
+-	u--------	-
+χήματ	n-p---na-	χήματ
+’	n-p---na-	’
+αὐτοδαῆ	a-p---na-	αὐτοδαής
+ξυνὼν	v-sppamn-	ξυνὼν
+ἰάψῃς	v2sasa---	ἰάπτω
+
+Obviously, words followed by a line with an elision mark, need to be reunited with this mark (Κνώσι, χήματ + ’),
+and words encircling a line-break mark need to be joined together (ὀρ + χήματ).
+
+Now, the use of dashes for ellipses could have created confusion, as e.g. Eur. IT 1, 23, "τίκτει — τὸ καλλιστεῖον εἰς ἔμ᾽ ἀναφέρων —"
+
+—	u--------	—
+τὸ	l-s---na-	ὁ
+καλλιστεῖον	n-s---na-	καλλιστεῖον
+εἰς	r--------	εἰς
+ἔμ	p-s---ma-	ἔμ
+’	p-s---ma-	’
+ἀναφέρων	v-sppamn-	ἀναφέρω
+—	u--------	—
+
+Luckily, the two usages have (hopefully consistently!) separate unicodes: the line-break is a short en dash, same as in the tag,
+while the ellipsis is surrounded by two em dashes. 
+
 FLÖDESSCHEMA
 
 FÖRBEREDA TOKENS.TXT (Detta kan göras igen om det släpps bättre POS-analys) 
