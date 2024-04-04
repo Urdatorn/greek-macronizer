@@ -97,6 +97,7 @@ Vissa tokens har tog både obestämbara och "gratis", och då bör de som är gr
 Följande typer av tokens mappas också mot sina normala motsvarigheter och inkluderas ej i vår dictionary:
 - tokens på grav
 - eliderade tokens (sex teoretiska alternativ: om det mot all förmodan finns flera möjliga oeliderade motsvarigheter i dictionary, så kolla ordklass och/eller morfologi för att disambiguera)
+- eliderade tokens som aspirerats av följande ord, e.g. τ > θ, κ > χ, π > φ
 - tokens med extra akut på ultiman pga enclitica 
 
 1. Algoritmiskt lägga in de långa som finns i regelbundna deklinationer/konjugationer; kanske använda ifthimos

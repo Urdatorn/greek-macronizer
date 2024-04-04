@@ -139,15 +139,13 @@ def lacks_spiritus(word):
     """
     Checks if the first character of the word is a vowel and
     if the word does not contain any characters with spiritus.
+    >> lacks_spiritus('ίφει')
+    >> True
     """
     if re.match(all_vowels, word[0]) and not re.search(with_spiritus, word):
         #print(word)
         return True
     return False
-
-
-print(lacks_spiritus('ίφει'))
-print(lacks_spiritus('ενάριξον'))
 
 
 def broken_token(line1, line2, line3):
@@ -232,15 +230,15 @@ def process_file(input_file_path, output_file_path):
             combined_line = "\t".join([line1[0] + line2[0]] + line1[1:])
             final_lines.append(combined_line)
             elision_count += 1
-            i += 2  # Skip the next line as it's merged
+            i += 2
         else:
             final_lines.append(lines[i])
             i += 1
 
-    # Second pass for broken_token on the result of the first pass
+    # Second pass for broken_token
+    lines = final_lines  # Reset lines with results from the first pass
+    final_lines = []
     i = 0
-    lines = final_lines  # Reset lines with results from first pass
-    final_lines = []  # Reset final_lines for second pass
     while i < len(lines) - 2:
         line1 = lines[i].split('\t')
         line2 = lines[i + 1].split('\t')
@@ -249,53 +247,101 @@ def process_file(input_file_path, output_file_path):
             combined_line = "\t".join([line1[0] + line3[0]] + line1[1:])
             final_lines.append(combined_line)
             token_count += 1
-            i += 3  # Skip the next two lines as they're merged
+            i += 3
         else:
             final_lines.append(lines[i])
             i += 1
 
-    # Third pass for broken_conjecture on the result of the second pass
-    lines = final_lines  # Reset lines with results from second pass
-    final_lines = []  # Reset final_lines for third pass
+    # Third pass for case 'a' 
+    #   line0    ξ	d--------	ἔξ
+    #   line1    <	u--------	<
+    #   line2    ίφει	v3spia---	ίφω
+    #   line3    >	u--------	>
     i = 0
-    while i < len(lines) - 3:
-        line1 = lines[i].split('\t')
-        line2 = lines[i + 1].split('\t')
-        line3 = lines[i + 2].split('\t')
-        line4 = lines[i + 3].split('\t')
-        conjecture_result = broken_conjecture(line1, line2, line3, line4)
-        if conjecture_result == 'Case 1':
+    intermediate_lines = []  # Temporarily hold lines while processing for case 'a'
+    while i < len(final_lines) - 3:
+        #if i > 0:  # Ensure there's a preceding line for case 'a'
+        line0 = final_lines[i - 1].split('\t')
+        line1 = final_lines[i].split('\t')
+        line2 = final_lines[i + 1].split('\t')
+        line3 = final_lines[i + 2].split('\t')
+        #print(line0[0], line1[0], line2[0], line3[0])
+
+        if line1[0] == '<' and line3[0] == '>' and contains_greek(line2[0]) and lacks_spiritus(line2[0]):
+            print(f'{Colors.RED}[{conjecture_count + 1}]{Colors.ENDC}{line0[0]}, {line1[0]}, {line2[0]}, {line3[0]}; reference: {Colors.YELLOW}{i}{Colors.ENDC} {" ".join(line0)}{" ".join(line2)}')
+            combined_line = "\t".join([line0[0] + line2[0], line0[1], line0[0] + line2[0]])
+            intermediate_lines.append(combined_line)
+            conjecture_count += 1
+            i += 4  # Skip the next three lines as they're merged for this case
+            continue  # Move to the next iteration without adding the current line to intermediate_lines
+        # If not case 'a', add the line to intermediate_lines to preserve it for further processing
+        intermediate_lines.append(final_lines[i])
+        i += 1
+
+    # Append any remaining lines that weren't part of a conjectural group for case 'a'
+    while i < len(final_lines):
+        intermediate_lines.append(final_lines[i])
+        i += 1
+
+    # Reset for third pass for case 'b': using the intermediate_lines with case 'a' already processed
+    i = 0
+    final_lines = []  # Reset final_lines for the final output
+    while i < len(intermediate_lines) - 3:
+        line1 = intermediate_lines[i].split('\t')
+        line2 = intermediate_lines[i + 1].split('\t')
+        line3 = intermediate_lines[i + 2].split('\t')
+        if i < len(intermediate_lines) - 4:  # Ensure there's a succeeding line for case 'b'
+            line4 = intermediate_lines[i + 3].split('\t')
+
+        if line1[0] == '<' and line3[0] == '>' and contains_greek(line2[0]) and lacks_spiritus(line4[0]) and not lacks_spiritus(line2[0]):  # Case 'b'
             combined_line = "\t".join([line2[0] + line4[0], line2[1], line2[0] + line4[0]])
             final_lines.append(combined_line)
             conjecture_count += 1
-            i += 4  # Skip the lines involved in the conjecture fix
-        elif conjecture_result == 'Case 2':
-            combined_line = "\t".join([line1[0] + line3[0], line1[1], line1[0] + line3[0]])
-            final_lines.append(combined_line)
-            conjecture_count += 1
-            i += 4  # Skip the lines involved in the conjecture fix
+            i += 4  # Skip the next three lines as they're merged for case 'b'
         else:
-            final_lines.append(lines[i])
+            final_lines.append(intermediate_lines[i])
             i += 1
 
-    # Append any remaining lines that weren't part of a broken_conjecture group
-    while i < len(lines):
-        final_lines.append(lines[i])
+    # Append any remaining lines to final_lines
+    while i < len(intermediate_lines):
+        final_lines.append(intermediate_lines[i])
         i += 1
 
     # Write the final lines to the output file
     with open(output_file_path, 'w', newline='', encoding='utf-8') as outfile:
-        for line in tqdm(final_lines, desc="Writing to output"):
+        for line in final_lines:
             outfile.write(line + '\n')
 
     print(f"{Colors.GREEN}Elisions fixed: {elision_count}. Token breaks fixed: {token_count}. Conjectures fixed: {conjecture_count}.{Colors.ENDC}")
     print(f"{Colors.GREEN}Process complete. Output written to {output_file_path}{Colors.ENDC}")
 
 
-# Example usage
-#input_file_path = 'prepare_tokens/tokens/tragedies_300595.txt'  # Your input file path
-#output_file_path = 'prepare_tokens/tokens/tragedies_300595_fix_elision_hyphen.txt'  # Your output file path
+### USAGE
+
+
+input_file_path = 'prepare_tokens/tokens/tragedies_300595.txt'  # Your input file path
+output_file_path = 'prepare_tokens/tokens/tragedies_300595_fix_elision_hyphen.txt'  # Your output file path
+
+"""
+3 april, 15:19; Elisions fixed: 16351. Token breaks fixed: 762. Conjectures fixed: 17.
+# Manually fixed:
+
+βασιλείοις < ιν >
+ξ < ίφει >
+εὐανέμοις < ι >
+τοῖς < ιν >
+τ < όδ’ >
+τοῖς < ι >
+ὀλεθρίαις < ι >
+μ < ε >
+Θήβαις < ιν >
+π < αρ >
+
+    βασιλείοισιν	a-p---md-	βασιλείοισιν (from βασιλείοιςιν)
+
+"""
     
-input_file_path = 'prepare_tokens/tokens/test_elision2.txt'
-output_file_path = 'prepare_tokens/tokens/test_elision_output2.txt'
+#input_file_path = 'prepare_tokens/tokens/test_elision.txt'
+#output_file_path = 'prepare_tokens/tokens/test_elision_output.txt'
+
 process_file(input_file_path, output_file_path)

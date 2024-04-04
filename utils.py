@@ -16,14 +16,38 @@ class Colors:
     BOLD = '\033[1m'      # Bold
     UNDERLINE = '\033[4m' # Underline
 
-acutes = r'[άέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴ]'
+### REGULAR EXPRESSIONS ###
+# note that rn these don't include all capital letters
+# VOWELS
+acutes = r'[άέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴ]' # problem with how to represent capital iota adscript; cf. Eric's regex
 graves = r'[ὰὲὴὶὸὺὼἂἃἒἓἢἣἲἳὂὃὒὓὢὣῒῢᾂᾃᾲᾒᾓῂᾢᾣῲ]'
 circumflexes = r'[ᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]'
 all_accents = r'[άέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴὰὲὴὶὸὺὼἂἃἒἓἢἣἲἳὂὃὒὓὢὣῒῢᾂᾃᾲᾒᾓῂᾢᾣῲᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]' # sum of above 3
 unaccented = r'[αεηιουωἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾳᾀᾁῃᾐᾑῳᾠᾡ]' # 7 + 14 + 9
 all_vowels = r'[αεηιουωἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾳᾀᾁῃᾐᾑῳᾠᾡάέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴὰὲὴὶὸὺὼἂἃἒἓἢἣἲἳὂὃὒὓὢὣῒῢᾂᾃᾲᾒᾓῂᾢᾣῲᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]' # sum of above 2
-with_spiritus = r'[ἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾀᾁᾐᾑᾠᾡἄἅἔἕἤἥἴἵὄὅὔὕὤὥᾄᾅᾔᾕᾤᾥἂἃἒἓἢἣἲἳὂὃὒὓὢὣᾂᾃᾒᾓᾢᾣἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾖᾗᾦᾧ]'
+with_spiritus = r'[ἈἉἘἙἨἩἸἹὈὉὙὨὩἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾀᾁᾐᾑᾠᾡἄἅἔἕἤἥἴἵὄὅὔὕὤὥᾄᾅᾔᾕᾤᾥἂἃἒἓἢἣἲἳὂὃὒὓὢὣᾂᾃᾒᾓᾢᾣἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾖᾗᾦᾧ]'
 without_spiritus = r'[αεηιουωάὰέὲήὴίὶόὸὺύώὼᾶῆῖῦῶϋϊΐῒϋῢΰῗῧ]'
+
+
+def upper(λέξις):
+    upper = λέξις.upper()
+    return upper
+
+def lower(λέξις):
+    lower = λέξις.lower()
+    return lower
+
+
+# CONSONANTS
+# there are 18 capital consonants, if we include both aspirated and spiritus-less ῥῶ (it's always aspirated at word beginning, so only all-caps would have it spiritus-less, which is rare but exists in prosopa dramatis). There is no spiritus lenis capital rho in unicode.
+# there are 2 lowercase sigmas and all 3 rhos, so 20
+# ergo totally 18 + 20 = 38
+all_consonants = r'[ΒΓΔΖΘΚΛΜΝΞΠΡῬΣΤΦΧΨβγδζθκλμνξπρῤῥσςτφχψ]' 
+# indigenous Greek words ended on vowel or one of 5 consonants, e.g. ἐάν, σάρξ, κήρ, ὗς, φλέψ. Of course, phonetically three of these really end on /s/ and none of them are stops.
+# there are a few exceptional forms on κ as well, such as ἐκ, οὐκ, which depend on context and are better treated as stop words than as part of the regex.
+# in dialects and Homer there are *tons* of exceptions due to apocope, assimilation etc.
+legitimate_final_consonants = r'[νξρςψ]' # excluding οὐκ, ἐκ, κἀκ (crasis for καὶ ἐκ) etc.
+illegitimate_final_consonants = r'[βγδζθκλμπστφχ]'
 
 # Unicode Constants for Ancient Greek punctuation
 class Punctuation:
@@ -85,15 +109,15 @@ The following AIY in cltk are excluded as unnecessary:
 
 Commented names are official unicode, and tends to use Modern Greek linguistic vocabulary
 NB that unicode calls
-acute = 'oxia' for polytonic and 'tonos' for monotonic (only the small ones overlap with polytonic): we include both here, but for string comparisons we need to convert everything to oxia
-grave = 'varia'
-circumflex = 'perispomeni' (although these are not included)
-spīritūs asperī and lēnēs = 'psili' and 'dasia'
-iota adscriptum = 'prosgegrammeni' (the font in VSCode shows these as subscripta. Not sure whether these are widely used as opposed to just writing iotas)
-iota subscriptum = 'ypogegrammeni' (although these are not included)
-Greek diaeresis/trema = 'dialytika' (although on its own the diacritic is called 'combining diaeresis')
-longum = 'macron'
-breve = 'vrachy' (although these two are not included either).
+    acute = 'oxia' for polytonic and 'tonos' for monotonic (only the small ones overlap with polytonic): we include both here, but for string comparisons we need to convert everything to oxia
+    grave = 'varia'
+    circumflex = 'perispomeni' (although these are not included)
+    spīritūs asperī and lēnēs = 'psili' and 'dasia'
+    iota adscriptum = 'prosgegrammeni' (the font in VSCode shows these as subscripta. Not sure whether these are widely used as opposed to just writing iotas)
+    iota subscriptum = 'ypogegrammeni' (although these are not included)
+    Greek diaeresis/trema = 'dialytika' (although on its own the diacritic is called 'combining diaeresis')
+    longum = 'macron'
+    breve = 'vrachy' (although these two are not included either).
 
 NB2 that there are FIVE overlapping tonos-oxia glyphs: ά, ί, ύ, ΐ, ΰ.
 The last two appear as  in the corpus (e.g. βαΰζει, Δαναΐδων) but are not included in cltk's tonos_oxia_converter,

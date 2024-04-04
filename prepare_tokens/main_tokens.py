@@ -27,6 +27,7 @@ from stats import write_stats
 
 # all token scripts 
 import remove_punctuation
+import split_double_tokens
 import remove_duplicates
 import remove_lines_few_columns
 import normalize
@@ -60,6 +61,7 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
 
     # Defining relative paths: intermediate
     tokens_no_punct_path = os.path.join(tokens_dir, 'tokens_no_punct.txt')
+    tokens_split_double_tokens_path = os.path.join(tokens_dir, 'tokens_split_double_tokens.txt')
     tokens_no_dup_path = os.path.join(tokens_dir, 'tokens_no_dup.txt')
     tokens_three_columns_path = os.path.join(tokens_dir, 'tokens_three_columns.txt')
     tokens_norm_path = os.path.join(tokens_dir, 'tokens_norm.txt')
@@ -72,37 +74,42 @@ def main(input_file_path, output_file_path, aberrant_lines_file_path, lines_with
     # Main flow
     print_ascii_art()
     print(f"{Colors.CYAN} Starting to prepare tokens.txt!{Colors.ENDC}")
-    print(f"{Colors.CYAN} Input: 300595 lines of all tokens in Aeschylus with POS analysis and lemmatization{Colors.ENDC}")
+    print(f"{Colors.CYAN} Input: 300595 tab-separated lines of all tokens in the complete ancient tragedies with OdyCy POS tags and lemmatizations{Colors.ENDC}")
 
     print(f"{Colors.YELLOW}1. Removing punctuation and generating tokens_no_punct.txt{Colors.ENDC}")
     remove_punctuation.process_file(input_file_path, tokens_no_punct_path)
+
+    print(f"{Colors.YELLOW}2. Splitting double tokens with final sigma at non-final positions{Colors.ENDC}")
+    split_double_tokens.split_tokens_with_wrong_sigma(tokens_no_punct_path, tokens_split_double_tokens_path)
     
-    print(f"{Colors.YELLOW}2. Removing duplicates and generating tokens_no_dup.txt{Colors.ENDC}")
-    remove_duplicates.remove_duplicates(tokens_no_punct_path, tokens_no_dup_path)
+    print(f"{Colors.YELLOW}3. Removing duplicates and generating tokens_no_dup.txt{Colors.ENDC}")
+    remove_duplicates.remove_duplicates(tokens_split_double_tokens_path, tokens_no_dup_path)
 
-    print(f"{Colors.YELLOW}3. Removing lines with too few columns (or first column empty of Greek) and generating tokens_three_columns.txt{Colors.ENDC}")
-    remove_lines_few_columns.remove_lines_few_columns(tokens_no_dup_path, tokens_three_columns_path)
+    print(f"{Colors.YELLOW}4. Normalizing delimiters and generating tokens_norm.txt{Colors.ENDC}")
+    normalize.normalize_columns(tokens_no_dup_path, tokens_norm_path)
 
-    print(f"{Colors.YELLOW}4. Normalizing and generating tokens_norm.txt{Colors.ENDC}")
-    normalize.normalize_columns(tokens_three_columns_path, tokens_norm_path)
+    print(f"{Colors.YELLOW}5. Removing lines with first column empty of Greek and generating tokens_three_columns.txt{Colors.ENDC}")
+    remove_lines_few_columns.remove_lines_few_columns(tokens_norm_path, tokens_three_columns_path)
 
-    print(f"{Colors.YELLOW}5. Adding oxytone versions of every barytone token and generating tokens_oxytone.txt{Colors.ENDC}")
-    supplement_barytones.process_tokens_file(tokens_norm_path, tokens_oxytone_path)
+    print(f"{Colors.YELLOW}6. Adding oxytone versions of every barytone token and generating tokens_oxytone.txt{Colors.ENDC}")
+    supplement_barytones.process_tokens_file(tokens_three_columns_path, tokens_oxytone_path)
 
-    print(f"{Colors.YELLOW}6. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}7. Sorting unicode alphabetically with pyuca and generating tokens_alph.txt{Colors.ENDC}")
     alphabetize_unicode.sort_greek_file(tokens_oxytone_path, tokens_alph_path)
 
-    print(f"{Colors.YELLOW}7. Filtering truly undecided dichrona to tokens_dichrona.txt and sending the rest to lines_filtered_out.txt{Colors.ENDC}")
+    print(f"{Colors.YELLOW}8. Filtering truly undecided dichrona to tokens_dichrona.txt and sending the rest to lines_filtered_out.txt{Colors.ENDC}")
     filter_dichrona.main(tokens_alph_path, tokens_only_necessary_path, aberrant_lines_file_path)
 
-    print(f"{Colors.YELLOW}8. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
-    handle_x_lines.handle_x_lines(tokens_only_necessary_path, tokens_no_x_path, lines_with_x_file_path)
+    #print(f"{Colors.YELLOW}8. Sending lines with 'x' to lines_x.txt and generating tokens.txt{Colors.ENDC}")
+    #handle_x_lines.handle_x_lines(tokens_only_necessary_path, tokens_no_x_path, lines_with_x_file_path)
 
     print(f"{Colors.YELLOW}9. Removing the last accent of words with two accents{Colors.ENDC}")
     remove_double_accents.process_file(tokens_no_x_path, tokens_no_double_accents_path)
 
     print(f"{Colors.YELLOW}10. Removing words lacking obligatory spīritūs{Colors.ENDC}")
     remove_no_spiritus.process_tsv_file(tokens_no_double_accents_path, output_file_path)
+
+    print(f"{Colors.YELLOW}11. Appending RIGHT SINGLE QUOTATION MARK to elided tokens lacking it{Colors.ENDC}")
 
     print(f"{Colors.CYAN}Processing complete! tokens.txt generated.{Colors.ENDC}")
     print(f"{Colors.CYAN}Saving statistics to stats.txt.{Colors.ENDC}")

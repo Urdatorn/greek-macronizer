@@ -19,7 +19,8 @@ def remove_lines_few_columns(input_file_path, output_file_path, min_columns=3):
                 columns = line.split('\t')
                 # Check if the line has fewer than min_columns, the first column is empty,
                 # or the first column does not contain any Greek characters
-                if len(columns) < min_columns or not columns[0].strip() or not contains_greek(columns[0]):
+                if not contains_greek(columns[0]):
+                    print(f'{line}')
                     removed_lines += 1
                 else:
                     output_file.write(line)
