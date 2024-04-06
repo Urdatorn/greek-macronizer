@@ -4,6 +4,9 @@
 Classes, sets and constants for use in many scripts
 '''
 
+import re
+from greek_accentuation.characters import base
+
 class Colors:
     GREEN = '\033[1;32m'  # Green
     RED = '\033[1;31m'    # Red
@@ -16,9 +19,25 @@ class Colors:
     BOLD = '\033[1m'      # Bold
     UNDERLINE = '\033[4m' # Underline
 
-### REGULAR EXPRESSIONS ###
-# note that rn these don't include all capital letters
+
+###### REGULAR EXPRESSIONS ######
+
+
+# GREEK ALPHABET
+
+base_alphabet = r'[ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρσςτυφχψω]' # 24 uppercase, 25 lowercase
+
+def only_bases(word):
+    '''
+    E.g. ᾰ̓ᾱ́ᾰτᾰ returns ααατα. A prerequisite for correct ordinal positions in polytonic strings.
+    Dependencies: greek_accentuation.characters.base and re
+    '''
+    return ''.join([base(char) for char in word if re.search(base_alphabet, base(char))])
+
+
 # VOWELS
+# note that rn these don't include all capital letters
+
 acutes = r'[άέήίόύώἄἅἔἕἤἥἴἵὄὅὔὕὤὥΐΰᾄᾅᾴᾔᾕῄᾤᾥῴ]' # problem with how to represent capital iota adscript; cf. Eric's regex
 graves = r'[ὰὲὴὶὸὺὼἂἃἒἓἢἣἲἳὂὃὒὓὢὣῒῢᾂᾃᾲᾒᾓῂᾢᾣῲ]'
 circumflexes = r'[ᾶῆῖῦῶἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]'
@@ -42,12 +61,17 @@ def lower(λέξις):
 # there are 18 capital consonants, if we include both aspirated and spiritus-less ῥῶ (it's always aspirated at word beginning, so only all-caps would have it spiritus-less, which is rare but exists in prosopa dramatis). There is no spiritus lenis capital rho in unicode.
 # there are 2 lowercase sigmas and all 3 rhos, so 20
 # ergo totally 18 + 20 = 38
+# NB: digamma ϝ is not used in the tragic corpus used here, but exists in wiktionary etc.
 all_consonants = r'[ΒΓΔΖΘΚΛΜΝΞΠΡῬΣΤΦΧΨβγδζθκλμνξπρῤῥσςτφχψ]' 
 # indigenous Greek words ended on vowel or one of 5 consonants, e.g. ἐάν, σάρξ, κήρ, ὗς, φλέψ. Of course, phonetically three of these really end on /s/ and none of them are stops.
 # there are a few exceptional forms on κ as well, such as ἐκ, οὐκ, which depend on context and are better treated as stop words than as part of the regex.
 # in dialects and Homer there are *tons* of exceptions due to apocope, assimilation etc.
 legitimate_final_consonants = r'[νξρςψ]' # excluding οὐκ, ἐκ, κἀκ (crasis for καὶ ἐκ) etc.
 illegitimate_final_consonants = r'[βγδζθκλμπστφχ]'
+
+
+###### STRING LITERALS ######
+
 
 # Unicode Constants for Ancient Greek punctuation
 class Punctuation:
@@ -65,6 +89,7 @@ class Punctuation:
     ANGULAR_BRACKET_RIGHT = '>'
     SQUARE_BRACKET_LEFT = '['
     SQUARE_BRACKET_RIGHT = ']'
+
 
 class Elision:
     ELISION1 = '\u2019' # "right single quotation mark". Preferred by Taubner
@@ -86,7 +111,7 @@ ACCENTS = [
     "\u1fee", "\u1fef", "\u1ffd", "\u1ffe",
 ]
 
-# Function to check if the string contains any Greek letters
+
 def contains_greek(text):
     """
     Check if the provided text contains any Greek characters.

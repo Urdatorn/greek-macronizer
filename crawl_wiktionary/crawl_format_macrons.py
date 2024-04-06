@@ -6,12 +6,17 @@ Takes a list of polytonic Greek tokens such as
 νεᾱνῐείᾱ
 νεᾱνῐεύομαι
 
-and separates the tokens from the vowel-lenghts, turning it into a two-column TSV, such as
+and separates the tokens from the vowel-lengths, turning it into a two-column TSV, such as
 
-νεανίας	_3^5_7
+νεανίας	_3^5_6
 '''
+import re
 import argparse
-from greek_accentuation.characters import length, strip_length
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from greek_accentuation.characters import length, strip_length, base
+from utils import base_alphabet, only_bases
 
 SHORT = '̆'
 LONG = '̄'
@@ -19,34 +24,42 @@ LONG = '̄'
 # Define length_count as a global dictionary
 length_count = {'long': 0, 'short': 0}
 
+print("Only bases: " + only_bases('ᾰ̓ᾱ́ᾰτᾰ'))
+
+
 def process_word(word):
     '''
     >>process_word('νεᾱνῐ́ᾱς')
-    >>('νεανίας', ['_3', '^5', '_7'])
+    >>('νεανίας', ['_3', '^5', '_6'])
     '''
     global length_count  # Declare length_count as global to modify it
     processed_word = ""
     modifications = []
     i = 1  # Initialize character position counter
     for char in word:
-        char_length = length(char)
-        if char_length == LONG:
-            processed_char = strip_length(char)
-            modifications.append(f"_{i}")
-            length_count['long'] += 1
-        elif char_length == SHORT:
-            processed_char = strip_length(char)
-            modifications.append(f"^{i}")
-            length_count['short'] += 1
-        else:
-            processed_char = char
+        if re.search(base_alphabet, base(char)):
+            #print(f"{i}: {char}")
+            char_length = length(char)
+            if char_length == LONG:
+                #print(char)
+                processed_char = strip_length(char)
+                modifications.append(f"_{i}")
+                length_count['long'] += 1
+            elif char_length == SHORT:
+                #print(char)
+                processed_char = strip_length(char)
+                modifications.append(f"^{i}")
+                length_count['short'] += 1
+            else:
+                processed_char = char
 
-        processed_word += processed_char
-        if char != SHORT and char != LONG:
-            i += 1
+            processed_word += processed_char
+            if char != SHORT and char != LONG:
+                i += 1
 
     return processed_word, modifications
 
+print(f"{process_word('ᾰ̓ᾱ́ᾰτᾰ')[1]}")
 
 def process_file(input_file_path, output_file_path):
     try:

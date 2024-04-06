@@ -80,8 +80,6 @@ Detta delflöde är klart i en första version. Se prepare_tokens/main_tokens.py
 8. Rensa bort tokens med extra akut på ultiman pga enclitica
 9. Rensa bort eliderade ord OM det finns oeliderade motsvarigheter. Annars inkludera.
 
-Kör sen OdyCy och/eller annan POS-analys igen på alla TOKENs i lines_x.txt, 
-och låt resultatet genomgå allt ovan. Om ngt är kvar, så lägg till i tokens.txt
 
 Skulle behövas en second-opinion för lemmatisering och POS-analys. Morpheus? ChatGPT?
 
@@ -98,6 +96,7 @@ Följande typer av tokens mappas också mot sina normala motsvarigheter och inkl
 - tokens på grav
 - eliderade tokens (sex teoretiska alternativ: om det mot all förmodan finns flera möjliga oeliderade motsvarigheter i dictionary, så kolla ordklass och/eller morfologi för att disambiguera)
 - eliderade tokens som aspirerats av följande ord, e.g. τ > θ, κ > χ, π > φ
+
 - tokens med extra akut på ultiman pga enclitica 
 
 1. Algoritmiskt lägga in de långa som finns i regelbundna deklinationer/konjugationer; kanske använda ifthimos
