@@ -16,15 +16,13 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from greek_accentuation.characters import length, strip_length, base
-from utils import base_alphabet, only_bases
+from utils import base_alphabet
 
 SHORT = '̆'
 LONG = '̄'
 
 # Define length_count as a global dictionary
 length_count = {'long': 0, 'short': 0}
-
-print("Only bases: " + only_bases('ᾰ̓ᾱ́ᾰτᾰ'))
 
 
 def process_word(word):
@@ -59,7 +57,7 @@ def process_word(word):
 
     return processed_word, modifications
 
-print(f"{process_word('ᾰ̓ᾱ́ᾰτᾰ')[1]}")
+print(f"{process_word('ᾰ̓ᾱ́ᾰτᾰ')}")
 
 def process_file(input_file_path, output_file_path):
     try:
