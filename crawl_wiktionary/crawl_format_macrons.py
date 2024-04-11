@@ -17,6 +17,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from greek_accentuation.characters import length, strip_length, base
 from utils import base_alphabet
+from macrons_map import macrons_map
 
 SHORT = '̆'
 LONG = '̄'
@@ -25,41 +26,44 @@ LONG = '̄'
 length_count = {'long': 0, 'short': 0}
 
 
+def strip_length_string(string):
+    '''
+    Strips the input string of all length diacritics using the macrons_map dictionary.
+    >>> strip_length_string('ᾰᾸᾱᾹῐῘῑῙῠῨῡῩᾰ̓Ᾰ̓ᾰ̔Ᾰ̔ᾰ́ᾰ̀ᾱ̓Ᾱ̓ᾱ̔Ᾱ̔ᾱ́ᾱ̀ᾱͅῐ̓Ῐ̓ῐ̔Ῐ̔ῐ́ῐ̀ῐ̈ῑ̓Ῑ̓ῑ̔Ῑ̔ῑ́ῑ̈ῠ̓ῠ̔Ῠ̔ῠ́ῠ̀ῠ͂ῠ̈ῠ̒ῡ̔Ῡ̔ῡ́ῡ̈')
+    >>> αΑαΑιΙιΙυΥυΥἀἈἁἉάὰἀἈἁἉάὰᾳἰἸἱἹίὶϊἰἸἱἹίϊὐὑὙύὺῦϋυ̒ὑὙύϋ
+    '''
+    for composite, replacement in macrons_map.items():
+        string = string.replace(composite, replacement)
+    return string
+
+
 def process_word(word):
     '''
-    >>process_word('νεᾱνῐ́ᾱς')
-    >>('νεανίας', ['_3', '^5', '_6'])
+    Processes each word to identify vowel length markers and create a TSV format.
     '''
     global length_count  # Declare length_count as global to modify it
-    processed_word = ""
     modifications = []
     i = 1  # Initialize character position counter
     for char in word:
         if re.search(base_alphabet, base(char)):
-            #print(f"{i}: {char}")
             char_length = length(char)
             if char_length == LONG:
-                #print(char)
-                processed_char = strip_length(char)
                 modifications.append(f"_{i}")
                 length_count['long'] += 1
             elif char_length == SHORT:
-                #print(char)
-                processed_char = strip_length(char)
                 modifications.append(f"^{i}")
                 length_count['short'] += 1
-            else:
-                processed_char = char
+            i += 1  # Only increment for non-length marking characters
 
-            processed_word += processed_char
-            if char != SHORT and char != LONG:
-                i += 1
-
+    # Now strip all length diacritics after processing for position markings
+    processed_word = strip_length_string(word)
     return processed_word, modifications
 
-print(f"{process_word('ᾰ̓ᾱ́ᾰτᾰ')}")
 
 def process_file(input_file_path, output_file_path):
+    '''
+    Processes the entire file and applies modifications to each word.
+    '''
     try:
         with open(input_file_path, 'r', encoding='utf-8') as input_file, \
              open(output_file_path, 'w', encoding='utf-8') as output_file:
@@ -80,6 +84,10 @@ def process_file(input_file_path, output_file_path):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
+
+process_file('crawl_wiktionary/macrons_wiktionary_test.txt','crawl_wiktionary/macrons_wiktionary_test_format.txt')
+
+'''
 def main():
     parser = argparse.ArgumentParser(description='Modify polytonic Greek words to handle macrons and breves, appending markers and their positions to the tag column.')
     parser.add_argument('--input', required=True, help='Input file path')
@@ -90,3 +98,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''
