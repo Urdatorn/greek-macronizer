@@ -1,11 +1,23 @@
+import re
 import sqlite3
 import csv
 import logging
-from utils import Colors
 from tqdm import tqdm
+from utils import Colors, all_vowels, with_spiritus, only_bases
 
 
 ## PREP
+
+
+def lacks_spiritus(word):
+    """
+    Checks if the first character of the word is a vowel and
+    if the word does not contain any characters with spiritus.
+    """
+    if word:
+        if re.match(all_vowels, word[0]) and not re.search(with_spiritus, word):
+            return True  
+    return False
 
 
 def count_equivalent_entries(text_file_path, db_path, table_name, column_name):
@@ -32,7 +44,47 @@ def count_equivalent_entries(text_file_path, db_path, table_name, column_name):
     return len(equivalent_entries)
 
 
-total_equivalent_entries = count_equivalent_entries('prepare_tokens/tokens/tokens.txt', 'macrons.db', 'annotated_tokens', 'token') # 30517
+def count_equivalent_entries_no_spiritus(text_file_path, db_path, table_name, column_name):
+    # Load the entries from the text file into sets for fast lookup
+    text_file_entries = set()
+    text_file_entries_base = set()
+
+    with open(text_file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            entry = line.split('\t')[0]
+            if lacks_spiritus(entry):
+                text_file_entries_base.add(only_bases(entry))
+            else:
+                text_file_entries.add(entry)
+
+    # Connect to the SQLite database
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    # Query to select all entries from the specified column and table
+    query = f"SELECT {column_name} FROM {table_name}"
+    cursor.execute(query)
+    
+    # Fetch all database entries and store them in sets
+    db_entries = set(row[0] for row in cursor.fetchall())
+    db_entries_base = set(only_bases(entry) for entry in db_entries)
+
+    # Close the database connection
+    conn.close()
+
+    # Calculate and return the number of equivalent entries
+    equivalent_entries = len(text_file_entries.intersection(db_entries))
+    equivalent_entries_base = len(text_file_entries_base.intersection(db_entries_base))
+    
+    return equivalent_entries + equivalent_entries_base
+
+
+# Example usage:
+total_equivalent_entries_no_spiritus = count_equivalent_entries_no_spiritus('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
+print(f'Total equivalent entries, comparing stripped bases for tokens lacking spiritus: {total_equivalent_entries_no_spiritus}')
+
+total_equivalent_entries = count_equivalent_entries('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
+print(f'Total equivalent entries: {total_equivalent_entries}')
 
 
 ### AUXILIARY FUNCTIONS
@@ -48,8 +100,6 @@ def fetch_existing_macrons(cursor, token):
     result = cursor.fetchone()
     return result[0] if result else None
 
-
-
 def ordinal_in_existing(existing_macrons, new_macron):
     """Check if the ordinal of the new macron exists in the existing macrons string."""
     if existing_macrons:
@@ -57,9 +107,6 @@ def ordinal_in_existing(existing_macrons, new_macron):
         new_ordinal = int(''.join(filter(str.isdigit, new_macron)))
         return new_ordinal in existing_ordinals
     return False
-
-# UNIT TEST
-ordinal_in_existing(existing_macrons, new_macron)
 
 def insert_macron_in_order(existing_macrons, new_macron):
     """Insert the new macron into the existing macrons string in the correct ordinal position."""
@@ -104,10 +151,7 @@ def process_wiktionary_entries(db_path, wiktionary_path):
     
     with open(wiktionary_path, 'r', encoding='utf-8') as file:
         reader = csv.reader(file, delimiter='\t')
-        total_lines = sum(1 for _ in file)
-        file.seek(0)  # Reset file pointer after counting lines
-
-        for line in tqdm(reader, total=total_lines, desc="Processing Wiktionary entries"):
+        for line in tqdm(reader, desc="Processing Wiktionary entries"):
             if len(line) >= 2:
                 token, macrons = line[0], line[1]
                 written, appended, skipped_present, skipped_no_match = update_macrons(db_path, token, macrons, cursor)
@@ -129,7 +173,8 @@ def process_wiktionary_entries(db_path, wiktionary_path):
     print(f"{Colors.RED}Skipped (macrons already present): {skipped_already_present}{Colors.ENDC}")
     print(f"{Colors.RED}Skipped (no token match): {skipped_no_token_match}{Colors.ENDC}")
 
+
 # Example usage
-#db_path = "macrons_wiktionary.db"
-#wiktionary_path = "crawl_wiktionary/macrons_wiktionary.txt"
-#process_wiktionary_entries(db_path, wiktionary_path)
+db_path = "macrons.db"
+wiktionary_path = "crawl_wiktionary/macrons_wiktionary_test_format_nfc.tsv"
+process_wiktionary_entries(db_path, wiktionary_path)

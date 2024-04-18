@@ -36,6 +36,16 @@ def only_bases(word):
     return ''.join([base(char) for char in word if re.search(base_alphabet, base(char))])
 
 
+def initial_base(word):
+    '''
+    Takes a word and returns the base of the first character joined with the rest of the word from the second character onward.
+    E.g. ᾰ̓ᾱ́ᾰτᾰ returns αᾱ́ᾰτᾰ.
+    '''
+    if not word:  # Check if the word is empty
+        return word
+    return base(word[0]) + word[1:]
+
+
 def sort_polytonic_string(input_string):
     c = Collator()
 
@@ -65,6 +75,7 @@ all_vowels = f'[{all_vowels_lowercase[1:-1]}{all_vowels_uppercase[1:-1]}]' # sum
 with_spiritus = r'[ἈἉἘἙἨἩἸἹὈὉὙὨὩἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾀᾁᾐᾑᾠᾡἄἅἔἕἤἥἴἵὄὅὔὕὤὥᾄᾅᾔᾕᾤᾥἂἃἒἓἢἣἲἳὂὃὒὓὢὣᾂᾃᾒᾓᾢᾣἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾖᾗᾦᾧ]'
 without_spiritus = r'[αάὰᾶεέὲηήὴῆιίὶῖϊΐῒῗοόὸυύὺῦϋΰῢῧωώὼῶ]' # pyuca sorted + no duplicates
 
+longa_brevi = r'[ᾰᾸᾱᾹῐῘῑῙῠῨῡῩ]'
 
 def upper(λέξις):
     upper = λέξις.upper()
@@ -123,11 +134,37 @@ POLYPHONIC_CHARS = set(range(0x1F00, 0x1FFF + 1))
 # Merge both sets for a unified set of Greek characters, and remove the punctuation
 GREEK_CHARS = (MONOTONIC_CHARS.union(POLYPHONIC_CHARS)) - punctuation_chars_set
 
-ACCENTS = [
-    "\u0376", "\u0384", "\u0385", "\u0387", "\u1fbd", "\u1fbe", "\u1fbf", "\u1fc0",
-    "\u1fc1", "\u1fcd", "\u1fce", "\u1fcf", "\u1fdd", "\u1fde", "\u1fdf", "\u1fed",
-    "\u1fee", "\u1fef", "\u1ffd", "\u1ffe",
-]
+ACCENTS = {
+    '\u0384',  # ΄: GREEK TONOS
+    '\u0385',  # ΅: GREEK DIALYTIKA TONOS
+    '\u0387',  # ·: GREEK ANO TELEIA
+    '\u1fbd',  # ᾽: GREEK KORONIS
+    '\u1fbe',  # ι: GREEK PROSGEGRAMMENI
+    '\u1fbf',  # ᾿: GREEK PSILI
+    '\u1fc0',  # ῀: GREEK PERISPOMENI
+    '\u1fc1',  # ῁: GREEK DIALYTIKA AND PERISPOMENI
+    '\u1fcd',  # ῍: GREEK PSILI AND VARIA
+    '\u1fce',  # ῎: GREEK PSILI AND OXIA
+    '\u1fcf',  # ῏: GREEK PSILI AND PERISPOMENI
+    '\u1fdd',  # ῝: GREEK DASIA AND VARIA
+    '\u1fde',  # ῞: GREEK DASIA AND OXIA
+    '\u1fdf',  # ῟: GREEK DASIA AND PERISPOMENI
+    '\u1fed',  # ῭: GREEK DIALYTIKA AND VARIA
+    '\u1fee',  # ΅: GREEK DIALYTIKA AND OXIA
+    '\u1fef',  # `: GREEK VARIA
+    '\u1ffd',  # ´: GREEK OXIA
+    '\u1ffe',  # ῾: GREEK DASIA
+    '\u0301',  #  ́: COMBINING ACUTE ACCENT
+    '\u0308',  #  ̈: COMBINING DIAERESIS
+    '\u035C',  #  ͜: COMBINING DOUBLE BREVE BELOW
+    '\u0300',  #  ̀: COMBINING GRAVE ACCENT
+    '\u0313',  #  ̓: COMBINING COMMA ABOVE
+    '\u032F',  #  ̯: COMBINING INVERTED BREVE BELOW
+    '\u0314',  #  ̔: COMBINING REVERSED COMMA ABOVE
+    '\u0312',  #  ̒: COMBINING TURNED COMMA ABOVE
+    '\u0345',  #  ͅ: COMBINING GREEK YPOGEGRAMMENI
+    '\u0342',  #  ͂: COMBINING GREEK PERISPOMENI
+}
 
 
 def contains_greek(text):

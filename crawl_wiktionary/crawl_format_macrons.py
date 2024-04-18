@@ -85,9 +85,9 @@ def process_file(input_file_path, output_file_path):
         print(f"An unexpected error occurred: {e}")
 
 
-process_file('crawl_wiktionary/macrons_wiktionary_test.txt','crawl_wiktionary/macrons_wiktionary_test_format.txt')
+#process_file('crawl_wiktionary/macrons_wiktionary_test.txt','crawl_wiktionary/macrons_wiktionary_test_format.txt')
 
-'''
+
 def main():
     parser = argparse.ArgumentParser(description='Modify polytonic Greek words to handle macrons and breves, appending markers and their positions to the tag column.')
     parser.add_argument('--input', required=True, help='Input file path')
@@ -98,4 +98,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''

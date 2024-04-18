@@ -58,4 +58,4 @@ def populate_db_with_tokens(db_path, tokens_path):
     print(f"{Colors.GREEN}Total lines processed and inserted: {total_lines}{Colors.ENDC}")
 
 # Example function call
-populate_db_with_tokens("macrons.db", "prepare_tokens/tokens/tokens.txt")
+populate_db_with_tokens("macrons.db", "prepare_tokens/tokens/tokens_nfc.tsv")

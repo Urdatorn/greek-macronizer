@@ -12,7 +12,28 @@ vowels_pattern = re.compile(all_vowels)
 consonants_pattern = re.compile(all_consonants)
 
 def is_composite(char):
-    return unicodedata.decomposition(char) != '' and not vowels_pattern.match(char) and not consonants_pattern.match(char)
+    """
+    Determines if a character is a composite character, including those with
+    components that match vowel or consonant regexes, but excluding characters
+    that wholly map to single characters in the regexes.
+    """
+    decomposed = unicodedata.decomposition(char)
+    if decomposed:
+        # Split the decomposed form into its component parts
+        parts = decomposed.split()
+        # For each part, get the character and check against the regexes
+        for part in parts:
+            # Convert part back to character to check against regexes
+            part_char = chr(int(part, 16))
+            # If any part does not match vowels or consonants patterns, it's considered composite
+            if not vowels_pattern.match(part_char) and not consonants_pattern.match(part_char):
+                return True
+        # If all parts match vowels or consonants, it's not considered uniquely composite
+        return False
+    else:
+        # Character is not composite
+        return False
+
 
 def unicode_info(char):
     code = f"U+{ord(char):04X}"
@@ -53,9 +74,63 @@ def find_unique_composites(input_file_path, output_file_path):
 # Example usage
 input_file_path = 'crawl_wiktionary/macrons_wiktionary_raw.txt'
 output_file_path = 'crawl_wiktionary/format_dictionary.py'
-find_unique_composites(input_file_path, output_file_path)
+#find_unique_composites(input_file_path, output_file_path)
 
 
+def find_unique_characters(input_file_path):
+    unique_characters = set()
+    collator = Collator()
+
+    with open(input_file_path, 'r', encoding='utf-8') as infile:
+        for line in infile:
+            for char in line.strip():
+                if not re.match(vowels_pattern, char) and not re.match(consonants_pattern, char):
+                    unique_characters.add(char)
+
+    sorted_characters = sorted(unique_characters, key=collator.sort_key)
+    return ''.join(sorted_characters)
+
+# Replace 'input_file_path' with the actual path of your input text file
+#input_file_path = 'crawl_wiktionary/macrons_wiktionary_raw.txt'
+#unique_characters = find_unique_characters(input_file_path)
+#print(unique_characters)
+
+######
+
+# List of specific characters to search for in the compositions
+specific_chars = {'ᾰ', 'Ᾰ', 'ᾱ', 'Ᾱ', 'ῐ', 'Ῐ', 'ῑ', 'Ῑ', 'ῠ', 'Ῠ', 'ῡ', 'Ῡ'}
+
+def find_composites_with_specific_diacritics(input_file_path, output_file_path):
+    # Define the unicode points for combining breve and macron
+    diacritics = {'0306', '0304'}
+    unique_composites = set()
+
+    with open(input_file_path, 'r', encoding='utf-8') as infile:
+        for line in infile:
+            for char in line.strip():
+                decomposition = unicodedata.decomposition(char).split()
+                print(decomposition, char)
+                if any(part in diacritics for part in decomposition):
+                    unique_composites.add(char)
+
+    # Sort the characters using pyuca Collator
+    collator = Collator()
+    sorted_composites = sorted(unique_composites, key=collator.sort_key)
+
+    # Join the sorted characters into a single string
+    sorted_composites_str = ''.join(sorted_composites)
+
+    # Write the sorted characters to the output file
+    with open(output_file_path, 'w', encoding='utf-8') as outfile:
+        outfile.write(sorted_composites_str)
+
+    print(sorted_composites_str)
+
+    return sorted_composites_str
+
+input_file_path = 'crawl_wiktionary/macrons_wiktionary_test.txt'
+output_file_path = 'crawl_wiktionary/macrons_wiktionary_test_format.txt'
+find_composites_with_specific_diacritics(input_file_path, output_file_path)
 
 ############################PLAYGROUND######################################
 
@@ -85,13 +160,13 @@ def sort_polytonic_string(input_string):
 
     return sorted_string
 
-print(all_unique_vowels)
-print(sort_polytonic_string(all_unique_vowels)[7:])
+#print(all_unique_vowels)
+#print(sort_polytonic_string(all_unique_vowels)[7:])
 
 # ΆΈΉΊΌΎΏΪ́ΥἌἍἜἝἬἭἼἽὌὍ̓ὝὬὭᾺῈῊῚῸῪῺ̀ἊἋἚἛἪἫἺἻὊὋὛὪὫΑ͂ΗΩἏἎἮἯἾἿὟὮὯΕΟἈἉἘἙἨἩἸἹὈὉὙὨὩΪΫ
 # ΑἈἌἊἎἉἍἋἏΆᾺΕἘἜἚἙἝἛΈῈΗἨἬἪἮἩἭἫἯΉῊΙἸἼἺἾἹἽἻἿΊῚΪΟὈὌὊὉὍὋΌῸΥὙὝὛὟΎῪΫΩὨὬὪὮὩὭὫὯΏῺ 71?
 
-print(sort_polytonic_string('άέήίόύώΐΰἄἅἔἕἤἥἴἵὄὅὔὕὤὥᾄᾅᾴᾔᾕῄᾤᾥῴ'))
+#print(sort_polytonic_string('άέήίόύώΐΰἄἅἔἕἤἥἴἵὄὅὔὕὤὥᾄᾅᾴᾔᾕῄᾤᾥῴ'))
 
 
 # Example usage

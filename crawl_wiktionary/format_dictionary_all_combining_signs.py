@@ -5,6 +5,7 @@ format_dictionary = {
     'U+0300': '',  # ̀: COMBINING GRAVE ACCENT (U+0300)
     'U+0306': '',  # ̆: COMBINING BREVE (U+0306)
     'U+0304': '',  # ̄: COMBINING MACRON (U+0304)
+    'U+0304': '',  # ̄: COMBINING MACRON (U+0304)
     'U+0313': '',  # ̓: COMBINING COMMA ABOVE (U+0313)
     'U+032F': '',  # ̯: COMBINING INVERTED BREVE BELOW (U+032F)
     'U+0314': '',  # ̔: COMBINING REVERSED COMMA ABOVE (U+0314)
