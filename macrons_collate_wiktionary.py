@@ -1,180 +1,52 @@
-import re
-import sqlite3
 import csv
 import logging
+import unicodedata
 from tqdm import tqdm
 from utils import Colors, all_vowels, with_spiritus, only_bases
 
-
-## PREP
-
-
-def lacks_spiritus(word):
-    """
-    Checks if the first character of the word is a vowel and
-    if the word does not contain any characters with spiritus.
-    """
-    if word:
-        if re.match(all_vowels, word[0]) and not re.search(with_spiritus, word):
-            return True  
-    return False
-
-
-def count_equivalent_entries(text_file_path, db_path, table_name, column_name):
-    # Load the entries from the text file into a set for fast lookup
-    with open(text_file_path, 'r', encoding='utf-8') as file:
-        text_file_entries = set(line.split('\t')[0] for line in file)
-
-    # Connect to the SQLite database
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    # Query to select all entries from the specified column and table
-    query = f"SELECT {column_name} FROM {table_name}"
-    cursor.execute(query)
-    
-    # Fetch all database entries and store them in a set
-    db_entries = set(row[0] for row in cursor.fetchall())
-
-    # Close the database connection
-    conn.close()
-
-    # Calculate and return the number of equivalent entries
-    equivalent_entries = text_file_entries.intersection(db_entries)
-    return len(equivalent_entries)
-
-
-def count_equivalent_entries_no_spiritus(text_file_path, db_path, table_name, column_name):
-    # Load the entries from the text file into sets for fast lookup
-    text_file_entries = set()
-    text_file_entries_base = set()
-
-    with open(text_file_path, 'r', encoding='utf-8') as file:
-        for line in file:
-            entry = line.split('\t')[0]
-            if lacks_spiritus(entry):
-                text_file_entries_base.add(only_bases(entry))
-            else:
-                text_file_entries.add(entry)
-
-    # Connect to the SQLite database
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    # Query to select all entries from the specified column and table
-    query = f"SELECT {column_name} FROM {table_name}"
-    cursor.execute(query)
-    
-    # Fetch all database entries and store them in sets
-    db_entries = set(row[0] for row in cursor.fetchall())
-    db_entries_base = set(only_bases(entry) for entry in db_entries)
-
-    # Close the database connection
-    conn.close()
-
-    # Calculate and return the number of equivalent entries
-    equivalent_entries = len(text_file_entries.intersection(db_entries))
-    equivalent_entries_base = len(text_file_entries_base.intersection(db_entries_base))
-    
-    return equivalent_entries + equivalent_entries_base
-
-
-# Example usage:
-total_equivalent_entries_no_spiritus = count_equivalent_entries_no_spiritus('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
-print(f'Total equivalent entries, comparing stripped bases for tokens lacking spiritus: {total_equivalent_entries_no_spiritus}')
-
-total_equivalent_entries = count_equivalent_entries('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
-print(f'Total equivalent entries: {total_equivalent_entries}')
-
-
-### AUXILIARY FUNCTIONS
-
-
-# Initialize logging
+# Setup logging configuration
 logging.basicConfig(filename='macrons_collate_wiktionary.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-
-def fetch_existing_macrons(cursor, token):
-    """Fetch the existing macrons for a given token from the database."""
-    cursor.execute("SELECT macrons FROM annotated_tokens WHERE token = ?", (token,))
-    result = cursor.fetchone()
-    return result[0] if result else None
-
-def ordinal_in_existing(existing_macrons, new_macron):
-    """Check if the ordinal of the new macron exists in the existing macrons string."""
-    if existing_macrons:
-        existing_ordinals = [int(''.join(filter(str.isdigit, macron))) for macron in existing_macrons.split(',')]
-        new_ordinal = int(''.join(filter(str.isdigit, new_macron)))
-        return new_ordinal in existing_ordinals
-    return False
-
-def insert_macron_in_order(existing_macrons, new_macron):
-    """Insert the new macron into the existing macrons string in the correct ordinal position."""
-    if not existing_macrons:
-        return new_macron
-    existing_list = existing_macrons.split(',')
-    new_ordinal = int(''.join(filter(str.isdigit, new_macron)))
-    for i, macron in enumerate(existing_list):
-        ordinal = int(''.join(filter(str.isdigit, macron)))
-        if new_ordinal < ordinal:
-            existing_list.insert(i, new_macron)
-            break
-    else:
-        existing_list.append(new_macron)
-    return ','.join(existing_list)
-
-def update_macrons(db_path, token, macrons, cursor):
-    """Update the macrons for a given token in the database."""
-    existing_macrons = fetch_existing_macrons(cursor, token)
-    macrons_written = macrons_appended = skipped_already_present = skipped_no_token_match = 0
-
-    if existing_macrons is None:
-        skipped_no_token_match += 1
-    elif existing_macrons == '':
-        cursor.execute("UPDATE annotated_tokens SET macrons = ?, source = 'wiktionary' WHERE token = ?", (macrons, token))
-        macrons_written += 1
-    else:
-        if not any(ordinal_in_existing(existing_macrons, m) for m in macrons.split(',')):
-            updated_macrons = insert_macron_in_order(existing_macrons, macrons)
-            cursor.execute("UPDATE annotated_tokens SET macrons = ?, source = 'wiktionary' WHERE token = ?", (updated_macrons, token))
-            macrons_appended += 1
-        else:
-            skipped_already_present += 1
-    
-    return macrons_written, macrons_appended, skipped_already_present, skipped_no_token_match
-
-def process_wiktionary_entries(db_path, wiktionary_path):
-    """Process Wiktionary entries to update macrons in the database."""
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    macrons_written = macrons_appended = skipped_already_present = skipped_no_token_match = 0
-    
-    with open(wiktionary_path, 'r', encoding='utf-8') as file:
+def collate_two_tsv(base_tsv_path, added_tsv_path, output_tsv_path):
+    # Load the entries from added_tsv into a dictionary for fast lookup
+    added_entries = {}
+    with open(added_tsv_path, 'r', encoding='utf-8') as file:
         reader = csv.reader(file, delimiter='\t')
-        for line in tqdm(reader, desc="Processing Wiktionary entries"):
-            if len(line) >= 2:
-                token, macrons = line[0], line[1]
-                written, appended, skipped_present, skipped_no_match = update_macrons(db_path, token, macrons, cursor)
-                macrons_written += written
-                macrons_appended += appended
-                skipped_already_present += skipped_present
-                skipped_no_token_match += skipped_no_match
+        for row in reader:
+            if row:  # Ensure the row is not empty
+                key = unicodedata.normalize('NFC', row[0].strip())
+                added_entries[key] = row[1].strip()
 
-    conn.commit()
-    conn.close()
+    matching_lines = 0
+    unmatched_lines = 0
 
-    # Log and print the summary
-    logging.info(f"Macrons written: {macrons_written}")
-    logging.info(f"Macrons appended: {macrons_appended}")
-    logging.info(f"Skipped (macrons already present): {skipped_already_present}")
-    logging.info(f"Skipped (no token match): {skipped_no_token_match}")
-    print(f"{Colors.GREEN}Macrons written: {macrons_written}{Colors.ENDC}")
-    print(f"{Colors.GREEN}Macrons appended: {macrons_appended}{Colors.ENDC}")
-    print(f"{Colors.RED}Skipped (macrons already present): {skipped_already_present}{Colors.ENDC}")
-    print(f"{Colors.RED}Skipped (no token match): {skipped_no_token_match}{Colors.ENDC}")
+    # Process base_tsv and append data from added_tsv where appropriate
+    with open(base_tsv_path, 'r', encoding='utf-8') as base_file, \
+         open(output_tsv_path, 'w', newline='', encoding='utf-8') as output_file:
+        reader = csv.reader(base_file, delimiter='\t')
+        writer = csv.writer(output_file, delimiter='\t')
 
+        for base_row in tqdm(reader, desc="Collating with Wiktionary"):
+            if base_row:  # Process only non-empty rows
+                token = unicodedata.normalize('NFC', base_row[0].strip())
+                
+                if token in added_entries:
+                    # Match found, append the corresponding value and "wiktionary"
+                    base_row.append(added_entries[token])
+                    base_row.append("wiktionary")
+                    matching_lines += 1
+                else:
+                    # No match found, append empty fields for consistency
+                    base_row.extend(['', ''])
+                    unmatched_lines += 1
 
-# Example usage
-db_path = "macrons.db"
-wiktionary_path = "crawl_wiktionary/macrons_wiktionary_test_format_nfc.tsv"
-process_wiktionary_entries(db_path, wiktionary_path)
+                writer.writerow(base_row)
+
+    # Log the results
+    logging.info(f"{Colors.GREEN}Total matching lines: {matching_lines}{Colors.ENDC}")
+    logging.info(f"{Colors.RED}Total unmatched lines: {unmatched_lines}{Colors.ENDC}")
+    print(f"{Colors.GREEN}Total matching lines: {matching_lines}{Colors.ENDC}")
+    print(f"{Colors.RED}Total unmatched lines: {unmatched_lines}{Colors.ENDC}")
+
+# Example usage:
+collate_two_tsv('macrons_empty.tsv', 'crawl_wiktionary/macrons_wiktionary.tsv', 'macrons_wiki_collated.tsv')
