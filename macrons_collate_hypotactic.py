@@ -80,6 +80,7 @@ def insert_macron_in_order(existing_macrons, new_macron):
 def collate_macrons(existing_macrons, new_macrons):
     """
     Collates new macrons into existing macrons, handling complex macron inputs.
+    See unit-test function below for the many cases this function can handle
     """
     if not existing_macrons:
         return new_macrons  # Return new macrons directly if no existing macrons
@@ -121,7 +122,6 @@ def test_collate_macrons():
         else:
             print(f"Failure: {description} -> Expected: {expected}, Got: {result}")
 
-test_collate_macrons()
 
 ### COLLATION 
 
@@ -133,8 +133,9 @@ def collate_two_tsv(base_tsv_path, added_tsv_path, output_tsv_path):
         reader = csv.reader(file, delimiter='\t')
         for row in reader:
             if row:  # Ensure the row is not empty
-                key = unicodedata.normalize('NFC', row[0].strip())
-                added_entries[key] = row[1].strip()
+                key = unicodedata.normalize('NFC', row[0].strip()) # normalize the token to canonical composition
+                added_entries[key] = row[3].strip() # the macrons are in the fourth column (i.e. 3 when zero counting)
+    print(added_entries)
 
     matching_lines = 0
     unmatched_lines = 0
@@ -151,21 +152,20 @@ def collate_two_tsv(base_tsv_path, added_tsv_path, output_tsv_path):
                 source_in = base_row[4] if len(base_row) > 4 else ''
 
                 token = unicodedata.normalize('NFC', token_in.strip())
-                
+                print(token)
                 if token in added_entries:
-                    new_macrons = added_entries[token].split(',')
-                    updated_macron = macron_in
-                    for new_macron in new_macrons:
-                        if not ordinal_in_existing(updated_macron, new_macron):
-                            updated_macron = insert_macron_in_order(updated_macron, new_macron)
+                    new_macrons = added_entries[token]
+                    updated_macron = collate_macrons(macron_in, new_macrons)
                     if updated_macron != macron_in:
                         matching_lines += 1
                         source_out = "hypotactic"
                     else:
                         source_out = source_in
                     macron_out = updated_macron
+                    print(f'Macron out is updated macron: {macron_out}')
                 else:
                     macron_out = macron_in
+                    print(f'Macron out is old macron: {macron_in}')
                     source_out = source_in
                     unmatched_lines += 1
 
@@ -181,7 +181,8 @@ def collate_two_tsv(base_tsv_path, added_tsv_path, output_tsv_path):
     print(f"{Colors.RED}Total unmatched lines: {unmatched_lines}{Colors.ENDC}")
 
 
-# Example usage:
+### USAGE
+
 #collate_two_tsv('macrons_wiki_collated.tsv', 'macrons_hypotactic.tsv', 'macrons_wiki_and_hypo_collated.tsv')
     
-#collate_two_tsv('macrons_test.tsv', 'macrons_test_added.tsv', 'macrons_test_result.tsv')
+collate_two_tsv('macrons_test.tsv', 'macrons_test_added.tsv', 'macrons_test_result.tsv')
