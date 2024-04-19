@@ -2,7 +2,9 @@
 
 Final step of the creation of the macron dictionary.
 
-Make sure macrons.db has been created by macrons_prepare.py!
+We start with macrons_empty.tsv, which is just a copy of tokens.tsv
+The columns are referred to as token, tag, lemma, macron, source,
+and the goal is to fill in the macron and source columns. 
 
     Step 1) Collating all sources of macrons into a single db, in order of quality precedence:
         - manual

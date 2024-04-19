@@ -29,7 +29,7 @@ import concurrent.futures
 import logging
 import re
 from bs4 import BeautifulSoup
-from tqdm import tqdm  # Import tqdm for the progress bar
+from tqdm import tqdm
 
 from erics_syllabifier import patterns, syllabifier
 from utils import Colors, DICHRONA, all_vowels # /utils.py

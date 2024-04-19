@@ -80,11 +80,11 @@ def count_equivalent_entries_no_spiritus(text_file_path, db_path, table_name, co
 
 
 # Example usage:
-total_equivalent_entries_no_spiritus = count_equivalent_entries_no_spiritus('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
-print(f'Total equivalent entries, comparing stripped bases for tokens lacking spiritus: {total_equivalent_entries_no_spiritus}')
+#total_equivalent_entries_no_spiritus = count_equivalent_entries_no_spiritus('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
+#print(f'Total equivalent entries, comparing stripped bases for tokens lacking spiritus: {total_equivalent_entries_no_spiritus}')
 
-total_equivalent_entries = count_equivalent_entries('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
-print(f'Total equivalent entries: {total_equivalent_entries}')
+#total_equivalent_entries = count_equivalent_entries('crawl_wiktionary/macrons_wiktionary_nfc.tsv', 'macrons.db', 'annotated_tokens', 'token')
+#print(f'Total equivalent entries: {total_equivalent_entries}')
 
 
 ### AUXILIARY FUNCTIONS
@@ -100,28 +100,74 @@ def fetch_existing_macrons(cursor, token):
     result = cursor.fetchone()
     return result[0] if result else None
 
+import re
+
+
 def ordinal_in_existing(existing_macrons, new_macron):
-    """Check if the ordinal of the new macron exists in the existing macrons string."""
-    if existing_macrons:
-        existing_ordinals = [int(''.join(filter(str.isdigit, macron))) for macron in existing_macrons.split(',')]
+    """
+    Check if the ordinal of the new macron exists in the existing macrons string.
+    `existing_macrons` is expected to be a string like '^1_2_13' representing positions with macrons.
+    Unit tested on April 18th.
+    >>> ordinal_in_existing('^1_2_13', '^13')
+    >>> True
+    """
+    if existing_macrons and new_macron:
+        # Use regular expression to split the string at both '^' and '_'
+        existing_ordinals = [int(''.join(filter(str.isdigit, macron))) for macron in re.split(r'[\^_]', existing_macrons) if macron.isdigit()]
+        #print(f"Existing ordinals: {existing_ordinals}")
+        
+        # Extract the numeric part from the new_macron and convert to int
         new_ordinal = int(''.join(filter(str.isdigit, new_macron)))
-        return new_ordinal in existing_ordinals
+        #print(f"New ordinal: {new_ordinal}")
+        
+        if new_ordinal in existing_ordinals:
+            return True
     return False
 
+# Example usage:
+print(ordinal_in_existing('', '^13'))  # Expected: True, because 13 is explicitly listed
+print(ordinal_in_existing('^1_2_13', ''))  # Expected: True, because 13 is explicitly listed
+print(ordinal_in_existing('^1_2_13', '^13'))  # Expected: True, because 13 is explicitly listed
+
+
 def insert_macron_in_order(existing_macrons, new_macron):
-    """Insert the new macron into the existing macrons string in the correct ordinal position."""
     if not existing_macrons:
-        return new_macron
-    existing_list = existing_macrons.split(',')
-    new_ordinal = int(''.join(filter(str.isdigit, new_macron)))
-    for i, macron in enumerate(existing_list):
-        ordinal = int(''.join(filter(str.isdigit, macron)))
-        if new_ordinal < ordinal:
-            existing_list.insert(i, new_macron)
+        return new_macron  # Directly return the new macron if no existing macrons are present
+    
+    if not new_macron or ordinal_in_existing(existing_macrons, new_macron):
+        return existing_macrons  # Return unchanged if the new macron's ordinal is already present
+
+    # Parse the existing macrons into parts and sort them by their ordinal numbers
+    parts = re.findall(r'([\^_]\d+)', existing_macrons)
+    new_symbol, new_number = new_macron[0], int(new_macron[1:])
+
+    # Insert in the correct position based on the ordinal number
+    inserted = False
+    for i, part in enumerate(parts):
+        symbol, number = part[0], int(part[1:])
+        if new_number < number:
+            parts.insert(i, new_macron)
+            inserted = True
             break
-    else:
-        existing_list.append(new_macron)
-    return ','.join(existing_list)
+    if not inserted:
+        parts.append(new_macron)
+
+    # Sort the parts to ensure they are in ascending order and concatenate them back to a string
+    parts.sort(key=lambda x: int(re.search(r'\d+', x).group()))
+    return ''.join(parts)
+
+# Test the functions with edge cases and typical use cases
+print(insert_macron_in_order('_1^3^7', '^2'))  # Expected: '_1^2^3^7'
+print(insert_macron_in_order('', '^5'))        # Expected: '^5'
+print(insert_macron_in_order('_3^5', '_1'))    # Expected: '_1_3^5'
+
+# Example usage:
+print(insert_macron_in_order('_1', ''))  # Expected: '_1^2^3^7'
+print(insert_macron_in_order('', '^5'))  # Output should be '^1_3^5^7'
+print(insert_macron_in_order('^1_3^7', '^5'))  # Output should be '^1_3^5^7'
+print(insert_macron_in_order('_1^3^7', '^8'))  # Output should be '_1^3^7^8'
+
+
 
 def update_macrons(db_path, token, macrons, cursor):
     """Update the macrons for a given token in the database."""
@@ -177,4 +223,4 @@ def process_wiktionary_entries(db_path, wiktionary_path):
 # Example usage
 db_path = "macrons.db"
 wiktionary_path = "crawl_wiktionary/macrons_wiktionary_test_format_nfc.tsv"
-process_wiktionary_entries(db_path, wiktionary_path)
+#process_wiktionary_entries(db_path, wiktionary_path)
