@@ -1,3 +1,29 @@
+'''
+Collates two tsv files with ≥4 columns, in this precise way:
+if the first columns (tokens) are equal, then the fourth column (macron) of base_tsv_path
+is carefully integrated among the existing macrons and the source (here 'hypotactic') is written in the fifth coumn.
+Only macrons for syllables that have no macron are written; there is no overwriting.
+This same script can be adapted mutatis mutandis for all of my tsv-macron-collation needs.
+
+My unit testing (April 19th) was the base tsv
+
+ὠφελία	v1sria---	ὠφελία	^5	wiktionary
+ὠφέλιμον	a-s---ma-	ὠφέλιμος	^5	wiktionary
+ὤχμασεν	v3saia---	ὤχμασεν		
+
+to which was added the tsv
+
+ὠφελία	v1sria---	ὠφελία	^5_6	
+ὠφέλιμον	a-s---ma-	ὠφέλιμος		
+ὤχμασεν	v3saia---	ὤχμασεν	^3	
+
+yielding the collated
+
+ὠφελία	v1sria---	ὠφελία	^5_6	hypotactic
+ὠφέλιμον	a-s---ma-	ὠφέλιμος	^5	wiktionary
+ὤχμασεν	v3saia---	ὤχμασεν	^3	hypotactic
+
+'''
 import csv
 import logging
 import re
@@ -183,6 +209,7 @@ def collate_two_tsv(base_tsv_path, added_tsv_path, output_tsv_path):
 
 ### USAGE
 
-#collate_two_tsv('macrons_wiki_collated.tsv', 'macrons_hypotactic.tsv', 'macrons_wiki_and_hypo_collated.tsv')
-    
-collate_two_tsv('macrons_test.tsv', 'macrons_test_added.tsv', 'macrons_test_result.tsv')
+collate_two_tsv('macrons_wiki_collated.tsv', 'macrons_hypotactic.tsv', 'macrons_wiki_and_hypo_collated.tsv')
+
+### TEST
+#collate_two_tsv('macrons_test.tsv', 'macrons_test_added.tsv', 'macrons_test_result.tsv')

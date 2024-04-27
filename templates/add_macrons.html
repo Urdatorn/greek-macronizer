@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Add Macrons Manually</h1>
+    <form method="POST">
+        <input type="text" name="token" placeholder="Enter token to search" required>
+        <input type="text" name="macron" placeholder="Enter new macron" required>
+        <button type="submit">Update Macron</button>
+    </form>
+{% endblock %}

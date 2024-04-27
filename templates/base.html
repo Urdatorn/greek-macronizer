@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div>
+        <a href="{{ url_for('display_pie_chart') }}">Stats</a>
+        <a href="{{ url_for('add_macrons') }}">Add Macrons Manually</a>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

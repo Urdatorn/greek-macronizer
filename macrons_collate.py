@@ -10,8 +10,8 @@ and the goal is to fill in the macron and source columns.
         - manual
         - LSJ (only lemmata, little/no pos)
         - Ifthimos (only endings, full pos compatibility)
-        - Wiktionary (no pos)
-        - Hypotactic (no pos)
+        - Wiktionary (no pos) => macrons_collate_wiktionary.py (older)
+        - Hypotactic (no pos) => macrons_collate_hypotactic.py (best collation script)
 
     A token will be macronized according to the highest source it appears in,
     and not overwritten if it appears in a subsequent source.
@@ -62,58 +62,5 @@ def print_ascii_art():
     print(cyan + "|_| |_| |_|\\__,_|\\___|_|  \\___/|_| |_|___(_)__,_|_.__/ " + endc)
 
 
-# Configure logging
-logging.basicConfig(filename='wiktionary_update.log', level=logging.INFO, format='%(asctime)s - %(message)s')
 
 
-def collate_wiktionary(db_path, wiktionary_path):
-    # Connect to the database
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    # Read the total lines for progress indication
-    with open(wiktionary_path, 'r', encoding='utf-8') as f:
-        total_lines = sum(1 for _ in f)
-
-    # Variables to keep track of updates
-    macrons_written = 0
-    macrons_skipped = 0
-
-    # Read and process the Wiktionary file
-    with open(wiktionary_path, 'r', encoding='utf-8') as file:
-        reader = csv.reader(file, delimiter='\t')
-        
-        for line in tqdm(reader, total=total_lines, desc="Processing Wiktionary entries"):
-            if len(line) >= 2:
-                token, macrons = line[0], line[1]
-                
-                # Check if the macrons column is empty for the token
-                cursor.execute("SELECT macrons FROM annotated_tokens WHERE token = ?", (token,))
-                result = cursor.fetchone()
-                
-                if result and (result[0] is None or result[0] == ''):  # Correct grouping with parentheses
-                    # Update the macrons column and set source to 'wiktionary'
-                    cursor.execute("UPDATE annotated_tokens SET macrons = ?, source = 'wiktionary' WHERE token = ?", (macrons, token))
-                    conn.commit()
-                    macrons_written += 1
-                else:
-                    macrons_skipped += 1
-
-    # Close the database connection
-    conn.close()
-
-    # Log and print the summary
-    logging.info(f"Macrons written: {macrons_written}")
-    logging.info(f"Macrons skipped (already present): {macrons_skipped}")
-    print(f"{Colors.GREEN}Macrons written: {macrons_written}{Colors.ENDC}")
-    print(f"{Colors.RED}Macrons skipped (already present): {macrons_skipped}{Colors.ENDC}")
-
-def main():
-    print_ascii_art()
-    
-    db_path = 'macrons.db'  # Path to your SQLite database
-    wiktionary_path = 'crawl_wiktionary/macrons_wiktionary.txt'  # Path to the Wiktionary TSV file
-    collate_wiktionary(db_path, wiktionary_path)
-
-if __name__ == "__main__":
-    main()
