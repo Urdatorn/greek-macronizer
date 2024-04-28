@@ -61,6 +61,6 @@ def process_file(input_file_path, output_file_path, max_workers=10):
                 writer.writerow(result)
 
 # Example usage
-input_file_path = "prepare_tokens/tokens/tokens.txt"  # Path to your input file
-output_file_path = "crawl_lsj/macrons_lsj.txt"  # Path where you want to save the output file
+input_file_path = "prepare_tokens/tokens/tokens.tsv"  # Path to your input file
+output_file_path = "crawl_lsj/macrons_lsj_raw.txt"  # Path where you want to save the output file
 process_file(input_file_path, output_file_path)

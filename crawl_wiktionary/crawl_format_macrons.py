@@ -15,7 +15,7 @@ import argparse
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from greek_accentuation.characters import length, strip_length, base
+from greek_accentuation.characters import length, base
 from utils import base_alphabet
 from macrons_map import macrons_map
 
