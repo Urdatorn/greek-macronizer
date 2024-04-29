@@ -26,6 +26,9 @@ from crawl_wiktionary.macrons_map import macrons_map
 LONG = '̄'
 
 
+### INITIAL AUXILIARIES
+
+
 def strip_length_string(string):
     '''
     Strips the input string of all length diacritics using the macrons_map dictionary.
@@ -86,6 +89,7 @@ def placements_alpha(line):
             result = process_word(columns[3])
             if result and len(result) > 1:
                 placements = result[1]
+                print(placements)
                 return placements
             
         return None
@@ -175,7 +179,7 @@ def placements_hypsilon(line):
         return None
 
 
-####################
+### DIGIT FUNCTIONS
 
 
 def extract_digit(result):
@@ -195,37 +199,49 @@ def find_nth_character(base_text, character, n):
     return None
 
 
+### CONVERT MACRON FORMAT
+
+
 def convert_placement(line):
     # Split the line assuming it's a single string of a TSV row
     columns = line.split('\t')
     
-    if len(columns) < 1:
+    if len(columns) < 4:
         return None
 
-    # Apply base conversion to the first column
+    # Apply base conversion to the first column (assuming the relevant text is in the first column)
     base_text = only_bases(columns[0])
     result_dict = {}
 
-    # Process each relevant function and find the nth character as described
-    alpha_placement = placements_alpha(line)
-    if alpha_placement and alpha_placement[0]:  # Check if list is not empty and contains an item
-        n = extract_digit(alpha_placement[0])  # Pass the first string from the list
-        if n:
-            result_dict['alpha_position'] = find_nth_character(base_text, 'α', n)
-    
-    iota_placement = placements_iota(line)
-    if iota_placement and iota_placement[0]:
-        n = extract_digit(iota_placement[0])
-        if n:
-            result_dict['iota_position'] = find_nth_character(base_text, 'ι', n)
-    
-    hypsilon_placement = placements_hypsilon(line)
-    if hypsilon_placement and hypsilon_placement[0]:
-        n = extract_digit(hypsilon_placement[0])
-        if n:
-            result_dict['hypsilon_position'] = find_nth_character(base_text, 'υ', n)
-    
+    # Define the specific character counters from the fourth column
+    char_counts = {
+        'α': columns[3].count('ᾱ') + columns[3].count('Ᾱ'),
+        'ι': columns[3].count('ῑ') + columns[3].count('Ῑ'),
+        'υ': columns[3].count('ῡ') + columns[3].count('Ῡ')
+    }
+
+    # Function mappings with separate lists to handle each type separately
+    char_functions = {'α': placements_alpha, 'ι': placements_iota, 'υ': placements_hypsilon}
+
+    # Iterate over each character type and process placements
+    for char, func in char_functions.items():
+        placements = func(line)
+        if placements:
+            # Calculate unique indices for the current character and respect the maximum allowed from the count
+            unique_indices = set()  # To avoid duplicate processing for the same index
+            for placement in placements:
+                n = extract_digit(placement)
+                if n and n not in unique_indices:
+                    if len(unique_indices) < char_counts[char]:  # Check against the maximum allowed placements
+                        position = find_nth_character(base_text, char, n)
+                        if position is not None:
+                            unique_indices.add(n)
+                            # Save the position with a unique key
+                            result_dict[f'{char}_position_{n}'] = position
+
     return result_dict
+
+
 
 
 
@@ -236,7 +252,6 @@ def convert_placement(line):
 
 # Example usage
 
-print(placements_alpha('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ'))
 
 print(f'Should be 5: {convert_placement('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ')}')
 
@@ -246,7 +261,9 @@ print(f'Should be 4 and 2: {convert_placement('δῖναινεφέλας	n-p---f
 
 print(f'Should be 6: {convert_placement('δωματῖτιν	n-s---fa-	δωματῖτιν	ῑι')}')
 
-print(f'Should be 6: {convert_placement('ᾄξας	n-p---fa-	ᾄξη	ᾱᾱ')}')
+print(f'Should be 1 and 3: {convert_placement('ᾄξας	n-p---fa-	ᾄξη	ᾱᾱ')}')
+
+print(len(convert_placement('ᾄξας	n-p---fa-	ᾄξη	ᾱᾱ')))
 
 # Example usage
 #input_file_path = 'macrons_ifthimos_raw.tsv'  # Replace 'input.tsv' with your actual input file path
