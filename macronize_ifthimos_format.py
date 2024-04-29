@@ -15,7 +15,6 @@ Only 3183 lines have macrons from ifthimos.
 
 '''
 
-import csv
 import re
 
 from greek_accentuation.characters import length, base
@@ -25,6 +24,7 @@ from crawl_wiktionary.macrons_map import macrons_map
 
 
 LONG = '̄'
+
 
 def strip_length_string(string):
     '''
@@ -59,6 +59,9 @@ def placements_alpha(line):
     """
     Processes a given TSV line. If the base form of the fourth column contains the Greek letter alpha,
     process the word and return the 'placements' part of the result.
+
+    >>placements_alpha('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ')
+    >>_3
     
     Parameters:
     - line (str): A string representing a row from a TSV file, expected to be tab-separated.
@@ -92,10 +95,158 @@ def placements_alpha(line):
         return None
 
 
-# Example usage
-example_line = 'ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ' # Sample data line
-print(placements_alpha(example_line))
+def placements_iota(line):
+    """
+    Processes a given TSV line. If the base form of the fourth column contains the Greek letter alpha,
+    process the word and return the 'placements' part of the result.
 
+    >>placements_alpha('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ')
+    >>_3
+    
+    Parameters:
+    - line (str): A string representing a row from a TSV file, expected to be tab-separated.
+
+    Returns:
+    - placements (str): The processed placements information if conditions are met, otherwise None.
+    """
+    try:
+        # Split the line into columns using the tab delimiter
+        columns = line.split('\t')
+        
+        # Ensure the line has at least four elements
+        if len(columns) < 4:
+            return None
+        
+        # Process the fourth column to remove diacritics
+        base_text = only_bases(columns[3])
+        
+        # Check if the processed text contains 'α'
+        if 'ι' in base_text:
+            # Assuming process_word returns a tuple or list and we need the second element
+            result = process_word(columns[3])
+            if result and len(result) > 1:
+                placements = result[1]
+                return placements
+            
+        return None
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+    
+
+def placements_hypsilon(line):
+    """
+    Processes a given TSV line. If the base form of the fourth column contains the Greek letter alpha,
+    process the word and return the 'placements' part of the result.
+
+    >>placements_alpha('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ')
+    >>_3
+    
+    Parameters:
+    - line (str): A string representing a row from a TSV file, expected to be tab-separated.
+
+    Returns:
+    - placements (str): The processed placements information if conditions are met, otherwise None.
+    """
+    try:
+        # Split the line into columns using the tab delimiter
+        columns = line.split('\t')
+        
+        # Ensure the line has at least four elements
+        if len(columns) < 4:
+            return None
+        
+        # Process the fourth column to remove diacritics
+        base_text = only_bases(columns[3])
+        
+        # Check if the processed text contains 'α'
+        if 'υ' in base_text:
+            # Assuming process_word returns a tuple or list and we need the second element
+            result = process_word(columns[3])
+            if result and len(result) > 1:
+                placements = result[1]
+                return placements
+            
+        return None
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+
+####################
+
+
+def extract_digit(result):
+    """ Helper function to extract digit from the function return. """
+    digits = re.findall(r'\d+', result)
+    return int(digits[0]) if digits else None
+
+
+def find_nth_character(base_text, character, n):
+    """ Find the nth occurrence of a character in a string and return its position. """
+    count = 0
+    for index, char in enumerate(base_text):
+        if char == character:
+            count += 1
+            if count == n:
+                return index + 1  # returning 1-based index
+    return None
+
+
+def convert_placement(line):
+    # Split the line assuming it's a single string of a TSV row
+    columns = line.split('\t')
+    
+    if len(columns) < 1:
+        return None
+
+    # Apply base conversion to the first column
+    base_text = only_bases(columns[0])
+    result_dict = {}
+
+    # Process each relevant function and find the nth character as described
+    alpha_placement = placements_alpha(line)
+    if alpha_placement and alpha_placement[0]:  # Check if list is not empty and contains an item
+        n = extract_digit(alpha_placement[0])  # Pass the first string from the list
+        if n:
+            result_dict['alpha_position'] = find_nth_character(base_text, 'α', n)
+    
+    iota_placement = placements_iota(line)
+    if iota_placement and iota_placement[0]:
+        n = extract_digit(iota_placement[0])
+        if n:
+            result_dict['iota_position'] = find_nth_character(base_text, 'ι', n)
+    
+    hypsilon_placement = placements_hypsilon(line)
+    if hypsilon_placement and hypsilon_placement[0]:
+        n = extract_digit(hypsilon_placement[0])
+        if n:
+            result_dict['hypsilon_position'] = find_nth_character(base_text, 'υ', n)
+    
+    return result_dict
+
+
+
+
+
+
+
+
+# Example usage
+
+print(placements_alpha('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ'))
+
+print(f'Should be 5: {convert_placement('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ')}')
+
+print(f'Should be 3: {convert_placement('ἁψῖδα	n-s---fa-	ἁψῖδα	ῑ')}')
+
+print(f'Should be 4 and 2: {convert_placement('δῖναινεφέλας	n-p---fa-	δῖναινεφέλη	ῑᾱ')}')
+
+print(f'Should be 6: {convert_placement('δωματῖτιν	n-s---fa-	δωματῖτιν	ῑι')}')
+
+print(f'Should be 6: {convert_placement('ᾄξας	n-p---fa-	ᾄξη	ᾱᾱ')}')
 
 # Example usage
 #input_file_path = 'macrons_ifthimos_raw.tsv'  # Replace 'input.tsv' with your actual input file path
