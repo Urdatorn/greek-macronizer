@@ -1,8 +1,11 @@
-macrons.txt har ungefär 25 tusen unika lemmata.
+# readme.md
+
+
+
 LSJ har runt 116 502 lemmata. 
 
 Taggen i raden
-    VERB	λάβηι	v3sasa---	λάβηι
+    `VERB	λάβηι	v3sasa---	λάβηι`
 läses som 
     v = VERB
     3 = tredje person
@@ -11,9 +14,10 @@ läses som
     s = subjunktiv
     a = aktivum
 
-Dependencies 
+## Dependencies 
 
     Python:
+
         pip3 install requests
         pip3 install tqdm
         pip3 install bs4
@@ -21,7 +25,7 @@ Dependencies
         pip3 install numpy
         pip3 install scipy
         pip3 install pyuca
-        pip3 install beautifulsoup4
+        pip3 install beautifulsoup
 
     Ruby:
         gem install parallel
@@ -59,7 +63,7 @@ Now, the use of dashes for ellipses could have created confusion, as e.g. Eur. I
 Luckily, the two usages have (hopefully consistently!) separate unicodes: the line-break is a short en dash, same as in the tag,
 while the ellipsis is surrounded by two em dashes. 
 
-FLÖDESSCHEMA
+## FLÖDESSCHEMA
 
 FÖRBEREDA TOKENS.TXT (Detta kan göras igen om det släpps bättre POS-analys) 
 Detta delflöde är klart i en första version. Se prepare_tokens/main_tokens.py för vilka script det rör sig om.
@@ -83,7 +87,7 @@ Detta delflöde är klart i en första version. Se prepare_tokens/main_tokens.py
 
 Skulle behövas en second-opinion för lemmatisering och POS-analys. Morpheus? ChatGPT?
 
-BYGGA MACRONS.TXT (Detta är en skiss; arbetet har knappt påbörjats i skrivande stund 1 mars)
+## BYGGA MACRONS.TXT (Detta är en skiss; arbetet har knappt påbörjats i skrivande stund 1 mars)
 
 Nu byggs en fjärde kolumn, MACRON, utöver de första tre från tokens.txt
 
@@ -106,23 +110,6 @@ Följande typer av tokens mappas också mot sina normala motsvarigheter och inkl
 4. Manuellt kolla resterande rötter
 
 
-    ADJ: adjective
-    ADP: adposition
-    ADV: adverb
-    AUX: auxiliary
-    CCONJ: coordinating conjunction
-    DET: determiner
-    INTJ: interjection
-    NOUN: noun
-    NUM: numeral
-    PART: particle
-    PRON: pronoun
-    PROPN: proper noun
-    PUNCT: punctuation
-    SCONJ: subordinating conjunction
-    SYM: symbol
-    VERB: verb
-    X: other
 
 NB:
 Några få ord i TLG-corpuset är i ALL-CAPS och kommer nog bara från titel och talare:
@@ -131,3 +118,82 @@ Några få ord i TLG-corpuset är i ALL-CAPS och kommer nog bara från titel och
 <l n="1"><label type="speaker">ΑΠΟΛΛΩΝ</label> 
 
 Dessa ord kan sorteras bort, då de ändå inte är relevanta för metern.
+
+###
+
+POS tags (source: https://github.com/cltk/greek_treebank_perseus)
+
+        1: 	part of speech
+        
+            n	noun
+            v	verb
+            t	participle
+            a	adjective
+            d	adverb
+            l	article
+            g	particle
+            c	conjunction
+            r	preposition
+            p	pronoun
+            m	numeral
+            i	interjection
+            e	exclamation
+            u	punctuation
+        
+        2: 	person
+        
+            1	first person
+            2	second person
+            3	third person
+        
+        3: 	number
+        
+            s	singular
+            p	plural
+            d	dual
+        
+        4: 	tense
+        
+            p	present
+            i	imperfect
+            r	perfect
+            l	pluperfect
+            t	future perfect
+            f	future
+            a	aorist
+        
+        5: 	mood
+        
+            i	indicative
+            s	subjunctive
+            o	optative
+            n	infinitive
+            m	imperative
+            p	participle
+        
+        6: 	voice
+        
+            a	active
+            p	passive
+            m	middle
+            e	medio-passive
+        
+        7:	gender
+        
+            m	masculine
+            f	feminine
+            n	neuter
+        
+        8: 	case
+        
+            n	nominative
+            g	genitive
+            d	dative
+            a	accusative
+            v	vocative
+            l	locative
+        
+        9: 	degree
+        
+            c	comparative
+            s	superlative

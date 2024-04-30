@@ -80,7 +80,7 @@ def logout():
 @login_required
 def display_pie_chart():
     # Load the TSV file with headers
-    data = pd.read_csv('macrons_wiki_and_hypo_collated.tsv', delimiter='\t')
+    data = pd.read_csv('macrons_wiki_hypo_ifth.tsv', delimiter='\t')
 
     # Create a new column for pie chart segmentation
     data['segment'] = data['macron'].apply(lambda x: 'empty' if pd.isna(x) or x == '' else 'non-empty')
