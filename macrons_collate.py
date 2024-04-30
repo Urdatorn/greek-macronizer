@@ -7,9 +7,8 @@ The columns are referred to as token, tag, lemma, macron, source,
 and the goal is to fill in the macron and source columns. 
 
     Step 1) Collating all sources of macrons into a single db, in order of quality precedence:
-        - manual
         - LSJ (only lemmata, little/no pos)
-        - Ifthimos (only endings, full pos compatibility)
+        - Ifthimos (macrons_ifthimos.tsv) (only endings, full pos compatibility) => 
         - Wiktionary (no pos) => macrons_collate_wiktionary.py (older)
         - Hypotactic (no pos) => macrons_collate_hypotactic.py (best collation script)
 

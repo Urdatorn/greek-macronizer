@@ -15,6 +15,8 @@ Only 3183 lines have macrons from ifthimos.
 
 '''
 
+
+import csv
 import re
 
 from greek_accentuation.characters import length, base
@@ -89,7 +91,7 @@ def placements_alpha(line):
             result = process_word(columns[3])
             if result and len(result) > 1:
                 placements = result[1]
-                print(placements)
+                #print(placements)
                 return placements
             
         return None
@@ -199,10 +201,14 @@ def find_nth_character(base_text, character, n):
     return None
 
 
-### CONVERT MACRON FORMAT
+### CONVERT MACRON FORMAT, TWO STEPS
 
 
 def convert_placement(line):
+    '''
+    >>δῖναινεφέλας	n-p---fa-	δῖναινεφέλη	ῑᾱ
+    >>{'α_position_1': 4, 'ι_position_1': 2}
+    '''
     # Split the line assuming it's a single string of a TSV row
     columns = line.split('\t')
     
@@ -242,30 +248,80 @@ def convert_placement(line):
     return result_dict
 
 
+def format_placement_output(line):
+    '''
+    Takes a TSV line, applies convert_placement to get dictionary entries of character positions,
+    and returns them in arithmetical order, prefixed with underscores.
+    Example:
+    >>line = 'δῖναινεφέλας\tn-p---fa-\tδῖναινεφέλη\tῑᾱ'
+    >>format_placement_output(line)
+    >>'_2_4'
+    '''
+    # Get the placement dictionary from convert_placement
+    placement_dict = convert_placement(line)
+    
+    if not placement_dict:
+        return ''
+    
+    # Sort the position numbers directly from the dictionary values
+    sorted_positions = sorted(placement_dict.values())
+    
+    # Format the sorted position numbers as a single string with underscores
+    formatted_output = '_' + '_'.join(map(str, sorted_positions))
+    
+    return formatted_output
+
+
+def process_tsv_file(input_file_path, output_file_path):
+    with open(input_file_path, 'r', encoding='utf-8', newline='') as infile, \
+         open(output_file_path, 'w', encoding='utf-8', newline='') as outfile:
+        
+        reader = csv.reader(infile, delimiter='\t')
+        writer = csv.writer(outfile, delimiter='\t')
+
+        # Read the header and write it directly to the output file
+        header = next(reader)
+        writer.writerow(header + [''])  # Ensure the header has five columns
+
+        # Process each subsequent line
+        for line in reader:
+            if len(line) < 4:
+                # Ensure the line has at least four columns to avoid index errors
+                continue
+
+            # Apply the placement formatting to the fourth column
+            formatted_output = format_placement_output('\t'.join(line))
+            line[3] = formatted_output
+
+            # Ensure the line has exactly five columns
+            while len(line) < 5:
+                line.append('')
+
+            # Write the modified line to the output file
+            writer.writerow(line)
 
 
 
 
 
-
-
-
-# Example usage
-
-
+ 
+# unit tests
+'''
 print(f'Should be 5: {convert_placement('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ')}')
-
 print(f'Should be 3: {convert_placement('ἁψῖδα	n-s---fa-	ἁψῖδα	ῑ')}')
-
 print(f'Should be 4 and 2: {convert_placement('δῖναινεφέλας	n-p---fa-	δῖναινεφέλη	ῑᾱ')}')
-
 print(f'Should be 6: {convert_placement('δωματῖτιν	n-s---fa-	δωματῖτιν	ῑι')}')
-
 print(f'Should be 1 and 3: {convert_placement('ᾄξας	n-p---fa-	ᾄξη	ᾱᾱ')}')
-
-print(len(convert_placement('ᾄξας	n-p---fa-	ᾄξη	ᾱᾱ')))
+'''
+'''
+print(f'Should be 5: {format_placement_output('ἀγαθάς	a-p---fa-	ἀγαθός	ααᾱ')}')
+print(f'Should be 3: {format_placement_output('ἁψῖδα	n-s---fa-	ἁψῖδα	ῑ')}')
+print(f'Should be 4 and 2: {format_placement_output('δῖναινεφέλας	n-p---fa-	δῖναινεφέλη	ῑᾱ')}')
+print(f'Should be 6: {format_placement_output('δωματῖτιν	n-s---fa-	δωματῖτιν	ῑι')}')
+print(f'Should be 1 and 3: {format_placement_output('ᾄξας	n-p---fa-	ᾄξη	ᾱᾱ')}')
+'''
 
 # Example usage
-#input_file_path = 'macrons_ifthimos_raw.tsv'  # Replace 'input.tsv' with your actual input file path
-#output_file_path = 'macrons_ifthimos_raw_filter.tsv'  # Replace 'output.tsv' with your desired output file path
-
+input_file_path = 'macrons_ifthimos_raw_filter.tsv'
+output_file_path = 'macrons_ifthimos.tsv'
+process_tsv_file(input_file_path, output_file_path)
