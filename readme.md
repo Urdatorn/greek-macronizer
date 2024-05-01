@@ -2,7 +2,7 @@
 
 
 
-LSJ har runt 116 502 lemmata. 
+
 
 Taggen i raden
     `VERB	λάβηι	v3sasa---	λάβηι`
@@ -65,7 +65,7 @@ while the ellipsis is surrounded by two em dashes.
 
 ## FLÖDESSCHEMA
 
-FÖRBEREDA TOKENS.TXT (Detta kan göras igen om det släpps bättre POS-analys) 
+### FÖRBEREDA TOKENS.TSV (Detta kan göras igen om det släpps bättre POS-analys) 
 Detta delflöde är klart i en första version. Se prepare_tokens/main_tokens.py för vilka script det rör sig om.
 
 1. Ta bort all punktuation, ev. förutom ' för elision (remove_punctuation.py) (möjligtvis skapas nya dubletter)
@@ -87,11 +87,11 @@ Detta delflöde är klart i en första version. Se prepare_tokens/main_tokens.py
 
 Skulle behövas en second-opinion för lemmatisering och POS-analys. Morpheus? ChatGPT?
 
-## BYGGA MACRONS.TXT (Detta är en skiss; arbetet har knappt påbörjats i skrivande stund 1 mars)
+### BYGGA MACRONS.TSV
 
 Nu byggs en fjärde kolumn, MACRON, utöver de första tre från tokens.txt
 
-0. Tokens med enbart "gratis" macrons togs bort i steg 6. Dessa kan lätt makroniseras algoritmiskt och behöver ej finnas i macrons.txt.
+0. Tokens med enbart "gratis" macrons togs bort i steg 6. Dessa kan lätt makroniseras algoritmiskt och behöver ej finnas i macrons.tsv.
 Vissa tokens har tog både obestämbara och "gratis", och då bör de som är gratis makroniseras i filen, då målet är att alla dichrona i filen ska vara indikerade
 - Om ett ord har cirkumflex eller iota subscriptum/adscriptum på ett α, ι, υ, så makronisera detta tecken direkt
 - Om ett properispomenon eller proparoxtiton har ett α, ι, υ på ultiman, så "breve-isera" ultiman direkt

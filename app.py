@@ -2,12 +2,19 @@ from flask import Flask, render_template, request, redirect, url_for, flash, g
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly.io as pio
+from plotly.subplots import make_subplots
 import csv
 import sqlite3
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import check_password_hash
 
 from utils import DICHRONA
+
+
+################################
+########## LOGIN ###############
+################################
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b\xc0;\xde\xedG&#\xf5A[qHL\xf3W\x90\x97\xec\x85\x9c\xfd\x9a\x1c\xf8'
@@ -76,49 +83,63 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+################################
+########## PIE CHARTS ##########
+################################
+
+
 @app.route('/stats')
 @login_required
 def display_pie_chart():
     # Load the TSV file with headers
-    data = pd.read_csv('macrons_wiki_hypo_ifth.tsv', delimiter='\t')
+    data = pd.read_csv('macrons_wiki_hypo_ifth_lsj.tsv', delimiter='\t')
 
-    # Create a new column for pie chart segmentation
+    # Data for the first pie chart
     data['segment'] = data['macron'].apply(lambda x: 'empty' if pd.isna(x) or x == '' else 'non-empty')
-    # Use source column directly for those entries that are non-empty
     data.loc[data['segment'] == 'non-empty', 'segment'] = data['source'].fillna('no source')
-    # Generate a summary of the segments
     summary = data['segment'].value_counts()
 
-    # Generate the first pie chart
-    fig1 = px.pie(
-        names=summary.index,
-        values=summary.values,
-        title="Macronized lines by source"
-    )
-    pie_html1 = pio.to_html(fig1, full_html=False)
-
-    # Statistics for second pie chart
-    # Count instances of DICHRONA characters in the token column
+    # Data for the second pie chart
     data['dichrona_count'] = data['token'].apply(lambda x: sum(1 for char in x if char in DICHRONA))
     total_dichrona = data['dichrona_count'].sum()
-
-    # Count the total number of digits in the macron column
     data['macron_digit_count'] = data['macron'].fillna('').apply(lambda x: sum(char.isdigit() for char in x))
     total_macron_digits = data['macron_digit_count'].sum()
-
-    # Data for the second pie chart
     stats = pd.Series([total_dichrona, total_macron_digits], index=['Dichrona', 'Macrons'])
 
-    # Generate the second pie chart
-    fig2 = px.pie(
-        names=stats.index,
-        values=stats.values,
-        title="Macronized dichrona"
-    )
-    pie_html2 = pio.to_html(fig2, full_html=False)
+    # Data for the third pie chart
+    tag_class_map = {
+        'n': 'noun', 'v': 'verb', 't': 'participle', 'a': 'adjective',
+        'd': 'adverb', 'l': 'article', 'g': 'particle', 'c': 'conjunction',
+        'r': 'preposition', 'p': 'pronoun', 'm': 'numeral',
+        'i': 'interjection', 'e': 'exclamation', 'u': 'punctuation'
+    }
+    data['word_class'] = data['tag'].apply(lambda x: tag_class_map.get(x[0], 'other') if pd.notna(x) and x else 'other')
+    word_class_summary = data['word_class'].value_counts()
 
-    # Render the template and include the pie charts
-    return render_template('stats.html', pie_chart1=pie_html1, pie_chart2=pie_html2)
+    # Create the subplots: 1 row, 3 columns
+    fig = make_subplots(rows=1, cols=3, specs=[[{"type": "pie"}, {"type": "pie"}, {"type": "pie"}]],
+                        subplot_titles=("Macronized lines by source", "Macronized dichrona", "Word Class Distribution"))
+
+    # Add pie charts to the subplots
+    fig.add_trace(go.Pie(labels=summary.index, values=summary.values, name="Source"), row=1, col=1)
+    fig.add_trace(go.Pie(labels=stats.index, values=stats.values, name="Dichrona"), row=1, col=2)
+    fig.add_trace(go.Pie(labels=word_class_summary.index, values=word_class_summary.values, name="Word Class"), row=1, col=3)
+
+    # Update layout for better alignment and sizing
+    fig.update_layout(margin=dict(l=20, r=20, t=50, b=20), width=1200, height=400)
+
+    # Convert the figure to HTML to embed in Flask template
+    pie_html = pio.to_html(fig, full_html=False)
+
+    return render_template('stats.html', pie_chart=pie_html)
+
+
+
+
+################################
+########## ADD MACRONS #########
+################################
+
 
 @app.route('/add_macrons', methods=['GET', 'POST'])
 def add_macrons():
