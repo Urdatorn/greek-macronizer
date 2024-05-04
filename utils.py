@@ -58,13 +58,19 @@ def sort_polytonic_string(input_string):
 
 # VOWELS
 # note that rn these don't include all capital letters
+# the vast number of dichrona with VRACHY/LONGA + other diacritics are in crawl_wiktionary/macrons_map.py
+
+iotas = r'[ιϊἰἱίΐἴἵὶῒἲἳῖῗἶἷΙἸἼἺἾἹἽἻἿΊῚΪῐῘῑῙ]'
+
+iota_in_diphthong = r'[ιἰἱίἴἵὶἲἳῖἶἷ]' # NB: if any of these iotas follows an accent- and spiritusless α,ε,ο,υ or any η,ω, it is the second part of a diphthong and should not be macronized
+iota_diaeresis = r'[ϊΐῒῗΪ]'
 
 acutes = r'[άέήίόύώΐΰἄἅἔἕἤἥἴἵὄὅὔὕὤὥᾄᾅᾴᾔᾕῄᾤᾥῴ]' # problem with how to represent capital iota adscript; cf. Eric's regex
 graves = r'[ὰὲὴὶὸὺὼῒῢἂἃἒἓἢἣἲἳὂὃὒὓὢὣᾂᾃᾲᾒᾓῂᾢᾣῲ]'
 circumflexes = r'[ᾶῆῖῦῶῗῧἇἆἦἧἶἷὖὗὦὧἦἧἆἇὧὦᾆᾇᾷᾖᾗᾦᾧῷῇ]'
 all_accents = f'[{acutes[1:-1]}{graves[1:-1]}{circumflexes[1:-1]}]' # sum of above 3
 
-unaccented = r'[αεηιουωἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾳᾀᾁῃᾐᾑῳᾠᾡϊϋ]' # 7 + 14 + 9
+unaccented = r'[αεηιουωϊϋἀἁἐἑἠἡἰἱὀὁὐὑὠὡᾳᾀᾁῃᾐᾑῳᾠᾡ]' # 7 + 14 + 9
 all_vowels_lowercase = f'[{all_accents[1:-1]}{unaccented[1:-1]}]' # sum of above 2; NB: no iota adscript
 all_vowels_uppercase = r'[ΑἈἌἊἎἉἍἋἏΆᾺΕἘἜἚἙἝἛΈῈΗἨἬἪἮἩἭἫἯΉῊΙἸἼἺἾἹἽἻἿΊῚΪΟὈὌὊὉὍὋΌῸΥὙὝὛὟΎῪΫΩὨὬὪὮὩὭὫὯΏῺᾬᾪᾮᾨᾭᾫᾯᾩῼ]' 
 '''

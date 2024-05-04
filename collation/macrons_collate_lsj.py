@@ -48,6 +48,7 @@ logging.basicConfig(filename='collate.log', level=logging.INFO, format='%(asctim
 # AUXILIARIES RE OVERWRITING
 # ordinal_in_existing
 # insert_macron_in_order
+# collate_macrons
 
 
 def ordinal_in_existing(existing_macrons, new_macron):
@@ -217,11 +218,13 @@ def collate_two_tsv(base_tsv_path, added_tsv_path, output_tsv_path):
     print(f"{Colors.RED}* Ifthimos * Total unmatched lines: {unmatched_lines}{Colors.ENDC}")
 
 
-### USAGE
+if __name__ == '__main__':
 
-# Total matching lines: 181 (30 april)
-collate_two_tsv('macrons_wiki_hypo_ifth.tsv', 'macrons_lsj.tsv', 'macrons_wiki_hypo_ifth_lsj.tsv')
+    ### USAGE
+
+    # Total matching lines: 181 (30 april)
+    collate_two_tsv('macrons_wiki_hypo_ifth.tsv', 'macrons_lsj.tsv', 'macrons_wiki_hypo_ifth_lsj.tsv')
 
 
-### TEST
-#collate_two_tsv('macrons_test2.tsv', 'macrons_test2_added.tsv', 'macrons_test2_result.tsv')
+    ### TEST
+    #collate_two_tsv('macrons_test2.tsv', 'macrons_test2_added.tsv', 'macrons_test2_result.tsv')

@@ -156,9 +156,6 @@ def word_with_real_dichrona(s):
     """
     for i, char in enumerate(s):
         if char in DICHRONA:
-            # Check for subscript iota since it applies to single characters
-            if has_iota_subscriptum(char):
-                continue  # This DICHRONA character does not meet the criteria
 
             # Form pairs to check for diphthongs and adscriptum
             prev_pair = s[i-1:i+1] if i > 0 else ''
@@ -177,11 +174,11 @@ def word_with_real_dichrona(s):
 
 def properispomenon_with_dichronon_only_in_ultima(string):
     """
-    Determines if a given string satisfies the following simplified criteria:
+    Determines if a given string satisfies the following criteria:
     - The entire string is recognized by `word_with_real_dichrona`.
     - The accent type of the string is classified as properispomenon.
     - The ultima of the string is recognized by `word_with_real_dichrona`.
-    - The part of the string before the ultima is NO recognized by `word_with_real_dichrona`.
+    - The part of the string before the ultima is NOT recognized by `word_with_real_dichrona`.
     
     The design importantly returns a word such as αὖθις.
     

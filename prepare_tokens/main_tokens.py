@@ -34,7 +34,6 @@ import normalize
 import supplement_barytones
 import alphabetize_unicode 
 import filter_dichrona
-import handle_x_lines
 import remove_double_accents
 import remove_no_spiritus
 

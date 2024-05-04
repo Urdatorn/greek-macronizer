@@ -91,22 +91,21 @@ def logout():
 @app.route('/stats')
 @login_required
 def display_pie_chart():
-    # Load the TSV file with headers
     data = pd.read_csv('macrons_wiki_hypo_ifth_lsj.tsv', delimiter='\t')
 
-    # Data for the first pie chart
+    # Process data for the first chart
     data['segment'] = data['macron'].apply(lambda x: 'empty' if pd.isna(x) or x == '' else 'non-empty')
     data.loc[data['segment'] == 'non-empty', 'segment'] = data['source'].fillna('no source')
     summary = data['segment'].value_counts()
 
-    # Data for the second pie chart
+    # Process data for the second chart
     data['dichrona_count'] = data['token'].apply(lambda x: sum(1 for char in x if char in DICHRONA))
     total_dichrona = data['dichrona_count'].sum()
     data['macron_digit_count'] = data['macron'].fillna('').apply(lambda x: sum(char.isdigit() for char in x))
     total_macron_digits = data['macron_digit_count'].sum()
     stats = pd.Series([total_dichrona, total_macron_digits], index=['Dichrona', 'Macrons'])
 
-    # Data for the third pie chart
+    # Data for the third chart
     tag_class_map = {
         'n': 'noun', 'v': 'verb', 't': 'participle', 'a': 'adjective',
         'd': 'adverb', 'l': 'article', 'g': 'particle', 'c': 'conjunction',
@@ -120,13 +119,23 @@ def display_pie_chart():
     fig = make_subplots(rows=1, cols=3, specs=[[{"type": "pie"}, {"type": "pie"}, {"type": "pie"}]],
                         subplot_titles=("Macronized lines by source", "Macronized dichrona", "Word Class Distribution"))
 
-    # Add pie charts to the subplots
+    # Add the pie charts to the subplots
     fig.add_trace(go.Pie(labels=summary.index, values=summary.values, name="Source"), row=1, col=1)
     fig.add_trace(go.Pie(labels=stats.index, values=stats.values, name="Dichrona"), row=1, col=2)
     fig.add_trace(go.Pie(labels=word_class_summary.index, values=word_class_summary.values, name="Word Class"), row=1, col=3)
 
-    # Update layout for better alignment and sizing
-    fig.update_layout(margin=dict(l=20, r=20, t=50, b=20), width=1200, height=400)
+    # Configure legends
+    fig.update_layout(
+        width=1200,
+        height=400,
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.2,
+            xanchor="center",
+            x=0.5
+        )
+    )
 
     # Convert the figure to HTML to embed in Flask template
     pie_html = pio.to_html(fig, full_html=False)
