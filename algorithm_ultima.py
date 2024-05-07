@@ -1,14 +1,14 @@
 '''
-ALGORITHMIC MACRONIZING
+ALGORITHMIC MACRONIZING PART 1
 
-General goal is three-fold, 
-    (i) macronize all "free" macrons that were not filtered out by filter_dichrona.py because the token also contained one or more "true dichrona"
+We put brevia on the ultimas of tokens which pass:
+    properispomenon_with_dichronon_in_ultima or
+    proparoxytone_with_dichronon_in_ultima
+
+Position in general algorithmic process: 
+==> (i) macronize all accentually-determined "free" macrons that were not filtered out by filter_dichrona.py because the token also contained one or more "true dichrona"
     (ii) generalize the already macronized tokens by rule-bound inferences
     (iii) generalize whatever endings are left over algorithmically
-
-For (i) we put brevia on the ultimas of tokens which pass:
-    properispomenon_with_dichronon_in_ultima
-    proparoxytone_with_dichronon_in_ultima
 
 Test file:
     lemma	tag	token	macron	source

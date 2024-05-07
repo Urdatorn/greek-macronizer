@@ -18841,7 +18841,7 @@ lemma	tag	token	macron	source
 Ἰάσονι	n-s---md-	Ἰάσων	_2^6	wiktionary
 Ἰάσων	v-sapamn-	Ἰάσων	^1_2	hypotactic
 ἰατῆρα	n-s---ma-	ἰατῆρ	^6	breve_ultima
-ἰατορίας	n-s---mn-	ἰατορίας	_7	ifthimos
+ἰατορίας	n-s---fg-	ἰατορίας	_7	ifthimos
 ἰατρομάντεις	a-p---fn-	ἰατρομάντης		
 ἰατρόμαντις	n-s---mn-	ἰατρόμαντις	_1_2^10	wiktionary,breve_ultima
 ἰατροί	a-p---mn-	ἰατρός	_1_2	wiktionary
@@ -36170,9 +36170,9 @@ lemma	tag	token	macron	source
 συνθοινάτορ’	n-s---ma-	συνθοινάτορ		
 συνθραύσω	v1sfia---	συνθραύσω		
 συνθύειν	v--pna---	συνθύω		
-ξυνίημ’	v1spia---	συνίημ		
-συνίημ’	v1spia---	συνίημ		
-ξυνίημ’	v1spia---	συνίημ’		
+ξυνίημ’	v1spia---	συνίημι		
+συνίημ’	v1spia---	συνίημι		
+ξυνίημ’	v1spia---	συνίημι		
 Ξύνες	v2sama---	συνίημι		
 ξυνῆκα	v1saia---	συνίημι	^2^6	wiktionary
 ξυνῆκας	v2saia---	συνίημι	^2^6	wiktionary

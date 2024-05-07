@@ -10,7 +10,7 @@ import sqlite3
 from werkzeug.security import check_password_hash
 
 from utils import DICHRONA
-
+from prepare_tokens.filter_dichrona import is_diphthong, has_iota_adscriptum
 
 ################################
 ########## LOGIN ###############
@@ -87,25 +87,42 @@ def logout():
 ########## PIE CHARTS ##########
 ################################
 
+input_tsv = 'macrons_alg1_ultima.tsv'
 
 @app.route('/stats')
-@login_required
-def display_pie_chart():
-    data = pd.read_csv('macrons_wiki_hypo_ifth_lsj.tsv', delimiter='\t')
+def stats_page():
+    # This function will act as the orchestrator for generating all charts
+    pie_html1 = source_distribution_chart()
+    pie_html2 = macronized_dichrona_chart()
+    pie_html3 = word_class_distribution_chart()
+    
+    # Render the template and include the pie charts
+    return render_template('stats.html', pie_chart1=pie_html1, pie_chart2=pie_html2, pie_chart3=pie_html3)
 
-    # Process data for the first chart
+def source_distribution_chart():
+    data = pd.read_csv(input_tsv, delimiter='\t')
     data['segment'] = data['macron'].apply(lambda x: 'empty' if pd.isna(x) or x == '' else 'non-empty')
     data.loc[data['segment'] == 'non-empty', 'segment'] = data['source'].fillna('no source')
     summary = data['segment'].value_counts()
 
-    # Process data for the second chart
-    data['dichrona_count'] = data['token'].apply(lambda x: sum(1 for char in x if char in DICHRONA))
+    fig = px.pie(names=summary.index, values=summary.values, title="Macronized lines by source")
+    pie_html = pio.to_html(fig, full_html=False)
+    return pie_html
+
+def macronized_dichrona_chart():
+    data = pd.read_csv(input_tsv, delimiter='\t')
+    data['dichrona_count'] = data['token'].apply(lambda x: sum(1 for char in x if char in DICHRONA and not (is_diphthong(x) or has_iota_adscriptum(x))))
     total_dichrona = data['dichrona_count'].sum()
     data['macron_digit_count'] = data['macron'].fillna('').apply(lambda x: sum(char.isdigit() for char in x))
     total_macron_digits = data['macron_digit_count'].sum()
-    stats = pd.Series([total_dichrona, total_macron_digits], index=['Dichrona', 'Macrons'])
 
-    # Data for the third chart
+    stats = pd.Series([total_dichrona, total_macron_digits], index=['Dichrona', 'Macrons'])
+    fig = px.pie(names=stats.index, values=stats.values, title="Macronized dichrona")
+    pie_html = pio.to_html(fig, full_html=False)
+    return pie_html
+
+def word_class_distribution_chart():
+    data = pd.read_csv(input_tsv, delimiter='\t')
     tag_class_map = {
         'n': 'noun', 'v': 'verb', 't': 'participle', 'a': 'adjective',
         'd': 'adverb', 'l': 'article', 'g': 'particle', 'c': 'conjunction',
@@ -115,32 +132,9 @@ def display_pie_chart():
     data['word_class'] = data['tag'].apply(lambda x: tag_class_map.get(x[0], 'other') if pd.notna(x) and x else 'other')
     word_class_summary = data['word_class'].value_counts()
 
-    # Create the subplots: 1 row, 3 columns
-    fig = make_subplots(rows=1, cols=3, specs=[[{"type": "pie"}, {"type": "pie"}, {"type": "pie"}]],
-                        subplot_titles=("Macronized lines by source", "Macronized dichrona", "Word Class Distribution"))
-
-    # Add the pie charts to the subplots
-    fig.add_trace(go.Pie(labels=summary.index, values=summary.values, name="Source"), row=1, col=1)
-    fig.add_trace(go.Pie(labels=stats.index, values=stats.values, name="Dichrona"), row=1, col=2)
-    fig.add_trace(go.Pie(labels=word_class_summary.index, values=word_class_summary.values, name="Word Class"), row=1, col=3)
-
-    # Configure legends
-    fig.update_layout(
-        width=1200,
-        height=400,
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=-0.2,
-            xanchor="center",
-            x=0.5
-        )
-    )
-
-    # Convert the figure to HTML to embed in Flask template
+    fig = px.pie(labels=word_class_summary.index, values=word_class_summary.values, title="Word Class Distribution")
     pie_html = pio.to_html(fig, full_html=False)
-
-    return render_template('stats.html', pie_chart=pie_html)
+    return pie_html
 
 
 
