@@ -47,6 +47,6 @@ from prepare_tokens.filter_dichrona import ultima, properispomenon, proparoxyton
 from collate_macrons import collate_macrons
 
 
-from greek_inflexion_interface import get_stem
+from algorithm_accentual_rules import 
 
 

@@ -65,7 +65,7 @@ lemma	tag	token	macron	source
 ἁβρόν	a-s---ma-	ἁβρός	_1	wiktionary,manual
 ἁβρόν	a-s---na-	ἁβρός	_1	wiktionary,manual
 ἁβρὸν	a-s---ma-	ἁβρός	_1	wiktionary,manual
-ἁβρὸν	a-s---na-	ἁβρός	_1	wiktionary,manual	
+ἁβρὸν	a-s---na-	ἁβρός	_1	wiktionary,manual
 ἁβρῶς	d--------	ἁβρός	_1	wiktionary,manual
 ἁβροσύνηι	n-s---fd-	ἁβροσύνη	_1^6	manual
 ἁβρότητι	n-s---fd-	ἁβρότης	_1^8	breve_ultima,manual
@@ -183,26 +183,26 @@ lemma	tag	token	macron	source
 ἀγαγών	v-sapamn-	ἀγαμγάνω	^1^3	wiktionary
 ἀγάμεθ’	v2srma---	ἀγάμεθ		
 ἀγάμεθ’	n-s---mv-	ἀγάμεθ		
-Ἀγαμέμνον’	n-s---ma-	Ἀγαμέμνον		
-Ἀγάμεμνον	n-s---mv-	Ἀγάμεμνον	^1^3	hypotactic
-Ἀγαμεμνονείας	a-s---fg-	Ἀγαμεμνονεῖος		
-Ἀγαμεμνονίαις	a-p---fd-	Ἀγαμεμνονία		
-Ἀγαμεμνονίαν	n-s---fa-	Ἀγαμεμνονία		
-Ἀγαμεμνονίαν	n-s---ma-	Ἀγαμεμνονία		
-Ἀγαμεμνονίδας	n-s---fg-	Ἀγαμεμνονίδη		
-Ἀγαμεμνονίων	a-p---mg-	Ἀγαμεμνονῖος		
-Ἀγαμεμνόνιον	a-s---ma-	Ἀγαμεμνόνιος		
-Ἀγαμεμνόνιον	n-s---ma-	Ἀγαμεμνόνιος		
-Ἀγαμεμνόνιος	a-s---mn-	Ἀγαμεμνόνιος		
-ἀγαμέμνονος	n-s---mg-	Ἀγαμέμνονός		
+Ἀγαμέμνον’	n-s---ma-	Ἀγαμέμνων	^1^3	manual
+Ἀγάμεμνον	n-s---mv-	Ἀγαμέμνων	^1^3	hypotactic
+Ἀγαμεμνονείας	a-s---fg-	Ἀγαμεμνονεῖος	_12	nominal
+Ἀγαμεμνονίαις	a-p---fd-	Ἀγαμεμνονία	^1^3^10	manual
+Ἀγαμεμνονίαν	n-s---fa-	Ἀγαμεμνονία	^1^3^10	manual
+Ἀγαμεμνονίαν	n-s---ma-	Ἀγαμεμνονία	^1^3^10	manual
+Ἀγαμεμνονίδας	n-s---fg-	Ἀγαμεμνονίδη	^1^3^10_12	nominal,manual
+Ἀγαμεμνονίων	a-p---mg-	Ἀγαμεμνονῖος	^1^3	manual
+Ἀγαμεμνόνιον	a-s---ma-	Ἀγαμεμνόνιος	^1^3^10	manual
+Ἀγαμεμνόνιον	n-s---ma-	Ἀγαμεμνόνιος	^1^3^10	manual
+Ἀγαμεμνόνιος	a-s---mn-	Ἀγαμεμνόνιος	^1^3^10	manual
+ἀγαμέμνονος	n-s---mg-	Ἀγαμέμνων	^1^3	manual
 Ἀγάμεμνον	n-s---ma-	ἀγαμέμνων	^1^3	hypotactic
 Ἀγάμεμνον	n-s---mv-	ἀγαμέμνων	^1^3	hypotactic
 Ἀγαμέμνονα	n-s---ma-	ἀγαμέμνων	^1^3^10	hypotactic
 Ἀγαμέμνονι	n-s---md-	ἀγαμέμνων	^1^3^10	hypotactic
 Ἀγαμέμνονος	n-s---mg-	ἀγαμέμνων	^1^3	hypotactic
 Ἀγαμέμνων	n-s---mn-	ἀγαμέμνων	^1^3	wiktionary
-ἀγαμέμνονα	n-s---ma-	Ἀγαμέμνων	^10	breve_ultima
-ἀγαμέμνονος	n-s---mg-	Ἀγαμέμνων		
+ἀγαμέμνονα	n-s---ma-	Ἀγαμέμνων	^1^3^10	breve_ultima,manual
+ἀγαμέμνονος	n-s---mg-	Ἀγαμέμνων	^1^3	manual
 Ἀγαμέμνων	n-s---mn-	Ἀγαμέμνων	^1^3	wiktionary
 ἄγαμον	a-s---ma-	ἄγαμος	^3	wiktionary
 ἄγαμον	a-s---na-	ἄγαμος	^3	wiktionary
@@ -388,11 +388,11 @@ lemma	tag	token	macron	source
 ἀγλαΐας	n-s---fg-	ἀγλαία	^4^5_6	ifthimos
 ἀγλαΐαις	n-p---fd-	ἀγλαΐη	^4^5	hypotactic
 ἀγλάισμ’	n-s---na-	ἀγλάισμ		
-ἀγλάισμα	n-s---nn-	ἀγλάισμα		
-ἀγλάισμα	n-s---na-	ἀγλάισμα		
-ἀγλάισμα	n-s---na-	ἀγλάισμα		
-ἀγλάϊσμα	n-s---na-	ἀγλάισμα	^8	breve_ultima
-ἀγλαϊσμάτων	n-p---ng-	ἀγλαϊσμάτων		
+ἀγλάισμα	n-s---nn-	ἀγλάισμα	_1^4^5^8	nominal,manual
+ἀγλάισμα	n-s---na-	ἀγλάισμα	_1^4^5^8	nominal,manual
+ἀγλάισμα	n-s---na-	ἀγλάισμα	_1^4^5^8	nominal,manual
+ἀγλάϊσμα	n-s---na-	ἀγλάισμα	_1^4^5^8	breve_ultima,manual
+ἀγλαϊσμάτων	n-p---ng-	ἀγλαϊσμάτων	_1^4^5^8	manual
 ἀγλαάς	a-p---fa-	ἀγλαός	_1^4_5	wiktionary
 ἀγλαὰς	a-p---fa-	ἀγλαός	_5	ifthimos
 ἀγλαόν	a-s---fa-	ἀγλαός	_1^4	wiktionary
@@ -855,7 +855,7 @@ lemma	tag	token	macron	source
 ἅδην	d--------	ἅδην	^1	hypotactic
 ἀδῇον	a-s---fa-	ἀδῇος		
 ἀδήριτον	a-s---nn-	ἀδήριτος	^1^5	hypotactic
-Ἅιδα	n-s---mg-	ᾅδης		
+Ἅιδα	n-s---mg-	ᾅδης	^4	nominal
 Ἀΐδαν	n-s---ma-	ᾅδης		
 Ἅιδῃ	n-s---md-	ᾅδης		
 Ἅιδην	n-s---ma-	ᾅδης		
@@ -1062,9 +1062,9 @@ lemma	tag	token	macron	source
 ἀέρδην	d--------	ἀέρδην		
 ἀερθέν	v3sria---	ἀερθέν		
 ἀερθῶ	v1sasa---	ἀερθῶ		
-Ἀερίας	a-s---fg-	Ἀερῖος		
+Ἀερίας	a-s---fg-	Ἀερῖος	_5	nominal
 ἀέριον	a-s---ma-	ἀέριος		
-Ἀερόπας	n-p---fa-	Ἀερόπη		
+Ἀερόπας	n-p---fa-	Ἀερόπη	_6	nominal
 Ἀερόπης	n-s---fg-	Ἀερόπης		
 Ἀερόπης	n-s---mn-	Ἀερόπης		
 ἄχθηται	v3sase---	ἄεχθω		
@@ -1291,7 +1291,7 @@ lemma	tag	token	macron	source
 ἀθώπευτον	a-s---ma-	ἀθώπευτος		
 Ἅιδα	n-s---fd-	Ἅι		
 Ἅιδα	n-s---fa-	Ἅι		
-Ἅιδα	n-s---ma-	Ἅι		
+Ἅιδα	n-s---ma-	Ἅι	^4	nominal
 Ἅιδαν	p-p---fn-	Ἅι		
 αἰανής	n-s---fg-	αἰα	_3	wiktionary
 αἰανὴς	n-s---fg-	αἰα	_3	hypotactic
@@ -1401,20 +1401,20 @@ lemma	tag	token	macron	source
 Ἀίδα	n-s---mg-	Ἀίδα	^1^2_4	hypotactic
 Ἀίδα	n-s---md-	Ἀίδα	^1^2_4	hypotactic
 Ἀίδαι	n-s---md-	Ἀίδα		
-Ἀίδᾳ	n-s---mg-	Ἀίδᾳ	^1^2	hypotactic
+Ἀίδᾳ	n-s---mg-	Ἀίδᾳ	^1^2^4	hypotactic,nominal
 Ἀΐδα	n-s---mg-	Ἀΐδα	^1^2_4	hypotactic
-Ἀΐδᾳ	n-s---mg-	Ἀΐδᾳ	^1^2	hypotactic
+Ἀΐδᾳ	n-s---mg-	Ἀΐδᾳ	^1^2^4	hypotactic,nominal
 Ἅιδαι	n-s---md-	Ἅιδα		
 Ἅιδας	n-p---ma-	Ἅιδα		
 Ἅιδας	v2spia---	Ἅιδα		
-Ἅιδᾳ	n-s---mg-	Ἅιδᾳ		
+Ἅιδᾳ	n-s---mg-	Ἅιδᾳ	^4	nominal
 Ἅιδαι	n-p---mn-	Ἅιδαι		
 Ἅιδας	n-s---mg-	Ἅιδαι		
 Ἀίδαν	n-s---ma-	Ἀίδαν	^1^2	hypotactic
 Ἅιδαν	n-s---ma-	Ἅιδαν		
 Ἀίδας	n-s---mg-	Ἀίδας		
 Ἀίδας	n-s---mn-	Ἀίδας		
-Ἀΐδᾳ	n-s---mg-	Ἀΐδας	^1^2	hypotactic
+Ἀΐδᾳ	n-s---mg-	Ἀΐδας	^1^2^4	hypotactic,nominal
 Ἀΐδας	n-s---mn-	Ἀΐδας	^1^2_4	hypotactic
 Ἅιδας	n-s---mn-	Ἅιδας		
 Ἅιδηι	n-s---md-	Ἅιδηι		
@@ -1455,8 +1455,8 @@ lemma	tag	token	macron	source
 αἰθερία	a-s---fn-	αἰθερίος	^6_7	hypotactic
 αἰθερία	a-p---nn-	αἰθερίος	^6_7	hypotactic
 αἰθερίαν	a-s---fa-	αἰθερῖος		
-αἰθερίας	a-s---fg-	αἰθερῖος	_1	ifthimos
-αἰθερίας	a-p---fa-	αἰθερῖος	_1	ifthimos
+αἰθερίας	a-s---fg-	αἰθερῖος	_1_7	ifthimos,nominal
+αἰθερίας	a-p---fa-	αἰθερῖος	_1_7	ifthimos,nominal
 αἰθέριοι	a-p---mn-	αἰθέριος		
 αἰθέριον	a-s---ma-	αἰθέριος	^6	hypotactic
 αἰθέριον	a-s---na-	αἰθέριος	^6	hypotactic
@@ -1471,7 +1471,7 @@ lemma	tag	token	macron	source
 Αἴθρα	n-s---fn-	Αἴθρα	_5	wiktionary
 Αἴθραν	n-s---fa-	Αἴθρα	_5	wiktionary
 αἰκάλλων	a-p---mg-	αἰκάλλων		
-αἰκείας	a-p---fa-	αἰκεῖος	_1	ifthimos
+αἰκείας	a-p---fa-	αἰκεῖος	_1_6	ifthimos,nominal
 αἰκέλιον	a-s---na-	αἰκέλιος		
 αἰκία	n-s---fn-	αἰκία	^4_5	wiktionary
 αἰκίαις	n-p---fd-	αἰκία	^4	wiktionary
@@ -1526,8 +1526,8 @@ lemma	tag	token	macron	source
 αἱματηράν	a-s---fa-	αἱματηρός		
 αἱματηράν	a-s---fa-	αἱματηρός		
 αἱματηρὰν	a-s---fa-	αἱματηρός		
-αἱματηράς	a-p---fa-	αἱματηρός	_4	ifthimos
-αἱματηρὰς	a-p---fa-	αἱματηρός	_4	ifthimos
+αἱματηράς	a-p---fa-	αἱματηρός	_4_8	ifthimos,nominal
+αἱματηρὰς	a-p---fa-	αἱματηρός	_4_8	ifthimos,nominal
 αἱματηρόν	a-s---nn-	αἱματηρός		
 αἱματηρόν	a-s---ma-	αἱματηρός		
 αἱματηρόν	a-s---na-	αἱματηρός		
@@ -1577,7 +1577,7 @@ lemma	tag	token	macron	source
 αἱμόρραντοι	a-p---fn-	αἱμόρραντος		
 αἱμορράντων	v-pppamg-	αἱμορράντων		
 αἱμορρύτου	a-s---fg-	αἱμορρύτου		
-αἱμύλας	a-p---fa-	αἱμύλη	_1^4	ifthimos
+αἱμύλας	a-p---fa-	αἱμύλη	_1^4_6	ifthimos,nominal
 αἱμύλον	a-s---na-	αἱμύλος		
 αἱμυλώτατον	a-s---nns	αἱμυλώς		
 αἱμυλώτατον	a-s---mas	αἱμυλώτατον		
@@ -1585,7 +1585,7 @@ lemma	tag	token	macron	source
 Αἵμων	n-s---mn-	αἵμων		
 Αἵμων	n-s---mv-	αἵμων		
 Αἵμονι	n-s---md-	Αἵμων	^6	wiktionary
-Αἰνέα	n-s---mv-	Αἰνέας		
+Αἰνέα	n-s---mv-	Αἰνέας	^5	nominal
 Αἰνέαν	n-s---ma-	Αἰνέας		
 Αἰνέας	n-s---mn-	αἰνείας	_5	wiktionary
 αἰνέσατ’	v3saim---	αἰνέσατ		
@@ -1625,7 +1625,7 @@ lemma	tag	token	macron	source
 αἰόλας	a-p---fa-	αἰόλος	_1_5	ifthimos
 Αἰόλου	a-s---mg-	αἴολος		
 Αἰόλου	n-s---mg-	αἴολος		
-ἀιόνας	n-p---fa-	ἀιόνη	_1	ifthimos
+ἀιόνας	n-p---fa-	ἀιόνη	_1_5	ifthimos,nominal
 ἀϊόσιν	n-p---fd-	ἀϊός		
 αἰπεινά	a-p---nn-	αἰπεινός	_7	wiktionary
 αἰπολίοις	a-p---nd-	αἰπολίοις		
@@ -1698,7 +1698,7 @@ lemma	tag	token	macron	source
 αἰσχράν	a-s---fa-	αἰσχρός	_6	wiktionary
 αἰσχρὰν	a-s---fa-	αἰσχρός		
 αἰσχράς	a-p---fa-	αἰσχρός	_1_6	ifthimos
-αἰσχρὰς	a-p---fa-	αἰσχρός	_1	ifthimos
+αἰσχρὰς	a-p---fa-	αἰσχρός	_1_6	ifthimos,nominal
 Αἰσχρόν	a-s---nn-	αἰσχρός		
 Αἰσχρόν	a-s---ma-	αἰσχρός		
 Αἰσχρὸν	a-s---nn-	αἰσχρός		
@@ -1776,9 +1776,9 @@ lemma	tag	token	macron	source
 αἴτιος	a-s---mn-	αἴτιος	^4	wiktionary
 αἰτίους	a-p---ma-	αἴτιος	^4	wiktionary
 Αἰτναίαις	a-p---fd-	Αἰτναία		
-Αἰτναίας	n-p---fa-	Αἰτναίη		
+Αἰτναίας	n-p---fa-	Αἰτναίη	_7	nominal
 Αἰτναίαν	a-s---fa-	Αἰτναίος		
-Αἴτνας	n-p---fa-	Αἴτνη		
+Αἴτνας	n-p---fa-	Αἴτνη	_5	nominal
 Αἰτωλίας	n-s---fg-	Αἰτωλία	^6_7	wiktionary
 Αἰτωλίδ’	n-s---fa-	Αἰτωλίδ		
 Αἰτωλίς	a-p---md-	Αἰτωλίς	^6	wiktionary
@@ -1820,7 +1820,7 @@ lemma	tag	token	macron	source
 αἰχμάλωτον	a-s---ma-	αἰχμάλωτός	^5	wiktionary
 αἰχμάν	n-s---fa-	αἰχμή		
 αἰχμάς	n-p---fa-	αἰχμή	_1_5	ifthimos
-αἰχμὰς	n-p---fa-	αἰχμή	_1	ifthimos
+αἰχμὰς	n-p---fa-	αἰχμή	_1_5	ifthimos,nominal
 ἀΐεις	v2spia---	ἀίω	^1^2	wiktionary
 ἀΐοντες	v-pppamn-	ἀίω		
 ἀίω	v1spia---	ἀίω	^1^2	hypotactic
@@ -1832,7 +1832,7 @@ lemma	tag	token	macron	source
 αἰῶνοςαν	n-s---fa-	αἰῶνοςἂν		
 αἰωρήμασιν	n-p---nd-	αἰωρήμασιν	^9	breve_ultima
 ἀκτά	n-p---na-	ἀκ	_4	wiktionary
-ἀκτὰ	n-p---na-	ἀκ		
+ἀκτὰ	n-p---na-	ἀκ	^4	nominal
 ἀκάθαρτον	a-s---na-	ἀκάθαρτος	^1^3^5	wiktionary
 ἄκαιρ’	a-p---nn-	ἄκαιρ		
 ἄκαιρα	a-p---na-	ἄκαιρος	^1^6	hypotactic
@@ -1936,7 +1936,7 @@ lemma	tag	token	macron	source
 ἀκμά	n-p---na-	ἀκμά	_4	wiktionary
 ἀκμάζει	v3spia---	ἀκμάζω	^1^4	wiktionary
 ἀκμάζων	v-sppamn-	ἀκμάζων	^1^4	wiktionary
-ἀκμαίας	a-p---fa-	ἀκμαίη	_4	ifthimos
+ἀκμαίας	a-p---fa-	ἀκμαίη	_4_6	ifthimos,nominal
 ἀκμαίοις	a-p---fd-	ἀκμαίοις		
 ἀκμαῖοι	a-p---mn-	ἀκμαῖος		
 ἀκμαῖος	a-s---mn-	ἀκμαῖος		
@@ -2311,7 +2311,7 @@ lemma	tag	token	macron	source
 ἀλαὸν	a-s---nn-	ἀλαὸς	^1^3	hypotactic
 ἀλαὸν	a-s---na-	ἀλαὸς	^1^3	hypotactic
 ἀλαοῦ	n-s---mg-	ἀλαοῦ	^1	wiktionary
-ἀλάτα	n-p---na-	ἀλάς		
+ἀλάτα	n-p---na-	ἀλάς	^5	nominal
 ἀλάτας	n-p---ma-	ἀλάς	_5	ifthimos
 ἀλᾶτα	d--------	ἀλᾶς	_3^5	ifthimos,breve_ultima
 Ἁλάς	n-s---mn-	Ἁλάς		
@@ -2639,8 +2639,8 @@ lemma	tag	token	macron	source
 ἀλκιμώτατον	a-s---nas	ἀλκιμώος		
 ἀλκίφρων	a-s---mn-	ἀλκίφρων		
 Ἀλκμήνας	n-s---ma-	Ἀλκμή		
-Ἀλκμήνας	n-s---fg-	ἀλκμήνη		
-Ἀλκμήνας	n-p---fa-	ἀλκμήνη		
+Ἀλκμήνας	n-s---fg-	ἀλκμήνη	_7	nominal
+Ἀλκμήνας	n-p---fa-	ἀλκμήνη	_7	nominal
 Ἀλκμήνη	n-s---fv-	ἀλκμήνη		
 Ἀλκμήνη	n-s---fn-	ἀλκμήνη		
 Ἀλκμήνην	n-s---fa-	ἀλκμήνη		
@@ -3039,7 +3039,7 @@ lemma	tag	token	macron	source
 ἀμάτορος	a-s---fg-	ἀμάτωρ		
 ἀμαυρᾶς	n-s---fg-	ἀμαυρᾶς	^1_3	ifthimos
 ἀμαυρᾶς	a-s---fg-	ἀμαυρᾶς	^1_3	ifthimos
-ἀμαυρᾶς	n-s---fg-	ἀμαυρή	^1_3	ifthimos
+ἀμαυρᾶς	n-s---fg-	ἀμαυρή	^1_3_6	ifthimos,nominal
 ἀμαυροῖ	v3saoa---	ἀμαυροῖ		
 ἀμαυρά	n-s---fn-	ἀμαυρός	^1_6	wiktionary
 ἀμαυρὰ	n-s---fn-	ἀμαυρός		
@@ -3254,7 +3254,7 @@ lemma	tag	token	macron	source
 ἄμμορος	a-s---mn-	ἄμμορος		
 ἅμμα	a-p---nn-	ἅμμος		
 ἅμμα	a-p---na-	ἅμμος		
-Ἀμμωνιάδας	n-p---fa-	Ἀμμωνιάδη		
+Ἀμμωνιάδας	n-p---fa-	Ἀμμωνιάδη	_9	nominal
 Ἀμμωνίδες	n-p---fn-	Ἀμμωνίς		
 ἀμναστεῖ	v3spia---	ἀμναστέω		
 ἀμνημόνευτος	a-s---fn-	ἀμνημόνευτος		
@@ -3498,7 +3498,7 @@ lemma	tag	token	macron	source
 ἀμφινείκητον	a-s---nn-	ἀμφινείκητος		
 ἀμφινοῶ	v1spia---	ἀμφινοέω		
 Ἀμφίον’	n-s---ma-	Ἀμφίον		
-Ἀμφιονίας	a-s---fg-	Ἀμφιονῖος		
+Ἀμφιονίας	a-s---fg-	Ἀμφιονῖος	_8	nominal
 Ἀμφίονος	n-s---mg-	Ἀμφίονος	_4	wiktionary
 ἀμφιπίπτων	v-sppamn-	ἀμφιπίπτω		
 ἀμφιπίτνουσα	v-sppafn-	ἀμφιπίπτω	^12	breve_ultima
@@ -3542,7 +3542,7 @@ lemma	tag	token	macron	source
 ἀμφίτορνον	n-s---ma-	ἀμφίτορνος		
 ἀμφιτρῆτος	a-s---fn-	ἀμφιτρῆτος		
 Ἀμφιτρίτας	n-s---fg-	Ἀμφιτρί		
-Ἀμφιτρίτας	n-s---fg-	Ἀμφιτρίτη		
+Ἀμφιτρίτας	n-s---fg-	Ἀμφιτρίτη	_9	nominal
 Ἀμφιτρύων	n-s---mn-	ἀμφιτρύων	^7	wiktionary
 Ἀμφιτρύων	n-s---mv-	ἀμφιτρύων	^7	wiktionary
 Ἀμφιτρύων’	n-s---ma-	ἀμφιτρύων		
@@ -3689,7 +3689,7 @@ lemma	tag	token	macron	source
 ἀνάγκα	n-s---fd-	ἀνάγκη		
 ἀνάγκαις	n-p---fd-	ἀνάγκη	^1	hypotactic
 ἀνάγκας	n-p---fa-	ἀνάγκη	^1_6	ifthimos
-Ἀνάγκας	n-p---fa-	ἀνάγκη		
+Ἀνάγκας	n-p---fa-	ἀνάγκη	_6	nominal
 ἀνάγκη	u--------	ἀνάγκη	^1	hypotactic
 ἀνάγκη	n-s---fn-	ἀνάγκη	^1	hypotactic
 ἀνάγκη	n-s---fd-	ἀνάγκη	^1	hypotactic
@@ -3727,9 +3727,9 @@ lemma	tag	token	macron	source
 ἀνατὶ	r--------	ἀναὶ		
 ἀναιδείαι	a-p---fv-	ἀναιδεία		
 ἀναιδείαι	v3spia---	ἀναιδεία		
-ἀναιδείας	n-s---fg-	ἀναιδεία	_3	ifthimos
+ἀναιδείας	n-s---fg-	ἀναιδεία	_3_8	ifthimos,nominal
 ἀναίδειαν	n-s---fa-	ἀναίδεια	^8	breve_ultima
-ἀναιδείας	n-p---fa-	ἀναιδείη	_3	ifthimos
+ἀναιδείας	n-p---fa-	ἀναιδείη	_3_8	ifthimos,nominal
 ἀναιδές	a-s---na-	ἀναιδής		
 ἀναιδές	a-s---mv-	ἀναιδής		
 ἀναιδές	a-s---nv-	ἀναιδής		
@@ -3962,7 +3962,7 @@ lemma	tag	token	macron	source
 ἀναρτήσαντ’	v-sappma-	ἀναρτήσαντ		
 ἀναρχία	n-s---fn-	ἀναρχία	_7	wiktionary
 ἀναρχίαν	n-s---fa-	ἀναρχία	^1^6_7	hypotactic
-Ἀναρχίας	n-s---fg-	Ἀναρχία		
+Ἀναρχίας	n-s---fg-	Ἀναρχία	_7	nominal
 ἄναρχον	a-s---na-	ἄναρχος	^1^3	wiktionary
 ἄναες	a-p---fn-	ἄνας	^1_3	hypotactic
 ἄναες	n-p---fn-	ἄνας	^1_3	hypotactic
@@ -4352,7 +4352,7 @@ lemma	tag	token	macron	source
 ἀνῆπτον	v3piia---	ἀνῆπτον		
 ἀνήψατο	v3saim---	ἀνήπτω	^1^5	hypotactic
 ἄνδρα	n-s---ma-	ἀνήρ	^1^5	wiktionary
-Ἄνδρα	n-s---ma-	ἀνήρ		
+Ἄνδρα	n-s---ma-	ἀνήρ	^5	nominal
 ἄνδρας	n-p---ma-	ἀνήρ	^1^5	wiktionary
 Ἄνδρας	n-p---ma-	ἀνήρ		
 ἀνδράσι	n-p---md-	ἀνήρ	^1^5^7	wiktionary
@@ -4365,7 +4365,7 @@ lemma	tag	token	macron	source
 Ἄνδρες	n-p---mv-	ἀνήρ		
 ἀνδρί	n-s---md-	ἀνήρ	^1^5	wiktionary
 ἀνδρί	n-s---md-	ἀνήρ	^1^5	wiktionary
-ἀνδρὶ	n-s---md-	ἀνήρ		
+ἀνδρὶ	n-s---md-	ἀνήρ	^5	nominal
 ἀνδρός	n-s---mg-	ἀνήρ	^1	wiktionary
 ἀνδρός	n-s---mg-	ἀνήρ	^1	wiktionary
 Ἀνδρός	n-s---mg-	ἀνήρ		
@@ -5225,7 +5225,7 @@ lemma	tag	token	macron	source
 ἀπαιδία	n-s---fn-	ἀπαιδία		
 ἀπαιδίαι	n-p---fn-	ἀπαιδία		
 ἀπαιδίαν	n-s---fa-	ἀπαιδία		
-ἀπαιδίας	n-s---fg-	ἀπαιδία	_3	ifthimos
+ἀπαιδίας	n-s---fg-	ἀπαιδία	_3_7	ifthimos,nominal
 ἀπαιδίαν	n-s---fa-	ἀπαιδίαν		
 ἀπήνας	v-sapamn-	ἀπαίνω	_5	wiktionary
 ἀπαιολᾶι	v3spia---	ἀπαιολᾶι	_3	ifthimos
@@ -5721,7 +5721,7 @@ lemma	tag	token	macron	source
 ἀπίαν	a-s---fa-	ἄπιος		
 Ἀπίαν	a-s---fa-	ἄπιος		
 Ἀπίας	a-s---mn-	ἄπιος		
-Ἀπίας	a-s---fg-	ἄπιος		
+Ἀπίας	a-s---fg-	ἄπιος	_4	nominal
 ἀπέσβη	v3siia---	ἀπίσβημι		
 ἄπιστ’	a-s---mv-	ἄπιστ		
 ἄπιστ’	a-s---ma-	ἄπιστ		
@@ -6400,11 +6400,11 @@ lemma	tag	token	macron	source
 ἀράς	n-p---fa-	ἀρά	_1_3	hypotactic
 ἀράς	v-sapamn-	ἀρά	_1_3	hypotactic
 ἀράς	n-p---fa-	ἀρά	_1_3	hypotactic
-Ἀράς	n-p---fa-	ἀρά		
-Ἀράς	n-p---fa-	ἀρά		
+Ἀράς	n-p---fa-	ἀρά	_3	nominal
+Ἀράς	n-p---fa-	ἀρά	_3	nominal
 ἀρὰς	n-p---fa-	ἀρά	^1_3	ifthimos
 ἀρὰς	v-sapamn-	ἀρά	^1_3	ifthimos
-Ἀρὰς	n-p---fa-	ἀρά		
+Ἀρὰς	n-p---fa-	ἀρά	_3	nominal
 ἀρᾶς	n-s---fg-	ἀρά	_3	ifthimos
 ἀρᾶς	n-p---fa-	ἀρά	_3	ifthimos
 Ἀρά	g--------	Ἀρά	^1_3	hypotactic
@@ -6611,7 +6611,7 @@ lemma	tag	token	macron	source
 Ἄρει	n-s---md-	Ἄρει		
 ἄρειαν	v3spia---	ἄρειαν	^1^5	wiktionary
 ἄρειας	n-s---fg-	ἄρειας	^1^5	wiktionary
-Ἀρείας	a-p---fa-	Ἀρείη		
+Ἀρείας	a-p---fa-	Ἀρείη	_5	nominal
 ἀρεῖσθαι	v--anm---	ἀρεῖμι		
 Ἀρείοις	a-p---md-	Ἀρείοις		
 Ἀρείοισιν	a-p---md-	Ἀρείοισιν	^8	breve_ultima
@@ -6654,7 +6654,7 @@ lemma	tag	token	macron	source
 ἀρετὰς	n-p---fa-	ἀρετή	^1_5	ifthimos
 ἀρετᾶς	n-p---fa-	ἀρετή	^1_5	ifthimos
 ἀρετᾶς	n-s---fg-	ἀρετή	^1_5	ifthimos
-Ἀρετᾶς	n-s---fg-	ἀρετή		
+Ἀρετᾶς	n-s---fg-	ἀρετή	_5	nominal
 ἀρετῇ	n-s---fd-	ἀρετή	^1	wiktionary
 ἁρετή	n-s---fn-	ἀρετή		
 ἀρετήν	n-s---fa-	ἀρετή	^1	wiktionary
@@ -6740,7 +6740,7 @@ lemma	tag	token	macron	source
 Ἀριμασπὸν	n-s---ma-	Ἀριμασπὸς	^1^3	hypotactic
 Ἀρίων	n-p---mg-	ἄριοι	_3	wiktionary
 Ἀριόμαρδος	n-s---mn-	Ἀριόμαρδος	^1^3	hypotactic
-ἀρίςτα	n-p---nn-	ἀρίς		
+ἀρίςτα	n-p---nn-	ἀρίς	^6	nominal
 ἄριστ’	a-p---nas	ἄριστ		
 ἄριστ’	d--------	ἄριστ		
 ἄριστ’	a-s---mv-	ἄριστ		
@@ -6880,7 +6880,7 @@ lemma	tag	token	macron	source
 ἁρμονίαι	n-p---fn-	ἁρμονία		
 ἁρμονίαν	n-s---fa-	ἁρμονία	^6_7	hypotactic
 Ἁρμονίαν	n-s---fa-	Ἁρμονία	^6	hypotactic
-Ἁρμονίας	n-s---fg-	Ἁρμονία		
+Ἁρμονίας	n-s---fg-	Ἁρμονία	_7	nominal
 Ἁρμονίᾳ	n-s---fn-	Ἁρμονίᾳ		
 ἁρμόν	n-s---ma-	ἁρμός		
 ἁρμὸν	n-s---ma-	ἁρμός		
@@ -7057,7 +7057,7 @@ lemma	tag	token	macron	source
 ἀρτίως	d--------	ἀρτίως	^1^4	wiktionary
 ἀρυσαίμαν	v3paia---	ἀρυσαίμαν		
 ἀρχά	u--------	ἀρχά	^1_4	wiktionary
-ἀρχαγέτα	n-s---mn-	ἀρχαγέτα		
+ἀρχαγέτα	n-s---mn-	ἀρχαγέτα	^8	nominal
 ἀρχαγόν	n-s---ma-	ἀρχαγός		
 ἀρχαγός	n-s---mn-	ἀρχαγός	_4	wiktionary
 ἀρχαγὸς	n-s---mn-	ἀρχαγὸς		
@@ -7387,8 +7387,8 @@ lemma	tag	token	macron	source
 ἀσπούδαστ’	d--------	ἀσπούδαστ		
 ἀσπούδαστα	a-p---na-	ἀσπούδαστος	^10	breve_ultima
 ἀστάθμητος	a-s---mn-	ἀστάθμητος		
-ἀστακτί	n-s---md-	ἀστακήτ		
-ἀστακτὶ	n-s---md-	ἀστακήτ		
+ἀστακτί	n-s---md-	ἀστακήτ	^7	nominal
+ἀστακτὶ	n-s---md-	ἀστακήτ	^7	nominal
 Ἀστακοῦ	n-s---mg-	ἀστακός	^4	hypotactic
 ἀστάκτων	a-p---ng-	ἀστάκτων		
 Ἀστάσπης	n-s---mn-	Ἀστάσπης		
@@ -7542,7 +7542,7 @@ lemma	tag	token	macron	source
 ἀσχήμονες	a-p---fn-	ἀσχήμων		
 ἄσχολος	a-s---mn-	ἄσχολος		
 ἀσώδει	a-s---fd-	ἀσώδης		
-Ἀσωπίας	n-s---fg-	Ἀσωπία		
+Ἀσωπίας	n-s---fg-	Ἀσωπία	_6	nominal
 Ἀσωπόν	n-s---ma-	ἀσωπός		
 Ἀσωπὸν	n-s---ma-	ἀσωπός	_1	hypotactic
 Ἀσωπός	a-s---mn-	ἀσωπός		
@@ -7634,7 +7634,7 @@ lemma	tag	token	macron	source
 ἄταν	n-s---fa-	ἄτη	_1	hypotactic
 ἄτας	n-s---fg-	ἄτη	_3	ifthimos
 ἄτας	n-p---fa-	ἄτη	_3	ifthimos
-Ἄτας	n-s---fg-	ἄτη		
+Ἄτας	n-s---fg-	ἄτη	_3	nominal
 ἄτη	n-s---fd-	ἄτη	_1	hypotactic
 ἄτη	n-s---fn-	ἄτη	_1	hypotactic
 ἄτῃ	n-s---fd-	ἄτη		
@@ -7701,7 +7701,7 @@ lemma	tag	token	macron	source
 ἀτιμίᾳ	n-s---fd-	ἀτιμία	^1_3^5_6	ifthimos
 ἀτιμίαν	n-s---fa-	ἀτιμία	^1_3^5_6	wiktionary
 ἀτιμίας	n-s---fg-	ἀτιμία	^1_3^5_6	wiktionary
-Ἀτιμίας	n-s---fg-	ἀτιμία		
+Ἀτιμίας	n-s---fg-	ἀτιμία	_6	nominal
 ἀτιμοπενθεῖς	a-s---mn-	ἀτιμοπενθής		
 ἀτίμους	a-p---ma-	ἀτίμος		
 ἀτίμως	d--------	ἀτίμος	^1_3	hypotactic
@@ -7823,7 +7823,7 @@ lemma	tag	token	macron	source
 αὐγάζων	v-sppamn-	αὐγάζω	_4	hypotactic
 αὐγάς	n-p---fa-	αὐγή	_1_4	ifthimos
 αὐγάς	n-p---fa-	αὐγή	_1_4	ifthimos
-αὐγὰς	n-p---fa-	αὐγή	_1	ifthimos
+αὐγὰς	n-p---fa-	αὐγή	_1_4	ifthimos,nominal
 αὐδά	v2spma---	αὐδά	_1_4	ifthimos
 αὐδά	n-s---fa-	αὐδά	_1_4	ifthimos
 αὐδάν	v--pna---	αὐδά	_1	ifthimos
@@ -7860,7 +7860,7 @@ lemma	tag	token	macron	source
 αὐθαδίᾳ	n-s---fd-	αὐθαδία	_4^6	hypotactic
 αὐθαδίαι	n-p---fn-	αὐθαδία		
 αὐθαδίαν	n-s---fa-	αὐθαδία	_4^6	hypotactic
-αὐθαδίας	n-s---fg-	αὐθαδία	_4	ifthimos
+αὐθαδίας	n-s---fg-	αὐθαδία	_4_7	ifthimos,nominal
 αὐθαδίσμασιν	n-p---nd-	αὐθαδίσμασιν	^4^9^11	hypotactic,breve_ultima
 αὐθαδοῦς	a-s---fg-	αὐθαδοῦ		
 αὐθιγενεῖ	a-s----d-	αὐθιγενής		
@@ -7870,7 +7870,7 @@ lemma	tag	token	macron	source
 αὐλὰν	n-s---fa-	αὐλὰ		
 ἄλοκες	n-p---fn-	αὖλαξ		
 αὐλάς	n-p---fa-	αὐλή	_1_4	ifthimos
-αὐλὰς	n-p---fa-	αὐλή	_1	ifthimos
+αὐλὰς	n-p---fa-	αὐλή	_1_4	ifthimos,nominal
 αὐλίων	n-p---mg-	αὐλί		
 Αὐλίδ’	d--------	Αὐλίδ		
 Αὐλίδι	n-s---fd-	Αὐλίδι	^4^6	wiktionary
@@ -7957,7 +7957,7 @@ lemma	tag	token	macron	source
 αὐτάς	a-p---fa-	αὐτός	_1_4	ifthimos
 αὐτάς	a-p---fa-	αὐτός	_1_4	ifthimos
 αὐτάς	p-p---fa-	αὐτός	_1_4	ifthimos
-αὐτὰς	a-p---fa-	αὐτός	_1	ifthimos
+αὐτὰς	a-p---fa-	αὐτός	_1_4	ifthimos,nominal
 αὐτὰς	p-p---fa-	αὐτός	_1	ifthimos
 Αὐτή	a-s---fn-	αὐτός		
 Αὐτὴ	a-s---fn-	αὐτός		
@@ -8296,8 +8296,8 @@ lemma	tag	token	macron	source
 Ἀφροδίτη	n-s---fn-	ἀφροδίτη	_6	wiktionary
 Ἀφροδίτην	n-s---fa-	ἀφροδίτη	_6	wiktionary
 Ἀφροδίτης	n-s---fg-	ἀφροδίτη	_6	wiktionary
-Ἀφροδίτας	n-p---fa-	Ἀφροδίτη		
-Ἀφροδίτας	n-s---fg-	Ἀφροδίτη		
+Ἀφροδίτας	n-p---fa-	Ἀφροδίτη	_8	nominal
+Ἀφροδίτας	n-s---fg-	Ἀφροδίτη	_8	nominal
 ἀφρόν	n-s---ma-	ἀφρόν		
 ἀφρὸν	n-s---ma-	ἀφρὸν		
 ἀφρονήσεθ’	v2pfim---	ἀφρονήσεθ		
@@ -8431,7 +8431,7 @@ lemma	tag	token	macron	source
 ἄχη	n-p---na-	ἄχη	^1	wiktionary
 Ἀχαιίδος	a-s---fg-	Ἀχηιίς	^1^5	wiktionary
 ἀχήμασι	n-p---nd-	ἀχήμασι	^7	breve_ultima
-ἀχηνία	n-p---nn-	ἀχηνία		
+ἀχηνία	n-p---nn-	ἀχηνία	^6	nominal
 ἀχηνίαις	n-p---fd-	ἀχηνία		
 ἀχήσω	v1sfia---	ἀχήσω		
 ἀχθεινά	a-p---na-	ἀχθεινός		
@@ -8452,7 +8452,7 @@ lemma	tag	token	macron	source
 ἄχθος	n-s---nn-	ἄχθος	^1	wiktionary
 ἀχθοίμην	v1spoe---	ἀχθόω		
 Ἀχιλεῖ	n-s---md-	Ἀχιλεῖ	^1^3	hypotactic
-Ἀχιλείας	n-s---fg-	Ἀχίλεια		
+Ἀχιλείας	n-s---fg-	Ἀχίλεια	_7	nominal
 Ἀχιλέως	n-s---mg-	Ἀχιλέως	^3	wiktionary
 Ἀχιλῆ	n-s---md-	Ἀχιλῆ		
 Ἀχιλλέα	n-s---ma-	Ἀχιλλέ	^1_7	hypotactic
@@ -8470,7 +8470,7 @@ lemma	tag	token	macron	source
 Ἀχιλλέως	n-s---mg-	Ἀχιλλεύς	^1	hypotactic
 Ἀχιλλέως	n-s---mn-	Ἀχιλλεύς	^1	hypotactic
 Ἀχιλλέως	n-s---mn-	Ἀχιλλέως	^1	hypotactic
-ἀχλαινίας	a-s---fg-	ἀχλαίνιος	_4	ifthimos
+ἀχλαινίας	a-s---fg-	ἀχλαίνιος	_4_8	ifthimos,nominal
 Ἀχιλῆος	n-s---mn-	Ἀχλιλῆ	^3	wiktionary
 ἄχλοα	a-p---nn-	ἄχλοος	^5	breve_ultima
 ἀχλύν	n-s---fa-	ἀχλύς	_4	wiktionary
@@ -8638,7 +8638,7 @@ lemma	tag	token	macron	source
 ἔβαν	v3paia---	βαίνω	_3	wiktionary
 ἔβας	v2saia---	βαίνω		
 βαιά	n-p---na-	βαιόν	^4	wiktionary
-βαιὰ	n-p---na-	βαιόν		
+βαιὰ	n-p---na-	βαιόν	^4	nominal
 βαιά	a-p---nn-	βαιος	^4	wiktionary
 βαιά	a-p---na-	βαιός	^4	wiktionary
 βαιὰ	a-p---na-	βαιός		
@@ -8649,7 +8649,7 @@ lemma	tag	token	macron	source
 ἔβακαι	v1saia---	βακαίὶω		
 Βάκχιε	n-s---mv-	Βάκς		
 Βάκχου	n-s---mg-	Βάκς	^2	wiktionary
-βάκτρα	n-p---na-	Βάκτρα		
+βάκτρα	n-p---na-	Βάκτρα	^6	nominal
 βακτρεύμασι	n-p---nd-	βακτρεύμασι	^11	breve_ultima
 Βακτρίων	a-p---mg-	βάκτριος	^6	hypotactic
 Βάκτριος	a-s---mn-	Βάκτριος		
@@ -9211,7 +9211,7 @@ lemma	tag	token	macron	source
 βλάψω	v1sfia---	βλάπτω	^3	wiktionary
 ἔβλαψε	v3saia---	βλάπτω	^4	wiktionary
 ἔβλαψεν	v3saia---	βλάπτω	_4	hypotactic
-βλάστα	n-p---na-	βλάσ		
+βλάστα	n-p---na-	βλάσ	^6	nominal
 βλαστάνει	v3sfia---	βλαστάνει	^3^6	wiktionary
 βλαστάνειν	v--ana---	βλαστάνειν	^3^6	wiktionary
 βλαστάνοντες	v-papamn-	βλαστάνοντες		
@@ -9328,8 +9328,8 @@ lemma	tag	token	macron	source
 βόστρυχον	n-s---fa-	βόστρυχος	^6	wiktionary
 βόστρυχον	n-s---ma-	βόστρυχος	^6	wiktionary
 βόστρυχος	n-s---mn-	βόστρυχος	^6	wiktionary
-βοτά	n-p---na-	βοτόν		
-βοτὰ	n-p---na-	βοτόν		
+βοτά	n-p---na-	βοτόν	^4	nominal
+βοτὰ	n-p---na-	βοτόν	^4	nominal
 βότρυος	n-s---mg-	βότρυος		
 βότρυν	n-s---ma-	βότρυς		
 βότρυος	n-s---mg-	βότρυς		
@@ -9381,8 +9381,8 @@ lemma	tag	token	macron	source
 βουλὰς	n-p---fa-	βουλή	_5	ifthimos
 βουλιώτερον	a-s---nac	βουλιός		
 βοΐ	n-s---fd-	βοῦς	^3	hypotactic
-βουσί	n-p---md-	βοῦς		
-βουσὶ	n-p---md-	βοῦς		
+βουσί	n-p---md-	βοῦς	^5	nominal
+βουσὶ	n-p---md-	βοῦς	^5	nominal
 βούσταθμ’	n-s---ma-	βούσταθμ		
 βουστάθμους	n-p---ma-	βουστάθμους		
 βουστάσεις	n-p---fa-	βουστάσεις	^6	hypotactic
@@ -9420,7 +9420,7 @@ lemma	tag	token	macron	source
 βραδύς	a-s---mn-	βραδύς	^3^5	wiktionary
 βραδὺς	a-s---mn-	βραδύς	^3	hypotactic
 βραδυτῆτος	n-s---fg-	βραδυτής	^3^5	wiktionary
-Βραυρωνίας	a-p---fa-	Βραυρωνῖος		
+Βραυρωνίας	a-p---fa-	Βραυρωνῖος	_9	nominal
 βραχέ’	a-p---na-	βραχέ		
 βραχείαι	a-p---fn-	βραχείαι		
 βραχέσι	u--------	βραχέσι	^3^7	wiktionary
@@ -9577,7 +9577,7 @@ lemma	tag	token	macron	source
 γαμετᾶν	n-s---fa-	γαμετᾶν	_6	ifthimos
 γαμετᾶν	n-s---ma-	γαμετᾶν	_6	ifthimos
 γαμέτᾳ	n-s---fd-	γαμέτᾳς	^2_6	ifthimos
-γαμέτα	n-s---mn-	γαμέτης		
+γαμέτα	n-s---mn-	γαμέτης	^6	nominal
 γαμέτας	n-p---ma-	γαμέτης	_6	ifthimos
 γαμέτας	n-s---mn-	γαμέτης	_6	ifthimos
 γαμουμένας	v-pppefa-	γαμεύω	_9	ifthimos
@@ -9654,7 +9654,7 @@ lemma	tag	token	macron	source
 γὰρ	g--------	γάρ	^2	wiktionary
 γὰρ	g--------	γὰρ	^2	wiktionary
 γαστρί	n-s---fd-	γαστήρ	^2^6	wiktionary
-γαστρὶ	n-s---fd-	γαστήρ		
+γαστρὶ	n-s---fd-	γαστήρ	^6	nominal
 γαστρός	n-s---fg-	γαστρός	^2	wiktionary
 γαστρὸς	n-s---fg-	γαστρὸς		
 γνόντας	v-papama-	γγνάνω		
@@ -9692,7 +9692,7 @@ lemma	tag	token	macron	source
 γενέθλιον	a-s---nn-	γενέθλιος	^7	wiktionary
 γενεθλίους	a-p---ma-	γενεθλίους	^7	wiktionary
 γενεθλίους	a-p---fa-	γενεθλίους	^7	wiktionary
-γενέθλα	n-p---nv-	γενέθλον		
+γενέθλα	n-p---nv-	γενέθλον	^7	nominal
 γενειάδων	n-p---fg-	γενειάδων	^6	wiktionary
 γενειάδα	n-s---fa-	γενειάς	^6^8	wiktionary
 γενειάδας	n-p---fa-	γενειάς	^6^8	wiktionary
@@ -9744,7 +9744,7 @@ lemma	tag	token	macron	source
 γεραιὰν	a-s---fa-	γεραιός		
 γεραιάς	a-p---fa-	γεραιός	_4_6	ifthimos
 γεραιάς	a-p---fa-	γεραιός	_4_6	ifthimos
-γεραιὰς	a-p---fa-	γεραιός	_4	ifthimos
+γεραιὰς	a-p---fa-	γεραιός	_4_6	ifthimos,nominal
 Γεραιστίαις	n-p---fd-	Γεραιστία		
 γεραιτέρα	a-s---fnc	γεραιτέρα		
 γεραόν	a-s---ma-	γεραός		
@@ -9893,12 +9893,12 @@ lemma	tag	token	macron	source
 γοεδνά	a-p---na-	γοεδνά	_6	wiktionary
 γοεδνά	n-p---na-	γοεδνά	_6	wiktionary
 γοεδνὰ	a-p---na-	γοεδνὰ		
-γοεδνὰ	n-p---na-	γοεδνὰ		
+γοεδνὰ	n-p---na-	γοεδνὰ	^6	nominal
 γοεδνά	a-p---na-	γοεδνός	_6	wiktionary
 γοερά	a-p---na-	γοερός		
-γοερά	n-p---na-	γοερός		
+γοερά	n-p---na-	γοερός	^5	nominal
 γοερὰ	a-p---na-	γοερός		
-γοερὰ	n-p---na-	γοερός		
+γοερὰ	n-p---na-	γοερός	^5	nominal
 γόνασι	n-p---nd-	γόνα	^4^6	wiktionary
 γόνατος	n-s---ng-	γόνα	^4	wiktionary
 γονάν	n-s---fa-	γονάν		
@@ -9927,11 +9927,11 @@ lemma	tag	token	macron	source
 γουνάτων	n-p---ng-	γόνυ	^5	wiktionary
 γονυπετεῖς	a-p---fa-	γονυπετής	^4	wiktionary
 Γοργόνας	n-p---fa-	Γοργόνες		
-Γοργοφόνα	n-s---ma-	Γοργοφόνα		
-γραίας	n-s---fg-	γραεία	_3	ifthimos
-γραίας	n-p---fa-	γραῖος	_3	ifthimos
-γραίας	n-s---fg-	γραῖος	_3	ifthimos
-γραίας	a-p---fa-	γραῖος	_3	ifthimos
+Γοργοφόνα	n-s---ma-	Γοργοφόνα	^9	nominal
+γραίας	n-s---fg-	γραεία	_3_5	ifthimos,nominal
+γραίας	n-p---fa-	γραῖος	_3_5	ifthimos,nominal
+γραίας	n-s---fg-	γραῖος	_3_5	ifthimos,nominal
+γραίας	a-p---fa-	γραῖος	_3_5	ifthimos,nominal
 γράμμασιν	n-p---fd-	γράμμα	^3^6^8	wiktionary
 γράμμασιν	n-p---nd-	γράμμα	^3^6^8	wiktionary
 γράμματα	n-p---na-	γράμμα	^3^6^8	wiktionary
@@ -10067,7 +10067,7 @@ lemma	tag	token	macron	source
 γυναῖκες	n-p---fn-	γυνή	^2	wiktionary
 γυναικί	n-s---fd-	γυνή	^2^7	hypotactic
 γυναικί	n-s---fd-	γυνή	^2^7	hypotactic
-γυναικὶ	n-s---fd-	γυνή		
+γυναικὶ	n-s---fd-	γυνή	^7	nominal
 γυναικός	n-s---fg-	γυνή	^2	wiktionary
 γυναικός	n-s---fg-	γυνή	^2	wiktionary
 Γυναικός	n-s---fg-	γυνή		
@@ -10076,7 +10076,7 @@ lemma	tag	token	macron	source
 γυναικῶν	n-p---fg-	γυνή	^2	wiktionary
 γυναιξί	n-p---fd-	γυνή	^2^7	hypotactic
 γυναιξί	n-p---fd-	γυνή	^2^7	hypotactic
-γυναιξὶ	n-p---fd-	γυνή		
+γυναιξὶ	n-p---fd-	γυνή	^7	nominal
 γυναιξίν	n-p---fd-	γυνή	^2	wiktionary
 γυναιξίν	n-p---fd-	γυνή	^2	wiktionary
 γυναιξὶν	n-p---fd-	γυνή		
@@ -10090,7 +10090,7 @@ lemma	tag	token	macron	source
 γυπιάς	n-s---fg-	γυπιὰ	_2^4^5	wiktionary
 γυπιὰς	n-s---fg-	γυπιὰ	_5	ifthimos
 γυψί	n-p---fd-	γυψί	_2^4	wiktionary
-γυψὶ	n-p---fd-	γυψὶ		
+γυψὶ	n-p---fd-	γυψὶ	^4	nominal
 δ’ἔκδικ’	a-p---na-	δ’ἔκδικ		
 Δαρεῖος	a-s---mn-	Δα	_2	wiktionary
 δάπτει	v3spia---	δά	^2	wiktionary
@@ -10135,7 +10135,7 @@ lemma	tag	token	macron	source
 δαΐου	a-s---mg-	δαΐου	_2^3	hypotactic
 δαϊόφρων	a-s---fn-	δαϊόφρων	_2	wiktionary
 δαιτί	n-s---fd-	δαίς	^5	wiktionary
-δαιτὶ	n-s---fd-	δαίς		
+δαιτὶ	n-s---fd-	δαίς	^5	nominal
 δαιταλεύς	n-s---mn-	δαιταλεύς		
 δαιταλεὺς	n-s---mn-	δαιταλεύς	^5	hypotactic
 δαϊχθείς	v-sappmn-	δαϊχθείς		
@@ -10384,7 +10384,7 @@ lemma	tag	token	macron	source
 δατήριοι	a-p---mn-	δατήριος		
 δατητάς	n-p---fa-	δατητάς	_6	ifthimos
 δατητὰς	n-p---fa-	δατητὰς	^2_6	ifthimos
-Δαυλίας	n-p---fa-	Δαυλία		
+Δαυλίας	n-p---fa-	Δαυλία	_6	nominal
 Δαυλιεύς	n-s---mn-	Δαυλιεύς		
 Δαυλιεὺς	n-s---mn-	Δαυλιεύς		
 δάφνας	n-s---fg-	δάφ	^2_5	wiktionary
@@ -10454,7 +10454,7 @@ lemma	tag	token	macron	source
 δειλαία	a-s---fn-	δείλαιος	_7	hypotactic
 δειλαία	a-s---fv-	δείλαιος	_7	hypotactic
 Δειλαία	a-p---na-	δείλαιος		
-δειλαίας	a-s---fg-	δείλαιος	_5	ifthimos
+δειλαίας	a-s---fg-	δείλαιος	_5_7	ifthimos,nominal
 δειλαιοτάταπροβαίνω	v1spia---	δειλαιοτάταπροβαίνω		
 δειλίᾳ	n-s---fd-	δειλία	^5_6	ifthimos
 δειλίαι	n-s---fd-	δειλία		
@@ -10622,12 +10622,12 @@ lemma	tag	token	macron	source
 δέσμιος	a-s---mn-	δέσμιος		
 δεσμίους	n-p---ma-	δέσμιος		
 δέσμιον	n-s---ma-	δέσμιός		
-δεσμά	n-p---na-	δεσμον		
-δεσμά	n-p---na-	δεσμός		
-δεσμά	n-p---na-	δεσμός		
-δεσμά	n-p---nn-	δεσμός		
-δεσμὰ	n-p---na-	δεσμός		
-δεσμὰ	n-p---nn-	δεσμός		
+δεσμά	n-p---na-	δεσμον	^5	nominal
+δεσμά	n-p---na-	δεσμός	^5	nominal
+δεσμά	n-p---na-	δεσμός	^5	nominal
+δεσμά	n-p---nn-	δεσμός	^5	nominal
+δεσμὰ	n-p---na-	δεσμός	^5	nominal
+δεσμὰ	n-p---nn-	δεσμός	^5	nominal
 δεσμώμασιν	n-p---nd-	δεσμώμασιν	^7^9	hypotactic,breve_ultima
 δεσποίνας	n-p---fn-	δεσποί	_8	wiktionary
 δεσποίνας	n-s---fg-	δέσποινα	_8	wiktionary
@@ -11371,7 +11371,7 @@ lemma	tag	token	macron	source
 δικηφόρου	a-s---mg-	δικηφόρος		
 δικοῦσα	v-sapafn-	δικίδωμι	^7	breve_ultima
 δίκε	v3saia---	δίκνω		
-δίκα	n-p---nn-	δίκον		
+δίκα	n-p---nn-	δίκον	^4	nominal
 Δίκα	n-p---na-	Δίκον	^2_4	wiktionary
 δικορύφων	a-s---ng-	δικορύφος		
 δικόρυφον	a-s---fa-	δικόρυφος		
@@ -11411,7 +11411,7 @@ lemma	tag	token	macron	source
 δίμοιρα	a-p---na-	δίμοιρος	^7	breve_ultima
 δίμοιρον	a-s---na-	δίμοιρος		
 δίνᾳ	u--------	δίνᾳ	_4	ifthimos
-δῖναινεφέλας	n-p---fa-	δῖναινεφέλη	_2_4	ifthimos
+δῖναινεφέλας	n-p---fa-	δῖναινεφέλη	_2_4_11	ifthimos,nominal
 δίναις	n-p---fd-	δίναις	_2	wiktionary
 δίνας	n-p---fa-	δίνας	_2_4	wiktionary
 δινεῖ	v3spia---	δινεῖ		
@@ -11604,14 +11604,14 @@ lemma	tag	token	macron	source
 Διρκαῖον	a-s---na-	Διρκαῖος		
 Διρκαῖος	a-s---mn-	Διρκαῖος		
 Διρκαίων	a-p---mg-	Διρκαῖος		
-Δίρκας	a-s---fg-	Δίρκη		
+Δίρκας	a-s---fg-	Δίρκη	_5	nominal
 Δίρκης	n-s---fg-	Δίρκη		
 Δίρκης	n-s---mn-	Δίρκης		
 Δίρκα	a-s---fn-	Δίρκος	_5	wiktionary
 Δίρκα	a-s---fv-	Δίρκος	_5	wiktionary
 Δίρκα	a-p---na-	Δίρκος	_5	wiktionary
 Δίρκαν	a-s---fa-	Δίρκος		
-Δίρκας	a-p---fa-	Δίρκος		
+Δίρκας	a-p---fa-	Δίρκος	_5	nominal
 δίρρυμα	a-p---na-	δίρρυμος	^7	breve_ultima
 Δίρφυν	n-s---ma-	Δίρφυς	^2^5	wiktionary
 διςσάρχας	d--------	δις		
@@ -11908,8 +11908,8 @@ lemma	tag	token	macron	source
 δόρατα	n-p---na-	δόρυ	^4^6	wiktionary
 δορί	n-s---fd-	δόρυ	^4	wiktionary
 δορί	n-s---nd-	δόρυ	^4	wiktionary
-δορὶ	n-s---fd-	δόρυ		
-δορὶ	n-s---nd-	δόρυ		
+δορὶ	n-s---fd-	δόρυ	^4	nominal
+δορὶ	n-s---nd-	δόρυ	^4	nominal
 δόρυ	n-s---na-	δόρυ	^4	wiktionary
 δόρυ	n-----na-	δόρυ	^4	wiktionary
 δόρυ	n-s---nn-	δόρυ	^4	wiktionary
@@ -11957,7 +11957,7 @@ lemma	tag	token	macron	source
 δουλοσύναν	n-s---fa-	δουλοσύνη	^7	hypotactic
 δουλόσυνος	a-s---fn-	δουλόσυνος		
 δουλώσας	v-sapamn-	δουλόω	_7	wiktionary
-δουπια	n-p---na-	δουπιον		
+δουπια	n-p---na-	δουπιον	^6	nominal
 δουριάλωτον	a-s---na-	δουριάλωτος		
 δουρικλύτοις	a-p---md-	δουρικλύτοις	^8	hypotactic
 δουρικμῆτι	a-s---md-	δουρικμῆτι	^10	breve_ultima
@@ -12246,7 +12246,7 @@ lemma	tag	token	macron	source
 δυσάρεστον	a-s---nn-	δυσάρεστος		
 δυσαρέστους	a-p---ma-	δυσαρέστους		
 δύσαρκτοι	a-p---fn-	δύσαρκτος		
-δυσαυλίας	n-s---fg-	δυσαυλία	_4	ifthimos
+δυσαυλίας	n-s---fg-	δυσαυλία	_4_8	ifthimos,nominal
 δυσαύλων	a-p---ng-	δυσαύλων		
 δυσαχές	a-s---na-	δυσαχής		
 δύσβατος	a-s---fn-	δύσβατος	^2^5	wiktionary
@@ -12743,7 +12743,7 @@ lemma	tag	token	macron	source
 δυσχίμου	a-s---fg-	δυσχίμου		
 δυσχίμους	a-p---fa-	δυσχίμους	^5	hypotactic
 δυσχίμων	a-p---ng-	δυσχίμων		
-δυσχλαινίας	n-p---fa-	δυσχλαινία	_6	ifthimos
+δυσχλαινίας	n-p---fa-	δυσχλαινία	_6_10	ifthimos,nominal
 δυσχλαινίαι	a-p---fv-	δυσχλαινίος		
 δυσχόρτους	a-p---fa-	δυσχόρτους		
 δυσώδης	a-s---mn-	δυσώδης	^2	wiktionary
@@ -12801,7 +12801,7 @@ lemma	tag	token	macron	source
 Ἐνυαλίωι	p-d---ma-	Ἐ		
 ἔκτα	n-s---ma-	ἒ	_4	wiktionary
 ἐχθρά	n-p---na-	εα	^5	wiktionary
-ἐχθρὰ	n-p---na-	εα		
+ἐχθρὰ	n-p---na-	εα	^5	nominal
 ἔα	v2spma---	ἔα	_2	wiktionary
 Ἔα	v2spma---	ἔα		
 ἔαἀλλ’	v2spma---	ἔαἀλλ	^2	breve_ultima
@@ -12912,10 +12912,10 @@ lemma	tag	token	macron	source
 ἐγέννασεν	v3saia---	ἐγέννασεν		
 ἐγενόμαν	v1saip---	ἐγενόμαν		
 ἐγενόμαν	v1saim---	ἐγενόμαν		
-ἐγερτί	n-s---fd-	ἐγερτί		
-ἐγερτὶ	n-s---fd-	ἐγερτὶ		
-ἐγερτί	n-s---fd-	ἐγερτὶς		
-ἐγερτὶ	n-s---fd-	ἐγερτὶς		
+ἐγερτί	n-s---fd-	ἐγερτί	^6	nominal
+ἐγερτὶ	n-s---fd-	ἐγερτὶ	^6	nominal
+ἐγερτί	n-s---fd-	ἐγερτὶς	^6	nominal
+ἐγερτὶ	n-s---fd-	ἐγερτὶς	^6	nominal
 ἐγεύσατ’	v3saim---	ἐγεύσατ		
 ἐγημάμεσθ’	v1paim---	ἐγημάμεσθ		
 ἐγημάμην	v1saim---	ἐγημάμην	^5	wiktionary
@@ -13363,9 +13363,9 @@ lemma	tag	token	macron	source
 Εἴσ’	r--------	Εἴσ		
 ἕνα	n-s---ma-	εἷς	_3	wiktionary
 ἑνί	r--------	εἷς		
-ἑνί	n-s---md-	εἷς		
+ἑνί	n-s---md-	εἷς	^3	nominal
 ἑνὶ	r--------	εἷς		
-ἑνὶ	n-s---md-	εἷς		
+ἑνὶ	n-s---md-	εἷς	^3	nominal
 μιᾷ	a-s---fd-	εἷς	_3	ifthimos
 μία	a-s---fd-	εἷς	^2^3	hypotactic
 μία	a-s---fn-	εἷς	^2^3	hypotactic
@@ -14091,7 +14091,7 @@ lemma	tag	token	macron	source
 Ἑλένα	n-s---fn-	Ἑλένα	_5	hypotactic
 Ἑλέναν	n-s---fa-	Ἑλένα		
 Ἑλέναν	n-s---fa-	Ἑλέναν		
-Ἑλένας	n-s---fg-	Ἑλένη		
+Ἑλένας	n-s---fg-	Ἑλένη	_5	nominal
 ἐλέξαθ’	v2paia---	ἐλέξαθ’		
 ἐλευθέραν	a-s---fa-	ἐλευθέραν		
 ἐλευθερίᾳ	n-s---fd-	ἐλευθερία	^8_9	ifthimos
@@ -14104,7 +14104,7 @@ lemma	tag	token	macron	source
 ἐλευθέρας	a-p---fa-	ἐλεύθερος	_8	ifthimos
 ἐλευθερώσας	v-sapamn-	ἐλευθερόω	_10	ifthimos
 ἐλευθερωτάτων	a-p---mgs	ἐλευθερωτάτων		
-Ἐλευσινίας	a-s---fg-	Ἐλευσινῖος		
+Ἐλευσινίας	a-s---fg-	Ἐλευσινῖος	_9	nominal
 ἐλεφαντοδέτων	n-p---mg-	ἐλεφαντοδέτων		
 ἑλῃἐπί	v3sasa---	ἑλῃἐπί		
 ἕλῃἐπι	v3sasa---	ἕλῃἐπὶ		
@@ -14573,9 +14573,9 @@ lemma	tag	token	macron	source
 ἐνδυστυχῆσαι	v--ana---	ἐνδυστυχέω		
 ἐνδύτ’	v3siie---	ἐνδύτ		
 ἔνδυτ’	n-p---na-	ἔνδυτ		
-ἐνδυτά	n-p---na-	ἐνδυτά		
+ἐνδυτά	n-p---na-	ἐνδυτά	^6	nominal
 ἐνδυτά	a-p---na-	ἐνδυτά		
-ἐνδυτὰ	n-p---na-	ἐνδυτὰ		
+ἐνδυτὰ	n-p---na-	ἐνδυτὰ	^6	nominal
 ἐνδυτὰ	a-p---na-	ἐνδυτὰ		
 ἐνδυτῆρα	n-s---ma-	ἐνδυτήρ	^8	breve_ultima
 ἐνδυτοῖς	a-p---nd-	ἐνδυτός		
@@ -14652,7 +14652,7 @@ lemma	tag	token	macron	source
 ἔννυχος	a-s---mn-	ἔννυχος	^4	wiktionary
 ἐννύχων	v-sppamn-	ἐννύχων		
 ἐνοδίαν	n-s---fa-	ἐνοδία		
-Ἐνοδίας	n-s---fg-	Ἐνοδίη		
+Ἐνοδίας	n-s---fg-	Ἐνοδίη	_6	nominal
 ἐνοδίους	a-p---ma-	ἐνοδίους	^5	hypotactic
 ἐνοικίου	n-s---ng-	ἐνοικίον		
 ἐνὄμμασιν	n-p---nd-	ἐνὄμμα	^8	breve_ultima
@@ -15908,15 +15908,15 @@ lemma	tag	token	macron	source
 ἐργάτην	n-s---ma-	ἐργάτης	^4	wiktionary
 ἐργάτιν	n-s---fa-	ἐργάτιν		
 ἔργμασι	n-p---nd-	ἔργμα	^7	breve_ultima
-ἕργμα	n-s---na-	ἕργμα		
+ἕργμα	n-s---na-	ἕργμα	^5	nominal
 ἔργματ’	n-p---na-	ἔργματ		
 ἐργμάτων	n-p---ng-	ἐργμάτον	^5	hypotactic
 ἐργμάτων	n-p---ng-	ἐργμάτων	^5	hypotactic
 ἐργομένα	v-pppenn-	ἐργομένα		
 ἔργα	n-p---na-	ἔργον	^4	wiktionary
 ἔργα	n-p---nn-	ἔργον	^4	wiktionary
-τἄργα	n-p---na-	ἔργον		
-τἄργα	n-p---nn-	ἔργον		
+τἄργα	n-p---na-	ἔργον	^5	nominal
+τἄργα	n-p---nn-	ἔργον	^5	nominal
 ἔρξας	v-sapamn-	ἔρδω	^4	wiktionary
 ἐρεθιζέσθω	v3spme---	ἐρεθίζω	^5	wiktionary
 ἐρεθίζων	v-sppamn-	ἐρεθίζω	^5	wiktionary
@@ -16025,7 +16025,7 @@ lemma	tag	token	macron	source
 ἐρρυσάμην	v1saia---	ἐρρυσάμην	^6	wiktionary
 ἐρρύσατ’	v3saim---	ἐρρύσατ		
 ἔρξαντες	v-papamn-	ἔρσσω		
-Ἐρυθείας	n-s---fg-	Ἐρυθεία		
+Ἐρυθείας	n-s---fg-	Ἐρυθεία	_7	nominal
 ἐρύθημα	n-s---na-	ἐρύθημα	^3^7	wiktionary,breve_ultima
 ἐρυθρόν	a-s---ma-	ἐρυθρός	^3	wiktionary
 ἐρυθρὸν	a-s---ma-	ἐρυθρός	^3	wiktionary
@@ -16143,7 +16143,7 @@ lemma	tag	token	macron	source
 ἑστίαν	a-s---fa-	ἑστία	^4^5	wiktionary
 Ἑστίαν	n-s---fa-	ἑστία		
 ἑστίας	n-s---fg-	ἑστία	^4_5	hypotactic
-Ἑστίας	n-s---fg-	Ἑστία		
+Ἑστίας	n-s---fg-	Ἑστία	_5	nominal
 ἑστίᾳ	n-d---fn-	ἑστίᾳ	^4_5	ifthimos
 ἑστίας	n-s---fg-	ἑστῖα	^4_5	hypotactic
 ἑστιᾶι	v3spsa---	ἑστιᾶι	_5	ifthimos
@@ -16218,9 +16218,9 @@ lemma	tag	token	macron	source
 ἔσωθεν)Μενέλαε	n-s---mv-	ἔσωθεν)Μενέλαος		
 ἐσώικισ’	v3saia---	ἐσώικισ		
 ἐτύχομεν	v1paia---	ἐταγχύνω	^3	wiktionary
-ἑταιρείας	n-s---fg-	ἑταιρεία	_3	ifthimos
+ἑταιρείας	n-s---fg-	ἑταιρεία	_3_8	ifthimos,nominal
 ἑταιρίαν	n-s---fa-	ἑταιρεία		
-ἑταιρίας	n-s---fg-	ἑταιρία	_3	ifthimos
+ἑταιρίας	n-s---fg-	ἑταιρία	_3_7	ifthimos,nominal
 ἑτάρων	n-p---mg-	ἑταῖρος	^3	wiktionary
 τἀκτός	a-s---mn-	ἐτἀκτὸς		
 τἀκτὸς	a-s---mn-	ἐτἀκτὸς		
@@ -16353,7 +16353,7 @@ lemma	tag	token	macron	source
 εὐβουλία	n-s---fn-	εὐβουλία	_8	wiktionary
 εὐβουλίαν	n-s---fa-	εὐβουλία	_8	wiktionary
 εὐβουλίας	n-s---fg-	εὐβουλία	^7_8	hypotactic
-Εὐβουλίας	n-s---fg-	εὐβουλία		
+Εὐβουλίας	n-s---fg-	εὐβουλία	_8	nominal
 εὐβουλίᾳ	n-s---fn-	εὐβουλίᾳ	_8	ifthimos
 εὐβουλίαι	n-p---fn-	εὐβουλίαι		
 εὐγαθεῖ	a-s----d-	εὐγαθής		
@@ -16547,7 +16547,7 @@ lemma	tag	token	macron	source
 εὐναίαν	n-s---fa-	εὐναία		
 εὐναίαν	n-s---fa-	εὐναίη		
 εὐναία	a-s---fn-	εὐναίος		
-εὐναίας	a-p---fa-	εὐναῖος	_4	ifthimos
+εὐναίας	a-p---fa-	εὐναῖος	_4_6	ifthimos,nominal
 εὐνᾶιπόσιν	n-p---md-	εὐνᾶιπών	_4	ifthimos
 εὐνάς	n-p---fa-	εὐνάς	_4	wiktionary
 εὔνασον	v2sama---	εὔνασον		
@@ -16669,7 +16669,7 @@ lemma	tag	token	macron	source
 Εὐρώπαν	a-s---fa-	Εὐρώπας	_6	wiktionary
 Εὐρώπαν	n-s---ma-	Εὐρώπας	_6	wiktionary
 Εὐρώπης	n-s---fg-	εὐρώπη		
-Εὐρωπίας	n-s---fg-	Εὐρωπία		
+Εὐρωπίας	n-s---fg-	Εὐρωπία	_7	nominal
 Εὐρώτα	n-s---mg-	Εὐρώς	_6	wiktionary
 Εὐρώται	v3ppse---	Εὐρώται		
 Εὐρώται	v3sase---	Εὐρώται		
@@ -17061,7 +17061,7 @@ lemma	tag	token	macron	source
 Ἐχίδνης	n-s---fg-	ἔχιδνα		
 ἐχίδναις	n-p---fd-	ἐχίδνη		
 ἐχίδνας	n-p---fa-	ἐχίδνη	_6	wiktionary
-Ἐχίδνας	n-s---fg-	Ἐχίδνη		
+Ἐχίδνας	n-s---fg-	Ἐχίδνη	_6	nominal
 ἐχειμάσθην	v1saip---	ἐχιμιιμάσκομαι		
 Ἐχίνας	a-p---fa-	Ἐχίνας	_3_5	wiktionary
 Ἐχίονι	a-s---fd-	Ἐχίον	_3^6	wiktionary
@@ -17130,7 +17130,7 @@ lemma	tag	token	macron	source
 Δία	n-s---ma-	ζεύς	^2^3	wiktionary
 Διί	n-s---md-	ζεύς	^2^3	wiktionary
 Διί	n-s---md-	ζεύς	^2^3	wiktionary
-Διὶ	n-s---md-	ζεύς		
+Διὶ	n-s---md-	ζεύς	^3	nominal
 Διός	n-s---mg-	ζεύς	^2	wiktionary
 Διός	n-s---mg-	ζεύς	^2	wiktionary
 Διὸς	n-s---mg-	ζεύς		
@@ -17138,7 +17138,7 @@ lemma	tag	token	macron	source
 Ζηνί	n-s---md-	ζεύς	^4	wiktionary
 Ζηνί	n-s---md-	ζεύς	^4	wiktionary
 Ζηνὶ	v--pna---	ζεύς		
-Ζηνὶ	n-s---md-	ζεύς		
+Ζηνὶ	n-s---md-	ζεύς	^4	nominal
 Διός	n-s---mg-	Ζεύς	^2	wiktionary
 ζεύξασα	v-sapafn-	ζεύχω	_5^7	wiktionary
 Ζεφύρου	n-s---mg-	ζέφυρος	^4	wiktionary
@@ -17208,7 +17208,7 @@ lemma	tag	token	macron	source
 ἥβας	v-sapamn-	ἥβη	_3	wiktionary
 ἥβας	n-p---fa-	ἥβη	_3	wiktionary
 ἥβας	n-s---fg-	ἥβη	_3	wiktionary
-Ἥβας	n-p---fa-	Ἥβη		
+Ἥβας	n-p---fa-	Ἥβη	_3	nominal
 ἡβήσαντα	v-sapama-	ἡβήω	^8	breve_ultima
 ἤγαγ’	v3saia---	ἤγαγ		
 ἤγαγες	v2saia---	ἤγαγες	^3	wiktionary
@@ -17464,7 +17464,7 @@ lemma	tag	token	macron	source
 ἀμόν	a-s---ma-	ἡμός		
 ἀμὸν	a-s---ma-	ἡμός		
 ἀμὸν	a-s---na-	ἡμός		
-ἡμπειρία	n-p---nn-	ἡμπειρία		
+ἡμπειρία	n-p---nn-	ἡμπειρία	^8	nominal
 ἤμπισχεν	v3siia---	ἤμπισχεν		
 ἤμπλακ’	v3saia---	ἤμπλακ’		
 ἤμπλακες	v2saia---	ἤμπλακες		
@@ -17485,7 +17485,7 @@ lemma	tag	token	macron	source
 ἀνεμόεσσα	a-s---fn-	ἠνεμόεις	^9	breve_ultima
 ἠνθισμένον	v-srpema-	ἠνθισμένον		
 ἠνθρακωμένος	v-srpemn-	ἠνθρακωμένος		
-ἠνία	n-p---na-	ἠνία		
+ἠνία	n-p---na-	ἠνία	^4	nominal
 ἡνίαισιν	n-p---fd-	ἡνία	^7	breve_ultima
 ἡνίαν	n-s---fa-	ἡνία	^3_4	wiktionary
 ἡνίας	n-s---fg-	ἡνία	^3_4	hypotactic
@@ -18071,7 +18071,7 @@ lemma	tag	token	macron	source
 θέλξας	v-sapamn-	θέλ	_5	wiktionary
 θελήσας	v-sapamn-	θελάω	_6	wiktionary
 θελκτήριοι	a-p---mn-	θελκτήριοι		
-θελκτηρία	n-p---nn-	θελκτηρίον		
+θελκτηρία	n-p---nn-	θελκτηρίον	^9	nominal
 θελκτήρια	n-p---nn-	θελκτήριον	^8^9	wiktionary
 θελκτήρια	a-p---nn-	θελκτήριον	^8^9	wiktionary
 θελκτήριον	a-s---nn-	θελκτήριος	^8	wiktionary
@@ -18220,7 +18220,7 @@ lemma	tag	token	macron	source
 Θεσσαλῶν	n-p---mg-	Θεσσαλῶν	^5	wiktionary
 Θεσσάλων	n-p---mg-	Θεσσάλων		
 Θεστιάς	n-s---fg-	Θεστιὰ	^5^6	wiktionary
-Θεστιὰς	n-s---fg-	Θεστιὰ		
+Θεστιὰς	n-s---fg-	Θεστιὰ	_6	nominal
 Θεστιάδι	n-s---fd-	Θεστιάς	^5^6^8	wiktionary
 θέσφαθ’	v2pama---	θέσφαθ		
 θέσφαθ’	a-p---nn-	θέσφαθ		
@@ -18291,7 +18291,7 @@ lemma	tag	token	macron	source
 θηλύσπορος	a-s---fn-	θηλύσπορος		
 θήξαντ’	v-sapama-	θήξαντ		
 θηρσί	n-p---md-	θήρ	^5	wiktionary
-θηρσὶ	n-p---md-	θήρ		
+θηρσὶ	n-p---md-	θήρ	^5	nominal
 θήραν	v--pna---	θήρα	_4	wiktionary
 θήραν	n-s---fa-	θήρα	_4	wiktionary
 θηραθεῖσαι	v-pappfn-	θηραθεῖσαι	_4	hypotactic
@@ -18528,23 +18528,23 @@ lemma	tag	token	macron	source
 θρεομένας	v-sppefg-	θρέω	_8	ifthimos
 Θρηικί	a-s---md-	Θρηικί		
 Θρηικί	a-s---md-	Θρηικί		
-Θρηικί	n-s---md-	Θρηικί		
+Θρηικί	n-s---md-	Θρηικί	^6	nominal
 Θρηικὶ	a-s---md-	Θρηικὶ		
-Θρηικὶ	n-s---md-	Θρηικὶ		
+Θρηικὶ	n-s---md-	Θρηικὶ	^6	nominal
 Θρηικίαν	a-s---fa-	Θρηικίαν		
 Θρηικίας	a-p---fa-	Θρηικίας		
 Θρηικίοις	a-p---nd-	Θρηικίοις		
 Θρηικίοις	a-p---md-	Θρηικίοις		
 Θρήικιον	a-s---ma-	Θρήικιον		
-Θρηικίας	a-s---fg-	Θρηικῖος		
+Θρηικίας	a-s---fg-	Θρηικῖος	_7	nominal
 Θρήικιον	a-s---ma-	Θρήικιος		
 Θρήικιος	a-s---mn-	Θρήικιος		
 Θρηικίω	a-s---nd-	Θρηικίω		
 Θρηικίωι	a-s---nd-	Θρηικίωι		
 Θρηικίων	a-p---mg-	Θρηικίων		
 Θρηίξ	n-s---mn-	Θρηίξ		
-Θρηιξί	n-p---md-	Θρηιξί		
-Θρηιξὶ	n-p---md-	Θρηιξὶ		
+Θρηιξί	n-p---md-	Θρηιξί	^6	nominal
+Θρηιξὶ	n-p---md-	Θρηιξὶ	^6	nominal
 Θρηιξίν	n-p---md-	Θρηιξίν		
 Θρηιξὶν	n-p---md-	Θρηιξὶν		
 Θρῄκιαι	a-p---fn-	Θρῄκια		
@@ -18591,9 +18591,9 @@ lemma	tag	token	macron	source
 θυγατέρος	n-s---fg-	θυγάτηρ	_2^4	hypotactic
 θυγατέρων	n-p---fg-	θυγάτηρ	^2^4	wiktionary
 θυγάτηρ	n-s---fn-	θυγάτηρ	^2^4	wiktionary
-θυγατρί	n-s---fd-	θυγάτηρ	^2^4	wiktionary
-θυγατρί	n-s---fd-	θυγάτηρ	^2^4	wiktionary
-θυγατρὶ	n-s---fd-	θυγάτηρ		
+θυγατρί	n-s---fd-	θυγάτηρ	^2^4^7	wiktionary,nominal
+θυγατρί	n-s---fd-	θυγάτηρ	^2^4^7	wiktionary,nominal
+θυγατρὶ	n-s---fd-	θυγάτηρ	^7	nominal
 θυγατρός	n-s---fg-	θυγάτηρ	^2^4	wiktionary
 θυγατρός	n-s---fg-	θυγάτηρ	^2^4	wiktionary
 θυγατρὸς	n-s---fg-	θυγάτηρ		
@@ -18709,7 +18709,7 @@ lemma	tag	token	macron	source
 θυραῖον	a-s---ma-	θυραῖον		
 θυραῖα	a-p---na-	θυραῖος	^6	breve_ultima
 θυραίαν	a-s---fa-	θυραῖος		
-θυραίας	a-s---fg-	θυραῖος	_4	ifthimos
+θυραίας	a-s---fg-	θυραῖος	_4_6	ifthimos,nominal
 θυραῖον	a-s---ma-	θυραῖος		
 θυραῖον	a-s---na-	θυραῖος		
 θυραῖος	a-s---fn-	θυραῖος		
@@ -18797,7 +18797,7 @@ lemma	tag	token	macron	source
 Ἴδαι	n-s---fd-	Ἴ		
 Ἴδας	n-s---fn-	Ἴ	_1_3	wiktionary
 Ἴδας	n-s---fg-	Ἴ	_1_3	wiktionary
-ἰα	n-p---na-	ἰα		
+ἰα	n-p---na-	ἰα	^2	nominal
 ἰαίνοντα	n-s---ma-	ἰαί	^8	breve_ultima
 ἴακχον	v3paia---	ἴακχον		
 ἴακχον	n-s---ma-	ἴακχος		
@@ -19028,8 +19028,8 @@ lemma	tag	token	macron	source
 ἱεροδόκα	v1sria---	ἱεροδόκ		
 ἱερά	n-p---nn-	ἱερόν	^1_4	wiktionary
 ἱερά	n-p---na-	ἱερόν	^1_4	wiktionary
-ἱερὰ	n-p---nn-	ἱερόν		
-ἱερὰ	n-p---na-	ἱερόν		
+ἱερὰ	n-p---nn-	ἱερόν	^4	nominal
+ἱερὰ	n-p---na-	ἱερόν	^4	nominal
 ἱεροῖσιν	n-p---nd-	ἱερόν	^7	wiktionary
 ἱερόν	n-s---nn-	ἱερόν	^1	wiktionary
 ἱερόν	n-s---na-	ἱερόν	^1	wiktionary
@@ -19266,7 +19266,7 @@ lemma	tag	token	macron	source
 Ἰλιάδα	n-s---fa-	ἰλιάς	_1^3^4^6	wiktionary
 Ἰλιάδι	a-s---fd-	ἰλιάς	_1^3^4^6	wiktionary
 Ἰλιάδι	n-s---md-	ἰλιάς	_1^3^4^6	wiktionary
-Ἰλιάσι	n-p---fd-	Ἰλιάσ		
+Ἰλιάσι	n-p---fd-	Ἰλιάσ	^6	nominal
 Ἰλιάδας	n-p---fa-	Ἰλιάς	_1^3^4_6	ifthimos
 Ἰλιάδος	n-s---fg-	Ἰλιάς	_1^3^4	wiktionary
 Ἰλιάδων	n-p---mg-	Ἰλιάς		
@@ -19508,8 +19508,8 @@ lemma	tag	token	macron	source
 ἴσθ’	v2srma---	ἴσθ’		
 ἴσθι	v2srma---	ἴσθι	^4	wiktionary
 Ἰσθμίαν	a-s---fa-	Ἰσθμίαν	^5	hypotactic
-Ἰσθμίας	a-s---fg-	ἴσθμιος		
-Ἰσθμίας	a-p---fa-	ἴσθμιος		
+Ἰσθμίας	a-s---fg-	ἴσθμιος	_6	nominal
+Ἰσθμίας	a-p---fa-	ἴσθμιος	_6	nominal
 Ἴσθμιον	a-s---na-	Ἴσθμιος	^5	hypotactic
 Ἴσθμιον	n-s---ma-	Ἴσθμιος	^5	hypotactic
 Ἴσθμιος	a-s---mn-	Ἴσθμιος		
@@ -19777,8 +19777,8 @@ lemma	tag	token	macron	source
 ἰώδαίμονος	n-s---mg-	ἰώδαίμονος		
 ἰώδυσαδελφόταται	a-p---fns	ἰώδυσαδελφόταται		
 ἰώἴδεσθε	v2pamm---	ἰώἴδεσθε		
-Ἰωλκίας	n-s---fg-	Ἰωλκία		
-Ἰωλκίας	a-s---fg-	Ἰωλκῖος		
+Ἰωλκίας	n-s---fg-	Ἰωλκία	_6	nominal
+Ἰωλκίας	a-s---fg-	Ἰωλκῖος	_6	nominal
 Ἰωλκόν	n-s---fa-	Ἰωλκὸς		
 Ἰωλκὸν	n-s---fa-	Ἰωλκὸς	^1	hypotactic
 Ἰωλκοῦ	n-s---fg-	Ἰωλκοῦ	^1	hypotactic
@@ -20140,8 +20140,8 @@ lemma	tag	token	macron	source
 καινὰ	a-s---fn-	καινός		
 καινὰ	a-p---na-	καινός		
 καινάς	a-p---fa-	καινός	_2_5	ifthimos
-καινὰς	a-p---fa-	καινός	_2	ifthimos
-καὶπέτρας	n-s---fg-	καὶπέτρα		
+καινὰς	a-p---fa-	καινός	_2_5	ifthimos,nominal
+καὶπέτρας	n-s---fg-	καὶπέτρα	_8	nominal
 καίρια	a-p---na-	καίρια	^5^6	wiktionary
 καιρίας	a-s---fg-	καιρίας	_2^5_6	ifthimos
 καιριωτέραν	a-s---fac	καιριός		
@@ -20900,8 +20900,8 @@ lemma	tag	token	macron	source
 κἀντεῦθεν	d--------	κἀντεῦθεν		
 κἀντεῦθεν	d--------	κἀντεῦσθεν		
 κἀντέχηι	n-p---fn-	κἀντέχηι		
-κἀντί	n-s---md-	κἀντί		
-κἀντὶ	n-s---md-	κἀντὶ		
+κἀντί	n-s---md-	κἀντί	^5	nominal
+κἀντὶ	n-s---md-	κἀντὶ	^5	nominal
 κἀντιβάς	n-p---fa-	κἀντιβή	_7	ifthimos
 κἀντιδέρκεται	v3spie---	κἀντιδέρκομαι		
 κἀντιδώσεις	v2sfia---	κἀντιδόω		
@@ -21018,7 +21018,7 @@ lemma	tag	token	macron	source
 κἀπιβούλευσιν	n-p---md-	κἀπιβούλευσιν	^12	breve_ultima
 κἀπιβουλευτοῦ	a-s---mg-	κἀπιβουλευτοῦ		
 κἀπιβωμιοστατεῖν	v--pna---	κἀπιβωμιοστατέω		
-κἀπιδαυρίας	a-s---fg-	κἀπιδαυρῖος	_6	ifthimos
+κἀπιδαυρίας	a-s---fg-	κἀπιδαυρῖος	_6_10	ifthimos,nominal
 κἀπιδεῖν	v--ana---	κἀπιδάω		
 κἀπίδειξις	n-s---fn-	κἀπίδειξις	^9	breve_ultima
 κἀπιδεσπόζει	v3spia---	κἀπιδεσπόζω	_2^4	hypotactic
@@ -21130,7 +21130,7 @@ lemma	tag	token	macron	source
 κάρα	u--------	κάρα	^2_4	lsj
 κάρᾳ	n-s---nd-	κάρα	_4	ifthimos
 κάρᾳ	n-s---na-	κάρα	_4	ifthimos
-κάρα’	n-p---na-	κάρα		
+κάρα’	n-p---na-	κάρα	^3	nominal
 κάραι	n-p---mn-	κάρα	^2	wiktionary
 κάραι	n-s---nd-	κάρα	^2	wiktionary
 κάρᾳ	u--------	κάρᾳ	_4	ifthimos
@@ -22136,11 +22136,11 @@ lemma	tag	token	macron	source
 κέκραται	v3srie---	κέκραται	_5	wiktionary
 κεκράτηκεν	v3sria---	κεκράτηκεν		
 Κεκροπίαν	n-s---fa-	Κεκροπεία		
-Κεκροπίας	n-p---fa-	Κεκροπῖα		
+Κεκροπίας	n-p---fa-	Κεκροπῖα	_8	nominal
 Κεκροπίαν	n-s---fa-	Κεκροπίαν		
 Κεκροπίδας	n-p---ma-	Κεκροπίδες		
 Κεκροπίδαις	n-p---md-	Κεκροπίδης		
-Κεκροπίας	n-p---fa-	Κεκροπίη		
+Κεκροπίας	n-p---fa-	Κεκροπίη	_8	nominal
 Κεκροπίων	a-p---mg-	Κεκροπίων		
 κεκρυμμέν’	v-prpena-	κεκρυμμέν		
 κεκρυμμένας	v-prpefa-	κεκρυμμένας	_10	ifthimos
@@ -22214,7 +22214,7 @@ lemma	tag	token	macron	source
 κεράτων	n-p---ng-	κεράτων	^4	wiktionary
 κεραυνίαις	a-p---fd-	κεραυνία		
 κεραυνίᾳ	a-s---fd-	κεραυνίᾳ	_4^7	ifthimos
-κεραυνίας	a-s---fg-	κεραυνίη	_4	ifthimos
+κεραυνίας	a-s---fg-	κεραυνίη	_4_8	ifthimos,nominal
 κεραυνίου	a-s---ng-	κεραύνιον		
 κεραυνίοις	a-p---nd-	κεραυνίος		
 κεραυνίᾳ	a-s---fd-	κεραύνιος	_4^7	ifthimos
@@ -22248,7 +22248,7 @@ lemma	tag	token	macron	source
 κεροτυπούμεναι	v-pppafn-	κεροτυπόω		
 κερουλκά	a-p---na-	κερουλκά		
 κερτομίοις	a-p---fd-	κερτόμιος	^7	hypotactic
-Κερχνείας	n-s---fg-	Κερχνείη		
+Κερχνείας	n-s---fg-	Κερχνείη	_8	nominal
 κερχνώμασιν	n-p---nd-	κερχνώμα	^10	breve_ultima
 κτάνωμεν	v1pasa---	κετάνω	^3	wiktionary
 κεὐσταλής	n-s---mn-	κεὐσταλής		
@@ -22302,7 +22302,7 @@ lemma	tag	token	macron	source
 Κηναία	a-s---fn-	κηναῖος		
 κἠξίωσας	v-sapamn-	κἠξίωσας	^7	breve_ultima
 κηρί	n-s---fd-	κήρ	^4	wiktionary
-κηρὶ	n-s---fd-	κήρ		
+κηρὶ	n-s---fd-	κήρ	^4	nominal
 κέαρ	n-s---nn-	κῆρ	^3	wiktionary
 κέαρ	n-s---na-	κῆρ	^3	wiktionary
 κηρόπλαστος	n-s---mn-	κηρόπλαστος		
@@ -22624,11 +22624,11 @@ lemma	tag	token	macron	source
 Κλυταιμήστρᾳ	n-s---fd-	Κλυταιμήστρα		
 Κλυταιμήστραι	n-s---fd-	Κλυταιμήστρα		
 Κλυταιμήστραν	n-s---fa-	Κλυταιμήστρα		
-Κλυταιμήστρας	n-s---fg-	Κλυταιμήστρα		
+Κλυταιμήστρας	n-s---fg-	Κλυταιμήστρα	_12	nominal
 ΚΛΥΤΑΙΜΗΣΤΡΑεὐάγγελος	a-s---mn-	ΚΛΥΤΑΙΜΗΣΤΡΑεὐάγγελος		
 Κλυταιμήστραι	n-s---fd-	Κλυταιμήστραι		
 Κλυταιμήστρας	n-s---fg-	Κλυταιμήστρας		
-Κλυταιμήστρας	n-s---fg-	Κλυταιμήστρη		
+Κλυταιμήστρας	n-s---fg-	Κλυταιμήστρη	_12	nominal
 Κλυταιμήστρα	n-s---fd-	Κλυταιμήστρης	^3_12	wiktionary
 κλυτά	a-p---na-	κλυτός	^3^5	wiktionary
 κλυτὰ	a-p---na-	κλυτός		
@@ -22756,7 +22756,7 @@ lemma	tag	token	macron	source
 κοιράνωι	n-s---nd-	κοιράνωι		
 κοιράνων	n-p---mg-	κοιράνων	^5	wiktionary
 κοίταν	n-s---fa-	κοίτα		
-κοῖταιπατρίας	n-p---fa-	κοῖταιπατρία	_8	ifthimos
+κοῖταιπατρίας	n-p---fa-	κοῖταιπατρία	_8_12	ifthimos,nominal
 κοίταν	n-s---fa-	κοίταν		
 κοίτας	v2spia---	κοίτη	_5	wiktionary
 κοίτας	n-p---fa-	κοίτη	_5	wiktionary
@@ -22861,7 +22861,7 @@ lemma	tag	token	macron	source
 κόρας	n-s---fg-	κόρη	_4	ifthimos
 κόρας	n-p---fa-	κόρη	_4	ifthimos
 κούρας	n-p---fa-	κόρη	_5	wiktionary
-Κόρας	n-s---fg-	Κόρη		
+Κόρας	n-s---fg-	Κόρη	_4	nominal
 κόραν	n-s---ma-	κόρης	_4	ifthimos
 Κόρινθε	n-s---fv-	Κόρινθες	^4	wiktionary
 Κορινθίας	n-s---fg-	Κορινθία	^4^7_8	wiktionary
@@ -22897,7 +22897,7 @@ lemma	tag	token	macron	source
 κορυφάς	n-p---fa-	κορυφή	^4_6	ifthimos
 κορυφὰς	n-p---fa-	κορυφή	_6	ifthimos
 κορυφῆς	n-s---fg-	κορυφή	^4	wiktionary
-κεσι	n-p---nd-	κος		
+κεσι	n-p---nd-	κος	^4	nominal
 κοσμησάμενοι	v-papmmn-	κοσμέω		
 κοσμήσας	v-sapamn-	κοσμέω	_7	wiktionary
 κόσμιον	a-s---na-	κόσμιος	^5	wiktionary
@@ -22976,7 +22976,7 @@ lemma	tag	token	macron	source
 κράνους	n-s---ng-	κράνος	^3	hypotactic
 κράντορες	n-p---mv-	κράντωρ		
 κράνει	v3spia---	κράνω		
-κρατί	n-s---fd-	κράς	_3	wiktionary
+κρατί	n-s---fd-	κράς	_3^5	wiktionary,nominal
 κρατὶ	n-s---fd-	κράς	_3^5	hypotactic
 κρατός	n-s---na-	κράς	_3	wiktionary
 κρατός	n-s---ng-	κράς	_3	wiktionary
@@ -22994,7 +22994,7 @@ lemma	tag	token	macron	source
 κραταιλέωι	a-s---nd-	κραταιλέωι		
 κραταίλεων	a-p---mg-	κραταίλεων		
 κραταιαῖς	a-p---fd-	κραταιός	^3	wiktionary
-κραταιᾶς	a-s---fg-	κραταιός	^3_5	ifthimos
+κραταιᾶς	a-s---fg-	κραταιός	^3_5_7	ifthimos,nominal
 κραταιόν	a-s---na-	κραταιὸς	^3	wiktionary
 κραταιὸν	a-s---na-	κραταιὸς		
 κρατεῖ	u--------	κρατεῖ	^3	wiktionary
@@ -23068,7 +23068,7 @@ lemma	tag	token	macron	source
 κρατήσωσιν	v3pasa---	κρατήσωσίν	^9	breve_ultima
 κρατήσεις	v2sfia---	κρατήω	^3	wiktionary
 κρατί	u--------	κρατί	_3	wiktionary
-κρατί	n-s---fd-	κρατί	_3	wiktionary
+κρατί	n-s---fd-	κρατί	_3^5	wiktionary,nominal
 κρατιστεύων	v-sppamn-	κρατιστεύω		
 κράτιστον	u--------	κράτιστον	^3	hypotactic
 κράτιστα	a-p---nn-	κράτιστος	^3^8	hypotactic
@@ -23138,9 +23138,9 @@ lemma	tag	token	macron	source
 Κρησία	a-s---fv-	Κρησία		
 Κρησία	n-s---fv-	Κρησία		
 Κρησίαν	a-s---fa-	Κρησία		
-Κρησίας	n-p---fa-	Κρησία		
+Κρησίας	n-p---fa-	Κρησία	_6	nominal
 Κρήσιον	a-s---nn-	Κρήσιον		
-Κρήσσας	n-p---fa-	Κρήσση		
+Κρήσσας	n-p---fa-	Κρήσση	_6	nominal
 Κρήτας	n-p---ma-	Κρήτας		
 Κρήτας	n-p---ma-	Κρήτης		
 Κρητικοῖς	a-p---md-	κρητικός		
@@ -23400,8 +23400,8 @@ lemma	tag	token	macron	source
 κτήσαντο	v3paie---	κτήσαντο		
 κτησίου	a-s---ng-	κτήσιος		
 κτησίου	a-s---mg-	κτήσιος		
-κτητά	n-p---na-	κτητόν		
-κτητὰ	n-p---na-	κτητόν		
+κτητά	n-p---na-	κτητόν	^5	nominal
+κτητὰ	n-p---na-	κτητόν	^5	nominal
 κτιζοίατ’	v3ppoe---	κτιζοίατ’		
 ἔκτισαν	v3paia---	κτίζω	^4^6	wiktionary
 ἔκτισεν	v3saia---	κτίζω		
@@ -23462,7 +23462,7 @@ lemma	tag	token	macron	source
 κυανόχρωτι	a-s---fd-	κυανόχρως	^10	breve_ultima
 κυανώπιδας	a-p---fa-	κυανώπιδες	^9	breve_ultima
 κυανώπιδες	n-p---fn-	κυανώπιδς	^2^3^7	hypotactic
-Κυβέλας	n-p---fa-	Κυβέλη	^2	hypotactic
+Κυβέλας	n-p---fa-	Κυβέλη	^2_6	hypotactic,nominal
 κυβερνῶμαι	v1spie---	κυβερνάω	^2	wiktionary
 κυβερνήτῃ	n-s---md-	κυβερνήτης	^2	wiktionary
 κυβερνήτην	n-s---ma-	κυβερνήτης	^2	wiktionary
@@ -23523,7 +23523,7 @@ lemma	tag	token	macron	source
 Κυκλώπι’	a-p---na-	Κυκλώπι		
 Κυκλωπιᾶν	a-s---fa-	Κυκλωπιᾶ		
 Κυκλωπίαν	n-s---fa-	Κυκλωπία		
-Κυκλωπίας	a-s---fg-	Κυκλωπία		
+Κυκλωπίας	a-s---fg-	Κυκλωπία	_8	nominal
 Κυκλωπίοις	a-p---nd-	Κυκλωπίοις		
 Κυκλωπίοισιν	a-p---nd-	Κυκλωπίοισιν	^11	breve_ultima
 Κυκλωπία	a-s---fn-	Κυκλωπίος		
@@ -23593,7 +23593,7 @@ lemma	tag	token	macron	source
 κύντατ’	v-pppann-	κύντατ		
 κυνώπιδες	n-p---fn-	κυνώπιδς	^2^6	wiktionary
 κυνώπιδες	n-p---fn-	κυνώπις	^2^6	wiktionary
-Κύπρι	n-s---fd-	Κύπρ		
+Κύπρι	n-s---fd-	Κύπρ	^5	nominal
 Κύπρι	n-s---fv-	Κύπρι		
 Κυπρίας	n-p---fa-	Κυπρίας		
 Κύπριν	n-s---fa-	Κύπριν		
@@ -23697,8 +23697,8 @@ lemma	tag	token	macron	source
 κυνῶν	n-p---mg-	κύων	^2	wiktionary
 κυσί	n-p---fd-	κύων	^2^4	wiktionary
 κυσί	n-p---md-	κύων	^2^4	wiktionary
-κυσὶ	n-p---fd-	κύων		
-κυσὶ	n-p---md-	κύων		
+κυσὶ	n-p---fd-	κύων	^4	nominal
+κυσὶ	n-p---md-	κύων	^4	nominal
 κυσίν	n-p---fd-	κύων	^2^4	wiktionary
 κυσίν	n-s---fa-	κύων	^2^4	wiktionary
 κυσίν	n-p---md-	κύων	^2^4	wiktionary
@@ -24163,7 +24163,7 @@ lemma	tag	token	macron	source
 λείμακας	a-p---fa-	λείμακη	^5^7	wiktionary
 λείμακος	n-s---mn-	λείμακος	^5	wiktionary
 λείμακας	n-p---ma-	λείμαξ	^5^7	wiktionary
-λειμώνι’	n-s---md-	λειμών		
+λειμώνι’	n-s---md-	λειμών	^7	nominal
 λειμωνιάδες	n-p---fn-	λειμωνιάς		
 λειμωνίας	a-p---fa-	λειμωνῖος	_8	ifthimos
 λεία	n-p---na-	λείος	_4	wiktionary
@@ -24224,23 +24224,23 @@ lemma	tag	token	macron	source
 λέπαδν’	n-p---na-	λέπαδν		
 λέπαδνον	n-s---ma-	λέπαδνος	^4	wiktionary
 λεπαίαν	a-s---fa-	λεπαίαν		
-λεπαίας	n-p---fa-	λεπαίη	_4	ifthimos
+λεπαίας	n-p---fa-	λεπαίη	_4_6	ifthimos,nominal
 λέπας	a-p---fa-	λέπη	_4	ifthimos
 λέπας	n-p---fa-	λέπη	_4	ifthimos
 λεπτόμιτον	a-s---na-	λεπτόμιτος		
 λεπτά	a-p---na-	λεπτόν	^5	wiktionary
 λεπτὰ	a-p---na-	λεπτόν		
 λεπτοψαμάθων	a-p---ng-	λεπτοψάμαθος		
-Λερναίας	a-s---fg-	λερναῖος		
+Λερναίας	a-s---fg-	λερναῖος	_7	nominal
 Λερναίαν	a-s---fa-	Λερναῖος		
-Λέρνας	n-s---fg-	Λέρνη		
+Λέρνας	n-s---fg-	Λέρνη	_5	nominal
 λέσχαν	n-s---fa-	λέσχη		
 λέσχας	n-p---fa-	λέσχη	_5	wiktionary
 λευκανθές	a-s---na-	λευκανθής		
 λευκανθὲς	a-s---na-	λευκανθής		
 λεύκασπιν	n-s---ma-	λεύκασπις	^8	breve_ultima
 λεύκασπις	n-s---mn-	λεύκασπις	^8	breve_ultima
-Λευκιππίδας	n-p---fa-	Λευκιππίδη		
+Λευκιππίδας	n-p---fa-	Λευκιππίδη	_10	nominal
 λεύκιπποι	a-p---mn-	λεύκιππος		
 λεύκιππος	n-s---mn-	λεύκιππος		
 Λευκοθέας	n-s---fg-	Λευκοθέη	_8	wiktionary
@@ -24372,7 +24372,7 @@ lemma	tag	token	macron	source
 λίμνᾳ	n-s---fd-	λίμνη	_5	ifthimos
 λίμναν	n-s---fa-	λίμνη		
 λίμνας	n-p---fa-	λίμνη	^2_5	wiktionary
-Λίμνας	n-p---fa-	λίμνη		
+Λίμνας	n-p---fa-	λίμνη	_5	nominal
 λίμνην	n-s---fa-	λίμνη	^2	wiktionary
 λίμνης	n-s---fg-	λίμνη	^2	wiktionary
 λιμοθνής	d--------	λιμοθνής	_2	wiktionary
@@ -24482,7 +24482,7 @@ lemma	tag	token	macron	source
 λιχμῶσιν	n-p---md-	λιχμῶσιν	^7	breve_ultima
 λίχνος	a-s---fn-	λίχνος		
 λιψουρία	n-s---fn-	λιψουρία		
-λογάσι	n-p---fd-	λογάς		
+λογάσι	n-p---fd-	λογάς	^6	nominal
 λογάσιν	n-s---fa-	λογάσις		
 λογίζεσθαι	v--pne---	λογίζομαι	^4	wiktionary
 λογίζεται	v3spie---	λογίζομαι	^4	wiktionary
@@ -24524,14 +24524,14 @@ lemma	tag	token	macron	source
 Λοκράς	n-p---ma-	Λοκρὰι		
 Λοκρὰς	n-p---ma-	Λοκρὰι		
 λομένας	v-pppefa-	λομένας	_6	ifthimos
-Λοξία	n-s---mv-	Λοξία		
+Λοξία	n-s---mv-	Λοξία	^5	nominal
 Λοξίαι	n-p---mn-	Λοξία		
 Λοξίαι	n-s---md-	Λοξία		
 Λοξίαι	n-p---mv-	Λοξία		
 Λοξίαι	n-p---fn-	Λοξία		
-Λοξίᾳ	n-s---mg-	Λοξίᾳ		
+Λοξίᾳ	n-s---mg-	Λοξίᾳ	^5	nominal
 Λοξίας	n-s---mn-	λοξίας		
-Λοξία	n-s---mv-	Λοξίας		
+Λοξία	n-s---mv-	Λοξίας	^5	nominal
 Λοξίαν	n-s---ma-	Λοξίας		
 Λοξίας	n-s---mn-	Λοξίας		
 Λοξίου	n-s---mg-	Λοξίας	^4	hypotactic
@@ -24557,7 +24557,7 @@ lemma	tag	token	macron	source
 λοχαγούς	n-p---ma-	λοχαγός		
 λοχαγοὺς	n-p---ma-	λοχαγός		
 λοχαγέται	n-p---mn-	λοχαγ́της		
-λοχαίας	n-p---fa-	λοχαίη	_4	ifthimos
+λοχαίας	n-p---fa-	λοχαίη	_4_6	ifthimos,nominal
 λοχείας	n-p---fa-	λοχεία	_6	ifthimos
 λοχεύμασιν	n-p---md-	λοχεύμα	^9	breve_ultima
 λοχεύματα	n-p---na-	λοχεύμα	^9	breve_ultima
@@ -24572,7 +24572,7 @@ lemma	tag	token	macron	source
 λόχια	a-p---nn-	λόχιός	^5	breve_ultima
 λοχισμούς	n-p---ma-	λοχισμός		
 λοχίτας	n-p---ma-	λοχίτης		
-λυγαίας	a-s---fg-	λυγαῖος	_2_4	ifthimos
+λυγαίας	a-s---fg-	λυγαῖος	_2_4_6	ifthimos,nominal
 λυγαίωι	a-s---nd-	λυγαίωι		
 λύγδην	n-s---fa-	λύγδη		
 λυγίζεται	v3spie---	λυγίζω		
@@ -24777,10 +24777,10 @@ lemma	tag	token	macron	source
 λυσσαίνων	v-sppamn-	λυσσαίνω		
 λύσσαν	n-s---fa-	λύσσαν	^2^5	wiktionary
 λυσσάδες	n-p---mn-	λυσσάς		
-λυσσάδι	n-s---fd-	λυσσάς		
+λυσσάδι	n-s---fd-	λυσσάς	^7	nominal
 Λυσσῶντι	v-sppamd-	λυσσάω	^8	breve_ultima
 λυσσῶσαν	v-sppafa-	λυσσάω	^7	breve_ultima
-Λύσσας	n-s---fg-	Λύσση		
+Λύσσας	n-s---fg-	Λύσση	_5	nominal
 λύσσηι	n-s---fd-	λύσσηι		
 λυσσήμασιν	n-p---nd-	λυσσήμασιν	^9	breve_ultima
 λύσσης	n-s---fg-	λύσσης	^2	wiktionary
@@ -24895,8 +24895,8 @@ lemma	tag	token	macron	source
 μάθωσιν	v3pasa---	μάθωσιν	^6	breve_ultima
 μαινάδες	n-p---fn-	μαι		
 Μαίας	---------	Μαί		
-Μαίας	n-p---fa-	μαῖα		
-Μαίας	n-s---fg-	μαῖα		
+Μαίας	n-p---fa-	μαῖα	_4	nominal
+Μαίας	n-s---fg-	μαῖα	_4	nominal
 Μαιάδος	n-s---mg-	Μαιάδ	^4	wiktionary
 Μαιάδος	a-s---mn-	Μαιάδος	^4	wiktionary
 Μαιάδος	n-s---mg-	Μαιάδος	^4	wiktionary
@@ -24924,7 +24924,7 @@ lemma	tag	token	macron	source
 μαινὰς	n-s---fg-	μαινάς	_2	ifthimos
 μαινάσιν	n-p---fd-	μαινάς		
 Μαινάσιν	v3ppia---	Μαινάσ		
-μαινάσι	n-p---md-	μαινάσι		
+μαινάσι	n-p---md-	μαινάσι	^7	nominal
 μαινόλιν	a-s---fa-	μαινόλις		
 μαινομένα	v-sppefn-	μαινομένα		
 Μαιωτικόν	a-s---ma-	Μαιωτικόν		
@@ -25764,7 +25764,7 @@ lemma	tag	token	macron	source
 μέμψιν	n-s---fa-	μέμψις		
 μέμψις	n-s---fn-	μέμψις	^5	wiktionary
 Μενέλα	n-s---fn-	Μενέλα		
-Μενέλα’	n-s---mv-	Μενέλα		
+Μενέλα’	n-s---mv-	Μενέλα	^5	nominal
 Μενέλαν	n-s---fa-	Μενέλα		
 Μενέλαε	n-s---mv-	Μενέλαε	_6	wiktionary
 Μενέλαον	n-s---ma-	Μενέλαον	_6	wiktionary
@@ -25774,10 +25774,10 @@ lemma	tag	token	macron	source
 Μενελάου	n-s---mg-	μενέλαος	_6	wiktionary
 μενέλαον	n-s---ma-	Μενέλαός		
 μενέλαος	n-s---mn-	Μενέλαός		
-Μενέλα’	n-s---mv-	Μενέλας		
+Μενέλα’	n-s---mv-	Μενέλας	^5	nominal
 Μενέλας	n-s---mn-	Μενέλας		
-Μενέλα	n-s---mg-	Μενέλης		
-Μενέλα’	n-s---mv-	Μενέλης		
+Μενέλα	n-s---mg-	Μενέλης	^6	nominal
+Μενέλα’	n-s---mv-	Μενέλης	^5	nominal
 Μενοικέα	n-s---ma-	Μενοικεύς	_8	wiktionary
 μένταν	g--------	μέντἄν		
 μεντἄν	g--------	μέντοι		
@@ -25860,7 +25860,7 @@ lemma	tag	token	macron	source
 μεταβολή	n-s---fn-	μεταβολή	^4	wiktionary
 μεταβολὴ	n-s---fn-	μεταβολή		
 μεταβολά	n-p---na-	μεταβολόν	^4_8	wiktionary
-μεταβολὰ	n-p---na-	μεταβολόν		
+μεταβολὰ	n-p---na-	μεταβολόν	^8	nominal
 μεταβουλευσόμεσθα	v1pfim---	μεταβουλευσόμεσθα	^17	breve_ultima
 μεταγνῶναι	v--ana---	μεταγιγνώσκω	^4	wiktionary
 μετάγνοιαν	n-s---fa-	μετάγνοια	^9	breve_ultima
@@ -25999,7 +25999,7 @@ lemma	tag	token	macron	source
 μηκύνω	v1spsa---	μηκύνω		
 μηκύνωμεν	v1ppsa---	μηκύνω		
 μηκύνων	v-sppamn-	μηκύνω		
-Μηλιᾶ	n-p---na-	Μηλιᾶ	^4	wiktionary
+Μηλιᾶ	n-p---na-	Μηλιᾶ	^4^5	wiktionary,nominal
 Μηλιάδ’	n-s---fa-	Μηλιάδ		
 Μηλιεύς	n-s---mn-	μηλιεύς	^4	wiktionary
 Μηλιεὺς	n-s---mn-	μηλιεύς		
@@ -26049,7 +26049,7 @@ lemma	tag	token	macron	source
 μάτηρ	n-s---ma-	μήτηρ	_2	wiktionary
 Μάτηρ	n-s---fn-	μήτηρ		
 ματρί	n-s---fd-	μήτηρ	_2^5	wiktionary
-ματρὶ	n-s---fd-	μήτηρ		
+ματρὶ	n-s---fd-	μήτηρ	^5	nominal
 ματρός	n-s---fg-	μήτηρ	_2	wiktionary
 Ματρός	n-s---fg-	μήτηρ		
 ματρὸς	n-s---fg-	μήτηρ		
@@ -26058,7 +26058,7 @@ lemma	tag	token	macron	source
 μητέρας	n-p---fa-	μήτηρ	^6	wiktionary
 μητρί	n-s---fd-	μήτηρ	^5	wiktionary
 μητρί	n-s---fd-	μήτηρ	^5	wiktionary
-μητρὶ	n-s---fd-	μήτηρ		
+μητρὶ	n-s---fd-	μήτηρ	^5	nominal
 μήτιδας	n-p---fa-	μήτις	^6	breve_ultima
 μήτιν’	a-s---fa-	μήτις		
 Μήτιδος	n-s---fg-	Μήτις	^4	wiktionary
@@ -26274,7 +26274,7 @@ lemma	tag	token	macron	source
 μινύθουσιν	v3ppia---	μινύθω	^9	breve_ultima
 Μινυῶν	n-p---mg-	Μινυοί	^2^4	wiktionary
 μινυρά	n-p---na-	μινυρά	^2^4_6	wiktionary
-μινυρὰ	n-p---na-	μινυρὰ		
+μινυρὰ	n-p---na-	μινυρὰ	^6	nominal
 μινύρεται	v3spie---	μινύρεται	^2_4	wiktionary
 Μίνω	n-s---md-	μίνως	_2	wiktionary
 μιξόθηρας	a-p---ma-	μιξόθηρ	^8	breve_ultima
@@ -26366,7 +26366,7 @@ lemma	tag	token	macron	source
 μόλις	d--------	μόλις	^4	wiktionary
 μολόντας	v-papama-	μολόντας		
 μολόντι	v-sapamd-	μολόντι		
-Μολοσσά	n-p---na-	Μολοσσά		
+Μολοσσά	n-p---na-	Μολοσσά	^7	nominal
 Μολοσσὰ	n-p---na-	Μολοσσὰ	^7	hypotactic
 Μολοσσίας	n-p---fa-	Μολοσσίη	^7_8	wiktionary
 Μολοσσίαν	a-s---fa-	Μολοσσῖος	^7_8	wiktionary
@@ -26449,7 +26449,7 @@ lemma	tag	token	macron	source
 Μουνίχου	n-s---mg-	Μουνίχος		
 μούσας	n-p---fa-	μοῦσα	_5	ifthimos
 μούσας	n-s---fg-	μοῦσα	_5	ifthimos
-Μούσας	n-p---fa-	μοῦσα		
+Μούσας	n-p---fa-	μοῦσα	_5	nominal
 μουσικήν	n-s---fa-	μουσικὴ	^5	wiktionary
 μουσικὴν	n-s---fa-	μουσικὴ		
 μουσικώτεροι	a-p---mnc	μουσικώς		
@@ -26703,7 +26703,7 @@ lemma	tag	token	macron	source
 ναοφύλακες	n-p---mv-	ναοφύλακς	_2^5^7	wiktionary
 νάπας	n-p---fa-	νάπα	^2_4	hypotactic
 ναπαίαις	n-p---fd-	ναπαίη		
-ναπαίας	n-p---fa-	ναπαίη	_4	ifthimos
+ναπαίας	n-p---fa-	ναπαίη	_4_6	ifthimos,nominal
 νάπαν	n-s---na-	νάπαν		
 νάπαν	n-s---na-	νάπας		
 νάπει	v3spia---	ναπέω		
@@ -26728,7 +26728,7 @@ lemma	tag	token	macron	source
 νάσῳ	n-s---fd-	νάσος	_2	hypotactic
 νάσων	n-s---fn-	νάσων		
 νατραπῆναι	v--anp---	νατρείπω		
-ναυαγίας	n-s---fg-	ναυαγία	_4	ifthimos
+ναυαγίας	n-s---fg-	ναυαγία	_4_7	ifthimos,nominal
 ναυάγια	n-s---fd-	ναυάγια	_4^6^7	wiktionary
 ναυαγίοις	n-p---nd-	ναυαγίοις	_4^6	wiktionary
 ναυάγια	n-s---fn-	ναυάγιον	_4^6^7	wiktionary
@@ -26758,7 +26758,7 @@ lemma	tag	token	macron	source
 ναυκλήρια	n-p---na-	ναυκλήρια	^9	breve_ultima
 ναυκληρίαν	n-s---fa-	ναυκληρίης	^8_9	hypotactic
 ναυκράτωρ	n-s---mn-	ναυκράτωρ		
-Ναυπακτίας	n-s---fg-	Ναυπακτία	_5	ifthimos
+Ναυπακτίας	n-s---fg-	Ναυπακτία	_5_9	ifthimos,nominal
 Ναυπλίαι	n-p---fd-	Ναυπλία		
 Ναυπλίαν	n-s---fa-	Ναυπλία	^6_7	wiktionary
 Ναυπλίας	a-p---fa-	Ναυπλία	^6_7	wiktionary
@@ -26771,8 +26771,8 @@ lemma	tag	token	macron	source
 Ναός	n-s---fg-	ναῦς		
 ναὸς	n-s---fg-	ναῦς		
 Ναὸς	n-s---fg-	ναῦς		
-ναυσί	n-p---fd-	ναῦς		
-ναυσί	n-p---fd-	ναῦς		
+ναυσί	n-p---fd-	ναῦς	^5	nominal
+ναυσί	n-p---fd-	ναῦς	^5	nominal
 ναυσὶ	n-p---fd-	ναῦς	^5	hypotactic
 ναυσίν	n-p---fd-	ναῦς		
 ναυσὶν	n-p---fd-	ναῦς	^5	wiktionary
@@ -26957,8 +26957,8 @@ lemma	tag	token	macron	source
 νεοσφαγὴς	a-s---mn-	νεοσφαγής		
 νεοσφαγοῦς	a-s---fg-	νεοσφαγής		
 νεοχάραχθ’	a-p---na-	νεοχάραχθ		
-νεοχμά	n-p---na-	νεοχμά		
-νεοχμὰ	n-p---na-	νεοχμὰ		
+νεοχμά	n-p---na-	νεοχμά	^6	nominal
+νεοχμὰ	n-p---na-	νεοχμὰ	^6	nominal
 ἐνερράφη	v3saip---	νερράφω		
 νερτέραν	a-s---fa-	νερτέραν		
 νερτέρας	a-s---fg-	νερτέρας	_7	ifthimos
@@ -27139,8 +27139,8 @@ lemma	tag	token	macron	source
 νοθαγενεῖς	a-p---ma-	νοθαγενής		
 νοθαγενής	a-s---mn-	νοθαγενής	_4	wiktionary
 νοθαγενεῖ	a-s----d-	νοθαγενύς		
-νομα	n-s---na-	νομα		
-νομα	n-s---nn-	νομα		
+νομα	n-s---na-	νομα	^4	nominal
+νομα	n-s---nn-	νομα	^4	nominal
 νομάδος	d--------	νομάδος	^4	wiktionary
 νομάς	n-p---fa-	νομάι	_4	wiktionary
 νομάδας	n-p---fa-	νομάς	^4^6	wiktionary
@@ -27209,7 +27209,7 @@ lemma	tag	token	macron	source
 νοτίζει	v3spia---	νοτίζω		
 νοτίαις	a-p---fd-	νοτίος		
 νοτίοις	a-p---nd-	νοτίος	^4	hypotactic
-νοτίδι	n-s---fd-	νοτίς		
+νοτίδι	n-s---fd-	νοτίς	^6	nominal
 νοτίς	n-s---fn-	νοτίς		
 νοτίς	n-s---fn-	νοτίς		
 νοτὶς	n-s---fn-	νοτὶς		
@@ -27252,7 +27252,7 @@ lemma	tag	token	macron	source
 νύμφα	n-s---fn-	νύμφα	^2^5	wiktionary
 Νύμφαισιν	n-p---fd-	Νύμφα	^8	breve_ultima
 νυμφαγωγός	a-s---fn-	νυμφαγωγός	^2^5	wiktionary
-Νυμφαίας	a-p---fa-	Νυμφαῖος		
+Νυμφαίας	a-p---fa-	Νυμφαῖος	_7	nominal
 Νύμφαις	n-p---fd-	Νύμφαις		
 νύμφαν	n-s---fa-	νύμφαν	^2_5	wiktionary
 νύμφαν	n-s---ma-	νύμφαν	^2_5	wiktionary
@@ -27295,7 +27295,7 @@ lemma	tag	token	macron	source
 Νυμφᾶν	n-p---fn-	νύμφη		
 νύμφας	n-s---fg-	νύμφη	^2_5	wiktionary
 νύμφας	n-p---fa-	νύμφη	^2_5	wiktionary
-Νύμφας	n-p---fa-	νύμφη		
+Νύμφας	n-p---fa-	νύμφη	_5	nominal
 νύμφη	n-s---fn-	νύμφη	^2	wiktionary
 νύμφηι	n-p---fd-	νύμφη		
 νύμφην	n-s---fa-	νύμφη	^2	wiktionary
@@ -27340,8 +27340,8 @@ lemma	tag	token	macron	source
 νύκτα	n-s---fa-	νύξ		
 νύκτας	n-p---fa-	νύξ	_5	ifthimos
 νύκτες	n-p---fn-	νύξ		
-νυκτί	n-s---fd-	νύξ		
-νυκτὶ	n-s---fd-	νύξ		
+νυκτί	n-s---fd-	νύξ	^5	nominal
+νυκτὶ	n-s---fd-	νύξ	^5	nominal
 νυκτός	n-s---fg-	νύξ		
 νυκτός	n-s---fg-	νύξ		
 Νυκτός	n-s---fg-	νύξ	^2	wiktionary
@@ -27505,7 +27505,7 @@ lemma	tag	token	macron	source
 ξοάνων	n-p---ng-	ξοάνων	^3	wiktionary
 ἐξόρισεν	v3saia---	ξορίζω		
 ξουθά	n-p---na-	ξουθόν	_5	wiktionary
-ξουθὰ	n-p---na-	ξουθόν		
+ξουθὰ	n-p---na-	ξουθόν	^5	nominal
 ξυγγάμοισι	n-p---md-	ξυγγάμοισι	^10	breve_ultima
 ξυγγέγηθε	a-p---nac	ξυγγέγηθε		
 ξυγγενοῦς	v-prpefa-	ξυγγενοῦς		
@@ -27618,7 +27618,7 @@ lemma	tag	token	macron	source
 ξυμφορὰ	n-s---fn-	ξυμφορή		
 ξυμφοραί	n-p---fn-	ξυμφορή	^2	wiktionary
 ξυμφοράν	n-s---fa-	ξυμφορή	^2_7	wiktionary
-Ξυμφορᾶς	n-s---fg-	Ξυμφορή		
+Ξυμφορᾶς	n-s---fg-	Ξυμφορή	_7	nominal
 ξυμφορά	a-p---na-	ξυμφορος	^2_7	wiktionary
 ξυμφορά	a-p---nn-	ξυμφορός	^2_7	wiktionary
 ξυμφορὰ	a-p---nn-	ξυμφορός		
@@ -27899,9 +27899,9 @@ lemma	tag	token	macron	source
 ἁ	p-s---mn-	ὁ		
 ἁ	p-p---na-	ὁ		
 ἁ	l-s---fn-	ὁ		
-ἁ	n-s---mn-	ὁ		
+ἁ	n-s---mn-	ὁ	^1	nominal
 ἁ	p-p---nn-	ὁ		
-ἁ	n-s---md-	ὁ		
+ἁ	n-s---md-	ὁ	^1	nominal
 ἁ	v1spia---	ὁ		
 ἁ	a-p---fn-	ὁ		
 Ἁ	l-s---fn-	ὁ		
@@ -27954,7 +27954,7 @@ lemma	tag	token	macron	source
 ὀβρίμων	a-p---mg-	ὀβρίμων	^4	wiktionary
 Ὄγκα	n-s---fn-	Ὄγκα	_4	wiktionary
 Ὄγκα	n-s---fd-	Ὄγκη	_4	wiktionary
-Ὄγκας	n-p---fa-	Ὄγκη		
+Ὄγκας	n-p---fa-	Ὄγκη	_4	nominal
 ἅδ’	p-s---fn-	ὅδ		
 τάδ’	p-p---na-	ὅδ		
 τάδ’	p-p---nn-	ὅδ		
@@ -28036,7 +28036,7 @@ lemma	tag	token	macron	source
 Ὀδυσσέως	n-s---mn-	Ὀδυσσεύς	^3	wiktionary
 Ὀδυσσέως	n-p---ma-	Ὀδυσσεύς	^3	wiktionary
 Ὀδυσσῆ	n-s---md-	Ὀδυσσῆ		
-ὁδωτά	n-p---na-	ὁδωτά		
+ὁδωτά	n-p---na-	ὁδωτά	^5	nominal
 ὅθι	d--------	ὅθι	^3	wiktionary
 ὀθνείαν	n-s---fa-	ὀθνεία		
 Ὄθρυος	n-s---mn-	Ὄθρυος	^4	wiktionary
@@ -28224,7 +28224,7 @@ lemma	tag	token	macron	source
 οἵας	a-p---fa-	οἷος	_3	wiktionary
 Οἰός	a-s---mn-	ὄις		
 οἴξας	v-sapamn-	οἴσσω	_4	ifthimos
-οἰστέα	n-p---nn-	οἰστέον		
+οἰστέα	n-p---nn-	οἰστέον	^6	nominal
 ὀιστοδέγμονα	n-s---ma-	ὀιστοδέγμων	^12	breve_ultima
 οἰστρήσας	v-sapamn-	οἰστράω	_8	ifthimos
 οἰστρήσασα	v-sapafn-	οἰστρέω	_8^10	hypotactic
@@ -28236,7 +28236,7 @@ lemma	tag	token	macron	source
 Οἰταίου	a-s---mg-	Οἰταῖος		
 Οἴτην	n-s---fa-	οἴτη		
 Οἴτης	n-s---fg-	οἴτη		
-Οἴτας	n-p---fa-	Οἴτη		
+Οἴτας	n-p---fa-	Οἴτη	_4	nominal
 Οἰχαλία	n-s---fn-	οἰχαλία	^4	wiktionary
 Οἰχαλίαν	n-s---fa-	οἰχαλία	^4^6_7	wiktionary
 Οἰχαλίαι	n-p---fn-	Οἰχαλία		
@@ -28397,7 +28397,7 @@ lemma	tag	token	macron	source
 ὁμαρτήσει	v3sfia---	ὁμαρτέω		
 ὁμαρτοῦσιν	v3ppia---	ὁμαρτέω	^9	breve_ultima
 ὁμαρτήσουσι	v3pfia---	ὁμαρτήσουσί	^11	breve_ultima
-ὁμαυλίας	n-s---fg-	ὁμαυλία	_3	ifthimos
+ὁμαυλίας	n-s---fg-	ὁμαυλία	_3_7	ifthimos,nominal
 ὀμβρία	n-s---fd-	ὀμβρία	^5_6	wiktionary
 ὀμβροκτύπῳ	a-s---md-	ὀμβροκτύπος		
 ὁμευνέτιν	n-s---fa-	ὅμευνος		
@@ -28472,7 +28472,7 @@ lemma	tag	token	macron	source
 ὁμοιώσασ’	v-sapafn-	ὁμοιώσασ		
 ὁμοΐωςμαυροῦμεν	v1ppia---	ὁμοΐωςμαυροεῦμι		
 ὁμοκλήσαντες	v-papamn-	ὁμοκλέω		
-Ὁμόλας	n-p---fa-	Ὁμόλη		
+Ὁμόλας	n-p---fa-	Ὁμόλη	_5	nominal
 Ὁμολωίσιν	a-p---fd-	Ὁμολωίσιν	^6	hypotactic
 ὁμοπάτριον	a-s---fa-	ὁμοπάτριος	^8	hypotactic
 ὀμόσασ’	v-sapafn-	ὀμόσασ		
@@ -28724,7 +28724,7 @@ lemma	tag	token	macron	source
 ὀργὰς	n-p---fa-	ὀργή	_4	ifthimos
 ὄργι’	n-p---na-	ὄργι		
 ὄργι’	n-p---nn-	ὄργι		
-ὄργι’	n-s---fd-	ὄργι		
+ὄργι’	n-s---fd-	ὄργι	^4	nominal
 ὄργια	n-p---na-	ὄργια	^4^5	wiktionary
 ὀργίων	n-p---fg-	ὄργια	^4	wiktionary
 ὀργίων	n-p---ng-	ὄργια	^4	wiktionary
@@ -28743,11 +28743,11 @@ lemma	tag	token	macron	source
 ὀρειβάτης	n-s---fn-	ὀρειβάτης	^6	lsj
 ὀρέξατε	v2pama---	ὀρέξω	^5	wiktionary
 ὀρεσσιβάτα	n-s---mg-	ὀρεσσιβάτης	_10	ifthimos
-Ὀρέστα	n-s---mv-	Ὀρέστας		
+Ὀρέστα	n-s---mv-	Ὀρέστας	^6	nominal
 Ὀρέσταν	n-s---ma-	Ὀρέστας		
 Ὀρεστείας	a-s---fg-	Ὀρεστείας	_8	wiktionary
 ὀρεστέραν	a-s---fa-	ὀρεστέραν		
-Ὀρέστα	n-s---mv-	ὀρέστης		
+Ὀρέστα	n-s---mv-	ὀρέστης	^6	nominal
 Ὀρέστας	n-p---ma-	Ὀρέστης		
 ὀρθιάζοντες	v-pppamn-	ὀρθιάζω	^4_5	hypotactic
 ὀρθίαν	a-s---fa-	ὀρθίαν	^4_5	wiktionary
@@ -28881,11 +28881,11 @@ lemma	tag	token	macron	source
 ὀρφανὸν	a-s---na-	ὀρφανός		
 ὀρφανός	a-s---mn-	ὀρφανός	^4	wiktionary
 ὀρφανοὺςδόμους	a-p---ma-	ὀρφανοὺςδόμους		
-Ὀρφεία	n-p---na-	Ὀρφεία		
+Ὀρφεία	n-p---na-	Ὀρφεία	^6	nominal
 Ὀρφέα	n-s---ma-	Ὀρφεύς	^5	wiktionary
 ὄρφναν	n-s---fa-	ὄρφνα		
 ὀρφναίας	a-p---fa-	ὀρφναίας	_5	ifthimos
-ὀρφναίας	a-s---fg-	ὀρφναῖος	_5	ifthimos
+ὀρφναίας	a-s---fg-	ὀρφναῖος	_5_7	ifthimos,nominal
 ὄρφνα	a-p---nn-	ὄρφνος	_5	wiktionary
 ὀρχάμῳ	n-s---md-	ὀρχάμῳ	^4	wiktionary
 ὁρώσας	v-pppafa-	ὁρώσας	_5	ifthimos
@@ -28897,7 +28897,7 @@ lemma	tag	token	macron	source
 ἅ	p-p---nn-	ὅς		
 ἅ	i--------	ὅς		
 ἅ	p-p---na-	ὅς		
-ἅ	n-p---mn-	ὅς		
+ἅ	n-p---mn-	ὅς	^1	nominal
 ἅ	l-s---fn-	ὅς		
 ἅ	p-s---fn-	ὅς		
 ἅ	p-s---fd-	ὅς		
@@ -28981,7 +28981,7 @@ lemma	tag	token	macron	source
 ὅσα	a-p---na-	ὅσος	^3	wiktionary
 ὅσας	a-p---fa-	ὅσος	_3	wiktionary
 ὅσσα	a-p---na-	ὅσος	^4	wiktionary
-Ὄσσας	n-p---fa-	Ὄσση		
+Ὄσσας	n-p---fa-	Ὄσση	_4	nominal
 ὅσσας	a-p---fa-	ὅσση	_4	wiktionary
 αἵτινες	a-p---fn-	ὅστις	^4	wiktionary
 ἅτις	n-p---fa-	ὅστις		
@@ -29020,7 +29020,7 @@ lemma	tag	token	macron	source
 Οὐχὶ	d--------	οὐ		
 Οὔκ	d--------	Οὔ		
 Οὐδ’	d--------	Οὐδ		
-οὐδ’ἀτιμίας	n-s---fg-	οὐδ’ἀτιμία		
+οὐδ’ἀτιμίας	n-s---fg-	οὐδ’ἀτιμία	_9	nominal
 οὐδάμ’	a-p---nn-	οὐδάμ		
 οὐδαμᾷ	a-p---nn-	οὐδαμᾷ	_6	ifthimos
 οὐδαμᾷ	a-p---na-	οὐδαμᾷ	_6	ifthimos
@@ -29126,7 +29126,7 @@ lemma	tag	token	macron	source
 οὐρανῶι	n-s---md-	οὐρανῶι		
 οὐρανῶι	a-s---md-	οὐρανῶι		
 οὑργάτης	n-s---mn-	οὑργάτης		
-οὐρεία	n-p---na-	οὐρεία		
+οὐρεία	n-p---na-	οὐρεία	^6	nominal
 οὐρεΐαν	a-s---fa-	οὐρεΐαν		
 οὐρείας	a-p---fa-	οὐρεῖος	_6	ifthimos
 οὐρεσιβώτας	n-s---mn-	οὐρεσιβώτας	_10	ifthimos
@@ -29151,7 +29151,7 @@ lemma	tag	token	macron	source
 οὐριοστάταν	a-s---fa-	οὐριοστάταν		
 οὔρισας	v-sapamn-	οὔρισας	^6	breve_ultima
 ὠσί	n-p---nd-	οὖς	^3	wiktionary
-ὠσὶ	n-p---nd-	οὖς		
+ὠσὶ	n-p---nd-	οὖς	^3	nominal
 ὠσίν	n-p---nd-	οὖς	^3	wiktionary
 ὠσὶν	n-p---nd-	οὖς		
 οὐσίαν	n-s---fa-	οὐσία	^4_5	wiktionary
@@ -29187,7 +29187,7 @@ lemma	tag	token	macron	source
 ταύταν	a-s---fa-	οὗτον		
 Αὕτη	a-s---fn-	οὗτος		
 ταύτας	a-p---fa-	οὗτος	_2_5	ifthimos
-Ταύτας	a-p---fa-	οὗτος		
+Ταύτας	a-p---fa-	οὗτος	_5	nominal
 Οὔτ’	c--------	Οὔττε		
 Οὕτω	d--------	οὕτω(ς)		
 Οὕτως	d--------	οὕτω(ς)		
@@ -29412,13 +29412,13 @@ lemma	tag	token	macron	source
 παιδί	n-s---md-	παῖς	^5	wiktionary
 παιδί	n-s---fd-	παῖς	^5	wiktionary
 παιδί	n-s---mv-	παῖς	^5	wiktionary
-παιδὶ	n-s---fd-	παῖς		
-παιδὶ	n-s---md-	παῖς		
+παιδὶ	n-s---fd-	παῖς	^5	nominal
+παιδὶ	n-s---md-	παῖς	^5	nominal
 παισί	n-p---md-	παῖς	^5	wiktionary
 παισί	n-p---md-	παῖς	^5	wiktionary
 παισί	n-p---fd-	παῖς	^5	wiktionary
-παισὶ	n-p---md-	παῖς		
-παισὶ	n-p---fd-	παῖς		
+παισὶ	n-p---md-	παῖς	^5	nominal
+παισὶ	n-p---fd-	παῖς	^5	nominal
 παισίν	n-p---fd-	παῖς	^5	wiktionary
 παισίν	n-p---md-	παῖς	^5	wiktionary
 παισίν	n-p---fd-	παῖς	^5	wiktionary
@@ -29477,10 +29477,10 @@ lemma	tag	token	macron	source
 παλαιὰν	a-s---fa-	παλαιός	^2	hypotactic
 παλαιάς	a-p---fa-	παλαιός	^2_4_6	ifthimos
 παλαιάς	a-s---fg-	παλαιός	^2_4_6	ifthimos
-παλαιὰς	a-p---fa-	παλαιός	^2_4	ifthimos
-παλαιὰς	a-s---fg-	παλαιός	^2_4	ifthimos
-παλαιᾶς	a-s---fg-	παλαιός	^2_4	ifthimos
-παλαιᾶς	a-p---fa-	παλαιός	^2_4	ifthimos
+παλαιὰς	a-p---fa-	παλαιός	^2_4_6	ifthimos,nominal
+παλαιὰς	a-s---fg-	παλαιός	^2_4_6	ifthimos,nominal
+παλαιᾶς	a-s---fg-	παλαιός	^2_4_6	ifthimos,nominal
+παλαιᾶς	a-p---fa-	παλαιός	^2_4_6	ifthimos,nominal
 παλαιοί	a-p---mn-	παλαιός	^2	wiktionary
 παλαιοί	a-p---mn-	παλαιός	^2	wiktionary
 παλαιοὶ	a-p---mn-	παλαιός		
@@ -29660,7 +29660,7 @@ lemma	tag	token	macron	source
 Πανὸς	n-s---ng-	πάν		
 πανάγυρις	n-s---fn-	πανάγυρις	_4^8	lsj,breve_ultima
 παναθλίαν	n-s---fa-	παναθλίη		
-παναθλία	n-p---nn-	παναθλίον		
+παναθλία	n-p---nn-	παναθλίον	^8	nominal
 πανάθλιε	a-s---mv-	πανάθλιος		
 πανάθλιον	a-s---ma-	πανάθλιος		
 πανάθλιον	a-s---na-	πανάθλιος		
@@ -30329,7 +30329,7 @@ lemma	tag	token	macron	source
 παρηίδας	n-p---fa-	παρηίδας	^2^5_7	ifthimos
 παρηίδων	n-p---fg-	παρηίδες		
 παρήιδων	n-p---fg-	παρήιδες		
-παρηίδι	n-s---fd-	παρηίδι		
+παρηίδι	n-s---fd-	παρηίδι	^7	nominal
 παρῆιδι	n-s---fd-	παρῆιδί	^7	breve_ultima
 παρηίδος	n-s---fg-	παρηίδος		
 παρῆι	v3siia---	παρῆιμι		
@@ -30664,7 +30664,7 @@ lemma	tag	token	macron	source
 πατοῦντι	v-sppamd-	πατέω	^8	breve_ultima
 πατῶν	v-sppamn-	πατέω	^2	wiktionary
 πάτας	n-p---fa-	πάτη	_4	ifthimos
-πατέρα	n-s---ma-	πατήρ		
+πατέρα	n-s---ma-	πατήρ	^6	nominal
 Πατέρα	n-s---ma-	πατήρ	^2^6	wiktionary
 πατέρας	n-p---ma-	πατήρ	^2	hypotactic
 πατέρες	n-p---mn-	πατήρ	^2	wiktionary
@@ -30683,7 +30683,7 @@ lemma	tag	token	macron	source
 πατρί	n-s---md-	πατήρ	^5	hypotactic
 πατρί	n-s---fv-	πατήρ	^5	hypotactic
 πατρὶ	n-s---fv-	πατήρ		
-πατρὶ	n-s---md-	πατήρ		
+πατρὶ	n-s---md-	πατήρ	^5	nominal
 πατρίδι	a-p---na-	πατήρ	^2^5^7	wiktionary
 πατρός	n-s---mg-	πατήρ		
 πατρός	n-s---mg-	πατήρ		
@@ -30895,7 +30895,7 @@ lemma	tag	token	macron	source
 πειράσομαι	v1sfim---	πειράσω	_5	wiktionary
 πειρατήρια	n-p---na-	πειρατήριον	^10	breve_ultima
 πειραθεῖσα	v-sappfn-	πειράω	_5^10	wiktionary
-Πειρήνας	n-p---fa-	Πειρήνη		
+Πειρήνας	n-p---fa-	Πειρήνη	_7	nominal
 πείσαντ’	v-sapama-	πείσαντ		
 πείσας	v-sapamn-	πείσας	_5	wiktionary
 πείσασα	v-sapafn-	πείσασά	_5^7	wiktionary
@@ -31002,7 +31002,7 @@ lemma	tag	token	macron	source
 Πελίαι	a-p---fn-	Πελίος		
 Πελίου	n-s---mg-	Πέλιος		
 Πελοπίδαις	n-p---md-	Πελοπ́δης		
-Πελοπίας	n-s---fg-	Πελοπῖα		
+Πελοπίας	n-s---fg-	Πελοπῖα	_7	nominal
 Πελοπίαν	u--------	Πελοπίαν		
 Πελοπίαν	n-s---fa-	Πελοπίαν		
 Πελοπίδαι	n-p---mn-	Πελοπίδης		
@@ -31010,7 +31010,7 @@ lemma	tag	token	macron	source
 Πελοπιδῶν	n-p---mg-	Πελοπίδης		
 Πελοπιδῶν	n-p---mg-	Πελοπιδῶν		
 Πελοπιδῶν	n-p---fg-	Πελοπιδῶν		
-Πελοπίας	n-s---fg-	Πελοπῖος		
+Πελοπίας	n-s---fg-	Πελοπῖος	_7	nominal
 πελταστῶν	n-p---mg-	πελταστής		
 πέλτας	n-p---fa-	πέλτη	_5	wiktionary
 πελώρια	a-p---na-	πελώριος	^6^7	wiktionary
@@ -31189,7 +31189,7 @@ lemma	tag	token	macron	source
 περίβολον	n-s---ma-	περίβολος		
 περιβρυχίοισιν	a-p---nd-	περιβρύχιος	^13	breve_ultima
 περιγραφά	n-p---na-	περιγραφόν	^4^7_9	wiktionary
-περιγραφὰ	n-p---na-	περιγραφόν		
+περιγραφὰ	n-p---na-	περιγραφόν	^9	nominal
 περιδρομάς	n-p---fa-	περιδρομή	_9	ifthimos
 περιδρομὰς	n-p---fa-	περιδρομή	_9	ifthimos
 περιδρόμοις	a-p---md-	περιδρόμοις	^4	wiktionary
@@ -31313,8 +31313,8 @@ lemma	tag	token	macron	source
 περιφραδὴς	a-s---mn-	περιφραδής		
 περίφρονα	a-p---na-	περίφρων	^4^9	wiktionary
 περίφρονες	a-p---mn-	περίφρων	^4	wiktionary
-περιχαμπτά	n-p---na-	περιχαμπτά		
-περιχαμπτὰ	n-p---na-	περιχαμπτὰ		
+περιχαμπτά	n-p---na-	περιχαμπτά	^10	nominal
+περιχαμπτὰ	n-p---na-	περιχαμπτὰ	^10	nominal
 περιχαρής	a-s---mn-	περιχαρής		
 περιχαρὴς	a-s---mn-	περιχαρής		
 περιχορεύουσα	v-sppafn-	περιχορεύω	^13	breve_ultima
@@ -31328,8 +31328,8 @@ lemma	tag	token	macron	source
 Περσέα	n-s---ma-	Περσές	_6	wiktionary
 Περσέφασσα	n-s---fn-	Περσέφασσα	^10	breve_ultima
 Περσέφασσα	n-s---fv-	Περσέφασσα	^10	breve_ultima
-Περσεφονείας	n-s---fg-	Περσεφονεία		
-Περσεφόνας	n-p---fa-	Περσεφόνη		
+Περσεφονείας	n-s---fg-	Περσεφονεία	_11	nominal
+Περσεφόνας	n-p---fa-	Περσεφόνη	_9	nominal
 Περσηίδος	n-s---fg-	Περσηίδος	^6	hypotactic
 πέρσαν	n-s---ma-	πέρσης	^5	wiktionary
 πέρσας	n-p---ma-	πέρσης	_5	wiktionary
@@ -31378,7 +31378,7 @@ lemma	tag	token	macron	source
 πέτρας	n-p---fa-	πέτρα	_5	wiktionary
 πετραία	a-p---na-	πετραίος	^7	hypotactic
 πετραία	a-s---fn-	πετραῖος	^7	hypotactic
-πετραίας	a-s---fg-	πετραῖος	_5	ifthimos
+πετραίας	a-s---fg-	πετραῖος	_5_7	ifthimos,nominal
 πέτραν	n-s---fa-	πέτραν	_5	wiktionary
 πέτρας	n-p---fa-	πέτρας	_5	wiktionary
 πέτρινα	a-p---na-	πέτρινα	^5^7	wiktionary
@@ -31975,7 +31975,7 @@ lemma	tag	token	macron	source
 πληθύουσι	v3ppia---	πληθύω	^9	breve_ultima
 πληθύων	v-sppamn-	πληθύω		
 πλημμελήσας	v-sapamn-	πλημμελέω	_10	ifthimos
-πλημμυρίδι	n-s---fd-	πλημμυρίς		
+πλημμυρίδι	n-s---fd-	πλημμυρίς	^10	nominal
 πλημυρίδος	n-s---fg-	πλημυρίδος	_5	wiktionary
 πληρέστατον	a-s---nas	πληρής		
 πληρώσαντες	v-papamn-	πληρόω		
@@ -32022,7 +32022,7 @@ lemma	tag	token	macron	source
 πλουτίζειν	v--pna---	πλουτίζω		
 πλουτίζεται	v3spie---	πλουτίζω		
 πλουτίζετε	v2ppia---	πλουτίζω		
-πλουτογα	n-s---ma-	πλουτογα		
+πλουτογα	n-s---ma-	πλουτογα	^8	nominal
 πλώσιμον	a-s---nn-	πλώσιμος		
 πνεύμασι	n-p---nd-	πνεῦμα	^6^8	wiktionary
 πνεύμασιν	n-p---nd-	πνεῦμα	^6^8	wiktionary
@@ -32690,7 +32690,7 @@ lemma	tag	token	macron	source
 ποτιψαύων	v-sfpamn-	ποτιψαύων		
 πότνα	n-s---fn-	πότνα	^5	wiktionary
 πότνι’	n-s---fv-	πότνι		
-πότνι’	n-s---fd-	πότνι		
+πότνι’	n-s---fd-	πότνι	^5	nominal
 πότνι’	n-d---mn-	πότνι		
 πότνι’	n-s---fn-	πότνι		
 πότνι’	n-s---mv-	πότνι		
@@ -32715,9 +32715,9 @@ lemma	tag	token	macron	source
 πόδας	n-p---ma-	πούς	^4	wiktionary
 ποδί	n-s---md-	πούς	^4	wiktionary
 ποδί	n-s---md-	πούς	^4	wiktionary
-ποδὶ	n-s---md-	πούς		
+ποδὶ	n-s---md-	πούς	^4	nominal
 ποσί	n-p---md-	πούς	^4	wiktionary
-ποσὶ	n-p---md-	πούς		
+ποσὶ	n-p---md-	πούς	^4	nominal
 ποσίν	n-p---md-	πούς	^4	wiktionary
 ποσίν	n-p---md-	πούς	^4	wiktionary
 ποσὶν	n-p---md-	πούς		
@@ -32889,7 +32889,7 @@ lemma	tag	token	macron	source
 Πριαμιδῶν	n-p---mg-	Πριαμιδοί	_3^4^6	wiktionary
 Πριαμιδῶν	n-p---mg-	Πριαμιδῶν	_3^4^6	wiktionary
 Πριαμίδος	n-s---fg-	Πριαμίς		
-Πριαμίσι	n-p---fd-	Πριαμίσι		
+Πριαμίσι	n-p---fd-	Πριαμίσι	^8	nominal
 Πρίαμε	n-s---mv-	πρίαμος	^3^4	wiktionary
 Πριάμοιο	n-s---mg-	πρίαμος	^3^4	wiktionary
 Πρίαμον	n-s---ma-	πρίαμος	^3^4	wiktionary
@@ -33381,8 +33381,8 @@ lemma	tag	token	macron	source
 προσωτάτω	d--------	πρόσω		
 προσώταθ’	d--------	προσώταθν		
 προσώτατ’	d--------	προσώτατ		
-προταινί	n-s---md-	προταινί		
-προταινὶ	n-s---md-	προταινὶ		
+προταινί	n-s---md-	προταινί	^8	nominal
+προταινὶ	n-s---md-	προταινὶ	^8	nominal
 προτάρβει	v2spma---	προτάρβει		
 προταρβεῖν	v--pna---	προταρβέω		
 προταρβῶ	n-s---md-	προταρβέω		
@@ -33726,14 +33726,14 @@ lemma	tag	token	macron	source
 πύρ’	n-s---na-	πύρ		
 πυρί	n-s---nd-	πῦρ	^2^4	wiktionary
 πυρί	n-s---nd-	πῦρ	^2^4	wiktionary
-πυρὶ	n-s---nd-	πῦρ		
+πυρὶ	n-s---nd-	πῦρ	^4	nominal
 πυρός	n-s---ng-	πῦρ	^2	wiktionary
 πυρός	n-s---ng-	πῦρ	^2	wiktionary
 πυρὸς	n-s---ng-	πῦρ		
 πυρά	n-s---fn-	πυρά	^2^4	wiktionary
 πυρά	n-p---nn-	πυρά	^2^4	wiktionary
 πυρὰ	n-s---fn-	πυρά		
-πυρὰ	n-p---nn-	πυρά		
+πυρὰ	n-p---nn-	πυρά	^4	nominal
 πυράν	n-s---fa-	πυρά	^2_4	wiktionary
 πυράν	n-s---fa-	πυρά	^2_4	wiktionary
 πυρὰν	n-s---fa-	πυρά	^2	hypotactic
@@ -33787,8 +33787,8 @@ lemma	tag	token	macron	source
 πυρίφατον	a-s---fa-	πυρίφατος		
 πυριφλέγων	a-p---mg-	πυριφλέγος	^2	wiktionary
 πυρίφλεκτον	a-s---ma-	πυρίφλεκτος	^2^4	wiktionary
-πυρκαιάς	n-p---fa-	πυρκαιή	_5	ifthimos
-πυρκαιὰς	n-p---fa-	πυρκαιή	_5	ifthimos
+πυρκαιάς	n-p---fa-	πυρκαιή	_5_7	ifthimos,nominal
+πυρκαιὰς	n-p---fa-	πυρκαιή	_5_7	ifthimos,nominal
 πυρός	u--------	πυρός	^2	wiktionary
 πυρουμένηι	v-sppefd-	πυρουμένηι		
 πυροφόρα	a-p---na-	πυροφόρος		
@@ -33901,7 +33901,7 @@ lemma	tag	token	macron	source
 ῥαψῳδὸς	n-s---fn-	ῥαψῳδός		
 ῥέξας	v-sapamn-	ῥέδω	_4	wiktionary
 Ῥέας	v-sapamn-	Ῥέη		
-Ῥέας	n-s---fg-	Ῥέη		
+Ῥέας	n-s---fg-	Ῥέη	_3	nominal
 ῥίψωμεν	v1pasa---	ῥείψω	_2	wiktionary
 ῥεύματα	n-p---na-	ῥεύμα	^5^7	wiktionary
 ῥεύματι	n-s---nd-	ῥεῦμα	^5^7	wiktionary
@@ -34084,7 +34084,7 @@ lemma	tag	token	macron	source
 σάν	a-s---fn-	σάν		
 σανίδα	n-s---fa-	σανίς	^2^4^6	wiktionary
 σανίσιν	n-p---fd-	σανίς	^2^4^6	wiktionary
-σαντα	n-s---ma-	σαντα		
+σαντα	n-s---ma-	σαντα	^5	nominal
 σαργάναις	n-p---fd-	σαργάνα		
 Σάρδεις	n-p---fn-	σάρδεις	^2	wiktionary
 Σάρδεων	n-p---fg-	σάρδεις	^2	wiktionary
@@ -34096,7 +34096,7 @@ lemma	tag	token	macron	source
 σαρκὸς	n-s---fg-	σάρξ		
 σαρκῶν	n-p---fg-	σάρξ	^2	wiktionary
 σαρξί	n-p---fd-	σαρξί	^2^5	wiktionary
-σαρξὶ	n-p---fd-	σαρξὶ		
+σαρξὶ	n-p---fd-	σαρξὶ	^5	nominal
 Σαρπηδόνιον	a-s---na-	Σαρπηδόνιος		
 Σαρωνικόν	n-s---ma-	Σαρωνικός	^2^6	wiktionary
 Σαρωνικοῦ	n-s---mg-	Σαρωνικός	^2^6	wiktionary
@@ -34192,11 +34192,11 @@ lemma	tag	token	macron	source
 σέλματα	n-p---na-	σέλμα	^5^7	wiktionary
 σέλμαθ’	n-p---na-	σέλμαθ		
 σελμάτων	n-p---ng-	σελμάτων	^5	wiktionary
-Σεμέλας	n-s---fg-	Σεμέλα		
+Σεμέλας	n-s---fg-	Σεμέλα	_6	nominal
 Σεμέλας	n-p---ma-	Σεμέλαι		
 Σεμέλας	n-s---mn-	Σεμέλας		
-Σεμέλας	n-s---fg-	Σεμέλη		
-Σεμέλας	n-p---fa-	Σεμέλη		
+Σεμέλας	n-s---fg-	Σεμέλη	_6	nominal
+Σεμέλας	n-p---fa-	Σεμέλη	_6	nominal
 σεμνά	a-p---na-	σεμνά	_5	wiktionary
 σεμνάν	a-s---fa-	σεμνά		
 σεμνάν	a-s---fa-	σεμνάν		
@@ -34359,8 +34359,8 @@ lemma	tag	token	macron	source
 σιδήρωι	n-s---md-	σιδήρω		
 Σιδονίᾳ	a-p---na-	σιδόνιος		
 σίδοιμι	v1spsa---	σίδω	^7	breve_ultima
-Σιδωνιάς	a-p---fa-	Σιδωνιὰ		
-Σιδωνιὰς	a-p---fa-	Σιδωνιὰ		
+Σιδωνιάς	a-p---fa-	Σιδωνιὰ	_7	nominal
+Σιδωνιὰς	a-p---fa-	Σιδωνιὰ	_7	nominal
 Σιδωνίαν	a-s---fa-	Σιδωνία		
 Σιδωνίαν	a-s---fa-	Σιδωνίαν		
 Σιδωνίαν	a-s---fa-	Σιδωνῖος		
@@ -34382,7 +34382,7 @@ lemma	tag	token	macron	source
 Σιμουντίοις	a-p---nd-	Σιμουντίοις		
 Σιμουντίοις	a-p---fd-	Σιμουντίοις		
 Σιμουντίδας	a-p---fa-	Σιμουντίς		
-Σιμουντίδι	n-s---fd-	Σιμουντίς		
+Σιμουντίδι	n-s---fd-	Σιμουντίς	^10	nominal
 σίν	n-p---fd-	σίν		
 σὶν	n-p---fd-	σὶν		
 σινδόνος	n-s---fg-	σινδών	^2	wiktionary
@@ -34808,7 +34808,7 @@ lemma	tag	token	macron	source
 σπουδάζομεν	v1ppia---	σπουδάζω	^6	wiktionary
 σπουδάσαντ’	v-dapamn-	σπουδάσαντ		
 σπουδαστέον	v2spma---	σπουδαστέον		
-στάγμα	n-s---na-	στάγμα		
+στάγμα	n-s---na-	στάγμα	^6	nominal
 σταγόνα	n-s---fa-	σταγόνα	^3^7	wiktionary
 σταγόνας	n-p---fa-	σταγόνας	^3^7	wiktionary
 σταγόνες	n-p---fn-	σταγόνες	^3	wiktionary
@@ -34983,8 +34983,8 @@ lemma	tag	token	macron	source
 στερρὰς	n-p---fa-	στερρά	_6	ifthimos
 στερράν	n-s---fa-	στερρὰ		
 στερρὰν	n-s---fa-	στερρὰ		
-στερρά	n-p---na-	στερρός		
-στερρὰ	n-p---na-	στερρός		
+στερρά	n-p---na-	στερρός	^6	nominal
+στερρὰ	n-p---na-	στερρός	^6	nominal
 στεφάναν	n-s---ma-	στεφάνας	_7	ifthimos
 στεφαναφόρα	a-p---na-	στεφαναφόρος		
 στεφάνας	n-s---fg-	στεφάνη	^5_7	ifthimos
@@ -37188,7 +37188,7 @@ lemma	tag	token	macron	source
 τέκνα	n-p---nn-	τέκνον	^5	wiktionary
 ἐτεκνώσατο	v3saim---	τεκνόω		
 τεκομένα	a-s---fv-	τεκομένα		
-τεκόντα	n-s---ma-	τεκόντα		
+τεκόντα	n-s---ma-	τεκόντα	^7	nominal
 τεκόντι	v-sapamd-	τεκόντι		
 τεκόντι	v-sppamd-	τεκός		
 τεκούσας	v-sapafa-	τεκούσας		
@@ -38151,10 +38151,10 @@ lemma	tag	token	macron	source
 τριχὸς	d--------	τριχὸς	^3	hypotactic
 τριχώματος	n-s---ng-	τριχώμα		
 Τροζηνίαν	n-s---fa-	Τροζηνία		
-Τροζηνίας	n-p---fa-	Τροζηνία		
-Τροζηνίας	n-s---fg-	Τροζηνία		
+Τροζηνίας	n-p---fa-	Τροζηνία	_8	nominal
+Τροζηνίας	n-s---fg-	Τροζηνία	_8	nominal
 Τροζήνιαι	n-p---fv-	Τροζήνια		
-Τροζηνίας	n-p---fa-	Τροζηνίη		
+Τροζηνίας	n-p---fa-	Τροζηνίη	_8	nominal
 Τροζηνίαι	a-p---fn-	Τροζηνίος		
 Τροζήνιαι	a-p---fn-	Τροζήνιος		
 Τροζήνιον	a-s---nv-	Τροζήνιος		
@@ -38166,7 +38166,7 @@ lemma	tag	token	macron	source
 Τροίαν	n-s---fa-	Τροία	_5	wiktionary
 Τροΐα	n-s---fn-	Τροΐα	_5	wiktionary
 Τροΐαν	n-s---fa-	Τροΐα		
-Τροΐας	n-s---fg-	Τροΐα		
+Τροΐας	n-s---fg-	Τροΐα	_5	nominal
 Τροίαν	n-s---fa-	Τροίαν	_5	wiktionary
 Τροίας	n-s---fg-	Τροίας	_5	wiktionary
 τρομερά	a-p---na-	τρομερά		
@@ -38271,7 +38271,7 @@ lemma	tag	token	macron	source
 Τρωϊκῶν	a-p---ng-	Τρωϊκός	^4	wiktionary
 Τρωϊκῶν	a-p---fg-	Τρωϊκός	^4	wiktionary
 Τρωϊκῶι	a-s---md-	Τρωϊκῶι		
-Τρωίας	a-p---fa-	Τρωῖος		
+Τρωίας	a-p---fa-	Τρωῖος	_5	nominal
 Τρωσί	n-p---md-	τρώς	^5	wiktionary
 Τρωσίν	n-p---md-	τρώς	^5	wiktionary
 τρώσασαν	v-sapafa-	τρώω	^7	breve_ultima
@@ -38435,8 +38435,8 @@ lemma	tag	token	macron	source
 τυραννίς	n-s---fn-	τυραννίς	^2^7	wiktionary
 τυραννὶς	n-s---fn-	τυραννίς		
 τυραννίσιν	n-p---fd-	τυραννίς	^2^7^9	wiktionary
-τυραννί	n-s---fd-	τυραννὶς	^2	wiktionary
-τυραννὶ	n-s---fd-	τυραννὶς		
+τυραννί	n-s---fd-	τυραννὶς	^2^7	wiktionary,nominal
+τυραννὶ	n-s---fd-	τυραννὶς	^7	nominal
 τύραννον	n-s---ma-	τύραννον	^2^4	wiktionary
 τυραννόν	n-s---ma-	τυραννὸς		
 τυραννὸν	n-s---ma-	τυραννὸς		
@@ -38457,7 +38457,7 @@ lemma	tag	token	macron	source
 τυράννων	n-p---mg-	τυράννων	^2^4	wiktionary
 τυράννωνπαρούσας	n-p---mg-	τυράννωνπαρούσας		
 τυρεύματα	n-p---na-	τυρεύματα	^9	breve_ultima
-Τυρίας	n-p---fa-	Τυρίη	^2^4	hypotactic
+Τυρίας	n-p---fa-	Τυρίη	^2^4_5	hypotactic,nominal
 Τύριον	a-s---na-	Τύριος		
 Τύριος	a-s---mn-	Τύριος	^2^4	wiktionary
 Τυρσηνικῆι	a-s---fd-	Τυρσηνικῆι		
@@ -38693,7 +38693,7 @@ lemma	tag	token	macron	source
 ὑδρηλάς	n-p---fa-	ὑδρηλή	_6	wiktionary
 ὑδρηλὰς	n-p---fa-	ὑδρηλή	_6	ifthimos
 ὑδρηλά	n-p---na-	ὑδρηλόν	^6	wiktionary
-ὑδρηλὰ	n-p---na-	ὑδρηλόν		
+ὑδρηλὰ	n-p---na-	ὑδρηλόν	^6	nominal
 ὑδροειδής	a-s---mn-	ὑδροειδής		
 ὑδροειδὴς	a-s---mn-	ὑδροειδής		
 ὑδρόεντι	a-s---md-	ὑδρόεις	^8	breve_ultima
@@ -38706,7 +38706,7 @@ lemma	tag	token	macron	source
 ὕδωρ	u--------	ὕδωρ	^1	wiktionary
 ὕδωρ	n-s---nn-	ὕδωρ	^1	wiktionary
 ὑπεκφύγοις	v2saoa---	ὑεπεκφύγω		
-υἱέσι	n-p---md-	υἱός		
+υἱέσι	n-p---md-	υἱός	^5	nominal
 ὑλάγμασιν	n-p---nd-	ὑλάγμα	^8	breve_ultima
 ὑλάγματα	n-p---na-	ὑλάγματα	^8	breve_ultima
 ὑλαγμάτων	n-p---ng-	ὑλαγμάτων		
@@ -38823,7 +38823,7 @@ lemma	tag	token	macron	source
 ὑπέδυ	v3saia---	ὑπαδύω	^1_5	hypotactic
 ὑπάειδε	v3siia---	ὑπάειδε		
 ὑπαιθρίων	a-p---ng-	ὑπαιθρίος		
-ὑπαιθρίας	a-s---fg-	ὑπαιθρῖος	_3	ifthimos
+ὑπαιθρίας	a-s---fg-	ὑπαιθρῖος	_3_8	ifthimos,nominal
 ὑπαίθριος	a-s---mn-	ὑπαίθριος		
 ὑπαίθων	v-sppamn-	ὑπαίθω		
 ὑπαί	r--------	ὑπαίν	^1	wiktionary
@@ -39640,7 +39640,7 @@ lemma	tag	token	macron	source
 φάραγγες	n-p---fn-	φάραγξ	^2^4	wiktionary
 Φαρανδάκης	n-s---mn-	Φαρανδάκης		
 φαρέτραν	n-s---fa-	φαρέτρα	^2_7	wiktionary
-φαρέτρα	n-p---nn-	φαρέτρον	^2	wiktionary
+φαρέτρα	n-p---nn-	φαρέτρον	^2^7	wiktionary,nominal
 φαρέων	n-p---ng-	φαρεύς	_2	wiktionary
 φαρέων	n-p---ng-	φαρέων	_2	wiktionary
 πέφαρκται	v3srie---	φαρίκω		
@@ -39722,13 +39722,13 @@ lemma	tag	token	macron	source
 φάτναις	n-p---fd-	φάτνη		
 φάτναισι	n-p---fd-	φάτνη	^8	breve_ultima
 φάτνας	n-p---fa-	φάτνη	_5	wiktionary
-φαυλοτέρας	a-s---fgc	φαυέρτλοος	_2	ifthimos
+φαυλοτέρας	a-s---fgc	φαυέρτλοος	_2_9	ifthimos,nominal
 φθάνοι	v3saoa---	φεθάνω	^3	wiktionary
 ἐφείσατο	v3saim---	φείδομαι	^6	hypotactic
 φανείη	v3saop---	φένω	^2	wiktionary
 φανείς	v-sappmn-	φένω	^2	wiktionary
 φανεὶς	v-sappmn-	φένω	^2	hypotactic
-Φεραίας	a-s---fg-	Φεραίη		
+Φεραίας	a-s---fg-	Φεραίη	_6	nominal
 Φεραία	a-s---fv-	Φεραῖος		
 φεράσπιδες	n-p---fn-	φεράσπις	^7	hypotactic
 φεράσπιδες	a-p---mn-	φεράσπιυς	^7	hypotactic
@@ -39844,7 +39844,7 @@ lemma	tag	token	macron	source
 φθαρέντες	v-pappmn-	φθέρω		
 Φθιάς	n-p---fa-	Φθιά	_3^4	wiktionary
 Φθιάς	n-s---fg-	Φθιὰ	_3^4	wiktionary
-Φθιὰς	n-s---fg-	Φθιὰ	_3	hypotactic
+Φθιὰς	n-s---fg-	Φθιὰ	_3_4	hypotactic,nominal
 Φθίαι	n-p---fd-	Φθία		
 Φθίαν	n-s---fa-	Φθία	_3_4	wiktionary
 Φθίας	n-s---fg-	Φθία	_3_4	wiktionary
@@ -39901,7 +39901,7 @@ lemma	tag	token	macron	source
 φθίσας	v-sapamn-	φθίω	_3_5	wiktionary
 Φθιωτᾶν	n-s---fa-	Φθιωτᾶν		
 Φθιώτας	v-prpama-	Φθιώτας	_3_6	wiktionary
-Φθιωτίδας	n-s---fg-	Φθιωτίδα		
+Φθιωτίδας	n-s---fg-	Φθιωτίδα	_8	nominal
 Φθιώτιδας	u--------	Φθιώτιδας	^8	breve_ultima
 Φθιώτιδες	n-p---fv-	Φθιώτις		
 Φθιώτιδος	a-s---fg-	Φθιῶτις	_3^6	wiktionary
@@ -40106,7 +40106,7 @@ lemma	tag	token	macron	source
 φιλότητος	n-s---fg-	φιλότης	^2	wiktionary
 φιλότητ’	n-s---fa-	φιλότητ		
 φιλοτιμίαι	n-p---fn-	φιλοτιμία		
-Φιλοτιμίας	n-s---fg-	φιλοτιμία		
+Φιλοτιμίας	n-s---fg-	φιλοτιμία	_9	nominal
 φιλότιμοι	a-p---mn-	φιλότιμος	^2_6	wiktionary
 φιλότιμον	a-s---nn-	φιλότιμος	^2_6	wiktionary
 φιλότιμον	a-s---na-	φιλότιμος	^2_6	wiktionary
@@ -40219,8 +40219,8 @@ lemma	tag	token	macron	source
 φλόγα	n-s---ma-	φλόξ	^5	wiktionary
 φλογί	n-s---md-	φλόξ	^5	wiktionary
 φλογί	n-s---fd-	φλόξ	^5	wiktionary
-φλογὶ	n-s---md-	φλόξ		
-φλογὶ	n-s---fd-	φλόξ		
+φλογὶ	n-s---md-	φλόξ	^5	nominal
+φλογὶ	n-s---fd-	φλόξ	^5	nominal
 φλύοντα	v-pppana-	φλύω	_3^7	hypotactic
 φλογί	n-s---fd-	φλώγ	^5	wiktionary
 φόβαν	n-s---fa-	φόβαν		
@@ -40232,7 +40232,7 @@ lemma	tag	token	macron	source
 φοβεράν	a-s---fa-	φοβερός		
 φοβερὰν	a-s---fa-	φοβερός		
 φόβας	n-p---fa-	φόβη	_4	ifthimos
-φοιβάδα	n-s---ma-	φοιβάς		
+φοιβάδα	n-s---ma-	φοιβάς	^7	nominal
 φοιβάς	n-s---fn-	φοιβάς	^5	wiktionary
 φοινίαισι	a-p---fd-	φοινίαισι	^9	breve_ultima
 φοίνικ’	n-s---ma-	φοίνικ		
@@ -40277,7 +40277,7 @@ lemma	tag	token	macron	source
 φόνιος	a-s---mn-	φόν		
 φονέα	n-s---ma-	φονεύς	_5	wiktionary
 φονέα	n-p---na-	φονεύς	_5	wiktionary
-Φονέα	n-s---ma-	φονεύς		
+Φονέα	n-s---ma-	φονεύς	^5	nominal
 φονέας	n-p---ma-	φονεύς	_5	wiktionary
 φονεύσατ’	v3saim---	φονεύσατ		
 φονευσάντων	v-papamg-	φονεύω	^7	wiktionary
@@ -40404,7 +40404,7 @@ lemma	tag	token	macron	source
 φρένας	n-p---fa-	φρένας	^5	wiktionary
 φρενί	n-s---fd-	φρενί	^5	wiktionary
 φρενί	n-s---fd-	φρενί	^5	wiktionary
-φρενὶ	n-s---fd-	φρενὶ		
+φρενὶ	n-s---fd-	φρενὶ	^5	nominal
 φρενοβαρής	a-s---mn-	φρενοβαρής		
 φρενοβαρὴς	a-s---mn-	φρενοβαρής		
 φρενοδαλής	n-s---fg-	φρενοδαλή	_7	lsj
@@ -40533,7 +40533,7 @@ lemma	tag	token	macron	source
 φρυκτοῦ	a-s---mg-	φρυκτοῦ	^3	wiktionary
 φρυκτωρία	n-s---fn-	φρυκτωρία		
 φρυκτωρίας	n-s---fg-	φρυκτωρία	_9	ifthimos
-φρυκτωρία	n-p---na-	φρυκτωρίον		
+φρυκτωρία	n-p---na-	φρυκτωρίον	^9	nominal
 φρυκτωριῶν	n-p---ng-	φρυκτωριῶν		
 φρυκτωρῶν	n-p---mg-	φρυκτωρῶν		
 Φρύγα	n-s---ma-	φρύξ	^3^5	wiktionary
@@ -40543,7 +40543,7 @@ lemma	tag	token	macron	source
 Φρυγὸς	n-s---mg-	φρύξ	^3	hypotactic
 Φρυγῶν	n-p---mg-	φρύξ	^3	wiktionary
 Φρυξί	n-p---md-	Φρυξί	^3^5	wiktionary
-Φρυξὶ	n-p---md-	Φρυξὶ		
+Φρυξὶ	n-p---md-	Φρυξὶ	^5	nominal
 Φρυξίν	n-p---fd-	Φρυξίν	^3^5	wiktionary
 Φρυξὶν	n-p---fd-	Φρυξὶν		
 φυβρίζεσθαι	v--pne---	φυβρίζω		
@@ -40830,7 +40830,7 @@ lemma	tag	token	macron	source
 φωνήσατ’	v2pama---	φωνήσατ		
 Φωνήσατ’	v3saim---	Φωνήσατ		
 φωτί	n-s---md-	φώς	^4	wiktionary
-φωτὶ	n-s---md-	φώς		
+φωτὶ	n-s---md-	φώς	^4	nominal
 χἀ	a-s---fd-	χἀ	_2	hypotactic
 χαίταν	n-s---fa-	χαί	_5	wiktionary
 χαίτας	n-p---fa-	χαί	_2_5	ifthimos
@@ -41069,23 +41069,23 @@ lemma	tag	token	macron	source
 χειμωνοτύπῳ	a-s---fd-	χειμωνοτύπος		
 χειρί	n-s---fd-	χείρ	^5	wiktionary
 χειρί	n-s---fd-	χείρ	^5	wiktionary
-χειρὶ	n-s---fd-	χείρ		
-χέρα	n-p---na-	χείρ		
+χειρὶ	n-s---fd-	χείρ	^5	nominal
+χέρα	n-p---na-	χείρ	^4	nominal
 χέρα	n-s---fa-	χείρ		
 χέρα	n-s---fn-	χείρ		
 χέρας	n-p---fa-	χείρ	_4	ifthimos
 χερί	n-s---fd-	χείρ	^4	hypotactic
 χερί	n-s---fd-	χείρ	^4	hypotactic
-χερὶ	n-s---fd-	χείρ		
+χερὶ	n-s---fd-	χείρ	^4	nominal
 χερσί	n-p---fd-	χείρ	^5	hypotactic
 χερσί	n-p---fd-	χείρ	^5	hypotactic
-χερσὶ	n-p---fd-	χείρ		
+χερσὶ	n-p---fd-	χείρ	^5	nominal
 χερσίν	n-p---fd-	χείρ		
 χερσίν	n-p---fd-	χείρ		
 χερσὶν	n-p---fd-	χείρ		
 χειρί	n-s---fd-	χειρί	^5	wiktionary
 χειρίαν	n-s---fa-	χειρία		
-χειρία	n-p---na-	χειρίον		
+χειρία	n-p---na-	χειρίον	^6	nominal
 χειροδάϊκτα	a-p---na-	χειροδάικτος	^11	breve_ultima
 χειροδράκοντες	v-pppamn-	χειροδράκοντες		
 χειρώματος	n-s---ng-	χειρώμα		
@@ -41099,7 +41099,7 @@ lemma	tag	token	macron	source
 χέλυος	n-s---fg-	χέλυς	^4	wiktionary
 χεούσας	v-pppafa-	χεούσας	_6	ifthimos
 χερσί	n-s---fd-	χερ	^5	hypotactic
-χερσὶ	n-s---fd-	χερ		
+χερσὶ	n-s---fd-	χερ	^5	nominal
 χέρα	u--------	χέρα		
 χέρα	n-s---fa-	χέρα		
 χέρας	n-p---fa-	χέρας	_4	ifthimos
@@ -41151,7 +41151,7 @@ lemma	tag	token	macron	source
 χθονίας	a-s---fg-	χθονῖος	^5_6	wiktionary
 χθονίοις	a-p---nd-	χθονῖος	^5	wiktionary
 χθονίου	a-s---mg-	χθονῖος	^5	wiktionary
-Χθονίας	a-p---fa-	Χθονῖος		
+Χθονίας	a-p---fa-	Χθονῖος	_6	nominal
 χθονία	a-s---fv-	χθόνιος	^5_6	wiktionary
 χθονία	a-s---fn-	χθόνιος	^5_6	wiktionary
 χθόνιαι	a-p---fv-	χθόνιος	^5	wiktionary
@@ -41171,7 +41171,7 @@ lemma	tag	token	macron	source
 χθόνα	n-s---fa-	χθών	^5	wiktionary
 χθονί	n-s---fd-	χθών	^5	wiktionary
 χθονί	n-s---fd-	χθών	^5	wiktionary
-χθονὶ	n-s---fd-	χθών		
+χθονὶ	n-s---fd-	χθών	^5	nominal
 χἰκετεύετε	v2ppma---	χἰκετεύω		
 χἴλεως	a-s---mn-	χἴλεως		
 χιλίαρχος	n-s---mn-	χιλίαρχος	_2^4	hypotactic
@@ -41232,9 +41232,9 @@ lemma	tag	token	macron	source
 χλόαν	n-s---fa-	χλόα		
 χλόαν	n-s---fa-	χλόαν		
 χλοερά	n-s---fa-	χλοερά		
-χλοερά	n-p---na-	χλοερά		
+χλοερά	n-p---na-	χλοερά	^6	nominal
 χλοερὰ	n-s---fa-	χλοερὰ		
-χλοερὰ	n-p---na-	χλοερὰ		
+χλοερὰ	n-p---na-	χλοερὰ	^6	nominal
 χλοερά	a-p---na-	χλοερός		
 χλοερὰ	a-p---na-	χλοερός		
 χλωρά	a-p---nn-	χλωρός	_5	wiktionary
@@ -41247,9 +41247,9 @@ lemma	tag	token	macron	source
 χοάς	n-p---fa-	χοάς	_3	ifthimos
 χοάς	n-p---fa-	χοή	_3	ifthimos
 χοάς	n-p---fa-	χοή	_3	ifthimos
-Χοάς	n-p---fa-	χοή		
+Χοάς	n-p---fa-	χοή	_3	nominal
 χοὰς	n-p---fa-	χοή	_3	ifthimos
-Χοὰς	n-p---fa-	χοή		
+Χοὰς	n-p---fa-	χοή	_3	nominal
 χοιράδα	n-s---fa-	χοιράς		
 χοιράδες	n-p---fn-	χοιράς		
 χοιράδος	n-s---fg-	χοιράς	^5	hypotactic
@@ -41345,7 +41345,7 @@ lemma	tag	token	macron	source
 χροιὰν	n-s---fa-	χροιὰ		
 χροιάν	n-s---fa-	χροιή		
 χροιὰν	n-s---fa-	χροιή		
-χρόνι’	n-s---md-	χρόνι		
+χρόνι’	n-s---md-	χρόνι	^5	nominal
 χρονίᾳ	a-p---na-	χρονία	^5_6	ifthimos
 χρόνια	a-p---na-	χρόνια	^5^6	wiktionary
 χρονίας	a-p---fa-	χρονίας	^5_6	wiktionary
@@ -41495,7 +41495,7 @@ lemma	tag	token	macron	source
 χροῒ	n-s---md-	χρώς		
 χροΐζει	n-s---md-	χρώς		
 χρωτί	n-s---md-	χρώς	^5	wiktionary
-χρωτὶ	n-s---md-	χρώς		
+χρωτὶ	n-s---md-	χρώς	^5	nominal
 χρωτί	n-s---md-	χρωτί	^5	wiktionary
 χυθέν	v-sappna-	χυθέν	^2	wiktionary
 χυθέν	v3paip---	χυθέν	^2	wiktionary
@@ -41523,7 +41523,7 @@ lemma	tag	token	macron	source
 χώρα	n-s---fd-	χώρα	_4	wiktionary
 χώραν	n-s---fa-	χώρα	_4	wiktionary
 χώρας	n-s---fg-	χώρα	_4	wiktionary
-Χώρας	n-s---fg-	χώρα		
+Χώρας	n-s---fg-	χώρα	_4	nominal
 χώρας	u--------	χώρας	_4	wiktionary
 χωρήσαντα	v-sapama-	χωρήσαντά	^9	breve_ultima
 χωρίζουσι	v3ppia---	χωρίζω	^4^9	wiktionary
@@ -41568,8 +41568,8 @@ lemma	tag	token	macron	source
 ψαύσας	v-sapamn-	ψαύω	_2	ifthimos
 ψαφαρᾷ	n-s---fa-	ψαφαρᾷ	^2^4_6	ifthimos
 ψαφαρόχρουν	a-s---na-	ψαφαρόχρους		
-ψεδυρά	n-p---na-	ψεδυρά		
-ψεδυρὰ	n-p---na-	ψεδυρὰ		
+ψεδυρά	n-p---na-	ψεδυρά	^6	nominal
+ψεδυρὰ	n-p---na-	ψεδυρὰ	^6	nominal
 ψευδέσιν	a-p---md-	ψευδέσιν	^7	wiktionary
 ψευδοκήρυκας	n-p---fa-	ψευδοκήρυκαι	_9^11	wiktionary
 ψευδόμαντις	n-s---fn-	ψευδόμαντις	^10	breve_ultima

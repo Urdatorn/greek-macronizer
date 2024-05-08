@@ -44,7 +44,6 @@ from collate_macrons import collate_macrons
 
 def is_diphthong(chars):
     ''' Expects two characters '''
-    # Check if the input matches either of the diphthong patterns
     for pattern in ['diphth_y', 'diphth_i']:
         if re.match(patterns[pattern], chars):
             return True
@@ -54,7 +53,7 @@ def is_diphthong(chars):
 def has_iota_adscriptum(chars):
     ''' Expects two characters '''
     adscr_i_pattern = re.compile(patterns['adscr_i'])
-    # Check if the two-character string matches the adscript iota pattern
+
     if adscr_i_pattern.match(chars):
         return True
     return False
