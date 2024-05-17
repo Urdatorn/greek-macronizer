@@ -8,6 +8,8 @@ import re
 from pyuca import Collator
 from greek_accentuation.characters import base
 
+from erics_syllabifier import syllabifier
+
 class Colors:
     GREEN = '\033[1;32m'  # Green
     RED = '\033[1;31m'    # Red
@@ -103,6 +105,16 @@ all_consonants = r'[ΒΓΔΖΘΚΛΜΝΞΠΡῬΣΤΦΧΨβγδζθκλμνξπ�
 # in dialects and Homer there are *tons* of exceptions due to apocope, assimilation etc.
 legitimate_final_consonants = r'[νξρςψ]' # excluding οὐκ, ἐκ, κἀκ (crasis for καὶ ἐκ) etc.
 illegitimate_final_consonants = r'[βγδζθκλμπστφχ]'
+
+
+### some functions using the regexes ###
+
+
+def open_syllable(syllable):
+    base_form = only_bases(syllable)
+    if base_form and base_form[-1] in all_vowels_lowercase:
+        return syllable
+    return None
 
 
 ###### STRING LITERALS ######

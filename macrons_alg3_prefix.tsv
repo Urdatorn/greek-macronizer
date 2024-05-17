@@ -12818,8 +12818,8 @@ lemma	tag	token	macron	source
 ἐάνπερ	g--------	ἐάνπερ		
 ἐάνπερ	c--------	ἐάνπερ		
 ἔαΠολυμῆστορ	n-s---mv-	ἔαΠολυμῆστορς		
-ἐάσαιμ’	v1saoa---	ἐάω		
-ἐάσατ’	v3saim---	ἐάω		
+ἐάσαιμ’	v1saoa---	ἐάσαιμ		
+ἐάσατ’	v3saim---	ἐάσατ		
 ἐάσατ’	v2pama---	ἐάσατ		
 ἐάσετ’	v3sfim---	ἐάσετ		
 ἐάσητ’	v2pasa---	ἐάσητ		
@@ -31499,9 +31499,30 @@ lemma	tag	token	macron	source
 πημονάς	n-p---fa-	πημονή	_6	wiktionary
 πημονὰς	n-p---fa-	πημονή	_6	ifthimos
 πημοσύναις	n-p---fd-	πημοσύνη	^6	hypotactic
-πήξασ’	v-sapafn-	πήγνυμι	_4	manual
-παθόντας	v-papama-	πάσχω			
+πήξασ’	v-sapafn-	πήξασ		
+παθόντας	v-papama-	πθήσκω		
+πί	v2samm---	πί		
+πί	d--------	πί		
+πί	r--------	πί		
+πί	p-s----a-	πί		
+πί	v2spia---	πί		
+πί	v2sama---	πί		
+πί	v2sfim---	πί		
+πί	v2spma---	πί		
+πί	v2sasm---	πί		
+πί	v2sase---	πί		
+πί	v2samm---	πί		
 πίστιν	n-s---fa-	πί	^2^5	wiktionary
+πὶ	v2samm---	πὶ		
+πὶ	d--------	πὶ		
+πὶ	r--------	πὶ		
+πὶ	p-s----a-	πὶ		
+πὶ	v2spia---	πὶ		
+πὶ	v2sama---	πὶ		
+πὶ	v2sfim---	πὶ		
+πὶ	v2spma---	πὶ		
+πὶ	v2sasm---	πὶ		
+πὶ	v2sase---	πὶ		
 πιαίνου	v2spme---	πιαίνω	_2	wiktionary
 πιανῶ	v1spia---	πιανῶ	_2^3	hypotactic
 πίασμα	n-s---nn-	πίασμα	^2^6	hypotactic
@@ -34012,10 +34033,11 @@ lemma	tag	token	macron	source
 ῥύτορες	n-p---mn-	ῥύτωρ	_2	hypotactic
 ῥύεσθε	v2ppme---	ῥύω	^2	wiktionary
 ῥώμαν	n-s---fa-	ῥώμαν		
-ἐάσομεν	v1pfia---	ἐάω		
-ὀργισθῆις	v2sase---	ὀργισθῆις		
+σιν	v-papamd-	ς		
+σ’ἐάσομεν	v1pfia---	σ’ἐάω		
+σ’ὀργισθῆις	v2sase---	σ’ὀργισθῆις		
 σά	u--------	σά	_2	wiktionary
-συνέγνων	v1saia---	συγγιγνώσκω		
+συνέγνων	v1saia---	σά-ἀνυγιγνώσκω	^2	prefix
 σαγαί	n-p---fn-	σαγή	^2	wiktionary
 σαγαῖς	n-p---fd-	σαγή	^2	wiktionary
 σαγήν	n-s---fa-	σαγή	^2	wiktionary
@@ -35411,7 +35433,7 @@ lemma	tag	token	macron	source
 συγγνοίη	v3saoa---	συγγιγνώσκω		
 συγγνοῖτο	v3saom---	συγγιγνώσκω		
 σύγγνωτε	v2pama---	συγγιγνώσκω		
-συνέγνω	v3saia---	συγγιγνώσκω		
+συνέγνω	v3saia---	συγγιγνώσκω	^2	prefix
 ξύγγνοιαν	n-s---fa-	σύγγνοια	^8	breve_ultima
 σύγγνωθ’	v2srma---	σύγγνωθ		
 σύγγνωθ’	v2spma---	σύγγνωθ’		
@@ -35812,7 +35834,7 @@ lemma	tag	token	macron	source
 συμφέρον	v-sppana-	συμφέρω		
 συμφέροντα	v-pppann-	συμφέρω	^10	breve_ultima
 συμφέροντα	v-pppana-	συμφέρω	^10	breve_ultima
-συνοίσεται	v3sfim---	συμφέρω		
+συνοίσεται	v3sfim---	συμφέρω	^2	prefix
 συμφεύγω	v1spia---	συμφεύγω		
 συμφεύξομαι	v1sfim---	συμφεύχομαι		
 σύμφημ’	a-p---nn-	σύμφημ’		
@@ -35880,7 +35902,7 @@ lemma	tag	token	macron	source
 σύμφυτον	a-s---na-	σύμφυτος	^2^5	wiktionary
 σύμφυτος	a-s---mn-	σύμφυτος	^5	wiktionary
 σύμφωνος	a-s---mn-	σύμφωνος	^2	wiktionary
-συν	v2spma---	συν		
+συν	v2spma---	συν	^2	prefix
 ξύν	r--------	σύν	^2	wiktionary
 Ξύν	r--------	σύν		
 ξὺν	r--------	σύν		
@@ -35888,9 +35910,9 @@ lemma	tag	token	macron	source
 σύν	r--------	σύν	^2	wiktionary
 σύν	r--------	σύν	^2	wiktionary
 σύν	d--------	σύν	^2	wiktionary
-σὺν	r--------	σύν		
-σὺν	d--------	σύν		
-συνάγαγεν	v3saia---	συνάγαγεν		
+σὺν	r--------	σύν	^2	prefix
+σὺν	d--------	σύν	^2	prefix
+συνάγαγεν	v3saia---	συνάγαγεν	^2	prefix
 σύναγεν	v3saia---	σύναγεν	^2^4	hypotactic
 συνήγαγον	v3paia---	συνάγω	^2^6	wiktionary
 συνᾶγε	v3siia---	συνᾶγω	^2_4	ifthimos
@@ -35900,36 +35922,36 @@ lemma	tag	token	macron	source
 ξύναιμον	a-s---ma-	σύναιμος		
 ξύναιμος	a-s---fn-	σύναιμος	^2	hypotactic
 ξύναιμος	a-s---mn-	σύναιμος	^2	hypotactic
-σύναιμε	a-s---mv-	σύναιμος		
-συναίμονος	n-s---fg-	συναίμων		
-συναινέσεις	v2sfia---	συναινέω		
+σύναιμε	a-s---mv-	σύναιμος	^2	prefix
+συναίμονος	n-s---fg-	συναίμων	^2	prefix
+συναινέσεις	v2sfia---	συναινέω	^2	prefix
 συναίρεσθαι	v--pne---	συναίρω	^2	hypotactic
-συναίρεται	v3spie---	συναίρω		
+συναίρεται	v3spie---	συναίρω	^2	prefix
 ξυναλγεῖν	v--pna---	συναλγέω		
 ξυναλγοῦσιν	v-pppamd-	συναλγέω	^10	breve_ultima
-συναλγεῖ	v3spia---	συναλγέω		
-συναλγῶν	v-sppamn-	συναλγέω		
-συναλγῶ	v1spia---	συναλγῶ		
-συναλλαγάς	n-p---fa-	συναλλαγάς	_9	ifthimos
+συναλγεῖ	v3spia---	συναλγέω	^2	prefix
+συναλγῶν	v-sppamn-	συναλγέω	^2	prefix
+συναλγῶ	v1spia---	συναλγῶ	^2	prefix
+συναλλαγάς	n-p---fa-	συναλλαγάς	^2_9	ifthimos,prefix
 ξυναλλαγῇ	n-s---fd-	συναλλαγή		
-συναλλαγῆς	u--------	συναλλαγῆς		
-συναλλαχθεῖσαν	v-sappfa-	συναλλαόχ	^13	breve_ultima
+συναλλαγῆς	u--------	συναλλαγῆς	^2	prefix
+συναλλαχθεῖσαν	v-sappfa-	συναλλαόχ	^2^13	breve_ultima,prefix
 συναλλάσσειν	v--pna---	συναλλάσσειν	^2^4^7	wiktionary
-συναλλάξαντα	v-sapama-	συναλλάσσω	^12	breve_ultima
-συναμιλλᾶται	v3spie---	συναμιλλᾶται	_9	ifthimos
-συναμπίσχηι	v2spie---	συναμπίσχηι		
-συναμυνεῖν	v--pna---	συναμυνέω		
-συνάντησιν	n-s---fa-	συνάντησιν	^9	breve_ultima
-συναντήσαντα	v-sappma-	συναντήω	^12	breve_ultima
-συναντλεῖ	v3spia---	συναντλεῖ		
+συναλλάξαντα	v-sapama-	συναλλάσσω	^2^12	breve_ultima,prefix
+συναμιλλᾶται	v3spie---	συναμιλλᾶται	^2_9	ifthimos,prefix
+συναμπίσχηι	v2spie---	συναμπίσχηι	^2	prefix
+συναμυνεῖν	v--pna---	συναμυνέω	^2	prefix
+συνάντησιν	n-s---fa-	συνάντησιν	^2^9	breve_ultima,prefix
+συναντήσαντα	v-sappma-	συναντήω	^2^12	breve_ultima,prefix
+συναντλεῖ	v3spia---	συναντλεῖ	^2	prefix
 συνήντετο	v3siie---	συνάντομαι	^2	hypotactic
-συναντῶσιν	v3ppia---	συναντῶ	^9	breve_ultima
+συναντῶσιν	v3ppia---	συναντῶ	^2^9	breve_ultima,prefix
 ξυνανύτει	v3spia---	συνανύτω		
-συναοιδοί	a-p---fn-	συναοιδοί		
-συναοιδοὶ	a-p---fn-	συναοιδοὶ		
+συναοιδοί	a-p---fn-	συναοιδοί	^2	prefix
+συναοιδοὶ	a-p---fn-	συναοιδοὶ	^2	prefix
 ξυνάορ’	v1sria---	συνάορ		
-συναποκαμεῖν	v--pna---	συναποκαμέω		
-συνάπτουσ’	v-pppafn-	συνάπτουσ		
+συναποκαμεῖν	v--pna---	συναποκαμέω	^2	prefix
+συνάπτουσ’	v-pppafn-	συνάπτουσ	^2	prefix
 ξυνάπτετον	v2dpma---	συνάπτω		
 ξυνάπτετον	v3dpia---	συνάπτω		
 συνάπτει	v3spia---	συνάπτω	^2	wiktionary
@@ -35941,61 +35963,61 @@ lemma	tag	token	macron	source
 συνάψω	v1sfia---	συνάπτω	^2	wiktionary
 συνάψω	v1sfia---	συνάπω	^2	wiktionary
 σύναψον	v2sama---	σύναπω	^2	wiktionary
-συναριστεύων	v-sppamn-	συναρι		
+συναριστεύων	v-sppamn-	συναρι	^2	prefix
 συναρμόσας	v-sapamn-	συναρμόζω	^2_9	ifthimos
-συναρμόσει	v3sfia---	συναρμόζω		
+συναρμόσει	v3sfia---	συναρμόζω	^2	prefix
 ξυναρπασθεῖσαν	v-sappfa-	συναρπάζω	^13	breve_ultima
-συναρπάσαι	v--ana---	συναρπάζω		
-συναρπάσας	v-sapamn-	συναρπάζω	_9	ifthimos
-συνασοφεῖν	v--pna---	συνασοφέω		
+συναρπάσαι	v--ana---	συναρπάζω	^2	prefix
+συναρπάσας	v-sapamn-	συναρπάζω	^2_9	ifthimos,prefix
+συνασοφεῖν	v--pna---	συνασοφέω	^2	prefix
 συνεστάλησαν	v3paip---	συναστείλω	^2^7^11	wiktionary
 συνασχαλᾷ	v1sria---	συνασχαλάω	^2^7_9	ifthimos
 συνασχαλῶν	v-sppamn-	συνασχαλέω	^2^7	hypotactic
 Ξυναυδῶ	v1spia---	συναυδάω		
 ξύναυλος	a-s---mn-	σύναυλος		
 σύναψαι	v--ana---	σύναψαι	^2	wiktionary
-συνάψουσ’	v--fna---	συνάψουσ		
+συνάψουσ’	v--fna---	συνάψουσ	^2	prefix
 συνάψων	v-sfpamn-	συνάψων	^2	wiktionary
-συνδαίσας	v-sapamn-	συνδαίζω	_5	ifthimos
-συνδάϊξον	v2sama---	συνδάϊξον		
-συνδαίτωρ	n-s---mn-	συνδαίτωρ		
-συνδάκρυσον	v2sama---	συνδακρύω		
-συνδήσας	v-sapamn-	συνδάω	_7	wiktionary
-σύνδεθ’	v2ppma---	σύνδεθ		
-συνδεῖ	v3spia---	συνδεῖ		
-συνδείπνοις	a-p---md-	συνδείπνοις		
-σύνδεσμ’	n-p---nn-	σύνδεσμ		
+συνδαίσας	v-sapamn-	συνδαίζω	^2_5	ifthimos,prefix
+συνδάϊξον	v2sama---	συνδάϊξον	^2	prefix
+συνδαίτωρ	n-s---mn-	συνδαίτωρ	^2	prefix
+συνδάκρυσον	v2sama---	συνδακρύω	^2	prefix
+συνδήσας	v-sapamn-	συνδάω	^2_7	wiktionary,prefix
+σύνδεθ’	v2ppma---	σύνδεθ	^2	prefix
+συνδεῖ	v3spia---	συνδεῖ	^2	prefix
+συνδείπνοις	a-p---md-	συνδείπνοις	^2	prefix
+σύνδεσμ’	n-p---nn-	σύνδεσμ	^2	prefix
 σύνδεσμα	n-s---na-	σύνδεσμα	^2^8	wiktionary
 συνδέτους	a-p---ma-	σύνδετος	^2	wiktionary
-συνδήσας	v-sapamn-	συνδέω	_7	wiktionary
-συνδοῦντα	v-sfpama-	συνδέω	^9	breve_ultima
-σύνδησον	v2sama---	σύνδησον		
-συνδικήσει	v3sfia---	συνδικήω		
+συνδήσας	v-sapamn-	συνδέω	^2_7	wiktionary,prefix
+συνδοῦντα	v-sfpama-	συνδέω	^2^9	breve_ultima,prefix
+σύνδησον	v2sama---	σύνδησον	^2	prefix
+συνδικήσει	v3sfia---	συνδικήω	^2	prefix
 συνδίκους	a-p---fa-	συνδίκους	^2^5	wiktionary
-συνδοκεῖν	v--pna---	συνδοκέω		
-σύνδουλε	a-s---fv-	σύνδουλε		
-συνδουλεύσω	v1sfia---	συνδουλεύω		
-σύνδουλον	n-s---na-	σύνδουλος		
-σύνδουλος	a-s---mn-	σύνδουλος		
-συνδρᾶι	v3saia---	συνδρᾶι	_6	ifthimos
-συνδράσηις	v2sasa---	συνδράσηις		
-συνδράσουσα	v-sfpafn-	συνδράω	^11	breve_ultima
-συνδρῶν	v-sppamn-	συνδράω		
-συνδρῶν	n-s---nn-	συνδράω		
-συνδρῶσιν	v-pppamd-	συνδράω	^8	breve_ultima
-συνδρομάδας	n-p---fa-	συνδρομάς	_10	ifthimos
-συνδρόμως	d--------	συνδρόμως		
-συνδυάδος	d--------	συνδυάδος		
-συνδυστυχῆι	v2sase---	συνδυστυχῆι		
-συνδώδεκα	v1sria---	συνδώδεκα	^9	breve_ultima
-συνεβάκχευ’	v3siia---	συνεβάκχευ		
-συνεδρίαι	n-p---fn-	συνεδρίαι		
+συνδοκεῖν	v--pna---	συνδοκέω	^2	prefix
+σύνδουλε	a-s---fv-	σύνδουλε	^2	prefix
+συνδουλεύσω	v1sfia---	συνδουλεύω	^2	prefix
+σύνδουλον	n-s---na-	σύνδουλος	^2	prefix
+σύνδουλος	a-s---mn-	σύνδουλος	^2	prefix
+συνδρᾶι	v3saia---	συνδρᾶι	^2_6	ifthimos,prefix
+συνδράσηις	v2sasa---	συνδράσηις	^2	prefix
+συνδράσουσα	v-sfpafn-	συνδράω	^2^11	breve_ultima,prefix
+συνδρῶν	v-sppamn-	συνδράω	^2	prefix
+συνδρῶν	n-s---nn-	συνδράω	^2	prefix
+συνδρῶσιν	v-pppamd-	συνδράω	^2^8	breve_ultima,prefix
+συνδρομάδας	n-p---fa-	συνδρομάς	^2_10	ifthimos,prefix
+συνδρόμως	d--------	συνδρόμως	^2	prefix
+συνδυάδος	d--------	συνδυάδος	^2	prefix
+συνδυστυχῆι	v2sase---	συνδυστυχῆι	^2	prefix
+συνδώδεκα	v1sria---	συνδώδεκα	^2^9	breve_ultima,prefix
+συνεβάκχευ’	v3siia---	συνεβάκχευ	^2	prefix
+συνεδρίαι	n-p---fn-	συνεδρίαι	^2	prefix
 συνέδρω	a-s---md-	συνέδρος	^2	wiktionary
 συνέδρου	a-s---mg-	συνέδρου	^2	wiktionary
-συνέζευξαι	v--ana---	συνέζευγω		
-συνεζύγη	v3saip---	συνεζύγη		
-συνεζύγην	v1saip---	συνεζύγην		
-συνεζύγης	v2saip---	συνεζύγης		
+συνέζευξαι	v--ana---	συνέζευγω	^2	prefix
+συνεζύγη	v3saip---	συνεζύγη	^2	prefix
+συνεζύγην	v1saip---	συνεζύγην	^2	prefix
+συνεζύγης	v2saip---	συνεζύγης	^2	prefix
 συνείσῃ	v3sasa---	συνείζω	^2	wiktionary
 ξύνειμ’	v1spia---	σύνειμ		
 συνείην	v3siia---	συνείμι	^2	wiktionary
@@ -36006,150 +36028,150 @@ lemma	tag	token	macron	source
 ξυνοῦσα	v-sppafn-	σύνειμι	^2^7	hypotactic
 ξυνοῦσι	v-pppand-	σύνειμι	^7	breve_ultima
 ξυνών	v-sppamn-	σύνειμι	_2	wiktionary
-συνείποιτ’	v3saom---	συνείποιτ		
-συνεισέβησαν	v3paia---	συνεισαβαίνω	^11	breve_ultima
-συνεισελθεῖν	v--ana---	συνεισέρχομαι		
-συνεῖχες	v2siia---	συνεῖχες		
+συνείποιτ’	v3saom---	συνείποιτ	^2	prefix
+συνεισέβησαν	v3paia---	συνεισαβαίνω	^2^11	breve_ultima,prefix
+συνεισελθεῖν	v--ana---	συνεισέρχομαι	^2	prefix
+συνεῖχες	v2siia---	συνεῖχες	^2	prefix
 συνειχόμην	v1siie---	συνειχόμην	^2	hypotactic
-συνεκκλέπτει	v3spia---	συνεκκλέπτω		
-συνεκκλέπτουσα	v-sppafn-	συνεκκλέπτω	^14	breve_ultima
-συνεκκλέψασα	v-sapafn-	συνεκκλέψασα	^12	breve_ultima
-συνεκκομίζειν	v--pna---	συνεκκομίζω		
-συνέκληισαν	v3paia---	συνέκληισαν	^10	breve_ultima
-συνεκπνεῦσαι	v--ana---	συνεκπνεῦσαί		
-συνεκπονεῖ	v3spia---	συνεκπονέω		
-συνεκπονεῖν	v--pna---	συνεκπονέω		
-συνεκπονήσατε	v2pama---	συνεκπονέω		
-συνεκπονοῦσα	v-sppafn-	συνεκπονέω	^12	breve_ultima
-συνεκπονῶν	v-sppamn-	συνεκπονέω		
-συνεκσῴζειν	v--pna---	συνεκσῴζειν		
-συνέκυρσ’	v3saia---	συνέκυρσ		
-συνέκυρσας	v2saia---	συνέκυρσας	^9	breve_ultima
+συνεκκλέπτει	v3spia---	συνεκκλέπτω	^2	prefix
+συνεκκλέπτουσα	v-sppafn-	συνεκκλέπτω	^2^14	breve_ultima,prefix
+συνεκκλέψασα	v-sapafn-	συνεκκλέψασα	^2^12	breve_ultima,prefix
+συνεκκομίζειν	v--pna---	συνεκκομίζω	^2	prefix
+συνέκληισαν	v3paia---	συνέκληισαν	^2^10	breve_ultima,prefix
+συνεκπνεῦσαι	v--ana---	συνεκπνεῦσαί	^2	prefix
+συνεκπονεῖ	v3spia---	συνεκπονέω	^2	prefix
+συνεκπονεῖν	v--pna---	συνεκπονέω	^2	prefix
+συνεκπονήσατε	v2pama---	συνεκπονέω	^2	prefix
+συνεκπονοῦσα	v-sppafn-	συνεκπονέω	^2^12	breve_ultima,prefix
+συνεκπονῶν	v-sppamn-	συνεκπονέω	^2	prefix
+συνεκσῴζειν	v--pna---	συνεκσῴζειν	^2	prefix
+συνέκυρσ’	v3saia---	συνέκυρσ	^2	prefix
+συνέκυρσας	v2saia---	συνέκυρσας	^2^9	breve_ultima,prefix
 ξυνέμπορος	n-s---mn-	συνέμπορος		
 ξυνεμπόρων	n-p---fg-	συνέμπορος		
-συνεμπόρου	n-s---mg-	συνεμπόρου		
-συνεμπρῆσαι	v--ana---	συνεμπράω		
-συνενέγκαι	v2srie---	συνενέγκαι		
-συνενέγκαιμ’	v1saoa---	συνενέγκαιμ		
-συνεξελών	v-sapamn-	συνεξαιρέω		
-συνεξελὼν	v-sapamn-	συνεξαιρέω		
-συνεξήκουον	v3piia---	συνεξακούω		
-συνεξεῖλον	v3paia---	συνεξεῖλον		
-συνεξελαύνει	v3spia---	συνεξελαύνω		
+συνεμπόρου	n-s---mg-	συνεμπόρου	^2	prefix
+συνεμπρῆσαι	v--ana---	συνεμπράω	^2	prefix
+συνενέγκαι	v2srie---	συνενέγκαι	^2	prefix
+συνενέγκαιμ’	v1saoa---	συνενέγκαιμ	^2	prefix
+συνεξελών	v-sapamn-	συνεξαιρέω	^2	prefix
+συνεξελὼν	v-sapamn-	συνεξαιρέω	^2	prefix
+συνεξήκουον	v3piia---	συνεξακούω	^2	prefix
+συνεξεῖλον	v3paia---	συνεξεῖλον	^2	prefix
+συνεξελαύνει	v3spia---	συνεξελαύνω	^2	prefix
 συνεξῆλθον	v1saia---	συνεξέρχομαι	^2	wiktionary
-συνεξεύρισχ’	v2spma---	συνεξεύρισχμι		
-συνεπαείδετ’	v3siie---	συνεπαείδετ		
-συνέπαισε	v3siia---	συνέπαισε		
+συνεξεύρισχ’	v2spma---	συνεξεύρισχμι	^2	prefix
+συνεπαείδετ’	v3siie---	συνεπαείδετ	^2	prefix
+συνέπαισε	v3siia---	συνέπαισε	^2	prefix
 ξυνέσπετο	v3saim---	συνέπομαι		
-συνειπόμην	v1siie---	συνέπομαι		
-συνεπόρθει	v3spia---	συνεπόρθω		
-συνεργάτιν	n-s---fa-	συνεργάτιν		
+συνειπόμην	v1siie---	συνέπομαι	^2	prefix
+συνεπόρθει	v3spia---	συνεπόρθω	^2	prefix
+συνεργάτιν	n-s---fa-	συνεργάτιν	^2	prefix
 ξυνεργός	v2siia---	συνεργός		
-συνεργός	a-s---mn-	συνεργός		
+συνεργός	a-s---mn-	συνεργός	^2	prefix
 ξυνεργόν	a-s---fa-	συνεργὸς		
 ξυνεργὸν	a-s---fa-	συνεργὸς		
 ξυνεργός	a-s---mn-	συνεργὸς		
 ξυνεργὸς	a-s---mn-	συνεργὸς		
-συνεργὸς	a-s---mn-	συνεργὸς		
-συνερείδει	v3spia---	συνερείδω		
-συνερεισθέντες	v-pappmn-	συνερείζω		
+συνεργὸς	a-s---mn-	συνεργὸς	^2	prefix
+συνερείδει	v3spia---	συνερείδω	^2	prefix
+συνερεισθέντες	v-pappmn-	συνερείζω	^2	prefix
 ξυνήλθομεν	v1paia---	συνέρχομαι		
 συνελθών	v-sapamn-	συνέρχομαι	^2	wiktionary
-συνελθὼν	v-sapamn-	συνέρχομαι		
+συνελθὼν	v-sapamn-	συνέρχομαι	^2	prefix
 σύνεσιν	n-s---fa-	σύνεσις	^2^6	wiktionary
 σύνεσις	n-s---fn-	σύνεσις	^2^6	wiktionary
 συνέσταλμαι	v1srie---	συνέσταλμαι	^2^7	wiktionary
-σύνεστιν	v3spia---	σύνεστιν	^7	breve_ultima
+σύνεστιν	v3spia---	σύνεστιν	^2^7	breve_ultima,prefix
 ξυνέστιος	a-s---mn-	συνέστιος		
-συνεστίους	a-p---ma-	συνεστίους		
+συνεστίους	a-p---ma-	συνεστίους	^2	prefix
 ξυνέσει	v3sfia---	συνέσω		
-συνέτλας	v2saia---	συνέτλας		
-συνετόν	a-s---na-	συνετος		
+συνέτλας	v2saia---	συνέτλας	^2	prefix
+συνετόν	a-s---na-	συνετος	^2	prefix
 ξυνετός	a-s---mn-	συνετός		
 ξυνετὸς	a-s---mn-	συνετός		
-συνετά	a-p---na-	συνετός		
-συνετὰ	a-p---na-	συνετός		
-συνετοί	a-p---mn-	συνετός		
-συνετοὶ	a-p---mn-	συνετός		
+συνετά	a-p---na-	συνετός	^2	prefix
+συνετὰ	a-p---na-	συνετός	^2	prefix
+συνετοί	a-p---mn-	συνετός	^2	prefix
+συνετοὶ	a-p---mn-	συνετός	^2	prefix
 συνετός	a-s---mn-	συνετός	^2	wiktionary
-συνετούς	a-p---ma-	συνετός		
-συνετοὺς	a-p---ma-	συνετός		
-συνετῶς	d--------	συνετῶς		
-σύνευνον	v-sppana-	σύνευνον		
+συνετούς	a-p---ma-	συνετός	^2	prefix
+συνετοὺς	a-p---ma-	συνετός	^2	prefix
+συνετῶς	d--------	συνετῶς	^2	prefix
+σύνευνον	v-sppana-	σύνευνον	^2	prefix
 ξύνευνον	a-s---fa-	σύνευνος	^2	hypotactic
 ξύνευνος	n-s---fn-	σύνευνος	^2	hypotactic
 ξύνευνος	a-s---fn-	σύνευνος	^2	hypotactic
-συνεύνωι	v1spsa---	συνεύνωι		
-συνευτυχοίην	v1sroa---	συνευτυχοίην		
-συνεύχομαι	v1spie---	συνεύχομαι		
-συνέχεας	v2saia---	συνέχεας	^7	breve_ultima
+συνεύνωι	v1spsa---	συνεύνωι	^2	prefix
+συνευτυχοίην	v1sroa---	συνευτυχοίην	^2	prefix
+συνεύχομαι	v1spie---	συνεύχομαι	^2	prefix
+συνέχεας	v2saia---	συνέχεας	^2^7	breve_ultima,prefix
 συνεχής	a-s---fn-	συνεχής	_2	wiktionary
-συνεχὴς	a-s---fn-	συνεχής		
+συνεχὴς	a-s---fn-	συνεχής	^2	prefix
 συνεχῶς	d--------	συνεχής	^2	wiktionary
-συνέχθειν	v--pna---	συνέχθω		
+συνέχθειν	v--pna---	συνέχθω	^2	prefix
 ξυνέχει	v3spia---	συνέχω		
-συνέχον	v-sppann-	συνέχω		
-συνεχωρείτην	v3diia---	συνεχωρίω		
-σύνηβοι	a-p---mn-	σύνηβοι		
-συνήγαγ’	v3saia---	συνήγαγ		
+συνέχον	v-sppann-	συνέχω	^2	prefix
+συνεχωρείτην	v3diia---	συνεχωρίω	^2	prefix
+σύνηβοι	a-p---mn-	σύνηβοι	^2	prefix
+συνήγαγ’	v3saia---	συνήγαγ	^2	prefix
 ξυνηγορεῖς	v2spia---	συνηγορέω		
 ξυνήγορα	a-p---na-	συνήγορος	^8	breve_ultima
-συνήγορον	n-s---ma-	συνήγορός		
-συνήδηι	v2srie---	συνήδηι		
-συνήδομαι	v1spie---	συνήδομαι		
+συνήγορον	n-s---ma-	συνήγορός	^2	prefix
+συνήδηι	v2srie---	συνήδηι	^2	prefix
+συνήδομαι	v1spie---	συνήδομαι	^2	prefix
 συνήθη	a-s---ma-	συνήθη	^2	wiktionary
 ξυνήθης	a-s---mn-	συνήθης	^2	wiktionary
 σύνηθες	a-s---nn-	συνήθης	^2	wiktionary
-συνήθροισται	v3srie---	συνήθροισται		
+συνήθροισται	v3srie---	συνήθροισται	^2	prefix
 ξυνῆκ’	v1saia---	συνῆκ’		
 συνῆκα	u--------	συνῆκα	^2^6	wiktionary
-συνηλάλαξαν	v3paia---	συνηλάλαξαν	^10	breve_ultima
+συνηλάλαξαν	v3paia---	συνηλάλαξαν	^2^10	breve_ultima,prefix
 συνηλλάχθης	v2saip---	συνηλλάσσω	^2^7	wiktionary
-συνῄνεσα	v1saia---	συνῄνεσα	^8	breve_ultima
-συνῆψα	v1saia---	συνῆπα	^6	breve_ultima
-συνῆψαν	v3paia---	συνῆπω	^6	breve_ultima
-συνηράμην	v1saim---	συνηράμην		
-συνήραξ’	v3saia---	συνήραξ		
-συνήρπασας	v2saia---	συνήρπασον	^9	breve_ultima
-συνησθῆις	v2sroa---	συνησθῆις		
+συνῄνεσα	v1saia---	συνῄνεσα	^2^8	breve_ultima,prefix
+συνῆψα	v1saia---	συνῆπα	^2^6	breve_ultima,prefix
+συνῆψαν	v3paia---	συνῆπω	^2^6	breve_ultima,prefix
+συνηράμην	v1saim---	συνηράμην	^2	prefix
+συνήραξ’	v3saia---	συνήραξ	^2	prefix
+συνήρπασας	v2saia---	συνήρπασον	^2^9	breve_ultima,prefix
+συνησθῆις	v2sroa---	συνησθῆις	^2	prefix
 ξυνῆχ’	v1saia---	συνῆχ’		
-συνῆψ’	v3saia---	συνῆψ		
-συνῆψ’	v1saia---	συνῆψ		
-συνῆψα	v1saia---	συνῆψα	^6	breve_ultima
+συνῆψ’	v3saia---	συνῆψ	^2	prefix
+συνῆψ’	v1saia---	συνῆψ	^2	prefix
+συνῆψα	v1saia---	συνῆψα	^2^6	breve_ultima,prefix
 συνήψαμεν	v1paia---	συνήψαμεν	^2^6	wiktionary
-συνῆψαν	v3paia---	συνῆψαν	^6	breve_ultima
-συνῆψας	v2saia---	συνῆψας	^6	breve_ultima
-συνῆψε	v3saia---	συνῆψε		
-σύνθακε	v2spma---	σύνθακε		
-σύνθακος	a-s---mn-	σύνθακος	_5	wiktionary
-συνθακῶν	v-sppamn-	συνθακῶ		
-σύνθαλπε	v2spma---	σύνθαλπε		
-συνθανοῦσα	v-sapafn-	συνθανάω	^10	breve_ultima
-συνθάνοιμι	v1saoa---	συνθάνοιμί	^10	breve_ultima
-συνθανοῦσα	v-sapafn-	συνθανοῦσα	^10	breve_ultima
-συνθάπτετε	v2ppma---	συνθάπτετε	^5	wiktionary
-συνθάπτειν	v--pna---	συνθάπτω	^5	wiktionary
-συνθάψει	v2sfim---	συνθάπτω	^5	wiktionary
-συνθάψεις	v2sfia---	συνθάπω	^5	wiktionary
-συνθάψομεν	v1pfia---	συνθάφω	^5	wiktionary
-συνθελήσεις	v2sfia---	συνθελέω		
-συνθέλω	v1spia---	συνθέλω		
+συνῆψαν	v3paia---	συνῆψαν	^2^6	breve_ultima,prefix
+συνῆψας	v2saia---	συνῆψας	^2^6	breve_ultima,prefix
+συνῆψε	v3saia---	συνῆψε	^2	prefix
+σύνθακε	v2spma---	σύνθακε	^2	prefix
+σύνθακος	a-s---mn-	σύνθακος	^2_5	wiktionary,prefix
+συνθακῶν	v-sppamn-	συνθακῶ	^2	prefix
+σύνθαλπε	v2spma---	σύνθαλπε	^2	prefix
+συνθανοῦσα	v-sapafn-	συνθανάω	^2^10	breve_ultima,prefix
+συνθάνοιμι	v1saoa---	συνθάνοιμί	^2^10	breve_ultima,prefix
+συνθανοῦσα	v-sapafn-	συνθανοῦσα	^2^10	breve_ultima,prefix
+συνθάπτετε	v2ppma---	συνθάπτετε	^2^5	wiktionary,prefix
+συνθάπτειν	v--pna---	συνθάπτω	^2^5	wiktionary,prefix
+συνθάψει	v2sfim---	συνθάπτω	^2^5	wiktionary,prefix
+συνθάψεις	v2sfia---	συνθάπω	^2^5	wiktionary,prefix
+συνθάψομεν	v1pfia---	συνθάφω	^2^5	wiktionary,prefix
+συνθελήσεις	v2sfia---	συνθελέω	^2	prefix
+συνθέλω	v1spia---	συνθέλω	^2	prefix
 συνθέσεις	n-p---fa-	συνθέσεις	^2	wiktionary
-συνθέτους	a-p---ma-	συνθέτους		
+συνθέτους	a-p---ma-	συνθέτους	^2	prefix
 συνθήκας	n-p---fa-	συνθήκη	^2_7	wiktionary
-συντήκουσα	v-sapafn-	συνθήκω	^10	breve_ultima
-σύνθημα	n-s---na-	σύνθημα	^7	hypotactic
-συνθηρώμεναι	v-prpefn-	συνθηράω		
-σύνθνηισκε	v2spma---	σύνθνηισκέ		
-συνθνήισκειν	v--pna---	συνθνήισκω		
-συνθνῄσκει	v3spia---	συνθνῄσκει		
-συνθνῄσκουσα	v-sppafn-	συνθνῄσκουσα	^12	breve_ultima
-συνθανεῖν	v--ana---	συνθνήσκω		
-συνθοινάτορ’	n-s---ma-	συνθοινάτορ		
-συνθραύσω	v1sfia---	συνθραύσω		
-συνθύειν	v--pna---	συνθύω		
+συντήκουσα	v-sapafn-	συνθήκω	^2^10	breve_ultima,prefix
+σύνθημα	n-s---na-	σύνθημα	^2^7	hypotactic,prefix
+συνθηρώμεναι	v-prpefn-	συνθηράω	^2	prefix
+σύνθνηισκε	v2spma---	σύνθνηισκέ	^2	prefix
+συνθνήισκειν	v--pna---	συνθνήισκω	^2	prefix
+συνθνῄσκει	v3spia---	συνθνῄσκει	^2	prefix
+συνθνῄσκουσα	v-sppafn-	συνθνῄσκουσα	^2^12	breve_ultima,prefix
+συνθανεῖν	v--ana---	συνθνήσκω	^2	prefix
+συνθοινάτορ’	n-s---ma-	συνθοινάτορ	^2	prefix
+συνθραύσω	v1sfia---	συνθραύσω	^2	prefix
+συνθύειν	v--pna---	συνθύω	^2	prefix
 ξυνίημ’	v1spia---	συνίημι		
-συνίημ’	v1spia---	συνίημι		
+συνίημ’	v1spia---	συνίημι	^2	prefix
 ξυνίημ’	v1spia---	συνίημι		
 Ξύνες	v2sama---	συνίημι		
 ξυνῆκα	v1saia---	συνίημι	^2^6	wiktionary
@@ -36159,39 +36181,39 @@ lemma	tag	token	macron	source
 συνιέναι	v--pna---	συνίημι	^2_4	wiktionary
 σύνισθι	v2spme---	σύνισμι	^2^7	wiktionary
 ξυνέστη	v3slia---	συνίστημι	^2	wiktionary
-συνίστορα	a-p---na-	συνίστωρ	^9	breve_ultima
-συνισχνανεῖ	v3spia---	συνισχνανεῖ		
-συνναίων	n-p---fg-	συνναί		
-συνναίειν	v--ana---	συνναίειν		
-συνναύταν	n-s---ma-	συνναύτης	_5	ifthimos
-συννεναυστοληκότες	v-prpamn-	συννεναυστοληκότες		
+συνίστορα	a-p---na-	συνίστωρ	^2^9	breve_ultima,prefix
+συνισχνανεῖ	v3spia---	συνισχνανεῖ	^2	prefix
+συνναίων	n-p---fg-	συνναί	^2	prefix
+συνναίειν	v--ana---	συνναίειν	^2	prefix
+συνναύταν	n-s---ma-	συνναύτης	^2_5	ifthimos,prefix
+συννεναυστοληκότες	v-prpamn-	συννεναυστοληκότες	^2	prefix
 Ξύννευσον	v2sama---	συννεύω		
-συννεφῆ	a-p---na-	συννεφής		
-συννέφουσαν	v-sppafa-	συννέφομαι	^10	breve_ultima
-συννικᾶις	v2spia---	συννικᾶις	_7	ifthimos
-συννοούμενος	v-sppemn-	συννοέω		
-συννοῶν	v-sppamn-	συννοέω		
+συννεφῆ	a-p---na-	συννεφής	^2	prefix
+συννέφουσαν	v-sppafa-	συννέφομαι	^2^10	breve_ultima,prefix
+συννικᾶις	v2spia---	συννικᾶις	^2_7	ifthimos,prefix
+συννοούμενος	v-sppemn-	συννοέω	^2	prefix
+συννοῶν	v-sppamn-	συννοέω	^2	prefix
 συννοίᾳ	n-s---fd-	συννοίᾳ	^2_7	ifthimos
-συννοίαι	n-p---fn-	συννοίαι		
+συννοίαι	n-p---fn-	συννοίαι	^2	prefix
 σύννοιαν	n-s---fa-	σύννοιαν	^2^7	wiktionary
 συννοίας	n-p---fa-	συννοίη	^2_7	wiktionary
 ξύννομ’	n-p---na-	σύννομ		
-συννόμω	v1spia---	συννόμος		
-σύννομοι	a-p---fn-	σύννομος		
-σύννομοι	a-p---fv-	σύννομος		
-συννόμου	a-s---mg-	συννόμου		
-συννόμους	a-p---fa-	συννόμους		
-συννοσεῖν	v--fna---	συννοσέω		
-συννυμφοκόμον	a-s---ma-	συννυμφοκόμος		
+συννόμω	v1spia---	συννόμος	^2	prefix
+σύννομοι	a-p---fn-	σύννομος	^2	prefix
+σύννομοι	a-p---fv-	σύννομος	^2	prefix
+συννόμου	a-s---mg-	συννόμου	^2	prefix
+συννόμους	a-p---fa-	συννόμους	^2	prefix
+συννοσεῖν	v--fna---	συννοσέω	^2	prefix
+συννυμφοκόμον	a-s---ma-	συννυμφοκόμος	^2	prefix
 σύνοδοι	n-p---fn-	σύνοδος	^2	wiktionary
-συνεζύγην	v1saip---	συνοζεύγνυμι		
+συνεζύγην	v1saip---	συνοζεύγνυμι	^2	prefix
 ξύνοιδ’	v1sria---	σύνοιδ		
 ξυνειδέναι	v--rna---	σύνοιδα	^2	wiktionary
 ξυνειδώς	v-srpamn-	σύνοιδα	^2	wiktionary
 ξυνειδὼς	v-srpamn-	σύνοιδα		
 σύνοιδα	v1sria---	σύνοιδα	^2^7	wiktionary
 σύνοισθα	v2sria---	σύνοιδά	^2^8	wiktionary
-σύνοιδ’	v3spia---	σύνοιδμι		
+σύνοιδ’	v3spia---	σύνοιδμι	^2	prefix
 σύνοιδε	v3saia---	σύνοιδον	^2	wiktionary
 ξυνοικεῖν	v--pna---	συνοικέω		
 συνοικεῖν	v--pna---	συνοικέω	^2	wiktionary
@@ -36204,94 +36226,94 @@ lemma	tag	token	macron	source
 ξύνοικος	a-s---fn-	σύνοικος	^2	hypotactic
 ξύνοικος	a-s---mn-	σύνοικος	^2	hypotactic
 ξύνοικος	a-s---nn-	σύνοικος	^2	hypotactic
-σύνοικα	a-p---nn-	σύνοικος	^7	breve_ultima
-συνορμένοις	v-pppemd-	συνοῖμαρ		
-συνοίσω	v1sfia---	συνοίω		
-συνομαίμονα	v-sppama-	συνομαίμων	^11	breve_ultima
-σύνορθρον	a-s---nn-	σύνορθρος		
-συνουσία	n-s---fn-	συνουσία		
-σύνοχα	d--------	σύνοχος	^6	breve_ultima
-συντακείς	v2spia---	συντακείς		
-συντακεὶς	v2spia---	συντακεὶς		
-συντακῆι	v3srsa---	συντακῆι		
-συνταλαιπωρεῖν	v--pna---	συνταλαιπωράω		
-συνταράξηις	v2sasm---	συνταρά		
-συνταράσσονται	v3ppie---	συνταράσσω		
-συνταραχθείς	v-sappmn-	συνταράσσω		
-συνταραχθεὶς	v-sappmn-	συνταράσσω		
-συνταχθεῖσιν	v-pappmd-	συνταχθεῖσιν	^11	breve_ultima
-συντεθηγμένος	v-srpemn-	συντεθηγμένος		
-συντεθράνωται	v3srie---	συντεθράνωται		
-συντέθραψαι	v2same---	συντέθραπτω		
-σύντειν’	v2spma---	σύντειν		
-συντείνηι	v3spoa---	συντείνηι		
-συντείνει	v3spia---	συντείνω		
-συντείνουσιν	v3ppia---	συντείνω	^11	breve_ultima
-συντελής	a-s---fn-	συντελής		
-συντελὴς	a-s---fn-	συντελής		
-συντεμοῦσα	v-sppafn-	συντεμέω	^10	breve_ultima
-συντέμνει	v3spia---	συντέμνω		
-συντέμνουσι	v3ppia---	συντέμνω	^11	breve_ultima
-συντεμών	v-sppamn-	συντεμὼ		
-συντεμὼν	v-sppamn-	συντεμὼ		
-συντέμω	v1spia---	συντέμω		
-συντετηκός	v2sria---	συντετηκός		
-συντέτηχ’	v3sria---	συντέτηχ		
+σύνοικα	a-p---nn-	σύνοικος	^2^7	breve_ultima,prefix
+συνορμένοις	v-pppemd-	συνοῖμαρ	^2	prefix
+συνοίσω	v1sfia---	συνοίω	^2	prefix
+συνομαίμονα	v-sppama-	συνομαίμων	^2^11	breve_ultima,prefix
+σύνορθρον	a-s---nn-	σύνορθρος	^2	prefix
+συνουσία	n-s---fn-	συνουσία	^2	prefix
+σύνοχα	d--------	σύνοχος	^2^6	breve_ultima,prefix
+συντακείς	v2spia---	συντακείς	^2	prefix
+συντακεὶς	v2spia---	συντακεὶς	^2	prefix
+συντακῆι	v3srsa---	συντακῆι	^2	prefix
+συνταλαιπωρεῖν	v--pna---	συνταλαιπωράω	^2	prefix
+συνταράξηις	v2sasm---	συνταρά	^2	prefix
+συνταράσσονται	v3ppie---	συνταράσσω	^2	prefix
+συνταραχθείς	v-sappmn-	συνταράσσω	^2	prefix
+συνταραχθεὶς	v-sappmn-	συνταράσσω	^2	prefix
+συνταχθεῖσιν	v-pappmd-	συνταχθεῖσιν	^2^11	breve_ultima,prefix
+συντεθηγμένος	v-srpemn-	συντεθηγμένος	^2	prefix
+συντεθράνωται	v3srie---	συντεθράνωται	^2	prefix
+συντέθραψαι	v2same---	συντέθραπτω	^2	prefix
+σύντειν’	v2spma---	σύντειν	^2	prefix
+συντείνηι	v3spoa---	συντείνηι	^2	prefix
+συντείνει	v3spia---	συντείνω	^2	prefix
+συντείνουσιν	v3ppia---	συντείνω	^2^11	breve_ultima,prefix
+συντελής	a-s---fn-	συντελής	^2	prefix
+συντελὴς	a-s---fn-	συντελής	^2	prefix
+συντεμοῦσα	v-sppafn-	συντεμέω	^2^10	breve_ultima,prefix
+συντέμνει	v3spia---	συντέμνω	^2	prefix
+συντέμνουσι	v3ppia---	συντέμνω	^2^11	breve_ultima,prefix
+συντεμών	v-sppamn-	συντεμὼ	^2	prefix
+συντεμὼν	v-sppamn-	συντεμὼ	^2	prefix
+συντέμω	v1spia---	συντέμω	^2	prefix
+συντετηκός	v2sria---	συντετηκός	^2	prefix
+συντέτηχ’	v3sria---	συντέτηχ	^2	prefix
 συντεθείς	v-sappmn-	συντέω	^2	wiktionary
-συντεθεὶς	v-sappmn-	συντέω		
-συντήκου	v2spma---	συντήκω		
-συντήξουσι	v3pfia---	συντήξουσι	^10	breve_ultima
-συντηχθείς	v-sappmn-	συντηχθείς		
-συντηχθεὶς	v-sappmn-	συντηχθεὶς		
+συντεθεὶς	v-sappmn-	συντέω	^2	prefix
+συντήκου	v2spma---	συντήκω	^2	prefix
+συντήξουσι	v3pfia---	συντήξουσι	^2^10	breve_ultima,prefix
+συντηχθείς	v-sappmn-	συντηχθείς	^2	prefix
+συντηχθεὶς	v-sappmn-	συντηχθεὶς	^2	prefix
 συντιθείς	v2spia---	συντιθείς	^2^5	wiktionary
-συντιθεὶς	v2spia---	συντιθεὶς		
+συντιθεὶς	v2spia---	συντιθεὶς	^2	prefix
 ξυνθείς	v-sapamn-	συντίθημι		
 ξυνθεὶς	v-sapamn-	συντίθημι		
 ξυντίθησι	v3spia---	συντίθημι	^5^9	wiktionary
 συνθείς	v-sapamn-	συντίθημι	^2	wiktionary
 συνθείς	v-sapamn-	συντίθημι	^2	wiktionary
-συνθεὶς	v-sapamn-	συντίθημι		
-συνθέντες	v-papamn-	συντίθημι		
-συντιθέντες	v-papamn-	συντιτίθημι		
-σύντομα	u--------	σύντομα	^7	wiktionary
-συντομωτάτους	a-p---mas	συντομός		
-σύντομον	a-s---ma-	σύντομος		
-συντόμως	d--------	σύντομος		
-συντόνοις	a-p---nd-	συντόνοις		
-συντόνῳ	a-s---fd-	σύντονος		
-συντόνωι	a-s---md-	συντόνωι		
-συντραφείσης	v-sappfg-	συντράπτω		
-συντρέχει	u--------	συντρέχει		
+συνθεὶς	v-sapamn-	συντίθημι	^2	prefix
+συνθέντες	v-papamn-	συντίθημι	^2	prefix
+συντιθέντες	v-papamn-	συντιτίθημι	^2	prefix
+σύντομα	u--------	σύντομα	^2^7	wiktionary,prefix
+συντομωτάτους	a-p---mas	συντομός	^2	prefix
+σύντομον	a-s---ma-	σύντομος	^2	prefix
+συντόμως	d--------	σύντομος	^2	prefix
+συντόνοις	a-p---nd-	συντόνοις	^2	prefix
+συντόνῳ	a-s---fd-	σύντονος	^2	prefix
+συντόνωι	a-s---md-	συντόνωι	^2	prefix
+συντραφείσης	v-sappfg-	συντράπτω	^2	prefix
+συντρέχει	u--------	συντρέχει	^2	prefix
 ξυντρέχει	v3spia---	συντρέχω		
-συντρέχει	v3spia---	συντρέχω		
-συντρέχειν	v--pna---	συντρέχω		
-συντριαινοῦσαι	v-pppafn-	συντριαινοῦσαι		
-συντριαινῶσαι	v--ana---	συντριαινῶζω		
-συντρόφοις	a-p---fd-	συντρόφοις		
-σύντροφον	a-s---nn-	σύντροφος		
-σύντροφος	a-s---mn-	σύντροφος		
-σύντροφος	a-s---fn-	σύντροφος		
-συντυχόν	v-sapana-	συντυγχάνω		
-συντυχὸν	v-sapana-	συντυγχάνω		
-συντυχόντας	v-papama-	συντυγχάνω		
-συντυχόντα	v-sapama-	συντυμχάνω		
-συντυχών	v-sapamn-	συντυχάνω		
-συντυχὼν	v-sapamn-	συντυχάνω		
-συντυχίαι	n-p---fn-	συντυχία	^5	wiktionary
-συντυχίαις	n-p---fd-	συντυχία	^5^7	hypotactic
-συντυχίας	n-p---fa-	συντυχία	^5_8	wiktionary
-συντυχών	v-sppamn-	συντυχών		
-συντυχὼν	v-sppamn-	συντυχὼν		
-σύντονα	a-p---na-	σύντων	^7	breve_ultima
-συνωδίνει	v3spia---	συνωδίνω		
+συντρέχει	v3spia---	συντρέχω	^2	prefix
+συντρέχειν	v--pna---	συντρέχω	^2	prefix
+συντριαινοῦσαι	v-pppafn-	συντριαινοῦσαι	^2	prefix
+συντριαινῶσαι	v--ana---	συντριαινῶζω	^2	prefix
+συντρόφοις	a-p---fd-	συντρόφοις	^2	prefix
+σύντροφον	a-s---nn-	σύντροφος	^2	prefix
+σύντροφος	a-s---mn-	σύντροφος	^2	prefix
+σύντροφος	a-s---fn-	σύντροφος	^2	prefix
+συντυχόν	v-sapana-	συντυγχάνω	^2	prefix
+συντυχὸν	v-sapana-	συντυγχάνω	^2	prefix
+συντυχόντας	v-papama-	συντυγχάνω	^2	prefix
+συντυχόντα	v-sapama-	συντυμχάνω	^2	prefix
+συντυχών	v-sapamn-	συντυχάνω	^2	prefix
+συντυχὼν	v-sapamn-	συντυχάνω	^2	prefix
+συντυχίαι	n-p---fn-	συντυχία	^2^5	wiktionary,prefix
+συντυχίαις	n-p---fd-	συντυχία	^2^5^7	hypotactic,prefix
+συντυχίας	n-p---fa-	συντυχία	^2^5_8	wiktionary,prefix
+συντυχών	v-sppamn-	συντυχών	^2	prefix
+συντυχὼν	v-sppamn-	συντυχὼν	^2	prefix
+σύντονα	a-p---na-	σύντων	^2^7	breve_ultima,prefix
+συνωδίνει	v3spia---	συνωδίνω	^2	prefix
 ξυνωιδοί	a-p---fv-	συνωιδοὶ		
 ξυνωιδοὶ	a-p---fv-	συνωιδοὶ		
-συνωιδός	n-s---fg-	συνωιδός		
+συνωιδός	n-s---fg-	συνωιδός	^2	prefix
 ξυνώικει	v3spia---	συνώικω		
-συνωμόται	v3prie---	συνωμότης		
-συνωφρυωμένη	v-spppfn-	συνωφρυάομαι		
-συνωφρυωμένοις	v-pppemd-	συνωφρυωμένοις		
-συνωφρυωμένωι	v-srpemd-	συνωφρυωμένωι		
+συνωμόται	v3prie---	συνωμότης	^2	prefix
+συνωφρυωμένη	v-spppfn-	συνωφρυάομαι	^2	prefix
+συνωφρυωμένοις	v-pppemd-	συνωφρυωμένοις	^2	prefix
+συνωφρυωμένωι	v-srpemd-	συνωφρυωμένωι	^2	prefix
 ἐσύθη	v3saip---	σύομαι	^3	wiktionary
 σὺπολέμιος	a-s---mn-	σὺπολέμιος		
 σύρδην	d--------	σύρδη		
