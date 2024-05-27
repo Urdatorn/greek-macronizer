@@ -1,6 +1,10 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import csv
 from utils import Colors
 import argparse
+
 
 def remove_duplicates(input_file_path, output_file_path):
     total_input_lines = 0

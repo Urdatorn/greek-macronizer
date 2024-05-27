@@ -8,6 +8,7 @@ Filter out all lines with TOKENs (first column of tokens text file) which
 Note concerning the logical relationship between the five accentuation word classes and dichrona:
     OXYTONE implies nothing without context (cf. αἰδώς)
     PAROXYTONE with ≥3 syllables still does NOT imply long vowel in ultima, because not all accents are recessive (cf. pf. ppc. λελῠμένος)
+    However paroxytone + long penultima implies short ultima as per the σωτῆρα-rule
     PROPAROXYTONE implies that the vowel in the ultima is short, except for the πόλις declination's εως, which however has no DICHRONA.
     PERISPOMENON implies that the vowel in the ultima is long (as all vowels with circumf.)
     PROPERISPOMENON implies that the vowel in the ultima is short

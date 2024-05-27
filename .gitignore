@@ -1,3 +1,4 @@
+.env
 various/
 crawl_lsj/__pycache__/
 crawl_wiktionary/__pycache__/

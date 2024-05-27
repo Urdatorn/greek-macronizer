@@ -171,13 +171,6 @@ def broken_elision(line1, line2):
     """
     Checks if the token in the first line contains Greek characters
     and if the token in the second line is one of the elision characters.
-
-    Parameters:
-    - line1: The first line of tab-separated strings.
-    - line2: The second line of tab-separated strings.
-
-    Returns:
-    - True if conditions are met, False otherwise.
     """
     # Check if the first token contains Greek and the second token is an elision character
     if line1 and line2:  # Ensure lines are not empty

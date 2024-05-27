@@ -4,10 +4,12 @@ Alphabetizing a polytonic Greek dictionary after token and then lemma.
 For porting the Unicode Collation Algorithm to python, see:
 https://github.com/jtauber/pyuca
 '''
-
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import csv
 from pyuca import Collator
-from utils import Colors  # Make sure utils.py is in the same directory or in the Python path
+from utils import Colors
 
 def sort_greek_file(input_file_path, output_file_path):
     c = Collator()
@@ -24,8 +26,8 @@ def sort_greek_file(input_file_path, output_file_path):
     print(f"{Colors.GREEN}Sorted file saved to {output_file_path}{Colors.ENDC}")
 
 def main():
-    input_file_path = 'your_input_file.txt'  # Adjust as necessary
-    output_file_path = 'sorted_output_file.txt'  # Adjust as necessary
+    input_file_path = 'macrons_alg3_prefix2.tsv'  # Adjust as necessary
+    output_file_path = 'macrons_alg3_prefix2.tsv'  # Adjust as necessary
 
     sort_greek_file(input_file_path, output_file_path)
 

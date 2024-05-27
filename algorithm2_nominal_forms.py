@@ -52,7 +52,7 @@ import csv
 import unicodedata
 
 from utils import Colors, DICHRONA, only_bases, all_vowels
-from algorithm_accentual_rules import is_diphthong, has_iota_adscriptum, ordinal_last_vowel
+from algorithm1_accentual_rules import is_diphthong, has_iota_adscriptum, ordinal_last_vowel
 from collate_macrons import collate_macrons
 
 
