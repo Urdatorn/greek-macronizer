@@ -206,7 +206,7 @@ def count_unique_first_column(input_tsv):
     return len(unique_values)
 
 #input_tsv = 'test_files/macrons_test.tsv'
-input_tsv = 'macrons_alg3_prefix2.tsv'
+input_tsv = 'macrons_alg5_generalize_threads.tsv'
 #input_tsv = 'macrons_wiki_hypo_ifth_lsj.tsv'
 print(f'There are non-hidden dichrona: {total_non_hidden_quantities_in_tsv(input_tsv)}')
 print(f'out of which {Colors.GREEN}{macronized_non_hidden_dichrona_in_tsv(input_tsv)}{Colors.ENDC} are macronized.')

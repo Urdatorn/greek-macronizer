@@ -27,7 +27,7 @@ token	tag	lemma	macron	source
 ἀβουλίαν	n-s---fa-	ἀβουλία	^6_7	wiktionary
 ἀβουλίας	n-s---fg-	ἀβουλία	^6_7	wiktionary
 ἁβουλόμην	v1siie---	ἁβουλόμην		
-ἄβουλον	a-s---fa-	ἄβουλος		
+ἄβουλον	a-s---fa-	ἄβουλος	^1	manual
 ἄβουλον	a-s---ma-	ἄβουλος		
 ἄβουλον	a-s---na-	ἄβουλος		
 ἄβουλος	a-s---fn-	ἄβουλος		
@@ -75,10 +75,10 @@ token	tag	lemma	macron	source
 ἄγα	d--------	ἄγα	_3	wiktionary
 Ἀγαβάτανα	n-p---na-	Ἀγαβάτανα	^9	breve_ultima
 Ἀγαβάτας	n-s---mn-	Ἀγαβάτας		
-ἄγαγ’	v3saia---	ἄγαγ		
+ἄγαγ’	v3saia---	ἄγω		
 ἄγαγες	v2saia---	ἄγαγες	^1^3	wiktionary
-ἀγάγετ’	v3saim---	ἀγάγετ		
-ἀγάγετ’	v2pama---	ἀγάγετ’		
+ἀγάγετ’	v3saim---	ἄγω		
+ἀγάγετ’	v2pama---	ἄγω		
 ἀγάζειν	v--pna---	ἀγάζω		
 ἀγάθ’	d--------	ἀγάθ		
 ἀγάθ’	a-p---na-	ἀγάθ		
