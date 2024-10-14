@@ -1,18 +1,7 @@
-# readme.md
+# Greek Macronizer
 
-
-
-
-
-Taggen i raden
-    `VERB	λάβηι	v3sasa---	λάβηι`
-läses som 
-    v = VERB
-    3 = tredje person
-    s = singular
-    a = aorist
-    s = subjunktiv
-    a = aktivum
+Refer mainly to:
+http://macronizer.gr/
 
 ## Dependencies 
 
@@ -119,9 +108,19 @@ Några få ord i TLG-corpuset är i ALL-CAPS och kommer nog bara från titel och
 
 Dessa ord kan sorteras bort, då de ändå inte är relevanta för metern.
 
-###
+## Explanation of tags
 
-POS tags (source: https://github.com/cltk/greek_treebank_perseus)
+Taggen i raden
+    `VERB	λάβηι	v3sasa---	λάβηι`
+läses som 
+    v = VERB
+    3 = tredje person
+    s = singular
+    a = aorist
+    s = subjunktiv
+    a = aktivum
+
+### POS tags (source: https://github.com/cltk/greek_treebank_perseus)
 
         1: 	part of speech
         
